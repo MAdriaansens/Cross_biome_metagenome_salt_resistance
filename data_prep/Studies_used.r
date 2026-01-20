@@ -537,3 +537,8 @@ combined_df$source <- factor(combined_df$source)
 p<-ggplot(data = combined_df, aes(x = pH, y = Salinity, col=Description)) + geom_point(size=3) 
 p + ggtitle('Metagenomic studies and their sampling sites at different pH and salinities')
 ```
+
+```{r}
+library(readr)
+write_tsv(x = combined_df, path = "./Studies_salinity_metadata.tsv")
+```
