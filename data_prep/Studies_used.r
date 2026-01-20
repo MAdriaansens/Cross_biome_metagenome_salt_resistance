@@ -210,20 +210,6 @@ GarciaRoldan<- data.frame(Site, Study, pH, Salinity, Description, stringsAsFacto
 
 
 
-```{r Ghai2011}
-#https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0023785#pone.0023785.s006
-Site <- c("River_upper_brazil")
-Description <- c("River" )
-Study <- c("Ghai2011")
-Salinity <- c(0.0056)
-pH <- c(7.09)
-
-
-
-#ghai 2010 https://academic.oup.com/ismej/article/4/9/1154/7588139
-#ghai 2011 https://www.nature.com/articles/srep00135
-#ghai 2012 https://www.nature.com/articles/srep00490
-
 
 # Combine vectors into a dataframe
 Fernandez<- data.frame(Site, Study, pH, Salinity, Description, stringsAsFactors = FALSE)
@@ -518,7 +504,7 @@ Parwin<- data.frame(Site, Study, pH, Salinity, Description, stringsAsFactors = F
 
 ```{r pressure, echo=FALSE}
 library(ggplot2)
-combined_df <- bind_rows(Preciado,Gionfriddo,Ghosh,Magnabasco,Reysenbach, Tavares_Martins, GuardiaLeiva, Zepernick, Xamxidin,Jungbluth, Ghai, RamosBarbero,Chen, Michoud2025, Michoud2021,Yang, Sierra, Vavourakis,Allioux,Johnson,CabelloYeves,Tee,Kheiri,Kadnikov, YNSP,Soufi, Maryuma,Fang,Ugwuanyi, He,GarciaRoldan, Kim, Wu,Parwin, Anantharaman, Fernandez,  .id = "source")
+combined_df <- bind_rows(Preciado,Gionfriddo,Ghosh,Magnabasco,Reysenbach, Tavares_Martins, GuardiaLeiva, Zepernick, Xamxidin,Jungbluth, RamosBarbero,Chen, Michoud2025, Michoud2021,Yang, Sierra, Vavourakis,Allioux,Johnson,CabelloYeves,Tee,Kheiri,Kadnikov, YNSP,Soufi, Maryuma,Fang,Ugwuanyi, He,GarciaRoldan, Kim, Wu,Parwin, Anantharaman, Fernandez,  .id = "source")
 # Make 'source' a factor for correct plotting if needed
 combined_df$source <- factor(combined_df$source)
 
