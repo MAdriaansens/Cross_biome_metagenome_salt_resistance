@@ -219,17 +219,6 @@ Salinity <- c(0.0056)
 pH <- c(7.09)
 
 
-# Combine vectors into a dataframe
-Ghai<- data.frame(Site, Study, pH, Salinity, Description, stringsAsFactors = FALSE)
-```
-
-```{r Fernandez_2014}
-#https://academic.oup.com/femsec/article/88/3/623/587048?login=true
-Site <- c("SS37","SS19", "SS13", "MM5", "DCM3")
-Description <- c("Saltern","Saltern", "Saltern", "Saltern", "Saltern" )
-Study <- c("Ghai2011","Ghai2011", "Fernandez2014","Ghai2012", "Ghai2010")
-Salinity <- c(37, 19, 13, 5, 3.8)
-pH <- c(7.1, 8, 8, 8.4, 8.1)
 
 #ghai 2010 https://academic.oup.com/ismej/article/4/9/1154/7588139
 #ghai 2011 https://www.nature.com/articles/srep00135
