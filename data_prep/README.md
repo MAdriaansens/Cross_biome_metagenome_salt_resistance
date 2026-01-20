@@ -4,7 +4,7 @@ The samples were selected based on location (to be as wide spread and geographic
   These are the Yellow Stone National Park Sequencing project (Innskeep et al.2022) which has 21 samples and a wide pH range, as well as the best salinity gradient of a saltern to date in Fernandez et al.2014
 
 **Types of samples include:**
-Acidic salt lakes, Chaotrophic brines, Deepsea, Estuary, Fresh water, Gletsjer water, Groundwater, Hot spring water, Hydrothermal water, River water, Salt lake, Saltern, Sea/Ocean waer, and Wastewater
+Acidic salt lakes, Chaotrophic brines, Deepsea, Estuary, Fresh water, Gletsjer water, Groundwater, Hot spring water, Hydrothermal water, River water, Salt lake, Saltern, Sea/Ocean water, and Wastewater
 
 
 **Data prep contains the R studio visualization of the selected files.** 
