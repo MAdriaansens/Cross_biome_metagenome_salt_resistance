@@ -7,6 +7,8 @@
 #SBATCH --account=uc04105
 #SBATCH --output=slurm_sra/sra_output%A-%a.out
 #SBATCH --error=slurm_sra/sra_error%A-%a.err
+
+#the file containing the acession sra has been split into 6 files
 declare -a array=(1 2 3 4 5 6)
 module load sratoolkit/3.0.2
 ACCESSION_LIST=/nesi/nobackup/uc04105/cross_biome_metagenome/raw_data/water/SAR/SRR_table${array[$SLURM_ARRAY_TASK_ID]}.txt
