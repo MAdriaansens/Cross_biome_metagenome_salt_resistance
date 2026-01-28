@@ -16,7 +16,6 @@ module load cutadapt/5.2-foss-2023a-Python-3.11.6
 
 #input file to run cut adapt
 paired=/nesi/nobackup/uc04105/cross_biome_metagenome/DNA/raw_data/water/SAR/paired_reads
-single=/nesi/nobackup/uc04105/cross_biome_metagenome/DNA/raw_data/water/SAR/single_reads
 outdir=/nesi/nobackup/uc04105/cross_biome_metagenome/DNA/cutadapt/paired
 
 #mkdir ${outdir}/set_${array[$SLURM_ARRAY_TASK_ID]}
