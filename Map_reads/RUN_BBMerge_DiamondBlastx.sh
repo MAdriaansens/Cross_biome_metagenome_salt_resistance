@@ -39,7 +39,7 @@ for R1 in /nesi/nobackup/uc04105/cross_biome_metagenome/DNA/cutadapt/paired/set_
     R2=${R1/_1_cutadapted.fastq/_2_cutadapted.fastq}
     part1=${R1%_1_cutadapted.fastq}
     basename=${part1##*/}
-    diamond blastx -p 5 -d ${db} -q /nesi/nobackup/uc04105/cross_biome_metagenome/DNA/cutadapt/paired/set_${array[$SLURM_ARRAY_TASK_ID]}/${basename}_bbmerged.fna -o ${outdir}/${basename}_bbmerged_matches_CPA.m8
-    diamond blastx -p 5 -d ${db} -q ${R1} -o ${outdir}/${basename}_1_matches_CPA.m8
-    diamond blastx -p 5 -d ${db} -q ${R2} -o ${outdir}/${basename}_2_matches_CPA.m8
+    diamond blastx -p 5 -d ${db} -q /nesi/nobackup/uc04105/cross_biome_metagenome/DNA/cutadapt/paired/set_${array[$SLURM_ARRAY_TASK_ID]}/${basename}_bbmerged.fna -o ${outdir}/${basename}_bbmerged_matches_CPA.m8 -k 1
+    diamond blastx -p 5 -d ${db} -q ${R1} -o ${outdir}/${basename}_1_matches_CPA.m8 -k 1
+    diamond blastx -p 5 -d ${db} -q ${R2} -o ${outdir}/${basename}_2_matches_CPA.m8 -k 1
 done
