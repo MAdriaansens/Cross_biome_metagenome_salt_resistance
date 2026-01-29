@@ -21,13 +21,13 @@ paired_cutdapt=/nesi/nobackup/uc04105/cross_biome_metagenome/DNA/cutadapt/paired
 
 outdir=/nesi/nobackup/uc04105/cross_biome_metagenome/Mapping_reads
 
-for R1 in /nesi/nobackup/uc04105/cross_biome_metagenome/DNA/cutadapt/paired/set_ ${array[$SLURM_ARRAY_TASK_ID]}/*1_cutadapted.fastq; do
+for R1 in /nesi/nobackup/uc04105/cross_biome_metagenome/DNA/cutadapt/paired/set_${array[$SLURM_ARRAY_TASK_ID]}/*1_cutadapted.fastq; do
     R2=${R1/_1_cutadapted.fastq/_2_cutadapted.fastq}
     part1=${R1%_1_cutadapted.fastq}
     basename=${part1##*/}
 
-    bash bbmerge.sh in1=${R1} in2=${R2} out=/nesi/nobackup/uc04105/cross_biome_metagenome/DNA/cutadapt/paired/set_ ${array[$SLURM_ARRAY_TASK_ID]}/${basename}_bbmerged.fna t=10
+    bash bbmerge.sh in1=${R1} in2=${R2} out=/nesi/nobackup/uc04105/cross_biome_metagenome/DNA/cutadapt/paired/set_${array[$SLURM_ARRAY_TASK_ID]}/${basename}_bbmerged.fna t=10
     python fastqcount.py ${R1}
     python fastqcount.py ${R2}
-    python fastqcount.py /nesi/nobackup/uc04105/cross_biome_metagenome/DNA/cutadapt/paired/set_ ${array[$SLURM_ARRAY_TASK_ID]}/${basename}_bbmerged.fna
+    python fastqcount.py /nesi/nobackup/uc04105/cross_biome_metagenome/DNA/cutadapt/paired/set_${array[$SLURM_ARRAY_TASK_ID]}/${basename}_bbmerged.fna
 done
