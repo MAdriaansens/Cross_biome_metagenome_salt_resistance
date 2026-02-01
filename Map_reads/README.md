@@ -4,4 +4,5 @@ Using the command:
 
 
 Read counts per file were retrieved using bash:
-    grep -r -c '>' . > Read_counts_all_grepped.txt
+    grep -r -c '>' . --exclude=output.txt > output.txt
+
