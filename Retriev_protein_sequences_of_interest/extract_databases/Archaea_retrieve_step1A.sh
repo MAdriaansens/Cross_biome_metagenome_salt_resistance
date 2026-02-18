@@ -6,9 +6,9 @@
 #SBATCH --cpus-per-task 25
 #SBATCH --error         slurm_outputA/slurm_ArcA_%A-%a.err
 #SBATCH --output        slurm_outputA/slurm_ArcA_%A-%a.out
-#SBATCH --array         1-12
+#SBATCH --array         0-12
 
-declare -a array=($(seq 1 12))
+declare -a array=($(seq 0 12))
 
 HMMdir=/nesi/nobackup/uc04105/cross_biome_metagenome/Protein/HMM
 Arc_TSV=/nesi/nobackup/uc04105/new_databases_May/GTDB_226/Archaea_GTDB226_protein_May92025.tsv
