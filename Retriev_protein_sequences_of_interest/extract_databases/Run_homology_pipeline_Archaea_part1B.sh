@@ -6,7 +6,7 @@
 #SBATCH --cpus-per-task 25
 #SBATCH --error         slurm_outputA/ArcB_%A.err
 #SBATCH --output        slurm_outputA/ArcB_%A.out
-
+#SBATCH --array         0-12
 declare -a array=($(seq 0 12))
 
 HMMdir=/nesi/nobackup/uc04105/cross_biome_metagenome/Protein/HMM
