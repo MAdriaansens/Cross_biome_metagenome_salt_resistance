@@ -19,7 +19,7 @@ Seq=/nesi/nobackup/uc04105/cross_biome_metagenome/Protein/sequences
 
 #----------------------------------------------------------Rps2-------------------------------------------------------------------------
 module load MMseqs2/15-6f452-gompi-2023a
-mmseqs easy-search -e 1.00E-03 -c 0.0 --threads 10 ${Seq}/PF00318_RpS2_sequences.fasta ${Arc_db} ${MMseqs}/PF00318_RpS2_vsArchaea_subset${array[$SLURM_ARRAY_TASK_ID]}_e03_mmseq.tsv Archaea_${array[$SLURM_ARRAY_TASK_ID]}tmp
+mmseqs easy-search -e 1.00E-03 -c 0.0 --threads 10 ${Seq}/PF00318_RpS2_sequences.fasta ${Arc_db} ${MMseqs}/PF00318_RpS2_vsArchaea_subset${array[$SLURM_ARRAY_TASK_ID]}_e03_mmseq.tsv Archaea_${array[$SLURM_ARRAY_TASK_ID]}tmp_B
 
 module load Python/3.11.3-gimkl-2022a
 
@@ -40,7 +40,7 @@ python getting_fasta_from_hit_extra_Arc.py ${HMMsearch}/PF00318_Rps2hmmvs_Archae
 #---------------------------------------------------------MIP--------------------------------------------------------------------------------------------------
 module load MMseqs2/15-6f452-gompi-2023a
 
-mmseqs easy-search -e 1.00E-03 -c 0.0 --threads 10 ${Seq}/PF00230_MIP_sequences.fasta ${Arc_db} ${MMseqs}/PF00230_MIPvsArchaea_subset${array[$SLURM_ARRAY_TASK_ID]}_e03_mmseq.tsv Archaea_${array[$SLURM_ARRAY_TASK_ID]}tmp
+mmseqs easy-search -e 1.00E-03 -c 0.0 --threads 10 ${Seq}/PF00230_MIP_sequences.fasta ${Arc_db} ${MMseqs}/PF00230_MIPvsArchaea_subset${array[$SLURM_ARRAY_TASK_ID]}_e03_mmseq.tsv Archaea_${array[$SLURM_ARRAY_TASK_ID]}tmp_B
 
 module load Python/3.11.3-gimkl-2022a
 
@@ -60,7 +60,7 @@ python getting_fasta_from_hit_extra_Arc.py ${HMMsearch}/PF00230_MIPhmmvs_Archaea
 #---------------------------------------------------------Rpl4--------------------------------------------------------------------------------------------------
 module load MMseqs2/15-6f452-gompi-2023a
 
-mmseqs easy-search -e 1.00E-03 -c 0.0 --threads 10 ${Seq}/PF00573_RpL1andRpL4_sequences.fasta ${Arc_db} ${MMseqs}/PF00573_RpL1andRpL4vsArchaea_subset${array[$SLURM_ARRAY_TASK_ID]}_e03_mmseq.tsv Archaea_${array[$SLURM_ARRAY_TASK_ID]}tmp
+mmseqs easy-search -e 1.00E-03 -c 0.0 --threads 10 ${Seq}/PF00573_RpL1andRpL4_sequences.fasta ${Arc_db} ${MMseqs}/PF00573_RpL1andRpL4vsArchaea_subset${array[$SLURM_ARRAY_TASK_ID]}_e03_mmseq.tsv Archaea_${array[$SLURM_ARRAY_TASK_ID]}tmp_B
 
 module load Python/3.11.3-gimkl-2022a
 
@@ -81,7 +81,7 @@ python getting_fasta_from_hit_extra_Arc.py ${HMMsearch}/PF00573_Rpl4hmmvs_Archae
 #---------------------------------------------------------ClcA--------------------------------------------------------------------------------------------------
 module load MMseqs2/15-6f452-gompi-2023a
 
-mmseqs easy-search -e 1.00E-03 -c 0.0 --threads 10 ${Seq}/PF00654_ClcA_sequences.fasta  ${Arc_db} ${MMseqs}/PF00654_ClcAvsArchaea_subset${array[$SLURM_ARRAY_TASK_ID]}_e03_mmseq.tsv Archaea_${array[$SLURM_ARRAY_TASK_ID]}tmp
+mmseqs easy-search -e 1.00E-03 -c 0.0 --threads 10 ${Seq}/PF00654_ClcA_sequences.fasta  ${Arc_db} ${MMseqs}/PF00654_ClcAvsArchaea_subset${array[$SLURM_ARRAY_TASK_ID]}_e03_mmseq.tsv Archaea_${array[$SLURM_ARRAY_TASK_ID]}tmp_B
 
 module load Python/3.11.3-gimkl-2022a
 
@@ -102,7 +102,7 @@ python getting_fasta_from_hit_extra_Arc.py ${HMMsearch}/PF00654_ClcAhmmvs_Archae
 #---------------------------------------------------------MscS--------------------------------------------------------------------------------------------------
 module load MMseqs2/15-6f452-gompi-2023a
 
-mmseqs easy-search -e 1.00E-03 -c 0.0 --threads 10 ${Seq}/PF00924_MscS_sequences.fasta  ${Arc_db} ${MMseqs}/PF00924_MscSvsArchaea_subset${array[$SLURM_ARRAY_TASK_ID]}_e03_mmseq.tsv Archaea_${array[$SLURM_ARRAY_TASK_ID]}tmp
+mmseqs easy-search -e 1.00E-03 -c 0.0 --threads 10 ${Seq}/PF00924_MscS_sequences.fasta  ${Arc_db} ${MMseqs}/PF00924_MscSvsArchaea_subset${array[$SLURM_ARRAY_TASK_ID]}_e03_mmseq.tsv Archaea_${array[$SLURM_ARRAY_TASK_ID]}tmp_B
 
 module load Python/3.11.3-gimkl-2022a
 
@@ -123,7 +123,7 @@ python getting_fasta_from_hit_extra_Arc.py ${HMMsearch}/PF00924_MscShmmvs_Archae
 #---------------------------------------------------------Na/Alanine symporter--------------------------------------------------------------------------------------------------
 module load MMseqs2/15-6f452-gompi-2023a
 
-mmseqs easy-search -e 1.00E-03 -c 0.0 --threads 10 ${Seq}/PF01235_Na_Alanine_symporter_sequences.fasta  ${Arc_db} ${MMseqs}/PF01235_Na_Alanine_symportersArchaea_subset${array[$SLURM_ARRAY_TASK_ID]}_e03_mmseq.tsv Archaea_${array[$SLURM_ARRAY_TASK_ID]}tmp
+mmseqs easy-search -e 1.00E-03 -c 0.0 --threads 10 ${Seq}/PF01235_Na_Alanine_symporter_sequences.fasta  ${Arc_db} ${MMseqs}/PF01235_Na_Alanine_symportersArchaea_subset${array[$SLURM_ARRAY_TASK_ID]}_e03_mmseq.tsv Archaea_${array[$SLURM_ARRAY_TASK_ID]}tmp_B
 
 module load Python/3.11.3-gimkl-2022a
 
@@ -144,7 +144,7 @@ python getting_fasta_from_hit_extra_Arc.py ${HMMsearch}/PF01235_Na_Ala_symhmmvs_
 #---------------------------------------------------------CorA--------------------------------------------------------------------------------------------------
 module load MMseqs2/15-6f452-gompi-2023a
 
-mmseqs easy-search -e 1.00E-03 -c 0.0 --threads 10 ${Seq}/PF01544_CorA_sequences.fasta ${Arc_db} ${MMseqs}/PF01544_CorA_sequencesvsArchaea_subset${array[$SLURM_ARRAY_TASK_ID]}_e03_mmseq.tsv Archaea_${array[$SLURM_ARRAY_TASK_ID]}tmp
+mmseqs easy-search -e 1.00E-03 -c 0.0 --threads 10 ${Seq}/PF01544_CorA_sequences.fasta ${Arc_db} ${MMseqs}/PF01544_CorA_sequencesvsArchaea_subset${array[$SLURM_ARRAY_TASK_ID]}_e03_mmseq.tsv Archaea_${array[$SLURM_ARRAY_TASK_ID]}tmp_B
 
 module load Python/3.11.3-gimkl-2022a
 
@@ -165,7 +165,7 @@ python getting_fasta_from_hit_extra_Arc.py ${HMMsearch}/PF01544_CorAhmmvs_Archae
 #---------------------------------------------------------Na/Ca_exchanger--------------------------------------------------------------------------------------------------
 module load MMseqs2/15-6f452-gompi-2023a
 
-mmseqs easy-search -e 1.00E-03 -c 0.0 --threads 10 ${Seq}/PF01699_Ca_exchanger_sequences.fasta  ${Arc_db} ${MMseqs}/PF01699_Ca_exchangervsArchaea_subset${array[$SLURM_ARRAY_TASK_ID]}_e03_mmseq.tsv Archaea_${array[$SLURM_ARRAY_TASK_ID]}tmp
+mmseqs easy-search -e 1.00E-03 -c 0.0 --threads 10 ${Seq}/PF01699_Ca_exchanger_sequences.fasta  ${Arc_db} ${MMseqs}/PF01699_Ca_exchangervsArchaea_subset${array[$SLURM_ARRAY_TASK_ID]}_e03_mmseq.tsv Archaea_${array[$SLURM_ARRAY_TASK_ID]}tmp_B
 
 module load Python/3.11.3-gimkl-2022a
 
@@ -185,7 +185,7 @@ python getting_fasta_from_hit_extra_Arc.py ${HMMsearch}/PF01699_Na_Ca_exhmmvs_Ar
 #---------------------------------------------------------MscL--------------------------------------------------------------------------------------------------
 module load MMseqs2/15-6f452-gompi-2023a
 
-mmseqs easy-search -e 1.00E-03 -c 0.0 --threads 10 ${Seq}/PF01741_MscL_sequences.fasta  ${Arc_db} ${MMseqs}/PF01741_MscLvsArchaea_subset${array[$SLURM_ARRAY_TASK_ID]}_e03_mmseq.tsv Archaea_${array[$SLURM_ARRAY_TASK_ID]}tmp
+mmseqs easy-search -e 1.00E-03 -c 0.0 --threads 10 ${Seq}/PF01741_MscL_sequences.fasta  ${Arc_db} ${MMseqs}/PF01741_MscLvsArchaea_subset${array[$SLURM_ARRAY_TASK_ID]}_e03_mmseq.tsv Archaea_${array[$SLURM_ARRAY_TASK_ID]}tmp_B
 
 module load Python/3.11.3-gimkl-2022a
 
@@ -206,7 +206,7 @@ python getting_fasta_from_hit_extra_Arc.py ${HMMsearch}/PF01741_MscLhmmvs_Archae
 #---------------------------------------------------------MgtE--------------------------------------------------------------------------------------------------
 module load MMseqs2/15-6f452-gompi-2023a
 
-mmseqs easy-search -e 1.00E-03 -c 0.0 --threads 10 ${Seq}/PF01769_MgtE_sequences.fasta  ${Arc_db} ${MMseqs}/PF01769_MgtEvsArchaea_subset${array[$SLURM_ARRAY_TASK_ID]}_e03_mmseq.tsv Archaea_${array[$SLURM_ARRAY_TASK_ID]}tmp
+mmseqs easy-search -e 1.00E-03 -c 0.0 --threads 10 ${Seq}/PF01769_MgtE_sequences.fasta  ${Arc_db} ${MMseqs}/PF01769_MgtEvsArchaea_subset${array[$SLURM_ARRAY_TASK_ID]}_e03_mmseq.tsv Archaea_${array[$SLURM_ARRAY_TASK_ID]}tmp_B
 
 module load Python/3.11.3-gimkl-2022a
 
@@ -227,7 +227,7 @@ python getting_fasta_from_hit_extra_Arc.py ${HMMsearch}/PF01769_MgtEhmmvs_Archae
 #---------------------------------------------------------MnhE--------------------------------------------------------------------------------------------------
 module load MMseqs2/15-6f452-gompi-2023a
 
-mmseqs easy-search -e 1.00E-03 -c 0.0 --threads 10 ${Seq}/PF01899_MnhE_sequences.fasta  ${Arc_db} ${MMseqs}/PF01899_MnhEvsArchaea_subset${array[$SLURM_ARRAY_TASK_ID]}_e03_mmseq.tsv Archaea_${array[$SLURM_ARRAY_TASK_ID]}tmp
+mmseqs easy-search -e 1.00E-03 -c 0.0 --threads 10 ${Seq}/PF01899_MnhE_sequences.fasta  ${Arc_db} ${MMseqs}/PF01899_MnhEvsArchaea_subset${array[$SLURM_ARRAY_TASK_ID]}_e03_mmseq.tsv Archaea_${array[$SLURM_ARRAY_TASK_ID]}tmp_B
 
 module load Python/3.11.3-gimkl-2022a
 
@@ -247,7 +247,7 @@ python getting_fasta_from_hit_extra_Arc.py ${HMMsearch}/PF01899_MnhEhmmvs_Archae
 #---------------------------------------------------------BCCT-------------------------------------------------------------------------------------------------
 module load MMseqs2/15-6f452-gompi-2023a
 
-mmseqs easy-search -e 1.00E-03 -c 0.0 --threads 10 ${Seq}/PF02028_BCCT_sequences.fasta  ${Arc_db} ${MMseqs}/PF02028_BCCTvsArchaea_subset${array[$SLURM_ARRAY_TASK_ID]}_e03_mmseq.tsv Archaea_${array[$SLURM_ARRAY_TASK_ID]}tmp
+mmseqs easy-search -e 1.00E-03 -c 0.0 --threads 10 ${Seq}/PF02028_BCCT_sequences.fasta  ${Arc_db} ${MMseqs}/PF02028_BCCTvsArchaea_subset${array[$SLURM_ARRAY_TASK_ID]}_e03_mmseq.tsv Archaea_${array[$SLURM_ARRAY_TASK_ID]}tmp_B
 
 module load Python/3.11.3-gimkl-2022a
 
@@ -267,7 +267,7 @@ python getting_fasta_from_hit_extra_Arc.py ${HMMsearch}/PF02028_BCCThmmvs_Archae
 #---------------------------------------------------------OtsB------------------------------------------------------------------------------------------------
 module load MMseqs2/15-6f452-gompi-2023a
 
-mmseqs easy-search -e 1.00E-03 -c 0.0 --threads 10 ${Seq}/PF02358_OtsB_sequences.fasta  ${Arc_db} ${MMseqs}/PF02358_OtsBvsArchaea_subset${array[$SLURM_ARRAY_TASK_ID]}_e03_mmseq.tsv Archaea_${array[$SLURM_ARRAY_TASK_ID]}tmp
+mmseqs easy-search -e 1.00E-03 -c 0.0 --threads 10 ${Seq}/PF02358_OtsB_sequences.fasta  ${Arc_db} ${MMseqs}/PF02358_OtsBvsArchaea_subset${array[$SLURM_ARRAY_TASK_ID]}_e03_mmseq.tsv Archaea_${array[$SLURM_ARRAY_TASK_ID]}tmp_B
 
 module load Python/3.11.3-gimkl-2022a
 
@@ -287,7 +287,7 @@ python getting_fasta_from_hit_extra_Arc.py ${HMMsearch}/PF02358_Trehalose_PPaseh
 #---------------------------------------------------------TrkH------------------------------------------------------------------------------------------------
 module load MMseqs2/15-6f452-gompi-2023a
 
-mmseqs easy-search -e 1.00E-03 -c 0.0 --threads 10 ${Seq}/PF02386_TrkH_sequences.fasta  ${Arc_db} ${MMseqs}/PF02386_TrkHvsArchaea_subset${array[$SLURM_ARRAY_TASK_ID]}_e03_mmseq.tsv Archaea_${array[$SLURM_ARRAY_TASK_ID]}tmp
+mmseqs easy-search -e 1.00E-03 -c 0.0 --threads 10 ${Seq}/PF02386_TrkH_sequences.fasta  ${Arc_db} ${MMseqs}/PF02386_TrkHvsArchaea_subset${array[$SLURM_ARRAY_TASK_ID]}_e03_mmseq.tsv Archaea_${array[$SLURM_ARRAY_TASK_ID]}tmp_B
 
 module load Python/3.11.3-gimkl-2022a
 
@@ -309,7 +309,7 @@ python getting_fasta_from_hit_extra_Arc.py ${HMMsearch}/PF02386_TrkHhmmvs_Archae
 #---------------------------------------------------------Kup------------------------------------------------------------------------------------------------
 module load MMseqs2/15-6f452-gompi-2023a
 
-mmseqs easy-search -e 1.00E-03 -c 0.0 --threads 10 ${Seq}/PF02705_Kup_sequences.fasta  ${Arc_db} ${MMseqs}/PF02705_KupvsArchaea_subset${array[$SLURM_ARRAY_TASK_ID]}_e03_mmseq.tsv Archaea_${array[$SLURM_ARRAY_TASK_ID]}tmp
+mmseqs easy-search -e 1.00E-03 -c 0.0 --threads 10 ${Seq}/PF02705_Kup_sequences.fasta  ${Arc_db} ${MMseqs}/PF02705_KupvsArchaea_subset${array[$SLURM_ARRAY_TASK_ID]}_e03_mmseq.tsv Archaea_${array[$SLURM_ARRAY_TASK_ID]}tmp_B
 
 module load Python/3.11.3-gimkl-2022a
 
@@ -330,7 +330,7 @@ python getting_fasta_from_hit_extra_Arc.py ${HMMsearch}/PF02705_KUPhmmvs_Archaea
 #---------------------------------------------------------HPPase------------------------------------------------------------------------------------------------
 module load MMseqs2/15-6f452-gompi-2023a
 
-mmseqs easy-search -e 1.00E-03 -c 0.0 --threads 10 ${Seq}/PF03030_HPPase_sequences.fasta  ${Arc_db} ${MMseqs}/PF03030_HPPasevsArchaea_subset${array[$SLURM_ARRAY_TASK_ID]}_e03_mmseq.tsv Archaea_${array[$SLURM_ARRAY_TASK_ID]}tmp
+mmseqs easy-search -e 1.00E-03 -c 0.0 --threads 10 ${Seq}/PF03030_HPPase_sequences.fasta  ${Arc_db} ${MMseqs}/PF03030_HPPasevsArchaea_subset${array[$SLURM_ARRAY_TASK_ID]}_e03_mmseq.tsv Archaea_${array[$SLURM_ARRAY_TASK_ID]}tmp_B
 
 module load Python/3.11.3-gimkl-2022a
 
