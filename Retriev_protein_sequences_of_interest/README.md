@@ -1,7 +1,7 @@
 We download sequences either manually or with the scritps provided by Pfam.
 These scripts are never perfect and need some editing.
 
-
-Ribosomal proteins RpL4/RpL1 (PF00573) and RpS2 PF00318:
-HMMs are downloaded from Pfam on Jan 28th 8:11 2026
-Sequence download from Pfam occured on Jan 28th 2026 between 8-9 in the morning
+All HMMs (including databases) are downloaded from Pfam on 16th Feb 2026.
+Sequence download from Pfam occured on 16th Feb 2026, Pfam sequence downloads were done using scripts.
+HMMs were fetched from Pfam using HMMfetch (HMMER/3.4-GCC-12.3.0)
+TIGR and PTHR sequences and HMMs were manually downloaded
