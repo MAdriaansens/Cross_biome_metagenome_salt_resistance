@@ -2,7 +2,7 @@ In this directory we have the scripts used to retrieve homologs of 27 proteins f
 Since we are looking for so many proteins the script has been split into two sets: A and B. The Eukarya runs directly and has no array.
 The Archaea script has an array of 12 whereas Bacteria has an array of 61 (with each subset being roughly the same size). 
 
-The pipeline is .. parts.
+The pipeline is 5 parts.
 Part 1 "Initial search using Pfam HMM and sequencesfor each protein ": perform HMMsearch and MMseq against the respective databases, retrieve fl sequences
     Intermediate step: concatinate all retrieved files for MMseq and HMMsearch into one merged file for all three
 Part 2 "Cross domain searches and deep iterative searches for each protein": use the merged file to run a MMseq search against the databases, then with the outputed fl sequences use them as a query for an additional search against itself.
