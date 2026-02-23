@@ -1,12 +1,13 @@
 #!/bin/bash -e
 #SBATCH --account       uc04105
-#SBATCH --job-name      ArcA
+#SBATCH --job-name      Arc_round2
 #SBATCH --time          102:00:00
 #SBATCH --mem           100GB
 #SBATCH --cpus-per-task 25
-#SBATCH --error         slurm_output/ArcA%A.err
-#SBATCH --output        slurm_output/ArcA%A.out
-
+#SBATCH --error         slurm_outputA2/Arc2_%A.err
+#SBATCH --output        slurm_outputA2/Arc2_%A.out
+#SBATCH --array         0-12
+declare -a array=($(seq 0 12))
 Arc_TSV=/nesi/nobackup/uc04105/new_databases_May/GTDB_226/Archaea_GTDB226_protein_May92025.tsv
 Arc_db=/nesi/nobackup/uc04105/new_databases_May/GTDB_226/ARCDB/Archaea_GTDB226_protein_May92025_subset${array[$SLURM_ARRAY_TASK_ID]}.fasta
 MMseqs=/nesi/nobackup/uc04105/cross_biome_metagenome/Protein/results/second_round/mmseqs/archaea
@@ -212,3 +213,4 @@ mmseqs easy-search -e 1.00E-03 -c 0.0 --threads 10 ${Seq}/TIGR01804.1_Betain-ald
 module load Python/3.11.3-gimkl-2022a
 
 python getting_fasta_from_hit_extra_Arc.py ${MMseqs}/TIGR01804.1_Betain-aldehyde_dehydrogenasemerged_vsArchaea${array[$SLURM_ARRAY_TASK_ID]}_e03_mmseq.tsv MMSEQ ${Arc_TSV} ${MMseqs}/TIGR01804.1_Betain-aldehyde_dehydrogenasemerged_vsArchaea${array[$SLURM_ARRAY_TASK_ID]}_e03mmseq_fl_seq.fasta
+
