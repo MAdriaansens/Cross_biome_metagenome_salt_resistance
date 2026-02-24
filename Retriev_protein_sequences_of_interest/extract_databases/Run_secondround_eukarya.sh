@@ -13,21 +13,6 @@ MMseqs=/nesi/nobackup/uc04105/cross_biome_metagenome/Protein/results/second_roun
 Seq=/nesi/nobackup/uc04105/cross_biome_metagenome/Protein/results/initial_round/merged_all_three_domains
 
 
-#----------------------------------------------------------Rps2-------------------------------------------------------------------------
-module load MMseqs2/15-6f452-gompi-2023a
-mmseqs easy-search -e 1.00E-03 -c 0.0 --threads 10 ${Seq}/PF00318_RpS2_merged.fasta ${Euk_db} ${MMseqs}/PF00318_RpS2merged_vsEukarya_e03_mmseq.tsv tmp
-
-module load Python/3.11.3-gimkl-2022a
-
-python getting_fasta_from_hit_extra_Euk.py ${MMseqs}/PF00318_RpS2merged_vsEukarya_e03_mmseq.tsv MMSEQ ${Euk_TSV} ${MMseqs}/PF00318_RpS2merged_vsEukarya_e03mmseq_fl_seq.fasta
-
-#----------------------------------------------------------RpL4-------------------------------------------------------------------------
-module load MMseqs2/15-6f452-gompi-2023a
-mmseqs easy-search -e 1.00E-03 -c 0.0 --threads 10 ${Seq}/PF00573_RpL4_merged.fasta ${Euk_db} ${MMseqs}/PF00573_RpL4merged_vsEukarya_e03_mmseq.tsv tmp
-
-module load Python/3.11.3-gimkl-2022a
-
-python getting_fasta_from_hit_extra_Euk.py ${MMseqs}/PF00573_RpL4merged_vsEukarya_e03_mmseq.tsv MMSEQ ${Euk_TSV} ${MMseqs}/PF00573_RpL4merged_vsEukarya_e03mmseq_fl_seq.fasta
 
 #----------------------------------------------------------MIP-------------------------------------------------------------------------
 module load MMseqs2/15-6f452-gompi-2023a
@@ -37,117 +22,6 @@ module load Python/3.11.3-gimkl-2022a
 
 python getting_fasta_from_hit_extra_Euk.py ${MMseqs}/PF00230_MIPmerged_vsEukarya_e03_mmseq.tsv MMSEQ ${Euk_TSV} ${MMseqs}/PF00230_MIPmerged_vsEukarya_e03mmseq_fl_seq.fasta
 
-#----------------------------------------------------------ClCA-------------------------------------------------------------------------
-module load MMseqs2/15-6f452-gompi-2023a
-mmseqs easy-search -e 1.00E-03 -c 0.0 --threads 10 ${Seq}/PF00654_ClcA_merged.fasta ${Euk_db} ${MMseqs}/PF00654_ClcAmerged_vsEukarya_e03_mmseq.tsv tmp
-
-module load Python/3.11.3-gimkl-2022a
-
-python getting_fasta_from_hit_extra_Euk.py ${MMseqs}/PF00654_ClcAmerged_vsEukarya_e03_mmseq.tsv MMSEQ ${Euk_TSV} ${MMseqs}/PF00654_ClcAmerged_vsEukarya_e03mmseq_fl_seq.fasta
-
-#---------------------------------------------------------MscS-------------------------------------------------------------------------
-module load MMseqs2/15-6f452-gompi-2023a
-mmseqs easy-search -e 1.00E-03 -c 0.0 --threads 10 ${Seq}/PF00924_MscS_merged.faa ${Euk_db} ${MMseqs}/PF00924_MscSmerged_vsEukarya_e03_mmseq.tsv tmp
-
-module load Python/3.11.3-gimkl-2022a
-
-python getting_fasta_from_hit_extra_Euk.py ${MMseqs}/PF00924_MscSmerged_vsEukarya_e03_mmseq.tsv MMSEQ ${Euk_TSV} ${MMseqs}/PF00924_MscSmerged_vsEukarya_e03mmseq_fl_seq.fasta
-
-#---------------------------------------------------------Na_alanine_symporter-------------------------------------------------------------------------
-module load MMseqs2/15-6f452-gompi-2023a
-mmseqs easy-search -e 1.00E-03 -c 0.0 --threads 10 ${Seq}/PF01235_Na_alanine_symporter_merged.fasta ${Euk_db} ${MMseqs}/PF01235_Na_alanine_symportermerged_vsEukarya_e03_mmseq.tsv tmp
-
-module load Python/3.11.3-gimkl-2022a
-
-python getting_fasta_from_hit_extra_Euk.py ${MMseqs}/PF01235_Na_alanine_symportermerged_vsEukarya_e03_mmseq.tsv MMSEQ ${Euk_TSV} ${MMseqs}/PF01235_Na_alanine_symportermerged_vsEukarya_e03mmseq_fl_seq.fasta
-
-#---------------------------------------------------------Na_alanine_symporter-------------------------------------------------------------------------
-module load MMseqs2/15-6f452-gompi-2023a
-mmseqs easy-search -e 1.00E-03 -c 0.0 --threads 10 ${Seq}/PF01544_CorA_merged.faa ${Euk_db} ${MMseqs}/PF01544_CorAmerged_vsEukarya_e03_mmseq.tsv tmp
-
-module load Python/3.11.3-gimkl-2022a
-
-python getting_fasta_from_hit_extra_Euk.py ${MMseqs}/PF01544_CorAmerged_vsEukarya_e03_mmseq.tsv MMSEQ ${Euk_TSV} ${MMseqs}/PF01544_CorAmerged_vsEukarya_e03mmseq_fl_seq.fasta
-
-#---------------------------------------------------------Ca_exchanger-------------------------------------------------------------------------
-module load MMseqs2/15-6f452-gompi-2023a
-mmseqs easy-search -e 1.00E-03 -c 0.0 --threads 10 ${Seq}/PF01699_Ca_exchanger_merged.faa ${Euk_db} ${MMseqs}/PF01699_Ca_exchangermerged_vsEukarya_e03_mmseq.tsv tmp
-
-module load Python/3.11.3-gimkl-2022a
-
-python getting_fasta_from_hit_extra_Euk.py ${MMseqs}/PF01699_Ca_exchangermerged_vsEukarya_e03_mmseq.tsv MMSEQ ${Euk_TSV} ${MMseqs}/PF01699_Ca_exchangermerged_vsEukarya_e03mmseq_fl_seq.fasta
-
-#--------------------------------------------------------MscL-------------------------------------------------------------------------
-module load MMseqs2/15-6f452-gompi-2023a
-mmseqs easy-search -e 1.00E-03 -c 0.0 --threads 10 ${Seq}/PF01741_MscL_merged.faa ${Euk_db} ${MMseqs}/PF01741_MscLmerged_vsEukarya_e03_mmseq.tsv tmp
-
-module load Python/3.11.3-gimkl-2022a
-
-python getting_fasta_from_hit_extra_Euk.py ${MMseqs}/PF01741_MscLmerged_vsEukarya_e03_mmseq.tsv MMSEQ ${Euk_TSV} ${MMseqs}/PF01741_MscLmerged_vsEukarya_e03mmseq_fl_seq.fasta
-
-#--------------------------------------------------------MscL-------------------------------------------------------------------------
-module load MMseqs2/15-6f452-gompi-2023a
-mmseqs easy-search -e 1.00E-03 -c 0.0 --threads 10 ${Seq}/PF01769_MgtE_merged.faa ${Euk_db} ${MMseqs}/PF01769_MgtEmerged_vsEukarya_e03_mmseq.tsv tmp
-
-module load Python/3.11.3-gimkl-2022a
-
-python getting_fasta_from_hit_extra_Euk.py ${MMseqs}/PF01769_MgtEmerged_vsEukarya_e03_mmseq.tsv MMSEQ ${Euk_TSV} ${MMseqs}/PF01769_MgtEmerged_vsEukarya_e03mmseq_fl_seq.fasta
-
-#--------------------------------------------------------MnhE-------------------------------------------------------------------------
-module load MMseqs2/15-6f452-gompi-2023a
-mmseqs easy-search -e 1.00E-03 -c 0.0 --threads 10 ${Seq}/PF01899_MnhE_merged.fasta ${Euk_db} ${MMseqs}/PF01899_MnhEmerged_vsEukarya_e03_mmseq.tsv tmp
-
-module load Python/3.11.3-gimkl-2022a
-
-python getting_fasta_from_hit_extra_Euk.py ${MMseqs}/PF01899_MnhEmerged_vsEukarya_e03_mmseq.tsv MMSEQ ${Euk_TSV} ${MMseqs}/PF01899_MnhEmerged_vsEukarya_e03mmseq_fl_seq.fasta
-
-#-------------------------------------------------------BCCT-------------------------------------------------------------------------
-module load MMseqs2/15-6f452-gompi-2023a
-mmseqs easy-search -e 1.00E-03 -c 0.0 --threads 10 ${Seq}/PF02028_BCCT_merged.fasta ${Euk_db} ${MMseqs}/PF02028_BCCTmerged_vsEukarya_e03_mmseq.tsv tmp
-
-module load Python/3.11.3-gimkl-2022a
-
-python getting_fasta_from_hit_extra_Euk.py ${MMseqs}/PF02028_BCCTmerged_vsEukarya_e03_mmseq.tsv MMSEQ ${Euk_TSV} ${MMseqs}/PF02028_BCCTmerged_vsEukarya_e03mmseq_fl_seq.fasta
-#-------------------------------------------------------OtsB-------------------------------------------------------------------------
-module load MMseqs2/15-6f452-gompi-2023a
-mmseqs easy-search -e 1.00E-03 -c 0.0 --threads 10 ${Seq}/PF02358_OtsB_merged.fasta ${Euk_db} ${MMseqs}/PF02358_OtsBmerged_vsEukarya_e03_mmseq.tsv tmp
-
-module load Python/3.11.3-gimkl-2022a
-
-python getting_fasta_from_hit_extra_Euk.py ${MMseqs}/PF02358_OtsBmerged_vsEukarya_e03_mmseq.tsv MMSEQ ${Euk_TSV} ${MMseqs}/PF02358_OtsBmerged_vsEukarya_e03mmseq_fl_seq.fasta
-
-#-------------------------------------------------------TrkH-------------------------------------------------------------------------
-module load MMseqs2/15-6f452-gompi-2023a
-mmseqs easy-search -e 1.00E-03 -c 0.0 --threads 10 ${Seq}/PF02386_TrkH_merged.faa ${Euk_db} ${MMseqs}/PF02386_TrkHmerged_vsEukarya_e03_mmseq.tsv tmp
-
-module load Python/3.11.3-gimkl-2022a
-
-python getting_fasta_from_hit_extra_Euk.py ${MMseqs}/PF02386_TrkHmerged_vsEukarya_e03_mmseq.tsv MMSEQ ${Euk_TSV} ${MMseqs}/PF02386_TrkHmerged_vsEukarya_e03mmseq_fl_seq.fasta
-
-#-------------------------------------------------------Kup-------------------------------------------------------------------------
-module load MMseqs2/15-6f452-gompi-2023a
-mmseqs easy-search -e 1.00E-03 -c 0.0 --threads 10 ${Seq}/PF02705_Kup_merged.fasta ${Euk_db} ${MMseqs}/PF02705_Kupmerged_vsEukarya_e03_mmseq.tsv tmp
-
-module load Python/3.11.3-gimkl-2022a
-
-python getting_fasta_from_hit_extra_Euk.py ${MMseqs}/PF02705_Kupmerged_vsEukarya_e03_mmseq.tsv MMSEQ ${Euk_TSV} ${MMseqs}/PF02705_Kupmerged_vsEukarya_e03mmseq_fl_seq.fasta
-
-#------------------------------------------------------Hppase-------------------------------------------------------------------------
-module load MMseqs2/15-6f452-gompi-2023a
-mmseqs easy-search -e 1.00E-03 -c 0.0 --threads 10 ${Seq}/PF03030_HPPase_merged.faa ${Euk_db} ${MMseqs}/PF03030_HPPasemerged_vsEukarya_e03_mmseq.tsv tmp
-
-module load Python/3.11.3-gimkl-2022a
-
-python getting_fasta_from_hit_extra_Euk.py ${MMseqs}/PF03030_HPPasemerged_vsEukarya_e03_mmseq.tsv MMSEQ ${Euk_TSV} ${MMseqs}/PF03030_HPPasemerged_vsEukarya_e03mmseq_fl_seq.fasta
-
-
-#------------------------------------------------------NhaC-------------------------------------------------------------------------
-module load MMseqs2/15-6f452-gompi-2023a
-mmseqs easy-search -e 1.00E-03 -c 0.0 --threads 10 ${Seq}/PF03553_NhaC_merged.faa ${Euk_db} ${MMseqs}/PF03553_NhaCmerged_vsEukarya_e03_mmseq.tsv tmp
-
-module load Python/3.11.3-gimkl-2022a
-
-python getting_fasta_from_hit_extra_Euk.py ${MMseqs}/PF03553_NhaCmerged_vsEukarya_e03_mmseq.tsv MMSEQ ${Euk_TSV} ${MMseqs}/PF03553_NhaCmerged_vsEukarya_e03mmseq_fl_seq.fasta
 
 #------------------------------------------------------NhaD-------------------------------------------------------------------------
 module load MMseqs2/15-6f452-gompi-2023a
