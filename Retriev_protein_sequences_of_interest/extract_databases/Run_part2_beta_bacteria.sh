@@ -69,3 +69,20 @@ mmseqs easy-search -e 1.00E-03 -c 0.0 --threads 10 ${Seq}/PF01741_MscL_merged.fa
 module load Python/3.11.3-gimkl-2022a
 
 python getting_fasta_from_hit_extra_Arc.py ${MMseqs}/PF01741_MscLmerged_vsBacteria${array[$SLURM_ARRAY_TASK_ID]}_e03_mmseq.tsv MMSEQ ${Bac_TSV} ${MMseqs}/PF01741_MscLmerged_vsBacteria${array[$SLURM_ARRAY_TASK_ID]}_e03mmseq_fl_seq.fasta
+
+#------------------------------------------------------KdP-------------------------------------------------------------------------
+module load MMseqs2/15-6f452-gompi-2023a
+mmseqs easy-search -e 1.00E-03 -c 0.0 --threads 10 ${Seq}/PF03814_Kdp_merged.faa ${Bac_db} ${MMseqs}/PF03814_Kdpmerged_vsBacteria${array[$SLURM_ARRAY_TASK_ID]}_e03_mmseq.tsv Bacteria${array[$SLURM_ARRAY_TASK_ID]}_tmp
+
+module load Python/3.11.3-gimkl-2022a
+
+python getting_fasta_from_hit_extra_Arc.py ${MMseqs}/PF03814_Kdpmerged_vsBacteria${array[$SLURM_ARRAY_TASK_ID]}_e03_mmseq.tsv MMSEQ ${Bac_TSV} ${MMseqs}/PF03814_Kdpmerged_vsBacteria${array[$SLURM_ARRAY_TASK_ID]}_e03mmseq_fl_seq.fasta
+
+#------------------------------------------------------OpuAC-------------------------------------------------------------------------
+module load MMseqs2/15-6f452-gompi-2023a
+mmseqs easy-search -e 1.00E-03 -c 0.0 --threads 10 ${Seq}/PF04069_OpuAC_merged.fasta ${Bac_db} ${MMseqs}/PF04069_OpuACmerged_vsBacteria${array[$SLURM_ARRAY_TASK_ID]}_e03_mmseq.tsv Bacteria${array[$SLURM_ARRAY_TASK_ID]}_tmp
+
+module load Python/3.11.3-gimkl-2022a
+
+python getting_fasta_from_hit_extra_Arc.py ${MMseqs}/PF04069_OpuACmerged_vsBacteria${array[$SLURM_ARRAY_TASK_ID]}_e03_mmseq.tsv MMSEQ ${Bac_TSV} ${MMseqs}/PF04069_OpuACmerged_vsBacteria${array[$SLURM_ARRAY_TASK_ID]}_e03mmseq_fl_seq.fasta
+
