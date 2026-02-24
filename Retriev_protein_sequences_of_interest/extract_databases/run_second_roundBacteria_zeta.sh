@@ -4,15 +4,14 @@
 #SBATCH --time          102:00:00
 #SBATCH --mem           100GB
 #SBATCH --cpus-per-task 25
-#SBATCH --error         slurm_outputB2/Bac2Zeta_%A-%a.err
-#SBATCH --output        slurm_outputB2/Bac2Zeta_%A-%a.out
-#SBATCH --array         0-12
-declare -a array=($(seq 0 12))
-Bac_TSV=/nesi/nobackup/uc04105/new_databases_May/GTDB_226/Bacteria_GTDB226_protein_May92025.tsv
-Bac_db=/nesi/nobackup/uc04105/new_databases_May/GTDB_226/ARCDB/fasta/Bacteria_GTDB226_protein_May92025_subset${array[$SLURM_ARRAY_TASK_ID]}.fasta
+#SBATCH --error         slurm_outputB2/RealBac2Zeta_%A-%a.err
+#SBATCH --output        slurm_outputB2/RealBac2Zeta_%A-%a.out
+#SBATCH --array         0-61
+declare -a array=($(seq 0 61))
+Bac_TSV=/nesi/nobackup/uc04105/new_databases_May/GTDB_226/Bac_DB/tsv/Bacteria_GTDB226_protein_May92025_chunk_${array[$SLURM_ARRAY_TASK_ID]}.tsv
+Bac_db=/nesi/nobackup/uc04105/new_databases_May/GTDB_226/Bac_DB/fasta/Bacteria_GTDB226_protein_May92025_subset${array[$SLURM_ARRAY_TASK_ID]}.fasta
 MMseqs=/nesi/nobackup/uc04105/cross_biome_metagenome/Protein/results/second_round/mmseqs/Bacteria
 Seq=/nesi/nobackup/uc04105/cross_biome_metagenome/Protein/results/initial_round/merged_all_three_domains
-
 
 
 #----------------------------------------------------------RpL4-------------------------------------------------------------------------
