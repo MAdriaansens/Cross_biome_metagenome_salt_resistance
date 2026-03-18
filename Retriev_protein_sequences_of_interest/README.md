@@ -14,3 +14,7 @@ KdpA (PF03814), MtrA (PF04208),  Branches chain AA transporter (PF05525), and Ki
 
 Proteins absent in Bacteria:
 None
+
+Everything was cat into a single file, and using Diamond compiled into a database.
+#DIAMOND/2.0.15-GCC-11.3.0
+diamond makedb --in Salt_resistance_database_18March.faa -d Salt_resistance_database_18March_DB.faa
