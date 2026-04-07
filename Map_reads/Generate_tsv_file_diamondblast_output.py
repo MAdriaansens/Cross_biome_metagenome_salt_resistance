@@ -1,92 +1,111 @@
+from Bio import SeqIO
 import os
-import json
+def best_hit_dict(HMMscan, scan_dict):
+    #open a HMMscan file provided
+    with open(HMMscan, 'r') as H:
+        for line in H:
+            if line[0] != '#':
+                #skip lines with # as this contains information not needed
 
-Map_dir = '/nesi/nobackup/uc04105/cross_biome_metagenome/Mapping_reads'
-CPA_list = []
+                e_count =0
+                #marker for a 
 
-with open('/nesi/nobackup/uc04105/cross_biome_metagenome/SRR_info.json', 'r') as info_SRR:
-    SRR_dict = json.load(info_SRR)
+                best_match_hmm = line.split(' ')[0].split(' ')[-1]
+                protein_id = line.split('_tax:')[0].split(' ')[-1]
+                Taxonomy = (line.split('_tax:')[-1].split(' - ')[0])
+                full_id = protein_id + '_tax:' + Taxonomy
 
-for key in SRR_dict.keys():
-    print(SRR_dict[key], key)
-    break
+                if line.count(' - ') == 2:
+                    prelim_evalue = line.split(' - ')[2]
 
-Read_count = {}
-with open('/nesi/nobackup/uc04105/cross_biome_metagenome/DNA/cutadapt/output.txt', 'r') as grep_arrow:
-    for line in grep_arrow:
-        if 'bbmerged' not in line:
-            file_name = line.split('/')[-1].split('.')[0]
-            pass
-            #these are all fastq files and I used 'grep -r -c '@' to count the reads
-        else:
-            #these are all bbmerged files and I used 'grep -r -c '>' to count the reads
-            file_name = line.split('/')[-1].split('.')[0]
-            read_count = line.split('\n')[0].split(':')[1]
-            Read_count[file_name] = read_count
-grep_arrow.close()
-
-
-
-with open('/nesi/nobackup/uc04105/cross_biome_metagenome/DNA/cutadapt/output_fastq.txt', 'r') as grep_alpha:
-    for line in grep_alpha:
-        if 'bbmerged' not in line:
-            file_name = line.split('/')[-1].split('.')[0].split('_cut')[0]
-            read_count = line.split('\n')[0].split(':')[1]
-            Read_count[file_name] = read_count
-            #these are all fastq files and I used 'grep -r -c '@' to count the reads
-        else:
-            #these are all bbmerged files and I used 'grep -r -c '>' to count the reads
-            pass
-grep_alpha.close()
+                else:
+                    prelim_evalue = line.split(' - ')[1]
+                    if 'Fe' in prelim_evalue:
+                        prelim_evalue = line.split(' - ')[1].split('Fe')[0]
+                    else:
+                        prelim_evalue = line.split(' - ')[1]
+                e_list = []
+                for i in prelim_evalue.split(' '):
+                    if i != '':
+                        e_list.append(i)
+                j = e_list[0]
+                if 'e' in j:
+                    if j[0].isalpha() == True:
+                        pass
+                    else:
+                        evalue = pow(10,int(j.split('e')[1]))*float(j.split('e')[0])
+               
 
 
 
-with open('/nesi/nobackup/uc04105/cross_biome_metagenome/Intermediate_SRA_download_Feb2_vsCPA.tsv', 'w') as Intermediate:
-    header =  'file_name' + '\t' + 'SRA_name' + '\t' + 'read_count' + '\t' + 'study' + '\t' + 'Description' + '\t' +  'pH' + '\t' + 'salinity' + '\t' + 'Temp' +  '\t' + 'total_CPA' + '\t' + 'count_CPA1' + '\t'  + 'count_CPA2' + '\t'  + 'count_Kef' + '\t'  + 'count_NhaA' + '\t'  + 'count_UncPROK' + '\t'  + 'count_Unc' + '\t'  + 'count_UncPseudomonadota' + '\t' + 'count_UncGammaproteobacteriota' + '\t' + 'count_UncArc'  + '\t' + 'count_NhaS5' + '\n'
-    Intermediate.write(header)
-    for Map in os.listdir(Map_dir):
-        with open('{}/{}'.format(Map_dir, Map), 'r') as M8:
-            file_path = '{}/{}'.format(Map_dir, Map)
-            file_name = file_path.split('/')[-1].split('_matches')[0]
-            if 'cutadapted' in file_name:
-                file_name = file_name.split('_cutadapted')[0]
-            elif '.fna' in file_name:
-                file_name = file_name.split('.fna')[0]
-            read_count = Read_count[file_name]
-            #get info study
-            SRA_name = file_name.split('_')[0]
-            study = SRR_dict[SRA_name][0]
-            pH = SRR_dict[SRA_name][2]
-            salinity = SRR_dict[SRA_name][3]
-            Description = SRR_dict[SRA_name][1]
-            Temp = SRR_dict[SRA_name][-1]
-            CPA_list = []
+                else:
+                    if any(x.isalpha() for x in j) == True:
+                        pass
+                        
+                    elif 'diol' in j:
+                        pass
+                    else:
+                        evalue = float(j)
+
+                if full_id not in scan_dict.keys():
+                    entry_list = (best_match_hmm, evalue)
+                    scan_dict[full_id] = entry_list
+
+                elif scan_dict[full_id][1] < evalue:
+                    pass
+                else:
+                    entry_list = (best_match_hmm, evalue)
+                    scan_dict[full_id] =entry_list
+    return(scan_dict)
+
+import os
+Pfam_dic = {}
+
+for hmm in os.listdir('/nesi/nobackup/uc04105/cross_biome_metagenome/Protein/HMM'):
+    if '.' not in hmm:
+        pass
+    elif '_' not in hmm:
+        pass
+    elif 'pynb' in hmm:
+        pass
+    else:
+        pfam_id = hmm.split('_')[0]
+        with open('/nesi/nobackup/uc04105/cross_biome_metagenome/Protein/HMM/{}'.format(hmm), 'r') as HMM:
+            for line in HMM:
+                if 'NAME' in line:
+                    Pfam_dic[pfam_id] = line.split('NAME')[1].split('\n')[0].split(' ')[-1]
+for key in Pfam_dic.keys():
+    print(key)
+
+import sys
+Protein_of_interest = sys.argv[1] #Pfam name PF02386 for TrkH
+Tax_domain_of_interest = sys.argv[2]
+
+scandir = '/nesi/nobackup/uc04105/cross_biome_metagenome/Protein/results/HMMscan/{}'.format(Tax_domain_of_interest)
+from Bio import SeqIO
+
+scan_dict = {}
+#there are exceptions
+
+
+import os
+for hmmscan in os.listdir(scandir):
+    if hmmscan.split('.')[-1] == 'tsv':
+        if Protein_of_interest in hmmscan:
+            HMMscan = '{}/{}'.format(scandir,hmmscan)
+            scan_dict = best_hit_dict(HMMscan, scan_dict)
+
+from Bio import SeqIO
+entry_dic = {}
+for entry in os.listdir('/nesi/nobackup/uc04105/cross_biome_metagenome/Protein/results/HMMsearch/{}'.format(Tax_domain_of_interest)):
+    if Protein_of_interest in entry:
+        for record in SeqIO.parse('/nesi/nobackup/uc04105/cross_biome_metagenome/Protein/results/HMMsearch/{}/{}'.format(Tax_domain_of_interest, entry), 'fasta'):
+
+            entry_dic[str(record.id.split('_tax')[0])] = (record.id, str(record.seq))
             
-            count_CPA1 = 0
-            count_CPA2 = 0
-            count_Kef = 0
-            count_NhaA = 0
-            count_UncPROK = 0
-            count_Unc = 0
-            count_UncPseudomonadota = 0
-            count_UncGammaproteobacteriota = 0
-            count_NhaS5 = 0
-            coutn_UncARC = 0
-            for line in M8:
-                CPA_list.append(line.split('\t')[1].split('_')[-1])
-            count_CPA1 = CPA_list.count('CPA1')
-            count_CPA2 = CPA_list.count('CPA2')
-            count_Kef = CPA_list.count('Kef')
-            count_NhaA = CPA_list.count('NhaA')
-            count_NhaS5 = CPA_list.count('NhaS5')
-            count_UncPseudomonadota = CPA_list.count('Pseudomonadota')
-            count_UncGammaproteobacteriota = CPA_list.count('Gammaproteobacteriota')
-            count_UncPROK =  CPA_list.count('UncPro') + CPA_list.count('UncPROK')
-            count_UncArc = CPA_list.count('UncARC')
-            #the 'Unc' in all makes this akward
-            count_Unc = CPA_list.count('Unc')
 
-            total_count =  count_CPA1 + count_CPA2 + count_Kef + count_NhaA + count_NhaS5 + count_UncPseudomonadota + count_UncGammaproteobacteriota + count_UncPROK + count_UncArc + count_Unc
-            Line = file_name + '\t' + SRA_name +'\t' + str(read_count) + '\t' + study + '\t' + Description + '\t' +  str(pH) + '\t' + str(salinity) + '\t' + str(Temp) +  '\t' + str(total_count) + '\t' + str(count_CPA1) + '\t'  + str(count_CPA2) + '\t'  + str(count_Kef) + '\t'  + str(count_NhaA) + '\t'  + str(count_UncPROK) + '\t'  +  str(count_Unc) + '\t'  + str(count_UncPseudomonadota) + '\t' + str(count_UncGammaproteobacteriota) + '\t' + str(count_UncArc)  + '\t' + str(count_NhaS5) + '\n'
-            Intermediate.write(Line)
-        
+with open('/nesi/nobackup/uc04105/cross_biome_metagenome/Protein/sequences/{}_{}_{}_HMMscanned_HMMaligned_18Match.fasta'.format(Tax_domain_of_interest, Protein_of_interest, Pfam_dic[Protein_of_interest]), 'w') as outfile:
+    for key in scan_dict.keys():
+        if scan_dict[key][0] == Pfam_dic[Protein_of_interest]:
+            fasta_line = '>' + entry_dic[key.split('_tax')[0]][0] + '_protein:{}'.format(Protein_of_interest) + '\n' + entry_dic[key.split('_tax')[0]][1] + '\n'
+            outfile.write(fasta_line)
