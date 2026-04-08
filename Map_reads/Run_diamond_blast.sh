@@ -1,33 +1,50 @@
 #!/bin/bash -e
-
 #SBATCH --account       uc04105
-#SBATCH --job-name      Diamond
-#SBATCH --time          48:00:00
-#SBATCH --mem           50GB
-#SBATCH --cpus-per-task 10
-#SBATCH --error         slurm_diamond/dia_set_%A-%a.err
-#SBATCH --output        slurm_diamond/dia_set_%A-%a.out
-#SBATCH --array         1-5
+#SBATCH --job-name      NEW_test
+#SBATCH --time          44:00:00
+#SBATCH --mem           30GB
+#SBATCH --cpus-per-task 15
+#SBATCH --error         slurm_xblastoutput/Bacscan_%A-%a.err
+#SBATCH --output        slurm_xblastoutput/Bacscan_%A-%a.out
+#SBATCH --array         0-47%47
+declare -a array=($(seq 0 47))
 
-declare -a array=($(seq 1 5))
+ID_LIST=/home/mad149/00_nesi_projects/uc04105_nobackup/cross_biome_metagenome/Missing_list_Apr3.txt
+Line_number=${array[$SLURM_ARRAY_TASK_ID]}
+DB=/home/mad149/00_nesi_projects/uc04105_nobackup/cross_biome_metagenome/Protein/sequences/Salt_resistance_database_18March_DB.faa.dmnd
+XBLAST=/home/mad149/00_nesi_projects/uc04105_nobackup/cross_biome_metagenome/DNA/xlbast_output
+# Loop through the accessions and run fasterq-dump
+module load sratoolkit/3.0.2
+module load DIAMOND/2.0.15-GCC-11.3.0
 
+SRR_ID=SRR25522578
+#echo "${Line_number} ${SRR_ID}"
 
-module load BBMap/39.01-GCC-11.3.0
-module load Python-Geo/3.11.3-gimkl-2022a
+module load sratoolkit/3.0.2
+module load DIAMOND/2.0.15-GCC-11.3.0
 
-db=/nesi/nobackup/uc04105/cross_biome_metagenome/Protein/Adriaansens_CPA/CPA/CPA_fl_taxa_diamond.dmnd
+cd /home/mad149/00_nesi_projects/uc04105_nobackup/cross_biome_metagenome/DNA/xlbast_output
 
-paired_cutdapt=/nesi/nobackup/uc04105/cross_biome_metagenome/DNA/cutadapt/paired
+fasterq-dump $SRR_ID --threads ${SLURM_CPUS_PER_TASK}
 
-outdir=/nesi/nobackup/uc04105/cross_biome_metagenome/Mapping_reads
+files=(${SRR_ID}*fastq )
 
-module purge
-module load DIAMOND/2.1.14-GCC-12.3.0
-for R1 in /nesi/nobackup/uc04105/cross_biome_metagenome/DNA/cutadapt/paired/set_${array[$SLURM_ARRAY_TASK_ID]}/*1_cutadapted.fastq; do
-    R2=${R1/_1_cutadapted.fastq/_2_cutadapted.fastq}
-    part1=${R1%_1_cutadapted.fastq}
-    basename=${part1##*/}
-    diamond blastx -p 10 -d ${db} -q /nesi/nobackup/uc04105/cross_biome_metagenome/DNA/cutadapt/paired/set_${array[$SLURM_ARRAY_TASK_ID]}/${basename}_bbmerged.fna -o ${outdir}/${basename}_bbmerged_matches_CPA.m8 -k 1
-    diamond blastx -p 10 -d ${db} -q ${R1} -o ${outdir}/${basename}_1_matches_CPA.m8 -k 1
-    diamond blastx -p 10 -d ${db} -q ${R2} -o ${outdir}/${basename}_2_matches_CPA.m8 -k 1
-done
+echo ${#files[@]}
+
+if [[ ${#files[@]} -eq 2 ]]; then
+    echo "no issues, continue to run xblast"
+    diamond blastx --threads ${SLURM_CPUS_PER_TASK} --evalue 0.00001  --max-target-seqs 1 --outfmt 6 qseqid sseqid slen evalue bitscore qseq qseq_translated --db ${DB} -q ${SRR_ID}_1.fastq --out ${SRR_ID}_1_vs_Salt_DB.m8
+    diamond blastx --threads ${SLURM_CPUS_PER_TASK} --evalue 0.00001 --max-target-seqs 1 --outfmt 6 qseqid sseqid slen evalue bitscore qseq qseq_translated --db ${DB} -q ${SRR_ID}_2.fastq --out ${SRR_ID}_2_vs_Salt_DB.m8
+elif [[ ${#files[@]} -eq 1 ]]; then
+    echo "${SRR_ID} is not paired"
+    diamond blastx --threads ${SLURM_CPUS_PER_TASK} --evalue 0.00001 --max-target-seqs 1 --outfmt 6 qseqid sseqid slen evalue bitscore qseq qseq_translated --db ${DB} -q ${SRR_ID}.fastq --out ${SRR_ID}_3_vs_Salt_DB.m8
+elif [[ ${#files[@]} -eq 3 ]]; then
+    echo "${SRR_ID} is triple"
+    diamond blastx --threads ${SLURM_CPUS_PER_TASK} --evalue 0.00001  --max-target-seqs 1 --outfmt 6 qseqid sseqid slen evalue bitscore qseq qseq_translated --db ${DB} -q ${SRR_ID}_1.fastq --out ${SRR_ID}_1_vs_Salt_DB.m8
+    diamond blastx --threads ${SLURM_CPUS_PER_TASK} --evalue 0.00001 --max-target-seqs 1 --outfmt 6 qseqid sseqid slen evalue bitscore qseq qseq_translated --db ${DB} -q ${SRR_ID}_2.fastq --out ${SRR_ID}_2_vs_Salt_DB.m8
+    diamond blastx --threads ${SLURM_CPUS_PER_TASK} --evalue 0.00001 --max-target-seqs 1 --outfmt 6 qseqid sseqid slen evalue bitscore qseq qseq_translated --db ${DB} -q ${SRR_ID}.fastq --out ${SRR_ID}_3_vs_Salt_DB.m8
+else
+    echo "${SRR_ID} gives issues"
+fi
+echo "Finished $SRR_ID, running clean up"
+#rm $SRR_ID*.fastq
