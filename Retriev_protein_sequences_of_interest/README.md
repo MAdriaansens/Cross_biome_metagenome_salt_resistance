@@ -18,3 +18,5 @@ None
 Everything was cat into a single file, and using Diamond compiled into a database.
 #DIAMOND/2.0.15-GCC-11.3.0
 diamond makedb --in Salt_resistance_database_18March.faa -d Salt_resistance_database_18March_DB.faa
+
+#After doing HMMalign/HMMsearch be sure to remove any empty files
