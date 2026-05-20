@@ -1,0 +1,545 @@
+Study	Site	Qualatative/Quantative	pH	Salinity	Latitude	Longitude	Description	Earth_Water_Air	Sequencing	Library kit	Extraction	BioProject ID	SRA_id	K (mM)	Na (mM)	T(°C)
+Zaikova2018	LW	Quantitative	2,4	30	-32,431411	118,906279	Acidic brine	Water	Illumina MiSeq	MiSeq Reagent Kit v3	DNA easy Power Water kit	PRJNA400642	SRR5990696			25
+Zaikova2018	GW	Quantitative	3,4	4	-34,431386	118,906296	Acidic brine	Water	Illumina MiSeq	MiSeq Reagent Kit v3	DNA easy Power Water kit	PRJNA400642	SRR5990695			28
+Gutierrez-preciad024	Ass	Quantitative	6,6	36	14,089567	40,348583	Acidic brine	Water	Illumina HiSeq 2500		DNeasy PowerSoil Kit	PRJNA541281 	SRR28304480	-	-	26,2
+Gutierrez-preciad024	9Ass	Quantitative	6,7	30,2	14,053647	40,381103	Acidic brine	Water	Illumina HiSeq 2500		DNeasy PowerSoil Kit	PRJNA541281 	SRR28304479	-		30,6
+Gutierrez-preciad024	9Gt	Quantitative	5,9	32,5	14,229704	40,289952	Acidic brine	Water	Illumina HiSeq 2500		DNeasy PowerSoil Kit	PRJNA541281 	SRR28304478	-	-	35,5
+Gutierrez-preciad024	WCL2	Quantitative	5	33,8	14,241914	40,267975	Acidic brine	Water	Illumina HiSeq 2500		DNeasy PowerSoil Kit	PRJNA541281 	SRR28304477	-	-	39,3
+Gutierrez-preciad024	WCL3	Quantitative	4,9	41,2	14,242139	40,267853	Acidic brine	Water	Illumina HiSeq 2500		DNeasy PowerSoil Kit	PRJNA541281 	SRR28304476	-	-	30,5
+Chen	Waste_rock1_Sept	Qualatative			46,65	-81,32	AMD	Water	 Illumina NovaSeq SP	-	PowerMax Soil kit	PRJNA379596	SRR5352536			
+Ayala-Munoz2020	35-m Depth Deep Anoxic Layer	Quantitative	4,5	0,6941	37,78	-6,82	AMD	Water	Illumina HiSeq 4000	Illuminas NexteraXT library preparation kit		PRJNA646106	SRR12217123			18,3
+Ayala-Munoz2020	3-m Depth Upper Oxic Layer	Quantitative	2,6	0,178	37,78	-6,82	AMD	Water	Illumina HiSeq 4000	Illuminas NexteraXT library preparation kit		PRJNA646106	SRR12217118			17
+Ayala-Munoz2020	11-m Depth Chemocline	Quantitative	3,95	0,259	37,78	-6,82	AMD	Water	Illumina HiSeq 4000	Illuminas NexteraXT library preparation kit		PRJNA646106	SRR12217114			12,5
+Zapp2021	SB_0,2_2018	Quantitative	7,2	7,5	71,2238	-156,3083	Brine	Water	Illumina NovaSeq	KAPA Illumina library creation kit	PowerMax Soil kit	IMG	IMG			-3
+Zapp2021	CB4_2018	Quantitative	6,6	12,1	71,2238	-156,3083	Brine	Water	Illumina NovaSeq	KAPA Illumina library creation kit	PowerMax Soil kit	IMG	IMG			-6
+Zapp2021	CBIW_0,2_2017	Quantitative	6,6	12,1	71,2223	-156,3018	Brine	Water	Illumina NovaSeq	KAPA Illumina library creation kit	PowerMax Soil kit	IMG	IMG			-6
+Zapp2021	CB1_2018	Quantitative	6,6	14	71,2238	-156,3083	Brine	Water	Illumina NovaSeq	KAPA Illumina library creation kit	PowerMax Soil kit	IMG	IMG			-6
+Rodrigeuz-Ramos2018	DNA_CamuyWater	Qualatative			18,2	66,5	Cave	Water	Illumina Miseq			PRJNA487362 	SRR7741201			
+Zeljko2024	0m_Z	Quantitative	8,7	0,1	44,7	15,7	Cave	Water	Illumina NovaSeq 6000	-	DNA easy Power Water kit	PRJNA1052463	SRR27205378			16
+Zeljko2024	2m_Z	Quantitative	7,05	0,9	44,7	15,7	Cave	Water	Illumina NovaSeq 6000	-	DNA easy Power Water kit	PRJNA1052463	SRR27205373			14,7
+Zeljko2024	4m_Z	Quantitative	7,1	2	44,7	15,7	Cave	Water	Illumina NovaSeq 6000	-	DNA easy Power Water kit	PRJNA1052463	SRR27205368			14,5
+Zeljko2024	7m_Z	Quantitative	7,2	2,5	44,7	15,7	Cave	Water	Illumina NovaSeq 6000	-	DNA easy Power Water kit	PRJNA1052463	SRR27205365			14,7
+Zeljko2024	10m_Z	Quantitative	7,2	3,2	44,7	15,7	Cave	Water	Illumina NovaSeq 6000	-	DNA easy Power Water kit	PRJNA1052463	SRR27205363			14,9
+Zeljko2024	12m_Z	Quantitative	7,25	3,5	44,7	15,7	Cave	Water	Illumina NovaSeq 6000	-	DNA easy Power Water kit	PRJNA1052463	SRR27205360			14,8
+Ghaly2023	2m_Bundera	Qualatative			-22,38333	113,78333	Cave	Water	Illumina HiSeq X	Nextera XT library preparation kit	DNA easy Power Water kit	PRJNA911846 	SRR22722186			
+Haro-Moreno2019	Med-OCT2015-2000m	Qualatative			37,35361	-0,286194	Deepsea	Water	Illumina HiSeq 4000	Ovation Ultralow V2 DNA-Seq Library preparation kit	PCI	PRJNA352798	SRR5007147			
+Zhang2022	SW_2	Qualatative			22,36	119,32	Deepsea	Water	HiSeq X Ten	-	-	PRJNA707313	SRR13892595			
+Zhang2022	SW_1	Qualatative			22,01	119,28	Deepsea	Water	HiSeq X Ten	-	-	PRJNA707313	SRR13892591			
+Cabello-Yeves2021	St307_750m	Quantitative	7,63	2,221	43,169	29,001283	Deepsea	Water	HiSeq X Ten	-	PCI	PRJNA638805	SRR12042682	-	-	8,9
+Michoud2021	N4F2	Quantitative	7,15	12,47	19,61	38,73	Deepsea	Water	Illumina HiSeq 4000	Ovation Ultralow V2 DNA-Seq Library preparation kit	PCI	PRJNA593704 	SRR10589508	-	-	-
+Michoud2021	N4F3	Quantitative	7,14	11,78	19,61	38,73	Deepsea	Water	Illumina HiSeq 4000	Ovation Ultralow V2 DNA-Seq Library preparation kit	PCI	PRJNA593704 	SRR10589507	-	-	-
+Michoud2021	BODY	Quantitative	7,59	14,9	19,61	38,73	Deepsea	Water	Illumina HiSeq 4000	Ovation Ultralow V2 DNA-Seq Library preparation kit	PCI	PRJNA593704 	SRR10589506	-	-	-
+Michoud2021	N4F4	Quantitative	7,27	9,68	19,61	38,73	Deepsea	Water	Illumina HiSeq 4000	Ovation Ultralow V2 DNA-Seq Library preparation kit	PCI	PRJNA593704 	SRR10589505	-	-	-
+Michoud2021	NF4F5	Quantitative	7,56	7,09	19,61	38,73	Deepsea	Water	Illumina HiSeq 4000	Ovation Ultralow V2 DNA-Seq Library preparation kit	PCI	PRJNA593704 	SRR10589504	-	-	-
+Michoud2021	N4F7	Quantitative	7,89	4,17	19,61	38,73	Deepsea	Water	Illumina HiSeq 4000	Ovation Ultralow V2 DNA-Seq Library preparation kit	PCI	PRJNA593704 	SRR10589503	-	-	-
+Michoud2021	N5F5	Quantitative	7,73	4,79	19,61	38,73	Deepsea	Water	Illumina HiSeq 4000	Ovation Ultralow V2 DNA-Seq Library preparation kit	PCI	PRJNA593704 	SRR10589502	-	-	-
+Michoud2021	N5F8	Quantitative	7,9	4,01	19,61	38,73	Deepsea	Water	Illumina HiSeq 4000	Ovation Ultralow V2 DNA-Seq Library preparation kit	PCI	PRJNA593704 	SRR10589501	-	-	-
+Michoud2021	N7F1	Quantitative	7,39	13,93	19,61	38,73	Deepsea	Water	Illumina HiSeq 4000	Ovation Ultralow V2 DNA-Seq Library preparation kit	PCI	PRJNA593704 	SRR10589500	-	-	-
+Michoud2021	N7F6	Quantitative	7,18	12,933	19,61	38,73	Deepsea	Water	Illumina HiSeq 4000	Ovation Ultralow V2 DNA-Seq Library preparation kit	PCI	PRJNA593704 	SRR10589499	-	-	-
+Michoud2021	N7F9	Quantitative	7,22	11,72	19,61	38,73	Deepsea	Water	Illumina HiSeq 4000	Ovation Ultralow V2 DNA-Seq Library preparation kit	PCI	PRJNA593704 	SRR10589498	-	-	-
+Sanchez2024	MH_141_4000M	Qualatative			26,9175004	-155,6638603	Deepsea	Water	Illumina HiSeq 2000	TruSeq SBS Kit v3-HS	PCI	PRJEB52452	ERR10125032			
+Sanchez2024	MH_120_4000M	Qualatative			10,7567187	-102,447697	Deepsea	Water	Illumina HiSeq 2000	TruSeq SBS Kit v3-HS	PCI	PRJEB52452	ERR10123865			
+Sanchez2024	MH_101_4000M	Qualatative			21,8909557	-155,6638603	Deepsea	Water	Illumina HiSeq 2000	TruSeq SBS Kit v3-HS	PCI	PRJEB52452	ERR10123577			
+Sanchez2024	MH_092_4000M	Qualatative			-3,3981825	-169,463015	Deepsea	Water	Illumina HiSeq 2000	TruSeq SBS Kit v3-HS	PCI	PRJEB52452	ERR10123308			
+Sanchez2024	MH_083_4000M	Qualatative			-23,349163	-178,2377459	Deepsea	Water	Illumina HiSeq 2000	TruSeq SBS Kit v3-HS	PCI	PRJEB52452	ERR10123273			
+Sanchez2024	MH_076_4000M	Qualatative			-39,2668508	146,5846861	Deepsea	Water	Illumina HiSeq 2000	TruSeq SBS Kit v3-HS	PCI	PRJEB52452	ERR10123210			
+Sanchez2024	MH_063_3M	Qualatative			-29,5907834	96,3912674	Deepsea	Water	Illumina HiSeq 2000	TruSeq SBS Kit v3-HS	PCI	PRJEB52452	ERR10123006			
+Sanchez2024	MH_049_4000M	Qualatative			-33,8679027	36,9808525	Deepsea	Water	Illumina HiSeq 2000	TruSeq SBS Kit v3-HS	PCI	PRJEB52452	ERR10123002			
+Sanchez2024	MH_044_4000M	Qualatative			-33,2718046	15,3932375	Deepsea	Water	Illumina HiSeq 2000	TruSeq SBS Kit v3-HS	PCI	PRJEB52452	ERR10121400			
+Sanchez2024	MH_030_4000M	Qualatative			-25,8642644	-27,6010773	Deepsea	Water	Illumina HiSeq 2000	TruSeq SBS Kit v3-HS	PCI	PRJEB52452	ERR10121354			
+Sanchez2024	MH_019_4000M	Qualatative			-7,2087199	-29,3496807	Deepsea	Water	Illumina HiSeq 2000	TruSeq SBS Kit v3-HS	PCI	PRJEB52452	ERR10114619			
+Wu24	PR9	Quantitative	8,03	3,117	21,95305	113,6966833	Estaury	Water	Illumina HiSeq 2000		FastDNA SPIN Kit for Soil	PRJNA878949	SRR21518225			28,29
+Wu24	PR10	Quantitative	8,03	3,117	21,94305	113,6966833	Estaury	Water	Illumina HiSeq 2000		FastDNA SPIN Kit for Soil	PRJNA878949	SRR21518224			14,97
+Tee21	FS8	Quantitative	7,57	3,28	-36,541722	174,703139	Estaury	Water	Illumina HiSeq 2500	TruSeq DNA Nano Kit	DNeasy PowerSoil Kit	PRJNA668816	SRR12825406	-	-	20,3
+Tee21	FS9	Quantitative	7,55	3,49	-36,542361	174,707472	Estaury	Water	Illumina HiSeq 2500	TruSeq DNA Nano Kit	DNeasy PowerSoil Kit	PRJNA668816	SRR12825405	-	-	22,1
+Guardia-leiva2023	BacS2	Quantitative	7	2,3	-42,1172	-72,6376	Estuary	Water	Illumina MiSeq	Illumina TruSeq kits	PCI	PRJNA359936	SRR5145178	-	-	17,4
+Guardia-leiva2023	BacS3	Quantitative	7	1,4	-42,12333	-72,6792	Estuary	Water	Illumina MiSeq	Illumina TruSeq kits	PCI	PRJNA359936	SRR5145175	-	-	15,34
+Guardia-leiva2023	BacS1	Quantitative	7	2,9	-42,1204	-72,6101	Estuary	Water	Illumina MiSeq	Illumina TruSeq kits	PCI	PRJNA359936	SRR5145173	-	-	16,86
+Kong2025	A03_IL	Qualatative			40,65486	-74,018	Estuary	Water	Illumina NovaSeq X Plus	Rapid Plus DNA Lib Prep Kit	DNA easy Power Water kit	PRJNA1251010	SRR33139898			25
+Kong2025	A06_BayWater	Qualatative			40,65597	74,01967	Estuary	Water	Illumina NovaSeq X Plus	Rapid Plus DNA Lib Prep Kit	DNA easy Power Water kit	PRJNA1251010	SRR33139895			24
+Kong2025	A09_OL	Qualatative			40,65494	74,01903	Estuary	Water	Illumina NovaSeq X Plus	Rapid Plus DNA Lib Prep Kit	DNA easy Power Water kit	PRJNA1251010	SRR33139892			24,1
+Meziti2016	kal3-nov	Quantitative	7	1,589	39,5886	20,1382	Estuary	Water	Illumina HiSeq 2500	Nextera XT library preparation kit	Mobio Power Soil	PRJNA304352	SRR3098775			13,9
+Meziti2016	kal3-may	Quantitative	6,5	1,589	39,5886	20,1382	Estuary	Water	Illumina HiSeq 2500	Nextera XT library preparation kit	Mobio Power Soil	PRJNA304352	SRR3098756			20
+Kojima2025	ARD V2	Quantitative	7,94	0,015	29,576155	-91,540344	Estuary	Water	Illumina NextSeq 500	Kapa HyperPlus kit 	In house method	PRJNA1171802	SRR30952033			18,44
+Kojima2025	ARD V3	Quantitative	7,87	0,012	29,57616	-91,50344	Estuary	Water	Illumina NextSeq 500	Kapa HyperPlus kit	In house method	PRJNA1171802	SRR30952032			17,8
+Kojima2025	CJ V4	Quantitative	8,13	2,704	29,762131	-93,340714	Estuary	Water	Illumina NextSeq 500	Kapa HyperPlus kit	In house method	PRJNA1171802	SRR30952031			22,02
+Kojima2025	CJ V5	Quantitative	8,13	1,048	29,762131	-93,340714	Estuary	Water	Illumina NextSeq 500	Kapa HyperPlus kit	In house method	PRJNA1171802	SRR30952030			28,87
+Kojima2025	CJ V8	Quantitative	8,06	2,343	29,762131	-93,340714	Estuary	Water	Illumina NextSeq 500	Kapa HyperPlus kit	In house method	PRJNA1171802	SRR30952028			28,982
+Kojima2025	LKB V10	Quantitative	7,67	0,586	29,867989	-89,676029	Estuary	Water	Illumina NextSeq 500	Kapa HyperPlus kit	In house method	PRJNA1171802	SRR30952027			12,62
+Kojima2025	LKB V2	Quantitative	8,07	0,494	29,867989	-89,676029	Estuary	Water	Illumina NextSeq 500	Kapa HyperPlus kit	In house method	PRJNA1171802	SRR30952026			26,32
+Kojima2025	LKB V4	Quantitative	8,84	0,092	29,867989	-89,676029	Estuary	Water	Illumina NextSeq 500	Kapa HyperPlus kit	In house method	PRJNA1171802	SRR30952025			26,32
+Kojima2025	LKB V5	Quantitative	7,85	0,139	29,867989	-89,676029	Estuary	Water	Illumina NextSeq 500	Kapa HyperPlus kit	In house method	PRJNA1171802	SRR30952024			29,7
+Kojima2025	LKB V6	Quantitative	8,2	0,019	29,867989	-89,676029	Estuary	Water	Illumina NextSeq 500	Kapa HyperPlus kit	In house method	PRJNA1171802	SRR30952023			29,57
+Kojima2025	LKB V7	Quantitative	8,49	0,31	29,867989	-89,676029	Estuary	Water	Illumina NextSeq 500	Kapa HyperPlus kit	In house method	PRJNA1171802	SRR30952022			32,81
+Kojima2025	ARD V5	Quantitative	7,97	0,015	29,57616	-91,50344	Estuary	Water	Illumina NextSeq 500	Kapa HyperPlus kit	In house method	PRJNA1171802	SRR30952021			30,32
+Kojima2025	LKB V8	Quantitative	7,73	0,787	29,867989	-89,676029	Estuary	Water	Illumina NextSeq 500	Kapa HyperPlus kit	In house method	PRJNA1171802	SRR30952020			32,69
+Kojima2025	Tbon V10	Quantitative	7,78	0,323	29,243342	-90,660325	Estuary	Water	Illumina NextSeq 500	Kapa HyperPlus kit	In house method	PRJNA1171802	SRR30952019			19,45
+Kojima2025	Tbon V2	Quantitative	7,56	2,08	29,243342	-90,660325	Estuary	Water	Illumina NextSeq 500	Kapa HyperPlus kit	In house method	PRJNA1171802	SRR30952018			24,03
+Kojima2025	Tbon V4	Quantitative	7,74	0,449	29,243342	-90,660325	Estuary	Water	Illumina NextSeq 500	Kapa HyperPlus kit	In house method	PRJNA1171802	SRR30952017			29,12
+Kojima2025	Tbon V5	Quantitative	7,51	0,665	29,243342	-90,660325	Estuary	Water	Illumina NextSeq 500	Kapa HyperPlus kit	In house method	PRJNA1171802	SRR30952016			28,42
+Kojima2025	Tbon V6	Quantitative	7,62	0,829	29,243342	-90,660325	Estuary	Water	Illumina NextSeq 500	Kapa HyperPlus kit	In house method	PRJNA1171802	SRR30952015			28,89
+Kojima2025	Tbon V7	Quantitative	8,04	0,296	29,243342	-90,660325	Estuary	Water	Illumina NextSeq 500	Kapa HyperPlus kit	In house method	PRJNA1171802	SRR30952014			28,03
+Kojima2025	Tbon V8	Quantitative	7,99	1,248	29,243342	-90,660325	Estuary	Water	Illumina NextSeq 500	Kapa HyperPlus kit	In house method	PRJNA1171802	SRR30952013			11,25
+Kojima2025	ARD V6	Quantitative	8,07	0,201	29,57616	-91,50344	Estuary	Water	Illumina NextSeq 500	Kapa HyperPlus kit	In house method	PRJNA1171802	SRR30952012			32,69
+Kojima2025	ARD V7	Quantitative	8,4	0,019	29,57616	-91,50344	Estuary	Water	Illumina NextSeq 500	Kapa HyperPlus kit	In house method	PRJNA1171802	SRR30952011			31,2
+Kojima2025	ARD V8	Quantitative	8,11	0,037	29,57616	-91,50344	Estuary	Water	Illumina NextSeq 500	Kapa HyperPlus kit	In house method	PRJNA1171802	SRR30952010			25,71
+Kojima2025	ARD V9	Quantitative	8,03	0,026	29,57616	-91,50344	Estuary	Water	Illumina NextSeq 500	Kapa HyperPlus kit	In house method	PRJNA1171802	SRR30952009			17,84
+Kojima2025	CJ_V10	Quantitative	7,32	1,495	29,762131	-93,340714	Estuary	Water	Illumina NextSeq 500	Kapa HyperPlus kit	In house method	PRJNA1171802	SRR30952008			18,61
+Kojima2025	CJ V2	Quantitative	8,01	2,259	29,762131	-93,340714	Estuary	Water	Illumina NextSeq 500	Kapa HyperPlus kit	In house method	PRJNA1171802	SRR30952007			17,99
+Kojima2025	CJ_V3	Quantitative	8,26	1,577	29,762131	-93,340714	Estuary	Water	Illumina NextSeq 500	Kapa HyperPlus kit	In house method	PRJNA1171802	SRR30952006			15,24
+Seong2024	Oyster_8	Qualatative			36,50139	126,4585	Estuary	Water	Illumina HiSeq X Ten	TruSeq DNA Nano Kit	DNeasy PowerSoil kit	PRJNA1113386	SRR29090703			24,2
+Seong2024	Oyster_11	Qualatative			36,5018	126,46789	Estuary	Water	Illumina HiSeq X Ten	TruSeq DNA Nano Kit	DNeasy PowerSoil Kit	PRJNA1113386	SRR29090699			24,4
+Seong2024	Oyster_12	Qualatative			36,51175	126,47197	Estuary	Water	Illumina HiSeq X Ten	TruSeq DNA Nano Kit	DNeasy PowerSoil Kit	PRJNA1113386	SRR29090698			6,5
+Seong2024	Shrimp_4	Qualatative			36,88158	126,86369	Estuary	Water	Illumina HiSeq X Ten	TruSeq DNA Nano Kit	DNeasy PowerSoil kit	PRJNA1113386	SRR29090687			28,2
+Seong2024	Shrimp_8	Qualatative			36,90011	126,28575	Estuary	Water	Illumina HiSeq X Ten	TruSeq DNA Nano Kit	DNeasy PowerSoil kit	PRJNA1113386	SRR29090683			29,5
+Seong2024	Mussels_9	Qualatative			35,11389	128,60306	Estuary	Water	Illumina HiSeq X Ten	TruSeq DNA Nano Kit	DNeasy PowerSoil Kit	PRJNA1113386	SRR29090678			12,9
+Seong2024	Mussels_10	Qualatative			35,11889	128,60194	Estuary	Water	Illumina HiSeq X Ten	TruSeq DNA Nano Kit	DNeasy PowerSoil Kit	PRJNA1113386	SRR29090677			13,2
+Liu et al,2024	S01_Surface	Quantitative	7,9	0,064	31,3054	121,718	Estuary	Water	Illumina NovaSeq 6000	NovaSeq 6000 Reagent Kit	DNeasy PowerSoil Kit	PRJNA1081583	SRR28144606			32,15
+Liu et al,2024	S02_Surface	Quantitative	7,92	2,608	31,0816	122,3027	Estuary	Water	Illumina NovaSeq 6000	NovaSeq 6000 Reagent Kit	DNeasy PowerSoil Kit	PRJNA1081583	SRR28144605			28,97
+Liu et al,2024	S03_Surface	Quantitative	8,32	2,986	31,2781	122,883	Estuary	Water	Illumina NovaSeq 6000	NovaSeq 6000 Reagent Kit	DNeasy PowerSoil Kit	PRJNA1081583	SRR28144588			27,78
+Xiao2025	P01_Dec2019	Quantitative	7,67	2,51	35,69	139,78	Estuary	Water	Illumina HiSeq X	QIAseq FX DNA Library Kit	DNeasy Plant Mini Kit	PRJNA976879	SRR24742807			
+Xiao2025	P02_Dec2019	Quantitative	7,17	0,52	35,69	139,78	Estuary	Water	Illumina HiSeq X	QIAseq FX DNA Library Kit	DNeasy Plant Mini Kit	PRJNA976879	SRR24742789			16,2
+Wu24	PR5	Quantitative	7,93	1,562	22,4368333	113,7512833	Estuary	Water	Illumina HiSeq 2000		FastDNA SPIN Kit for Soil	PRJNA878949	SRR21518229			13,43
+Wu24	PR6	Quantitative	8,63	2,564	21,95165	113,7044833	Estuary	Water	Illumina HiSeq 2000		FastDNA SPIN Kit for Soil	PRJNA878949	SRR21518228			14,41
+Wu24	PR7	Quantitative	8	2,89	22,57053333	113,7174166	Estuary	Water	Illumina HiSeq 2000		FastDNA SPIN Kit for Soil	PRJNA878949	SRR21518227			29,67
+Hugerth2016	LMO_120521	Qualatative		0,65	56,93085	17,060667	Estuary	Water	Illumina HiSeq 2500		-	PRJNA273799	SRR2053308			8
+Yang2024	S6_3	Quantitative	8,04	1,506	78,92	12,04	Estuary	Water	Illumina HiSeq 2500	NEB Next Ultra DNA Library Prep Kit	DNA easy Power Water kit	PRJNA729603	SRR14527634	-	-	-
+Yang2024	S5_1	Quantitative	8,01	0,58	78,91	12,04	Estuary	Water	Illumina HiSeq 2500	NEB Next Ultra DNA Library Prep Kit	DNA easy Power Water kit	PRJNA729603	SRR14527631	-	-	-
+Yang2024	S5_2	Quantitative	8	0,516	78,91	12,04	Estuary	Water	Illumina HiSeq 2500	NEB Next Ultra DNA Library Prep Kit	DNA easy Power Water kit	PRJNA729603	SRR14527630	-	-	-
+Yang2024	S5_3	Quantitative	8,02	0,506	78,91	12,04	Estuary	Water	Illumina HiSeq 2500	NEB Next Ultra DNA Library Prep Kit	DNA easy Power Water kit	PRJNA729603	SRR14527629	-	-	-
+Yang2024	S6_1	Quantitative	8,06	1,521	78,92	12,04	Estuary	Water	Illumina HiSeq 2500	NEB Next Ultra DNA Library Prep Kit	DNA easy Power Water kit	PRJNA729603	SRR14527628	-	-	-
+Yang2024	S6_2	Quantitative	8,02	1,509	78,92	12,04	Estuary	Water	Illumina HiSeq 2500	NEB Next Ultra DNA Library Prep Kit	DNA easy Power Water kit	PRJNA729603	SRR14527627	-	-	-
+Tee21	FS3	Quantitative	7,2	0,85	-36,5505	174,665389	Estuary	Water	Illumina HiSeq 2500	TruSeq DNA Nano Kit	DNeasy PowerSoil Kit	PRJNA668816	SRR12825412	-	-	20,4
+Tee21	FS4	Quantitative	7,26	2	-36,547833	174,674333	Estuary	Water	Illumina HiSeq 2500	TruSeq DNA Nano Kit	DNeasy PowerSoil Kit	PRJNA668816	SRR12825410	-	-	20,7
+Tee21	FS5	Quantitative	7,42	2,4	-36,545	174,674139	Estuary	Water	Illumina HiSeq 2500	TruSeq DNA Nano Kit	DNeasy PowerSoil Kit	PRJNA668816	SRR12825409	-	-	-
+Tee21	FS6	Quantitative	7,37	2,12	-36,540917	174,678694	Estuary	Water	Illumina HiSeq 2500	TruSeq DNA Nano Kit	DNeasy PowerSoil Kit	PRJNA668816	SRR12825408	-	-	18,3
+Tee21	FS7	Quantitative	7,57	2,63	-36,541361	174,701806	Estuary	Water	Illumina HiSeq 2500	TruSeq DNA Nano Kit	DNeasy PowerSoil Kit	PRJNA668816	SRR12825407	-	-	20,3
+Cabello-Yeves2021	St301_5m	Quantitative	8,36	1,75	43,155517	28,005383	Estuary	Water	HiSeq X Ten	-	PCI	PRJNA638805	SRR12042686	-	-	22,04
+Cabello-Yeves2021	St307_5m	Quantitative	8,35	1,8	43,1696	29,001283	Estuary	Water	HiSeq X Ten	-	PCI	PRJNA638805	SRR12042685	-	-	8,69
+Cabello-Yeves2021	St307_30	Quantitative	8,28	1,83	43,169	29,001283	Estuary	Water	HiSeq X Ten	-	PCI	PRJNA638805	SRR12042684	-	-	17,62
+Cabello-Yeves2021	St307_150m	Quantitative	7,67	2,087	43,169	29,001283	Estuary	Water	HiSeq X Ten	-	PCI	PRJNA638805	SRR12042683	-	-	21,38
+Sunagawa2020	TARA_201	Quantitative	8,119	2,43	74,31	-85,708	Estuary	Water	Illumina HiSeq 2000		-	PRJEB9740	ERR3589558			
+Lopez-Garcia2023	GEN190320_L_EV_ALL_lib80451_1474_3				48,689722	1,91644	Freshwater	Water	Illumina HiSeq 2500			PRJNA756245	SRR15526474			
+Kadnikov2020	Borehole_5p	Quantitative	7,5	0,586	58,060226	82,826753	Groundwater	Water	Illumina HiSeq 2500	NEBNext® mRNA Library Prep Reagent		PRJNA414521	SRR6186653	0,373	79,429	19,8
+Singleton2025	MFD12060	Qualatative			55,3904	10,2646	Groundwater	Water	Illumina NovaSeq 6000		-	PRJNA1071982	SRR28062812			
+Singleton2025	MFD12081	Qualatative			56,1979	10,6767	Groundwater	Water	Illumina NovaSeq 6000		-	PRJNA1071982	SRR28062790			
+Singleton2025	MFD12009	Qualatative			55,3546	11,687	Groundwater	Water	Illumina NovaSeq 6000		-	PRJNA1071982	SRR28062667			
+Anantharaman2016	SRA_RIFOXYA2_FULL	Quantitative	7,46	0,04	39,52917	-107,77222	Groundwater	Water	Illumina HiSeq 2000		In house method	PRJNA288027	SRR2090165			
+Anantharaman2016	FP-101_pooled	Quantitative	7,31	0,04	39,53472	-107,7825	Groundwater	Water	Illumina HiSeq 2000		In house method	PRJNA288027	SRR2090160			
+Scheffer2021	JR_PW_13,1_metagenome	Quantitative	6,3	13,8	25,68	-89,89	Groundwater	Water	Illumina Miseq	Nextera XT library preparation kit	Mobio Power Soil	PRJNA752507	SRR15357916	8,5	19750	
+He2021	Pr1_gw	Quantitative	8,1	0,007	38,66837	-122,58818	Groundwater	Water	Illumina HiSeq 4000		DNeasy PowerSoil Kit	PRJNA640378	SRR12113409	0,0092	0,24	-
+He2021	Pr3_gw	Quantitative	8,2	0,00070191	38,70266	-122,51889	Groundwater	Water	Illumina HiSeq 4000		DNeasy PowerSoil Kit	PRJNA640378	SRR12113403	0,031	0,0143	-
+He2021	Pr4_gw	Quantitative	8	0,00169	38,69129	-122,54441	Groundwater	Water	Illumina HiSeq 4000		DNeasy PowerSoil Kit	PRJNA640378	SRR12113396	0,059	0,1	-
+Maryuma2024	Site3_Jan2022	Quantitative	7,4	0,0178	26,0997	127,6948	Groundwater	Water	Illumina MiSeq	Nextera XT library preparation kit	DNeasy Power Water Sterivex Kit	PRJDB15135	DRR437147	0,207	0,59	21,1
+Maryuma2024	Site3_Dec2021	Quantitative	7,25	0,0189	26,0997	127,6948	Groundwater	Water	Illumina MiSeq	Nextera XT library preparation kit	DNeasy Power Water Sterivex Kit	PRJDB15135	DRR437146	0,225	1,339	24,2
+Maryuma2024	Site3_nov2021	Quantitative	6,68	0,0422	26,0997	127,6948	Groundwater	Water	Illumina MiSeq	Nextera XT Library Preparation Ki	DNeasy Power Water Sterivex Kit	PRJDB15135	DRR437145	0,14	0,49	20,3
+Maryuma2024	Site2_Jan2022	Quantitative	7,03	0,0481	26,10552778	127,73075	Groundwater	Water	Illumina MiSeq	Nextera XT Library Preparation Ki	DNeasy Power Water Sterivex Kit	PRJDB15135	DRR437144	0,112	2,07	23,9
+Maryuma2024	Site2_Dec2021	Quantitative	6,88	0,0458	26,10552778	127,73075	Groundwater	Water	Illumina MiSeq	Nextera XT library preparation kit	DNeasy Power Water Sterivex Kit	PRJDB15135	DRR437143	0,107	2,118	24,4
+Maryuma2024	Site2_nov2021	Quantitative	6,8	0,0452	26,10552778	127,73075	Groundwater	Water	Illumina MiSeq	Nextera XT library preparation kit	DNeasy Power Water Sterivex Kit	PRJDB15135	DRR437142	0,104	2,07	24,1
+Maryuma2024	Site1_Jan2022	Quantitative	7,08	0,033	26,10191389	127,7333417	Groundwater	Water	Illumina MiSeq	Nextera XT library preparation kit	DNeasy Power Water Sterivex Kit	PRJDB15135	DRR437141	0,0716	1,51	23,6
+Maryuma2024	Site1_Dec2021	Quantitative	6,82	0,0353	26,10191389	127,7333417	Groundwater	Water	Illumina MiSeq	Nextera XT library preparation kit	DNeasy Power Water Sterivex Kit	PRJDB15135	DRR437140	0,066	1,54	23,6
+Maryuma2024	Site1_nov2021	Quantitative	7,66	0,0354	26,10191389	127,7333417	Groundwater	Water	Illumina MiSeq	Nextera XT library preparation kit	DNeasy Power Water Sterivex Kit	PRJDB15135	DRR437139	0,0639	1,37	23,4
+Chan2015	US80-3rd	Qualatative			3,99661	101,39308	Hot spring	Water	Illumina HiSeq 4000	Illumina Nextera DNA Sample	Metagenomic DNA Isolation Kit	PRJNA378813	SRR7039829			80
+Pedron2019	Hydra	Qualatative			46,04247	10,88286	Hot spring	Water	Illumina HiSeq 2500	Nextera XT library preparation kit	RapidWater DNA extraction kit	PRJNA414404	SRR6943130			
+Pedron2019	Comano Terme	Qualatative			46,04194	10,88603	Hot spring	Water	Illumina HiSeq 2500	Nextera XT library preparation kit	RapidWater DNA extraction kit	PRJNA414404	SRR6943129			
+Ugwuanyi2023	SMP_Wa	Quantitative	1	0,000486	40,82747	14,13942	Hot spring	Water	Illumina NovaSeq 6000	Accel-NGS 2S Plus DNA Library Kit	DNeasy PowerSoil kit	PRJNA889931	SRR22299281	-	-	42,5
+Ugwuanyi2023	SMP_Wb	Quantitative	1	0,000468	40,82747	14,13942	Hot spring	Water	Illumina NovaSeq 6000	Accel-NGS 2S Plus DNA Library Kit	DNeasy PowerSoil kit	PRJNA889931	SRR22299280	-	-	42,5
+Ugwuanyi2023	PLP_W	Quantitative	2,5	0,4878	40,82949	14,14728	Hot spring	Water	Illumina NovaSeq 6000	Accel-NGS 2S Plus DNA Library Kit	DNeasy PowerSoil kit	PRJNA889931	SRR22299279	-	-	84,1
+Lin2015	SHP	Quantitative	2,5	0,0887	25,19544	121,60245	Hot spring	Water	Illumina HiSeq 2000		Mega Soil DNA Isolation Kit,	PRJNA246126	SRR1297185	0,055	0,512	
+Paul2023	ESF170215	Qualatative			9,89901	-85,453514	Hot spring	Water	Illumina NextSeq 500	Nextera Flex	-	PRJNA627197	SRR11582174			28
+Paul2023	BR1F70218	Qualatative	6,3		10,898	-85,32	Hot spring	Water	Illumina NextSeq 500	Nextera Flex	-	PRJNA627197	SRR11582148			59
+Paul2023	CYF170214	Qualatative	6,3		10,287	-84,95	Hot spring	Water	Illumina NextSeq 500	Nextera Flex	-	PRJNA627197	SRR11582144			72
+Paul2023	BQF170218	Qualatative	2,1		10,81	-85,41	Hot spring	Water	Illumina NextSeq 500	Nextera Flex	-	PRJNA627197	SRR11582141			89
+Paul2023	EPF170215	Qualatative	9,9		9,901885	-85,454327	Hot spring	Water	Illumina NextSeq 500	Nextera Flex	-	PRJNA627197	SRR11582140			26
+Allioux2022	RB108	Quantitative	9,59	0,0045	-49,63508	68,78616	Hot spring	Water	Illumina NovaSeq		PCI	PRJEB46766	ERR6412196	0,607	29,109	101,3
+Allioux2022	RB32	Quantitative	5,79	0,0074	-49,62579	68,79895	Hot spring	Water	Illumina NovaSeq		PCI	PRJEB46766	ERR6412195	0,086	0,36	97
+Allioux2022	RB13	Quantitative	7,61	0,0082	-49,62556	68,79865	Hot spring	Water	Illumina NovaSeq		PCI	PRJEB46766	ERR6412194	0,22	0,909	93
+Allioux2022	RB10	Quantitative	8,7	0,1807	-49,62535	68,79869	Hot spring	Water	Illumina NovaSeq		PCI	PRJEB46766	ERR6412193	0,17	0,868	78,4
+Nishiyama2018	N2	Quantitative	2,8	0,06	31,91475	130,82969	Hot spring	Water	Illumina MiSeq	Nextera DNA Sample Prep kit	Rapid Water DNA Isolation kit	PRJDB7293	DRR163693	0,204	1,04	89,1
+Nishiyama2018	G1	Quantitative	2,9	0,12	31,93197	130,80064	Hot spring	Water	Illumina MiSeq	Nextera DNA Sample Prep kit	Rapid Water DNA Isolation kit	PRJDB7293	DRR163692	0,03938	0,046	88,5
+Nishiyama2018	T1	Quantitative	2,4	0,12	31,89778	130,82517	Hot spring	Water	Illumina MiSeq	Nextera DNA Sample Prep kit	Rapid Water DNA Isolation kit	PRJDB7293	DRR163691	0,0693	0,339	84
+Nishiyama2018	I1	Quantitative	2,9	0,14	31,89797	130,83856	Hot spring	Water	Illumina Genome Analyzer IIx	Nextera DNA Sample Prep kit	Rapid Water DNA Isolation kit	PRJDB7293	DRR163690	0,215	3,7	88
+Nishiyama2018	K2	Quantitative	1,9	0,35	31,91825	130,79775	Hot spring	Water	Illumina Genome Analyzer IIx	Nextera DNA Sample Prep kit	Rapid Water DNA Isolation kit	PRJDB7293	DRR163689	0,172	0,388	94,7
+Nishiyama2018	M1	Quantitative	8,8	0,18	31,95622	130,779	Hot spring	Water	Illumina MiSeq	Nextera DNA Sample Prep kit	Rapid Water DNA Isolation kit	PRJDB7293	DRR163688	0,5755	3,25	96,8
+Nishiyama2018	N1	Quantitative	6,9	0,02	31,91808	130,79817	Hot spring	Water	Illumina Genome Analyzer IIx	Nextera DNA Sample Prep kit	Rapid Water DNA Isolation kit	PRJDB7293	DRR163687	0,226	1,17	68
+Nishiyama2018	Y1	Quantitative	4,77	0,01	31,89236	130,82656	Hot spring	Water	Illumina Genome Analyzer IIx	Nextera DNA Sample Prep kit	Rapid Water DNA Isolation kit	PRJDB7293	DRR163686	0,0363	0,0339	90,4
+Nishiyama2018	K1	Quantitative	6,6	0,03	31,91719	130,79914	Hot spring	Water	Illumina Genome Analyzer IIx	Nextera DNA Sample Prep kit	Rapid Water DNA Isolation kit	PRJDB7293	DRR163685	0,015	0,149	84,5
+Rosaldo-Benitez2024	Mocu_DS	Quantitative	8,5	0,12	18,78	-90,5	Lake	Water	Illumina HiSeq 2500		Zymo Plant/Seed Miniprep kit.	PRJNA1162095	SRR30689436			32,5
+Rosaldo-Benitez2024	Mocu_CS	Quantitative	7,9	0,064	18,78	-90,5	Lake	Water	Illumina HiSeq 2500		Zymo Plant/Seed Miniprep kit.	PRJNA1162095	SRR30689435			31,8
+Rosaldo-Benitez2024	Mocu_CB	Quantitative	7,9	0,0662	18,78	-90,5	Lake	Water	Illumina HiSeq 2500		Zymo Plant/Seed Miniprep kit.	PRJNA1162095	SRR30689434			31,8
+Rosaldo-Benitez2024	XC_DS	Quantitative	8,3	0,0144	19,1	-89,29	Lake	Water	Illumina HiSeq 2500		Zymo Plant/Seed Miniprep kit.	PRJNA1162095	SRR30689433			29,5
+Rosaldo-Benitez2024	XC_BS	Quantitative	8,2	0,0116	19,1	-89,29	Lake	Water	Illumina HiSeq 2500		Zymo Plant/Seed Miniprep kit.	PRJNA1162095	SRR30689432			30,8
+Rosaldo-Benitez2024	SDS	Quantitative	7,5	0,012	18,64	-90,27	Lake	Water	Illumina HiSeq 2500		Zymo Plant/Seed Miniprep kit.	PRJNA1162095	SRR30689431			30,3
+Rosaldo-Benitez2024	SBS	Quantitative	7,3	0,0116	18,64	-90,27	Lake	Water	Illumina HiSeq 2500		Zymo Plant/Seed Miniprep kit.	PRJNA1162095	SRR30689430			29,8
+Rosaldo-Benitez2024	SCS	Quantitative	7,8	0,0114	18,64	-90,27	Lake	Water	Illumina HiSeq 2500		Zymo Plant/Seed Miniprep kit.	PRJNA1162095	SRR30689429			31,5
+Rosaldo-Benitez2024	SCB	Quantitative	7,8	0,0116	18,64	-90,27	Lake	Water	Illumina HiSeq 2500		Zymo Plant/Seed Miniprep kit.	PRJNA1162095	SRR30689428			30,5
+Zepernick24	LV_1	Quantitative	7,1	0,007	-0,1961	34,38861	Lake	Water	Illumina NovaSeq X	Nextera XT library preparation kit	Acid  PCI	PRJNA1119566	SRR29270208	-	-	25,5
+Zepernick24	LV_11	Quantitative	7,4	0,006	-0,5216	34,45703	Lake	Water	Illumina NovaSeq X	Nextera XT library preparation kit	Acid  PCI	PRJNA1119566	SRR29270206	-	-	26,5
+Zepernick24	LV_13	Quantitative	7,7	0,007	-0,4525	34,41326	Lake	Water	Illumina NovaSeq X	Nextera XT library preparation kit	Acid  PCI	PRJNA1119566	SRR29270204	-	-	25,5
+Zepernick24	LV_3	Quantitative	7,1	0,007	-0,2331	34,49639	Lake	Water	Illumina NovaSeq X	Nextera XT library preparation kit	Acid  PCI	PRJNA1119566	SRR29270196	-	-	24,8
+Zepernick24	LV_21	Quantitative	7,4	0,005	-0,42	34,20583	Lake	Water	Illumina NovaSeq X	Nextera XT library preparation kit	Acid  PCI	PRJNA1119566	SRR29270195	-	-	25,6
+Zepernick24	LV_23	Quantitative	6,7	0,008	-0,1041	34,74074	Lake	Water	Illumina NovaSeq X	standard Illumina library prep	DNA easy Power Water kit	PRJNA1119566	SRR29270193	-	-	26,84
+Zepernick24	LV_25	Quantitative	8,5	0,004	-0,3185	34,75242	Lake	Water	Illumina NovaSeq X	standard Illumina library prep	DNA easy Power Water kit	PRJNA1119566	SRR29270191	-	-	26,56
+Zepernick24	LV_26	Quantitative	8,1	0,004	-0,2572	34,70315	Lake	Water	Illumina NovaSeq X	standard Illumina library prep	DNA easy Power Water kit	PRJNA1119566	SRR29270190	-	-	26,09
+Zepernick24	LV_27	Quantitative	7,1	0,005	-0,3471	34,69945	Lake	Water	Illumina NovaSeq X	standard Illumina library prep	DNA easy Power Water kit	PRJNA1119566	SRR29270189	-	-	29,7
+Zepernick24	LV_28	Quantitative	7,7	0,005	-0,3144	34,56518	Lake	Water	Illumina NovaSeq X	standard Illumina library prep	DNA easy Power Water kit	PRJNA1119566	SRR29270188	-	-	28,7
+Zepernick24	LV_29	Quantitative	8,7	0,005	-0,3505	34,45655	Lake	Water	Illumina NovaSeq X	standard Illumina library prep	DNA easy Power Water kit	PRJNA1119566	SRR29270187	-	-	28,4
+Zepernick24	LV_30	Quantitative	7,3	0,005	-0,44	34,4736	Lake	Water	Illumina NovaSeq X	Nextera XT library preparation kit	Acid  PCI	PRJNA1119566	SRR29270186	-	-	27,8
+Zepernick24	LV_31	Quantitative	8,7	0,004	-0,4731	34,49207	Lake	Water	Illumina NovaSeq X	standard Illumina library prep	DNA easy Power Water kit	PRJNA1119566	SRR29270184	-	-	26,32
+Zepernick24	LV_32	Quantitative	8,6	0,005	-0,49294	34,634	Lake	Water	Illumina NovaSeq X	standard Illumina library prep	DNA easy Power Water kit	PRJNA1119566	SRR29270183	-	-	26,32
+Zepernick24	LV_33	Quantitative	8,6	0,005	-0,4779	34,3553	Lake	Water	Illumina NovaSeq X	standard Illumina library prep	DNA easy Power Water kit	PRJNA1119566	SRR29270182	-	-	26,32
+Zepernick24	LV_34	Quantitative	7,4	0,005	-0,4155	34,20972	Lake	Water	Illumina NovaSeq X	standard Illumina library prep	DNA easy Power Water kit	PRJNA1119566	SRR29270181	-	-	26,48
+Zepernick24	LV_35	Quantitative	8,3	0,005	-0,4233	34,19795	Lake	Water	Illumina NovaSeq X	standard Illumina library prep	DNA easy Power Water kit	PRJNA1119566	SRR29270180	-	-	25,26
+Zepernick24	LV_36	Quantitative	7,8	0,004	-0,4055	34,10967	Lake	Water	Illumina NovaSeq X	standard Illumina library prep	DNA easy Power Water kit	PRJNA1119566	SRR29270179	-	-	26,1
+Zepernick24	LV_38	Quantitative	7,8	0,004	-0,0623	34,03812	Lake	Water	Illumina NovaSeq X	standard Illumina library prep	DNA easy Power Water kit	PRJNA1119566	SRR29270177	-	-	27,9
+Zepernick24	LV_39	Quantitative	7,5	0,004	-0,341	34,2403	Lake	Water	Illumina NovaSeq X	standard Illumina library prep	DNA easy Power Water kit	PRJNA1119566	SRR29270176	-	-	26,2
+Zepernick24	LV_5	Quantitative	7,6	0,007	-0,2466	34,60327	Lake	Water	Illumina NovaSeq X	Nextera XT library preparation kit	Acid  PCI	PRJNA1119566	SRR29270174	-	-	-
+Zepernick24	LV_7	Quantitative	7,4	0,005	-0,4155	32,20972	Lake	Water	Illumina NovaSeq X	Nextera XT Library Preparation Ki	Acid  PCI	PRJNA1119566	SRR29270164	-	-	25,5
+Zepernick24	LV_9	Quantitative	7,4	0,005	-0,4155	32,20972	Lake	Water	Illumina NovaSeq X	Nextera XT library preparation kit	Acid  PCI	PRJNA1119566	SRR29270162	-	-	25,5
+Kim24	Jan2019_1	Quantitative	6,8	0,005	37,95176	127,81562	Lake	Water	Illumina MiSeq	TruSeq DNA library	DNeasy Blood & Tissue Kit	PRJNA1087105	SRR28327211	-	-	6,1
+Kim24	Jul2019_1	Quantitative	8,9	0,004	37,95176	127,81562	Lake	Water	Illumina MiSeq	TruSeq DNA library	DNeasy Blood & Tissue Kit	PRJNA1087105	SRR28327209	-	-	29,1
+Kim24	Jul2019_90	Quantitative	7	0,004	37,95176	127,81562	Lake	Water	Illumina MiSeq	TruSeq DNA library	DNeasy Blood & Tissue Kit	PRJNA1087105	SRR28327206	-	-	5,7
+Kim24	Jul2019_40	Quantitative	7,5	0,004	37,95176	127,81562	Lake	Water	Illumina MiSeq	TruSeq DNA library	DNeasy Blood & Tissue Kit	PRJNA1087105	SRR28327205	-	-	7,5
+Kim24	Nov2019_1	Quantitative	6,7	0,003	37,95176	127,81562	Lake	Water	Illumina MiSeq	TruSeq DNA library	DNeasy Blood & Tissue Kit	PRJNA1087105	SRR28327204	-	-	14,3
+Kim24	Nov2019_40	Quantitative	6,5	0,003	37,95176	127,81562	Lake	Water	Illumina MiSeq	TruSeq DNA library	DNeasy Blood & Tissue Kit	PRJNA1087105	SRR28327201	-	-	11,6
+Kim24	Nov2019_90	Quantitative	6,8	0,003	37,95176	127,81562	Lake	Water	Illumina MiSeq	TruSeq DNA library	DNeasy Blood & Tissue Kit	PRJNA1087105	SRR28327200	-	-	5,1
+Kim24	Jan2019_90	Quantitative	6,8	0,008	37,95176	127,81562	Lake	Water	Illumina MiSeq	TruSeq DNA library	DNeasy Blood & Tissue Kit	PRJNA1087105	SRR28327197	-	-	4,8
+Kim24	April2019_1	Quantitative	7,4	0,005	37,95176	127,81562	Lake	Water	Illumina MiSeq	TruSeq DNA library	DNeasy Blood & Tissue Kit	PRJNA1087105	SRR28327196	-	-	12,4
+Kim24	April2019_40	Quantitative	7,4	0,005	37,95176	127,81562	Lake	Water	Illumina MiSeq	TruSeq DNA library	DNeasy Blood & Tissue Kit	PRJNA1087105	SRR28327193	-	-	5,6
+Kim24	April2019_90	Quantitative	7,2	0,005	37,95176	127,81562	Lake	Water	Illumina MiSeq	TruSeq DNA library	DNeasy Blood & Tissue Kit	PRJNA1087105	SRR28327192	-	-	5,2
+Sanseverino2022	04_Okt_2017Secchi	Quantitative	7,3	0,0136	45,8126	8,7401	Lake	Water	Illumina HiSeq 4000	Nextera XT Library Preparation Ki	DNeasy Blood & Tissue Kit	PRJNA694367	SRR13516754	-	-	10,8
+Sanseverino2022	04_Okt_2017Epi	Quantitative	8,9	0,0091	45,8126	8,7401	Lake	Water	Illumina HiSeq 4000	Nextera XT library preparation kit	DNeasy Blood & Tissue Kit	PRJNA694367	SRR13516753	-	-	19,5
+Sanseverino2022	02_Aug_2017Meso	Quantitative	7,5	0,0109	45,8126	8,7401	Lake	Water	Illumina HiSeq 4000	Nextera XT library preparation kit	DNeasy Blood & Tissue Kit	PRJNA694367	SRR13516752	-	-	9,5
+Sanseverino2022	31_Aug_2016Meso	Quantitative	7,1	0,0151	45,8126	8,7401	Lake	Water	Illumina HiSeq 4000	Nextera XT Library Preparation Ki	DNeasy Blood & Tissue Kit	PRJNA694367	SRR13516746	-	-	9,3
+Sanseverino2022	31_Aug_2016Epi	Quantitative	8,5	0,0117	45,8126	8,7401	Lake	Water	Illumina HiSeq 4000	Nextera XT library preparation kit	DNeasy Blood & Tissue Kit	PRJNA694367	SRR13516745	-	-	25
+Sanseverino2022	21_Sep_2016Secchi	Quantitative	7,3	0,0151	45,8126	8,7401	Lake	Water	Illumina HiSeq 4000	Nextera XT library preparation kit	DNeasy Blood & Tissue Kit	PRJNA694367	SRR13516744	-	-	15,8
+Sanseverino2022	21_Sep_2016Epi	Quantitative	8,3	0,012	45,8126	8,7401	Lake	Water	Illumina HiSeq 4000	Nextera XT library preparation kit	DNeasy Blood & Tissue Kit	PRJNA694367	SRR13516743	-	-	22
+Sanseverino2022	27_Sep_2017Secchi	Quantitative	7,3	0,0132	45,8126	8,7401	Lake	Water	Illumina HiSeq 4000	Nextera XT library preparation kit	DNeasy Blood & Tissue Kit	PRJNA694367	SRR13516742	-	-	15,3
+Sanseverino2022	14_Sep_2016Epi	Quantitative	8,4	0,118	45,8126	8,7401	Lake	Water	Illumina HiSeq 4000	Nextera XT Library Preparation Ki	DNeasy Blood & Tissue Kit	PRJNA694367	SRR13516740	-	-	25,2
+Sanseverino2022	07_Sep_2016Secchi	Quantitative	7,5	0,0148	45,8126	8,7401	Lake	Water	Illumina HiSeq 4000	Nextera XT library preparation kit	DNeasy Blood & Tissue Kit	PRJNA694367	SRR13516739	-	-	15
+Sanseverino2022	07_Sep_2016Epi	Quantitative	8,5	0,0117	45,8126	8,7401	Lake	Water	Illumina HiSeq 4000	Nextera XT library preparation kit	DNeasy Blood & Tissue Kit	PRJNA694367	SRR13516738	-	-	24,8
+Sanseverino2022	27_Sep_2017Epi	Quantitative	8,6	0,0091	45,8126	8,7401	Lake	Water	Illumina HiSeq 4000	Nextera XT Library Preparation Ki	DNeasy Blood & Tissue Kit	PRJNA694367	SRR13516737	-	-	19,9
+Sanseverino2022	30_Aug_2017Secchi	Quantitative	6,3	0,0132	45,8126	8,7401	Lake	Water	Illumina HiSeq 4000	Nextera XT library preparation kit	DNeasy Blood & Tissue Kit	PRJNA694367	SRR13516736	-	-	23,9
+Sanseverino2022	30_Aug_2017Epi	Quantitative	7,7	0,0091	45,8126	8,7401	Lake	Water	Illumina HiSeq 4000	Nextera XT library preparation kit	DNeasy Blood & Tissue Kit	PRJNA694367	SRR13516735	-	-	26,1
+Sanseverino2022	23_Aug_2017Secchi	Quantitative	8,5	0,101	45,8126	8,7401	Lake	Water	Illumina HiSeq 4000	Nextera XT library preparation kit	DNeasy Blood & Tissue Kit	PRJNA694367	SRR13516734	-	-	24,3
+Sanseverino2022	23_Aug_2017Epi	Quantitative	9,1	0,0095	45,8126	8,7401	Lake	Water	Illumina HiSeq 4000	Nextera XT library preparation kit	DNeasy Blood & Tissue Kit	PRJNA694367	SRR13516733	-	-	25,1
+Sanseverino2022	09_Aug_2017Meso	Quantitative	7,2	0,0148	45,8126	8,7401	Lake	Water	Illumina HiSeq 4000	Nextera XT library preparation kit	DNeasy Blood & Tissue Kit	PRJNA694367	SRR13516732	-	-	8,7
+Sanseverino2022	09_Aug_2017Epi	Quantitative	8,7	0,01	45,8126	8,7401	Lake	Water	Illumina HiSeq 4000	Nextera XT library preparation kit	DNeasy Blood & Tissue Kit	PRJNA694367	SRR13516731	-	-	25,6
+Paul2023	PGF172224	Qualatative	9,7		10,18	-84,227	Lake	Water	Illumina NextSeq 500	Nextera Flex	-	PRJNA627197	SRR11582169			
+Rogrigeuz-Gijon2023	Sample_105_S5	Qualatative			59,32297508	17,89074006	Lake	Water	Illumina NovaSeq 6000	SMARTer Thruplex library preparation	FastDNA® SPIN Kit for Soil		ERR9973206			
+Rogrigeuz-Gijon2023	Sample_111_S82	Qualatative			59,32297508	17,89074006	Lake	Water	Illumina NovaSeq 6000	SMARTer Thruplex library preparation	DNA easy Power Water kit		ERR9973201			
+Rogrigeuz-Gijon2023	Sample_110_S81	Qualatative			59,3264203	17,90658423	Lake	Water	Illumina NovaSeq 6000	SMARTer Thruplex library preparation	DNA easy Power Water kit		ERR9973200			
+Rogrigeuz-Gijon2023	Sample_107_S80	Qualatative			59,84590854	17,88753177	Lake	Water	Illumina NovaSeq 6000	SMARTer Thruplex library preparation	DNA easy Power Water kit		ERR9973199			
+Rogrigeuz-Gijon2023	Sample_105_S79	Qualatative			59,8495	18,5641459	Lake	Water	Illumina NovaSeq 6000	SMARTer Thruplex library preparation	DNA easy Power Water kit		ERR9973198			
+Rogrigeuz-Gijon2023	Sample_104_S78	Qualatative			59,7408505	17,61029	Lake	Water	Illumina NovaSeq 6000	SMARTer Thruplex library preparation	DNA easy Power Water kit		ERR9973197			
+Rogrigeuz-Gijon2023	Sample_103_S77	Qualatative			59,48262577	17,93470477	Lake	Water	Illumina NovaSeq 6000	SMARTer Thruplex library preparation	DNA easy Power Water kit		ERR9973196			
+Rogrigeuz-Gijon2023	Sample_102_S76	Qualatative			59,4921894	18,02688	Lake	Water	Illumina NovaSeq 6000	SMARTer Thruplex library preparation	DNA easy Power Water kit		ERR9973195			
+Rogrigeuz-Gijon2023	Sample_101_S75	Qualatative			59,724132	18,72842	Lake	Water	Illumina NovaSeq 6000	SMARTer Thruplex library preparation	DNA easy Power Water kit		ERR9973194			
+Kim24	Jan2015_50	Quantitative	6,9	0,004	37,947389	127,818861	Lake	Water	Illumina HiSeq 2500	TruSeq DNA library	DNeasy Blood & Tissue Kit	PRJEB27578	ERR2681676	-	-	5,4
+Kim24	Jan2015_1	Quantitative	6,9	0,004	37,947389	127,818861	Lake	Water	Illumina HiSeq 2500	TruSeq DNA library	DNeasy Blood & Tissue Kit	PRJEB27578 	ERR2681675	-	-	5,6
+Kim24	Oct2014_50	Quantitative	6,7	0,004	37,947389	127,818861	Lake	Water	Illumina HiSeq 2500	TruSeq DNA library	DNeasy Blood & Tissue Kit	PRJEB27578	ERR2681674	-	-	7,3
+Kim24	Oct2014_1	Quantitative	7,1	0,0013	37,947389	127,818861	Lake	Water	Illumina HiSeq 2500	TruSeq DNA library	DNeasy Blood & Tissue Kit	PRJEB27578	ERR2681673	-	-	19,5
+Kim24	Jul2015_1	Quantitative	8,4	0,003	37,947389	127,818861	Lake	Water	Illumina HiSeq 2500	TruSeq DNA library	DNeasy Blood & Tissue Kit	PRJEB27578	ERR2681671	-	-	26,5
+Kim24	April2014_1	Quantitative	7,9	0,003	37,947389	127,818861	Lake	Water	Illumina HiSeq 2500	TruSeq DNA library	DNeasy Blood & Tissue Kit	PRJEB27578	ERR2681669	-	-	12,3
+Shah2024	EULd_A251SC	Qualatative			46,965417	10,9448	Lake 	Water	Illumina HiSeq 4000		myBudgetDN	PRJNA1052970	SRR27216472			
+Shah2024	EULd_S191UT	Qualatative			41,497325	0,512892	Lake 	Water	Illumina HiSeq 4000		myBudgetDN	PRJNA1052970	SRR27216460			
+Shah2024	EULs_O121RA	Qualatative			45,358317	22,876117	Lake 	Water	Illumina HiSeq 4000		myBudgetDN	PRJNA1052970	SRR27216455			
+Shah2024	EULs_O241PL	Qualatative			46,933567	18,1176	Lake 	Water	Illumina HiSeq 4000		myBudgetDN	PRJNA1052970	SRR27216453			
+Shah2024	EULs_O251KR	Qualatative			47,238072	4,631361	Lake 	Water	Illumina HiSeq 4000		myBudgetDN	PRJNA1052970	SRR27216452			
+Shah2024	EULs_S022PA	Qualatative			44,906383	3,792808	Lake 	Water	Illumina HiSeq 4000		myBudgetDN	PRJNA1052970	SRR27216451			
+Rogrigeuz-Gijon2023	Sample_109_S9	Qualatative			59,3264203	17,90658423	Lake 	Water	Illumina NovaSeq 6000	SMARTer Thruplex library preparation	FastDNA® SPIN Kit for Soil		ERR9973210			
+Rogrigeuz-Gijon2023	Sample_106_S6	Qualatative			60,04186611	17,56679391	Lake 	Water	Illumina NovaSeq 6000	Nextera XT Library Preparation Ki	FastDNA® SPIN Kit for Soil		ERR9973207			
+Courtine2026	CIM_AE_DC	Qualatative			45,495395	2,8881415	Lake 	Water	Illumina NovaSeq 6000			PRJEB61527	ERR15302197			
+Lopez-Garcia2023	GEN190320_L_Med_S_vir_lib80453_1474_3				38,068511	-0,231994	Ocean	Water	Illumina HiSeq 2500			PRJNA756245	SRR15526463			
+Blaustein2025	W6	Quantitative	7,15	0,009	38,92	-76,14	Pond	Water	Illumina NextSeq 1000			PRJNA1062331	SRR33648781			23,743
+Huang2024	MAP5-4A	Qualatative			-33,42857	-70,839769	Pond	Water	Illumina NextSeq 2000	Illumina DNA Prep kit	Illumina DNA Prep kit	PRJNA1008708 	SRR24999996			
+Rhalf2023	Rain_07-09022020_0,2µm	Qualatative			58,8765692	11,1463651	Rain	Water	Illumina HiSeq X	Illumina DNA Prep with Enrichment Reference Guide	DNeasy PowerSoil Pro Kit	PRJNA811790	SRR18243874			
+Rhalf2023	Rain_16_22022020_pooled_0,2µm	Qualatative			58,8765692	11,1463651	Rain	Water	Illumina HiSeq X	Illumina DNA Prep with Enrichment Reference Guide	DNeasy PowerSoil Pro Kit	PRJNA811790	SRR18243862			
+Tavares_Martins2025	LIT1_A	Quantitative	6,59	0,0046	-5,402505	-49,1335617	River	Water	Illumina NovaSeq 6000	Nextera XT library preparation kit	DNeasy PowerSoil Pro Kit 	PRJNA1122411	SRR30951357	-	-	-
+Tavares_Martins2025	LIT1_B	Quantitative	6,96	0,0046	-5,402505	-49,1335617	River	Water	Illumina NovaSeq 6000	Nextera XT library preparation kit	DNeasy PowerSoil Pro Kit 	PRJNA1122411	SRR30951356	-	-	-
+Tavares_Martins2025	LIT4_B	Quantitative	6,99	0,0047	-5,3568683	-49,1221817	River	Water	Illumina NovaSeq 6000	Nextera XT library preparation kit	DNeasy PowerSoil Pro Kit 	PRJNA1122411	SRR30951355	-	-	-
+Tavares_Martins2025	LIT4_C	Quantitative	6,9	0,0046	-5,3568683	-49,1221817	River	Water	Illumina NovaSeq 6000	Nextera XT library preparation kit	DNeasy PowerSoil Pro Kit 	PRJNA1122411	SRR30951354	-	-	-
+Tavares_Martins2025	LIT1_C	Quantitative	7,05	0,0046	-5,402505	-49,1335617	River	Water	Illumina NovaSeq 6000	Nextera XT library preparation kit	DNeasy PowerSoil Pro Kit 	PRJNA1122411	SRR30951353	-	-	-
+Tavares_Martins2025	LIT2_A	Quantitative	6,84	0,0046	-5,3660059	-49,0935374	River	Water	Illumina NovaSeq 6000	Nextera XT Library Preparation Ki	DNeasy PowerSoil Pro Kit 	PRJNA1122411	SRR30951352	-	-	-
+Tavares_Martins2025	LIT2_B	Quantitative	6,83	0,0047	-5,3660059	-49,0935374	River	Water	Illumina NovaSeq 6000	Nextera XT library preparation kit	DNeasy PowerSoil Pro Kit 	PRJNA1122411	SRR30951351	-	-	-
+Tavares_Martins2025	LIT2_C	Quantitative	6,85	0,0048	-5,3660059	-49,0935374	River	Water	Illumina NovaSeq 6000	Nextera XT library preparation kit	DNeasy PowerSoil Pro Kit 	PRJNA1122411	SRR30951350	-	-	-
+Tavares_Martins2025	LIT3_A	Quantitative	7,49	0,0046	-5,3568683	-49,1221817	River	Water	Illumina NovaSeq 6000	Nextera XT library preparation kit	DNeasy PowerSoil Pro Kit 	PRJNA1122411	SRR30951349	-	-	-
+Tavares_Martins2025	LIT3_B	Quantitative	7,35	0,0048	-5,3568683	-49,1221817	River	Water	Illumina NovaSeq 6000	Nextera XT library preparation kit	DNeasy PowerSoil Pro Kit 	PRJNA1122411	SRR30951348	-	-	-
+Tavares_Martins2025	LIT3_C	Quantitative	6,98	0,0047	-5,3568683	-49,1221817	River	Water	Illumina NovaSeq 6000	Nextera XT Library Preparation Ki	DNeasy PowerSoil Pro Kit 	PRJNA1122411	SRR30951347	-	-	-
+Tavares_Martins2025	LIT4_A	Quantitative	7,52	0,0029	-5,3568683	-49,1221817	River	Water	Illumina NovaSeq 6000	Nextera XT library preparation kit	DNeasy PowerSoil Pro Kit 	PRJNA1122411	SRR30951346	-	-	-
+Huang2024	W285	Qualatative			-22,251784	-42,777735	River	Water	Illumina NextSeq 2000	Illumina DNA Prep kit	Illumina DNA Prep kit	PRJNA1008708 	SRR26947826			
+Huang2024	W245	Qualatative			-22,299031	-43,453917	River	Water	Illumina NextSeq 2000	Illumina DNA Prep kit	Illumina DNA Prep kit	PRJNA1008708 	SRR26947786			
+Huang2024	P22	Qualatative			-6,858056	-35,367778	River	Water	Illumina NextSeq 2000	Illumina DNA Prep kit	Illumina DNA Prep kit	PRJNA1006745	SRR25694627			
+Huang2024	1C103	Qualatative			-6,982722	-38,453417	River	Water	Illumina NextSeq 2000	Illumina DNA Prep kit	Illumina DNA Prep kit	PRJNA1006745	SRR25694619			
+Huang2024	5C23	Qualatative			-6,86275	-35,358889	River	Water	Illumina NextSeq 2000	Illumina DNA Prep kit	Illumina DNA Prep kit	PRJNA1006745	SRR25694567			
+Huang2024	1C53	Qualatative			-7,444333	-35,558889	River	Water	Illumina NextSeq 2000	Illumina DNA Prep kit	Illumina DNA Prep kit	PRJNA1006745	SRR25694550			
+Huang2024	MAP12-119M	Qualatative			-33,684462	-70,983488	River	Water	Illumina NextSeq 2000	Illumina DNA Prep kit	Illumina DNA Prep kit	PRJNA986566 	SRR25000042			
+Huang2024	MAP7-45G	Qualatative			-33,684725	-70,983374	River	Water	Illumina NextSeq 2000	Illumina DNA Prep kit	Illumina DNA Prep kit	PRJNA986566 	SRR24999989			
+Huang2024	MAP8-48H	Qualatative			-33,417785	-70,60916	River	Water	Illumina NextSeq 2000	Illumina DNA Prep kit	Illumina DNA Prep kit	PRJNA986566 	SRR24999986			
+Xiao2025	P05_Dec2019	Quantitative	7,22	0,02	35,71	139,72	River	Water	Illumina HiSeq X	QIAseq FX DNA Library Kit	DNeasy Plant Mini Kit	PRJNA976879	SRR24742824			15,6
+Xiao2025	P06_Dec2019	Quantitative	7,11	0,02	35,71	139,72	River	Water	Illumina HiSeq X	QIAseq FX DNA Library Kit	DNeasy Plant Mini Kit	PRJNA976879	SRR24742820			16
+Xiao2025	P10_Dec2019	Quantitative	7,99	0,01	35,71	139,69	River	Water	Illumina HiSeq X	QIAseq FX DNA Library Kit	DNeasy Plant Mini Kit	PRJNA976879	SRR24742816			12,5
+Xiao2025	P09_Dec2019	Quantitative	7,9	0,01	35,71	139,69	River	Water	Illumina HiSeq X	QIAseq FX DNA Library Kit	DNeasy Plant Mini Kit	PRJNA976879	SRR24742811			11,5
+Xiao2025	P03_Dec2019	Quantitative	7,07	0,25	35,7	139,75	River	Water	Illumina HiSeq X	QIAseq FX DNA Library Kit	DNeasy Plant Mini Kit	PRJNA976879	SRR24742803			15,1
+Xiao2025	P07_Dec2019	Quantitative	8,13	0,01	35,71	139,71	River	Water	Illumina HiSeq X	QIAseq FX DNA Library Kit	DNeasy Plant Mini Kit	PRJNA976879	SRR24742798			16,5
+Xiao2025	P08_Dec2019	Quantitative	8,18	0,01	35,71	139,7	River	Water	Illumina HiSeq X	QIAseq FX DNA Library Kit	DNeasy Plant Mini Kit	PRJNA976879	SRR24742794			11,7
+Xiao2025	P04_Dec2019	Quantitative	7,03	0,25	35,7	139,75	River	Water	Illumina HiSeq X	QIAseq FX DNA Library Kit	DNeasy Plant Mini Kit	PRJNA976879	SRR24742790			15
+Xiao2025	P11_Dec2019	Quantitative	7,87	0,01	35,71	139,69	River	Water	Illumina HiSeq X	QIAseq FX DNA Library Kit	DNeasy Plant Mini Kit	PRJNA976879	SRR24742782			11,6
+Rodrigeuz-Ramos2023	erpe_2018_sw_12hr_WHONDRS-SW48-000089	Qualatative			52,476416	13,62571	River	Water	Illumina NovaSeq 6000	TruSeq DNA Nano Kit	MP FastDNA™ SPIN kit	PRJNA946291 	SRR24011147			
+Wu24	PR1	Quantitative	7,48	0,012	23,2189	112,8068333	River	Water	Illumina HiSeq 2000		FastDNA SPIN Kit for Soil	PRJNA878949	SRR21518234			17,63
+Wu24	PR2	Quantitative	7,53	0,013	23,16115	112,8251	River	Water	Illumina HiSeq 2000		FastDNA SPIN Kit for Soil	PRJNA878949	SRR21518233			29,57
+Wu24	PR3	Quantitative	7,25	0,017	22,87745	113,5708166	River	Water	Illumina HiSeq 2000		FastDNA SPIN Kit for Soil	PRJNA878949	SRR21518231			16,45
+Wu24	PR4	Quantitative	7,16	0,036	23,05466666	113,1600833	River	Water	Illumina HiSeq 2000		FastDNA SPIN Kit for Soil	PRJNA878949	SRR21518230			17,63
+Tee21	FS1	Quantitative	7,29	0,032	-36,550667	174,65225	River	Water	Illumina HiSeq 2500	TruSeq DNA Nano Kit	DNeasy PowerSoil Kit	PRJNA668816	SRR12825414	-	-	20,8
+Tee21	FS2	Quantitative	7,25	0,03	-36,55122	174,662444	River	Water	Illumina HiSeq 2500	TruSeq DNA Nano Kit	DNeasy PowerSoil Kit	PRJNA668816	SRR12825413	-	-	18,4
+Xamxidin2025	W_1	Quantitative	8,18	15,4	43,61	92,79	Salt lake	Water	Illumina HiSeq 2500	-	ALFA-SEQ Advanced Water DNA Kit	PRJNA1200918 	SRR31818012	-	-	29,9
+Xamxidin2025	W_4	Quantitative	8,02	20,2	43,62	92,78	Salt lake	Water	Illumina HiSeq 2500	-	ALFA-SEQ Advanced Water DNA Kit	PRJNA1200918 	SRR31818011	-	-	21,6
+Xamxidin2025	W_8	Quantitative	8,11	15,9	43,67	92,81	Salt lake	Water	Illumina HiSeq 2500	-	ALFA-SEQ Advanced Water DNA Kit	PRJNA1200918 	SRR31818010	-	-	19,7
+Veloso2023	SAW1_Illumina	Quantitative	6,5	0,35	-21,497972	-68,257028	Salt lake	Water	Illumina NovaSeq 6000	Truseq DNA PCR Free library Kit	DNeasy PowerSoil kit	PRJNA1023877	SRR26473344	-	-	16
+Rodrigeuz-Cruz2024	C1M08	Qualatative			26,82825	-102,02464	Salt lake	Water	Illumina Miseq		MP FastDNA™ SPIN kit	PRJNA487362	SRR21542053			
+Sierra2022	Lake Hillier	Quantitative	7,4	28	-34,095	123,2028	Salt lake	Water	Illumina HiSeq 2500	Nextera XT library preparation kit	E.Z.N.A Mollusc DNA Kit	PRJNA865792	SRR21053863	-	-	
+Kheiri2023	Pooled	Quantitative	8,925	25,37	34,78243195	45,30924322	Salt lake	Water	Illumina NovaSeq 6000		Qiagen DNeasy (Qiagen).	PRJNA825141 	SRR19434976	102,3	4,02	-
+Viver_x	Tuz Lake 2	Qualatative		-	38,75375	33,28336	Salt lake	Water	Illumina NextSeq 500	Nextera Flex	In house method	PRJEB45291	ERR14693528			
+Viver_x	Tuz Lake 1	Qualatative		33	38,75375	33,28336	Salt lake	Water	Illumina NextSeq 500	Nextera Flex	In house method	PRJEB45291	ERR14693527			
+Viver_x	Sebkha Ezzemoul	Qualatative		30	35,88694	6,51389	Salt lake	Water	Illumina NextSeq 500	Nextera Flex	In house method	PRJEB45291	ERR14693524			
+Viver_x	Fara Fund	Qualatative		29	45,87611	24,0675	Salt lake	Water	Illumina NextSeq 500	Nextera Flex	In house method	PRJEB45291	ERR10323222			
+Lach2023	W1	Quantitative	7	32,3	49,96917	20,4175	Salt mine	Water	Illumina NextSeq 500	TruePrep DNA Library Prep Kit V2		PRJNA848445	SRR23190779			
+Garcia-roldan2024	21IC19,5	Quantitative	7,54	19,5	37,211083	-7,327389	Saltern	Water	Illumina NovaSeq 6000	Novogene NGS	PCI	PRJNA890281	SRR28305195			
+Garcia-roldan2024	21IC22	Quantitative	7,6	22	37,211083	-7,327389	Saltern	Water	Illumina NovaSeq 6000	Novogene NGS	PCI	PRJNA890281	SRR28305193			
+Garcia-roldan2024	21IC36_1	Quantitative	7,44	36	37,211083	-7,327389	Saltern	Water	Illumina NovaSeq 6000	Novogene NGS	PCI	PRJNA890281	SRR28305192			
+Garcia-roldan2024	21IC39_1	Quantitative	7,24	39	37,211083	-7,327389	Saltern	Water	Illumina NovaSeq 6000	Novogene NGS	PCI	PRJNA890281	SRR28305190			
+Garcia_roldan2023	Isla_cristina	Quantitative	6,7	42	37,211083	-7,327389	Saltern	Water	Illumina NovaSeq 6000	Novogene NGS	PCI	PRJNA890281	SRR21894959	-	-	31,1
+Lopez-Garcia2023	GEN190320_L_Sal14_ALL_lib80448_1474_2			14	38,201317	-0,595315	Saltern	Water	Illumina HiSeq 2500			PRJNA756245	SRR15526472			
+Lopez-Garcia2023	GEN190320_L_Sal32_ALL_lib80450_1474_2			32	38,196667	-0,59522	Saltern	Water	Illumina HiSeq 2500			PRJNA756245	SRR15526470			
+Lopez-Garcia2023	GEN190320_L_Sal6_ALL_lib80446_1474_2	Qualitative		6	38,197861	-0,603653	Saltern	Water	Illumina HiSeq 2500			PRJNA756245	SRR15526462			
+Viver_x	Arinaga 1 – Gran Canaria	Qualatative		34	27,85139	-15,40194	Saltern	Water	Illumina NextSeq 500	Nextera Flex	In house method	PRJEB45291	ERR14693534			
+Viver_x	Lo Valdivia 2	Qualatative		26	-34,69889	-72,0122	Saltern	Water	Illumina NextSeq 500	Nextera Flex	In house method	PRJEB45291	ERR14693532			
+Viver_x	Bloemfontein	Qualatative		25	-28,75583	26,04861	Saltern	Water	Illumina NextSeq 500	Nextera Flex	In house method	PRJEB45291	ERR14693531			
+Viver_x	Eliat 6	Qualatative		33	29,55806	34,965	Saltern	Water	Illumina NextSeq 500	Nextera Flex	In house method	PRJEB45291	ERR14693530			
+Viver_x	Santa Pola	Qualatative		37	38,18472	-0,58556	Saltern	Water	Illumina NextSeq 500	Nextera Flex	In house method	PRJEB45291	ERR14693526			
+Viver_x	s'Avall	Qualatative		36,2	39,32444	2,98917	Saltern	Water	Illumina NovaSeq 6000	-	In house method	PRJEB45291	ERR14141142			
+Viver_x	Coco 2 – Mallorca	Qualatative		30	39,26528	3,05139	Saltern	Water	Illumina NextSeq 500	-	In house method	PRJEB45291	ERR13257693			
+Viver_x	Coco 1 – Mallorca	Qualatative		31	39,26528	3,05139	Saltern	Water	Illumina NextSeq 500	-	In house method	PRJEB45291	ERR13257692			
+Viver_x	Rio Maior	Qualatative		32	39,32611	-8,92139	Saltern	Water	Illumina NextSeq 500	Nextera Flex	In house method	PRJEB45291	ERR12722228			
+Viver_x	Lake Grassmere	Qualatative		37	-41,722	174,136	Saltern	Water	Illumina NextSeq 500	Nextera Flex	In house method	PRJEB45291	ERR10323221			
+Viver_x	Es_Trenc	Qualatative		34	39,35083	3,0125	Saltern	Water	Illumina NextSeq 500	Nextera Flex	In house method	PRJEB45291	ERR10323220			
+Damashek2019	SIMO_09D	Qualitative			31,418	-81,293	Sea	Water	Illumina Hiseq 2500	TruSeq DNA kit (Illumina)	DNeasy PowerSoil kit (QIAGEN	PRJNA552566	SRR9660393			
+Biller2018	S0630	Qualitative			31,66	-64,16	Sea	Water	Illumina NextSeq 550	Nextera XT Library Preparation Ki	PCI	PRJNA385855	SRR6507280			
+Biller2018	S0627	Qualitative			22,75	-158	Sea	Water	Illumina NextSeq 550	Nextera XT library preparation kit	PCI	PRJNA385855	SRR6507277			
+Biller2018	S0016	Qualitative			36,2067	-53,2681	Sea	Water	Illumina NextSeq 550	Nextera XT library preparation kit	PCI	PRJNA385855	SRR5788433			
+Biller2018	S0283	Qualitative			32,499	-176,03	Sea	Water	Illumina NextSeq 550	Nextera XT library preparation kit	PCI	PRJNA385855	SRR5788396			
+Biller2018	S0001	Qualitative			49,7225	-42,4467	Sea	Water	Illumina NextSeq 550	Nextera XT library preparation kit	PCI	PRJNA385855	SRR5788236			
+Biller2018	S0010	Qualitative			46,312	-39,658	Sea	Water	Illumina NextSeq 550	Nextera XT Library Preparation Ki	PCI	PRJNA385855	SRR5788230			
+Biller2018	S0041	Qualitative			9,5462	-50,48686	Sea	Water	Illumina NextSeq 550	Nextera XT library preparation kit	PCI	PRJNA385855	SRR5788194			
+Biller2018	S0037	Qualitative			13,16	-53,4215	Sea	Water	Illumina NextSeq 550	Nextera XT library preparation kit	PCI	PRJNA385855	SRR5788193			
+Biller2018	S0248	Qualitative			17,399	-24,499	Sea	Water	Illumina NextSeq 550	Nextera XT Library Preparation Ki	PCI	PRJNA385855	SRR5788175			
+Biller2018	S0065	Qualitative			38,65497	-69,13131	Sea	Water	Illumina NextSeq 550	Nextera XT library preparation kit	PCI	PRJNA385855	SRR5788065			
+Biller2018	S0269	Qualitative			-30,0006	162,998	Sea	Water	Illumina NextSeq 550	Nextera XT library preparation kit	PCI	PRJNA385855	SRR5788038			
+Biller2018	S0451	Qualitative			-34,62898	17,06995	Sea	Water	Illumina NextSeq 550	Nextera XT library preparation kit	PCI	PRJNA385855	SRR5788032			
+Haro-Moreno2019	Med-OCT2015-15m	Qualatative			37,35361	-0,286194	Sea	Water	Illumina HiSeq 4000	Nextera XT library preparation kit	DNeasy Blood & Tissue Kit	PRJNA352798	SRR5007106			
+Thangaj2026	DD5	Qualitative			15,99	129,99	Sea	Water	Illumina HiSeq 2500			PRJNA1311452	SRR35215095			
+Thangaj2026	DD3	Qualitative			13,99	129,99	Sea	Water	Illumina HiSeq 2500			PRJNA1311452	SRR35200055			
+Thangaj2026	DD7	Qualitative			17,99	129,99	Sea	Water	Illumina HiSeq 2500			PRJNA1311452	SRR35200054			
+Thangaj2026	DD1	Qualitative			11,99	129,99	Sea	Water	Illumina HiSeq 2500			PRJNA1311452	SRR35150178			
+Tucker2025	HADS_20210818_H0900_STO1	Qualatative			21,489	-157,7663	Sea	Water	Illumina NextSeq 500	300 cycle kit	PCI	PRJNA1201851	SRR31951251			
+Tucker2025	HADS_20210818_H0900_xHP1	Qualatative			21,4366	-157,803	Sea	Water	Illumina NextSeq 500	300 cycle kit	PCI	PRJNA1201851	SRR31942765			
+Kojima2025	CJ V7	Quantitative	8,03	3,172	29,762131	-93,340714	Sea	Water	Illumina NextSeq 500	Kapa HyperPlus kit	In house method	PRJNA1171802	SRR30952029			29,23
+Seong2024	Scallop_5	Qualatative			38,24103	128,61942	Sea	Water	HiSeq X Ten	TruSeq DNA Nano Kit	DNeasy PowerSoil Kit	PRJNA1113386	SRR29090693			14,78
+Liu et al,2024	S07_Surface_02um_0714	Quantitative	8,111	3,114	30,1282	122,74599	Sea	Water	Illumina NovaSeq 6000	NovaSeq 6000 Reagent Kit	DNeasy PowerSoil Kit	PRJNA1081583	SRR28144604			22,534
+Liu et al,2024	S08_Middle_02um_0714	Quantitative	8,046	3,236	30,12079	122,72947	Sea	Water	Illumina NovaSeq 6000	NovaSeq 6000 Reagent Kit	DNeasy PowerSoil Kit	PRJNA1081583	SRR28144596			20,802
+Liu et al,2024	S08_Bottom_02um_0714	Quantitative	7,987	3,368	30,12079	122,72947	Sea	Water	Illumina NovaSeq 6000	NovaSeq 6000 Reagent Kit	DNeasy PowerSoil Kit	PRJNA1081583	SRR28144595			19,093
+Liu et al,2024	S03_Bottom	Quantitative	7,835	3,425	31,2781	122,8883	Sea	Water	Illumina NovaSeq 6000	NovaSeq 6000 Reagent Kit	DNeasy PowerSoil Kit	PRJNA1081583	SRR28144577			20,551
+Liu et al,2024	S04_Surface	Quantitative	8,19	3,366	30,9954	123,5024	Sea	Water	Illumina NovaSeq 6000	NovaSeq 6000 Reagent Kit	DNeasy PowerSoil Kit	PRJNA1081583	SRR28144566			28,93
+Liu et al,2024	S04_Bottom	Quantitative	7,93	3,4278	30,9954	123,5024	Sea	Water	Illumina NovaSeq 6000	NovaSeq 6000 Reagent Kit	DNeasy PowerSoil Kit	PRJNA1081583	SRR28144555			19,88
+Liu et al,2024	S05_Surface	Quantitative	8,06	3,121	30,7949	122,6331	Sea	Water	Illumina NovaSeq 6000	NovaSeq 6000 Reagent Kit	DNeasy PowerSoil Kit	PRJNA1081583	SRR28144544			24,76
+Liu et al,2024	S05_Bottom	Quantitative	7,92	3,318	30,7949	122,6331	Sea	Water	Illumina NovaSeq 6000	NovaSeq 6000 Reagent Kit	DNeasy PowerSoil Kit	PRJNA1081583	SRR28144533			22,57
+Liu et al,2024	S09_Surface	Quantitative	8,31	3,12	30,0043	122,8316	Sea	Water	Illumina NovaSeq 6000	NovaSeq 6000 Reagent Kit	DNeasy PowerSoil Kit	PRJNA1081583	SRR28144522			28
+Liu et al,2024	S09_Bottom	Quantitative	7,87	3,433	30,0043	122,8316	Sea	Water	Illumina NovaSeq 6000	NovaSeq 6000 Reagent Kit	DNeasy PowerSoil Kit	PRJNA1081583	SRR28144511			19,46
+Rhalf2023	SSW_Syr_0,2µm_04022020	Qualatative			58,880872	11,1112471	Sea	Water	Illumina HiSeq X	Illumina DNA Prep with Enrichment Reference Guide	DNeasy PowerSoil Pro Kit	PRJNA811790	SRR18243864			
+Rhalf2023	SSW_Syr_0,2µm_06022020	Qualatative			58,881814	11,110815	Sea	Water	Illumina HiSeq X	Illumina DNA Prep with Enrichment Reference Guide	DNeasy PowerSoil Pro Kit	PRJNA811790	SRR18243859			
+Rhalf2023	SSW_Syr_0,2µm_07022020	Qualatative			58,883268	11,105827	Sea	Water	Illumina HiSeq X	Illumina DNA Prep with Enrichment Reference Guide	DNeasy PowerSoil Pro Kit	PRJNA811790	SRR18243853			
+Rhalf2023	SSW_Syr_0,2µm_11022020	Qualatative			58,881934	11,12074	Sea	Water	Illumina HiSeq X	Illumina DNA Prep with Enrichment Reference Guide	DNeasy PowerSoil Pro Kit	PRJNA811790	SRR18243848			
+Rhalf2023	SSW_Syr_0,2µm_13022020 	Qualatative			58,88082	11,115091	Sea	Water	Illumina HiSeq X	Illumina DNA Prep with Enrichment Reference Guide	DNeasy PowerSoil Pro Kit	PRJNA811790	SRR18243842			
+Rhalf2023	SSW_Syr_0,2µm_14022020	Qualatative			58,876092	11,110915	Sea	Water	Illumina HiSeq X	Illumina DNA Prep with Enrichment Reference Guide	DNeasy PowerSoil Pro Kit	PRJNA811790	SRR18243837			
+Rhalf2023	SSW_Syr_0,2µm_15022020	Qualatative			58,88679	11,106764	Sea	Water	Illumina HiSeq X	Illumina DNA Prep with Enrichment Reference Guide	DNeasy PowerSoil Pro Kit	PRJNA811790	SRR18243831			
+Rhalf2023	SSW_Syr_0,2µm_19022020	Qualatative			58,885847	11,106157	Sea	Water	Illumina HiSeq X	Illumina DNA Prep with Enrichment Reference Guide	DNeasy PowerSoil Pro Kit	PRJNA811790	SRR18243826			
+Rhalf2023	SSW_Syr_0,2µm_24022020	Qualatative			58,880987	11,136508	Sea	Water	Illumina HiSeq X	Illumina DNA Prep with Enrichment Reference Guide	DNeasy PowerSoil Pro Kit	PRJNA811790	SRR18243822			
+Yang2024	S7_1	Quantitative	7,95	3,01	78,92	12,04	Sea	Water	Illumina HiSeq 2500	NEB Next Ultra DNA Library Prep Kit	DNA easy Power Water kit	PRJNA729603	SRR14527633	-	-	-
+Yang2024	S7_3	Quantitative	7,93	3,011	78,92	12,04	Sea	Water	Illumina HiSeq 2500	NEB Next Ultra DNA Library Prep Kit	DNA easy Power Water kit	PRJNA729603	SRR14527632	-	-	-
+Anantharaman2016	Seawater	Quantitative	8	3,45	-22,76128	-176,18948	Sea	Water	Illumina HiSeq 2000	-	In house method	PRJNA234377	SRR1217463	10,1	464	2
+Somee2021	KS	Quantitative	8,13	3,55	29,13194	50,18105	Sea	Water	Illumina NovaSeq 6000		PCI	PRJNA575141 	SRR11922362			27
+Somee2021	HS	Quantitative	8,1	4	27,06112	56,24636	Sea	Water	Illumina NovaSeq 6000		PCI	PRJNA575141 	SRR11922361			27
+Somee2021	AS	Quantitative	7,9	3,5	27,1367	52,32542	Sea	Water	Illumina NovaSeq 6000		PCI	PRJNA575141 	SRR11922360			29
+Glasl2020	36323	Qualatative			-19,15336	146,86514	Sea	Water	Illumina HiSeq 2500	Nextera XT Library Preparation Ki	DNeasy PowerSoil kit	PRJNA594068	SRR10694889			
+Chriari2024	Gibraltar	Quantitative	7,69	3,419	35,82	-5,75	Sea	Water	Illumina Miseq			PRJEB8682	ERR771019			28
+Sunagawa2020	TARA138	Qualatative			6,33	-102,943	Sea	Water	Illumina HiSeq 2000		-	PRJEB1787	ERR599175			
+Sunagawa2020	TARA068	Qualatative			-31,0198	4,66	Sea	Water	Illumina HiSeq 2000		-	PRJEB1787	ERR599131			
+Sunagawa2020	TARA085	Qualatative			-62,0349	-49,5383	Sea	Water	Illumina HiSeq 2000		-	PRJEB1787	ERR599125			
+Sunagawa2020	TARA065	Qualatative			-35,172	26,286	Sea	Water	Illumina HiSeq 2000		-	PRJEB1787	ERR599110			
+Sunagawa2020	TARA142	Qualatative			25,492	-88,34	Sea	Water	Illumina HiSeq 2000		-	PRJEB1787	ERR599100			
+Sunagawa2020	TARA025	Qualatative			39,3756	19,399	Sea	Water	Illumina HiSeq 2000		-	PRJEB1787	ERR599094			
+Sunagawa2020	TARA098	Qualatative			-26,72	-110,0423	Sea	Water	Illumina HiSeq 2000		-	PRJEB1787	ERR599093			
+Sunagawa2020	TARA124	Qualatative			-9,27	-140,592	Sea	Water	Illumina HiSeq 2000		-	PRJEB1787	ERR599080			
+Sunagawa2020	TARA057	Qualatative			-17,0248	42,74	Sea	Water	Illumina HiSeq 2000		-	PRJEB1787	ERR599058			
+Sunagawa2020	TARA102	Qualatative			-5,25	-85,14	Sea	Water	Illumina HiSeq 2000		-	PRJEB1787	ERR599055			
+Sunagawa2020	TARA141	Qualatative			9,4866	-80,133	Sea	Water	Illumina HiSeq 2000		-	PRJEB1787	ERR599029			
+Sunagawa2020	TARA042	Qualatative			6,001	73,89	Sea	Water	Illumina HiSeq 2000		-	PRJEB1787	ERR599013			
+Sunagawa2020	TARA072	Qualatative			-8,18	-17,916	Sea	Water	Illumina HiSeq 2000		-	PRJEB1787	ERR599005			
+Sunagawa2020	TARA076	Qualatative			-20,93	-35,18	Sea	Water	Illumina HiSeq 2000		-	PRJEB1787	ERR599000			
+Sunagawa2020	TARA145	Qualatative			39,23	-70,0377	Sea	Water	Illumina HiSeq 2000		-	PRJEB1787	ERR598983			
+Sunagawa2020	TARA133	Qualatative			35,366	-127,47	Sea	Water	Illumina HiSeq 2000		-	PRJEB1787	ERR598942			
+Sunagawa2020	TARA_163	Quantitative	8,025	3,49	76,1804	1,3093	Sea	Water	Illumina HiSeq 2000		-	PRJEB9740	ERR3589593			
+Sunagawa2020	TARA_155	Quantatative	8,019	3,533	54,5305	-16,9377	Sea	Water	Illumina HiSeq 2000		-	PRJEB9740	ERR3589591			
+Sunagawa2020	TARA_175	Quantitative	8,152	3,427	79,2238	66,3443	Sea	Water	Illumina HiSeq 2500		-	PRJEB9740	ERR3589589			
+Sunagawa2020	TARA_163	Quantitative	8,025	3,49	76,1804	1,3093	Sea	Water	Illumina HiSeq 2000		-	PRJEB9740	ERR3589586			
+Sunagawa2020	TARA_155	Quantitative	8,019	3,533	54,5305	-16,9377	Sea	Water	Illumina Hiseq 2500		-	PRJEB9740	ERR3589583			
+Sunagawa2020	TARA_193	Quantatative	8,188	2,484	71,0704	174,9917	Sea	Water	Illumina HiSeq 2000		-	PRJEB9740	ERR3589581			
+Sunagawa2020	TARA_188	Quantitative	8,18	3,299	78,2518	91,8557	Sea	Water	Illumina HiSeq 2000		-	PRJEB9740	ERR3589579			
+Sunagawa2020	TARA_175	Quantitative	8,152	3,427	79,2238	66,3443	Sea	Water	Illumina HiSeq 2000		-	PRJEB9740	ERR3589577			
+Sunagawa2020	TARA_206	Quantatative	8,184	3,204	70,965	-53,6036	Sea	Water	Illumina HiSeq 2000		-	PRJEB9740	ERR3589561			
+Sunagawa2020	TARA_196	Quantatative	8,086	2,89	71,8895	-154,9101	Sea	Water	Illumina HiSeq 2000		-	PRJEB9740	ERR3589557			
+Sanchez2024	MH_141_3M	Qualatative			26,9110345	-32,8366336	Sea	Water	Illumina HiSeq 2000	TruSeq SBS Kit v3-HS	PCI	PRJEB52452	ERR10125007			
+Sanchez2024	MH_120_3M	Qualatative			10,7586882	-102,4426696	Sea	Water	Illumina HiSeq 2000	TruSeq SBS Kit v3-HS	PCI	PRJEB52452	ERR10123584			
+Sanchez2024	MH_101_3M	Qualatative			21,8901488	-155,6641252	Sea	Water	Illumina HiSeq 2000	TruSeq SBS Kit v3-HS	PCI	PRJEB52452	ERR10123312			
+Sanchez2024	MH_092_3M	Qualatative			-3,4104601	-169,4625398	Sea	Water	Illumina HiSeq 2000	TruSeq SBS Kit v3-HS	PCI	PRJEB52452	ERR10123278			
+Sanchez2024	MH_083_3M	Qualatative			-23,3639779	-178,2186153	Sea	Water	Illumina HiSeq 2000	TruSeq SBS Kit v3-HS	PCI	PRJEB52452	ERR10123214			
+Sanchez2024	MH_076_3M	Qualatative			-40,550466	142,4972238	Sea	Water	Illumina HiSeq 2000	TruSeq SBS Kit v3-HS	PCI	PRJEB52452	ERR10123142			
+Sanchez2024	MH_063_4000M	Qualatative			-29,5907834	96,3912674	Sea	Water	Illumina HiSeq 2000	TruSeq SBS Kit v3-HS	PCI	PRJEB52452	ERR10123138			
+Sanchez2024	MH_049_6M	Qualatative			-33,9073629	37,0424031	Sea	Water	Illumina HiSeq 2000	TruSeq SBS Kit v3-HS	PCI	PRJEB52452	ERR10121408			
+Sanchez2024	MH_044_3M	Qualatative			-33,2531392	15,374434	Sea	Water	Illumina HiSeq 2000	TruSeq SBS Kit v3-HS	PCI	PRJEB52452	ERR10121361			
+Sanchez2024	MH_030_3M	Qualatative			-25,8434826	-27,5826997	Sea	Water	Illumina HiSeq 2000	TruSeq SBS Kit v3-HS	PCI	PRJEB52452	ERR10114975			
+Sanchez2024	MH_019_3M	Qualatative			-7,2137641	-29,3386581	Sea	Water	Illumina HiSeq 2000	TruSeq SBS Kit v3-HS	PCI	PRJEB52452	ERR10114617			
+Yoshitake2021	150804_SndC9_43m_pooled	Qualitative		3,37261	37,99974667	141,2166667	Sea	Water	Illumina HiSeq 2500	Nextera Flex	DNA easy Power Water kit	PRJDB5375	DRR083463			13,8868
+Yoshitake2021	140512_AlnA21_10m_pooled	Qualitative			37,591	147,149	Sea	Water	Illumina HiSeq 2500	Nextera Flex	DNA easy Power Water kit	PRJDB5375	DRR083414			
+Yoshitake2021	120304_AlnA4_10m_pooled	Qualitative		3,30621	42,15000153	145,0800018	Sea	Water	Illumina HiSeq 2500	Nextera Flex	DNA easy Power Water kit	PRJDB5375	DRR083050			
+Rhalf2023	Snow_03_04022020	Qualitative			58,8765692	11,1463651	Snow	Water	Illumina HiSeq X	Illumina DNA Prep with Enrichment Reference Guide	DNeasy PowerSoil Pro Kit	PRJNA811790	SRR18243867			
+Zhao2022	Habor Lake	Qualitative	9,78	27	39,1825	109,0019	Soda Lake	Water	Illumina HiSeq 2000		PowerWater® DNA Isolation kit	PRJNA549802	SRR9330151			
+Zhao2022	Hutong Qagan Lake	Qualitative	10,01	17	39,1825	109,0019	Soda Lake	Water	Illumina HiSeq 2000		PowerWater® DNA Isolation kit	PRJNA549802	SRR9330149			
+Zhao2022	DME11221-S	Quantitative	10,08	5,5	39,1825	109,0019	Soda Lake	Water	Illumina HiSeq 2000		PowerWater® DNA Isolation kit	PRJNA549802	SRR9330150			
+Zhao2022	DME11225-S	Quantitative	9,93	20,7	39,4171	108,6803	Soda Lake	Water	Illumina HiSeq 2000		PowerWater® DNA Isolation kit	PRJNA549802	SRR9330152			
+Zhao2022	DME11226-S	Quantitative	10	15	39,4171	108,6803	Soda Lake	Water	Illumina HiSeq 2000		PowerWater® DNA Isolation kit	PRJNA549802	SRR9330153			
+Zhao2022	DME11220-S	Quantitative	10,8	32	39,4171	108,6803	Soda Lake	Water	Illumina HiSeq 2000		PowerWater® DNA Isolation kit	PRJNA549802	SRR9330156			
+Vavourakis2016	PL	Quantitative	9,5	25	51,65	79,75	Soda Lake	Water	Illumina HiSeq 2000	KAPA Illumina library creation kit	PCI	SRP012436	SRR490146	-	-	-
+Vavourakis2016	Tc	Quantitative	9,9	30	51,67	79,91	Soda Lake	Water	Illumina HiSeq 2000	KAPA Illumina library creation kit	PCI	SRP012436	SRR490136	-	-	-
+Vavourakis2016	Lake_T5	Quantitative	9,9	17	51,73	79,87	Soda Lake	Water	Illumina HiSeq 2000	KAPA Illumina library creation kit	PCI	SRP012436	SRR490135	-	-	-
+Vavourakis2016	Lake_B1	Quantitative	10,2	40	51,62	79,84	Soda Lake	Water	Illumina HiSeq 2000	KAPA Illumina library creation kit	PCI	SRP012436	SRR490126	-	-	-
+Hernandez-Vazquez2026	DD0m	Qualitative			21,8466	-105,88	Soda Lake	Water	Illumina MiSeq	Nextera Flex		PRJNA1240669	SRR32816596			
+Soufi2024	BSL10	Quantitative	9,77	1,4	39,525561	-118,87956	Soda Lake	Water	Illumina NextSeq 2000	Nextera Flex	DNA easy Power Water kit	PRJNA993288	SRR25242040	-	-	20
+Soufi2024	BSL30	Quantitative	9,85	1,4	39,525561	-118,87956	Soda Lake	Water	Illumina NextSeq 2000	Nextera Flex	DNA easy Power Water kit	PRJNA993288	SRR25242039	-	-	7,5
+Soufi2024	BSL40	Quantitative	9,87	1,4	39,525561	-118,87956	Soda Lake	Water	Illumina NextSeq 2000	Nextera Flex	DNA easy Power Water kit	PRJNA993288	SRR25242038	-	-	9
+Soufi2024	BSL60	Quantitative	9,77	5,1	39,525561	-118,87956	Soda Lake	Water	Illumina NextSeq 2000	Nextera Flex	DNA easy Power Water kit	PRJNA993288	SRR25242037	-	-	10
+Soufi2024	LSL10	Quantitative	9,15	8,6	39,5159	-118,883056	Soda Lake	Water	Illumina NextSeq 2000	Nextera Flex	DNA easy Power Water kit	PRJNA993288	SRR25242036	-	-	7
+Soufi2024	LSL12	Quantitative	9,15	8,5	39,51519	-118,883056	Soda Lake	Water	Illumina NextSeq 2000	Nextera Flex	DNA easy Power Water kit	PRJNA993288	SRR25242035	-	-	7
+Ren2025	Lake_Manyara_Sediment	Qualitative			-3,702	35,82	Soda Lake	Water	Illumina NovaSeq 6000	NEB Next Ultra DNA Library Prep Kit	-	PRJNA857294	SRR20069391			
+Ren2025	Lake_kindai_Sediment	Qualitative			-4,8352	34,73	Soda Lake	Water	Illumina NovaSeq 6000	NEB Next Ultra DNA Library Prep Kit	-	PRJNA857294	SRR20069389			
+Ren2025	Lake_Balangita_Sediment	Qualitative			-4,4	35,3	Soda Lake	Water	Illumina NovaSeq 6000	NEB Next Ultra DNA Library Prep Kit	-	PRJNA857294	SRR20069387			
+Ren2025	small_momela_lake_Sediment	Qualitative			-3,2195	36,98	Soda Lake	Water	Illumina NovaSeq 6000	NEB Next Ultra DNA Library Prep Kit	-	PRJNA857294	SRR20069379			
+Ren2025	Big_momela_lake_Sediment	Qualitative			-3,2254	36,9	Soda Lake	Water	Illumina NovaSeq 6000	NEB Next Ultra DNA Library Prep Kit	-	PRJNA857294	SRR20069378			
+Ren2025	Lake_jipe_Sediment	Qualitative			-3,6311	37,75	Soda Lake	Water	Illumina NovaSeq 6000	NEB Next Ultra DNA Library Prep Kit	-	PRJNA857294	SRR20069377			
+Ren2025	Lake_eyasi_Sediment	Qualitative			-3,566	35,25	Soda Lake	Water	Illumina NovaSeq 6000	NEB Next Ultra DNA Library Prep Kit	-	PRJNA857294	SRR20069373			
+Anantharaman2015	AbeA1	Quantitative	4,3	3,4	-20,7612	-176,19057	Undersea_vent	Water	Illumina HiSeq 2000		In house method	PRJNA234377	SRR1217565	25	430	309
+Anantharaman2015	KM1	Quantitative	3,6	3,7	-20,05383	-176,13347	Undersea_vent	Water	Illumina HiSeq 2000		In house method	PRJNA234377	SRR1217564	17	486	333
+Anantharaman2015	MA1	Quantitative	2,5	3,98	-22,1803	-176,6014	Undersea_vent	Water	Illumina HiSeq 2000		In house method	PRJNA234377	SRR1217452	36	458	-
+Reysenbach2020	J2-1040-8-CH1-1-233	Quantitative	2,08	3,116	-34,88234388	179,0682732	Undersea_vent	Water	Illumina HiSeq 3000	Nextera DNA Sample Prep kit	In house method	PRJNA546572	SRR10810390	11,97	449	200
+Reysenbach2020	J2-1040-10-CH1-1-240	Quantitative	2,21	3,08	-34,882356	179,0682646	Undersea_vent	Water	Illumina HiSeq 3000	Nextera DNA Sample Prep kit	In house method	PRJNA546572	SRR10810382	11,4	449	-
+Reysenbach2020	J2-1040-10-CH2-1-217	Quantitative	2,21	3,08	-34,88236547	179,0868228	Undersea_vent	Water	Illumina HiSeq 3000	Nextera DNA Sample Prep kit	In house method	PRJNA546572	SRR10312504	11,4	449	-
+Reysenbach2020	J2-1038-5-R3-1-67	Quantitative	2,97	4,06	-38,85791961	179,051933	Undersea_vent	Water	Illumina HiSeq 3000	Nextera DNA Sample Prep kit	In house method	PRJNA546572	SRR10312503	63,6,	496	276,5
+Reysenbach2020	J2-1039-15-CH1-1-157	Quantitative	6,55	3,16	-34,86207984	179,0572892	Undersea_vent	Water	Illumina HiSeq 3000	Nextera DNA Sample Prep kit	In house method	PRJNA546572	SRR10312502	12,4	464	-
+Reysenbach2020	J2-1039-14-CH2-1-172	Quantitative	3,61	3,38	-34,86208959	179,0573881	Undersea_vent	Water	Illumina HiSeq 3000	Nextera DNA Sample Prep kit	In house method	PRJNA546572	SRR10312498	38,4	480	87
+Reysenbach2020	J2-1041-4-R1-1-297	Quantitative	5,66	3,127	-34,878368	179,071443	Undersea_vent	Water	Illumina HiSeq 3000	Nextera DNA Sample Prep kit	In house method	PRJNA546572	SRR10312495	13,37	468	60
+Reysenbach2020	J2-1038-14-MAJ-Green	Quantitative	7,62	3,13	-34,861552	179,057153	Undersea_vent	Water	Illumina HiSeq 3000	Nextera DNA Sample Prep kit	In house method	PRJNA546572	SRR10312494	10,7	457	-
+Reysenbach2020	J2-1041-6-R2-1-324	Quantitative	5,14	3,089	-34,878866	179,071394	Undersea_vent	Water	Illumina HiSeq 3000	Nextera DNA Sample Prep kit	In house method	PRJNA546572	SRR10312493	13,33	469	45
+Reysenbach2020	J2-1038-6-R4-1-31	Quantitative	2,97	4,06	-34,85791311	179,0519346	Undersea_vent	Water	Illumina HiSeq 3000	Nextera DNA Sample Prep kit	In house method	PRJNA546572	SRR10312491	63,6,	496	276,5
+Reysenbach2020	J2-1038-13-R7-1-74	Quantitative	2,82	3,58	-34,86150855	179,0573001	Undersea_vent	Water	Illumina HiSeq 3000	Nextera XT library preparation kit	In house method	PRJNA546572	SRR10312490	50,9	488	-
+Gulay2016	LAN_1	Qualitative			54,69583	12,47667	Wastewater	Water	Illumina HiSeq 4000	Nextera XT library preparation kit	-	PRJNA384587	SRR8893729			
+Gulay2016	SJA_2	Qualitative			55,87222	12,47556	Wastewater	Water	Illumina HiSeq 4000	Nextera XT Library Preparation Ki	-	PRJNA384587	SRR8893713			
+Gulay2016	SJA_1	Qualitative			55,87361	11,67889	Wastewater	Water	Illumina HiSeq 4000	Nextera XT library preparation kit	-	PRJNA384587	SRR8893712			
+Fang2024	X0,1	Quantitative	6,89	0,0996	23,43468	116,53122	Wastewater	Water	Illumina HiSeq X	TruSeq DNA Sample Prep Kit	DNA easy Power Water kit	PRJNA1092822	SRR28562168	-	-	-
+Fang2024	X3,1	Quantitative	7,087	1,394	23,43468	116,53122	Wastewater	Water	Illumina HiSeq X	TruSeq DNA Sample Prep Kit	DNA easy Power Water kit	PRJNA1092822	SRR28562167	-	-	-
+Fang2024	X4,1	Quantitative	7,069	1,448	23,43468	116,53122	Wastewater	Water	Illumina HiSeq X	TruSeq DNA Sample Prep Kit	DNA easy Power Water kit	PRJNA1092822	SRR28562163	-	-	-
+Fang2024	X1,1	Quantitative	6,86	1,001	23,43468	116,53122	Wastewater	Water	Illumina HiSeq X	TruSeq DNA Sample Prep Kit	DNA easy Power Water kit	PRJNA1092822	SRR28562160	-	-	-
+Fang2024	X2,1	Quantitative	7,048	0,129	23,43468	116,53122	Wastewater	Water	Illumina HiSeq X	TruSeq DNA Sample Prep Kit	DNA easy Power Water kit	PRJNA1092822	SRR28562157	-	-	-
+Parwin2025	US	Quantitative	7	0,0091	20,461306	85,755861	Wastewater	Water	Illumina HiSeq X	Nextera XT library preparation kit	DNA easy Power Water kit	PRJNA1008397	SRR25894125	0,0675	0,495	22,1
+Parwin2025	CM	Quantitative	7,7	0,0202	20,444194	85,89044	Wastewater	Water	Illumina HiSeq X	Nextera XT library preparation kit	DNA easy Power Water kit	PRJNA1008397	SRR25894124	0,304	1,67	25
+Parwin2025	DS	Quantitative	7,23	0,0113	20,413639	85,906722	Wastewater	Water	Illumina HiSeq X	Nextera XT library preparation kit	DNA easy Power Water kit	PRJNA1008397	SRR25894123	0,15	1,179	23
+Hendriksen2019	CAN,22	Qualitative			50,4708333	-104,7444444	Wastewater	Water	Illumina HiSeq 3000	NEXTflex PCR-free Library Preparation Kit	QIAamp Fast DNA Stool Mini Kit	ERP015409	ERR2592329			
+Hendriksen2019	USA,74c	Qualitative			31,766991	-106,482545	Wastewater	Water	Illumina HiSeq 3000	NEXTflex PCR-free Library Preparation Kit	QIAamp Fast DNA Stool Mini Kit	ERP015409	ERR2592276			
+Hendriksen2019	NLD,43	Qualitative			52,3986167	4,7939833	Wastewater	Water	Illumina HiSeq 3000	NEXTflex PCR-free Library Preparation Kit	QIAamp Fast DNA Stool Mini Kit	ERP015409	ERR2592266			
+Hendriksen2019	KEN,72	Qualitative			-1,245504	37,016099	Wastewater	Water	Illumina HiSeq 3000	NEXTflex PCR-free Library Preparation Kit	QIAamp Fast DNA Stool Mini Kit	ERP015409	ERR2592261			
+Hendriksen2019	BWA,19	Qualitative			-24,6119444	25,9647222	Wastewater	Water	Illumina HiSeq 3000	NEXTflex PCR-free Library Preparation Kit	QIAamp Fast DNA Stool Mini Kit	ERP015409	ERR2592249			
+Hendriksen2019	AUT,70	Qualitative			48,174	16,4631944	Wastewater	Water	Illumina HiSeq 3000	NEXTflex PCR-free Library Preparation Kit	QIAamp Fast DNA Stool Mini Kit	ERP015409	ERR2592246			
+Hendriksen2019	ZAF,39	Qualitative			-25,7354417	28,1769472	Wastewater	Water	Illumina HiSeq 3000	NEXTflex PCR-free Library Preparation Kit	QIAamp Fast DNA Stool Mini Kit	ERP015409	ERR1726030			
+Hendriksen2019	USA,74g	Qualitative			31,766991	-106,482545	Wastewater	Water	Illumina HiSeq 3000	NEXTflex PCR-free Library Preparation Kit	QIAamp Fast DNA Stool Mini Kit	ERP015409	ERR1726024			
+Hendriksen2019	USA,74e	Qualitative			31,766991	-106,482545	Wastewater	Water	Illumina HiSeq 3000	NEXTflex PCR-free Library Preparation Kit	QIAamp Fast DNA Stool Mini Kit	ERP015409	ERR1726019			
+Hendriksen2019	USA,74b	Qualitative			41,860246	-87,679633	Wastewater	Water	Illumina HiSeq 3000	NEXTflex PCR-free Library Preparation Kit	QIAamp Fast DNA Stool Mini Kit	ERP015409	ERR1726015			
+Hendriksen2019	USA,74a	Qualitative			47,60418	-122,317711	Wastewater	Water	Illumina HiSeq 3000	NEXTflex PCR-free Library Preparation Kit	QIAamp Fast DNA Stool Mini Kit	ERP015409	ERR1726011			
+Hendriksen2019	TCD,1	Qualitative			12,1183056	15,0950833	Wastewater	Water	Illumina HiSeq 3000	NEXTflex PCR-free Library Preparation Kit	QIAamp Fast DNA Stool Mini Kit	ERP015409	ERR1726008			
+Hendriksen2019	POL,36	Qualitative			51,44839	21,95458	Wastewater	Water	Illumina HiSeq 3000	NEXTflex PCR-free Library Preparation Kit	QIAamp Fast DNA Stool Mini Kit	ERP015409	ERR1726000			
+Hendriksen2019	ISL,28	Qualitative			64,1555	-21,87275	Wastewater	Water	Illumina HiSeq 3000	NEXTflex PCR-free Library Preparation Kit	QIAamp Fast DNA Stool Mini Kit	ERP015409	ERR1725982			
+Hendriksen2019	IND,11	Qualitative			9,9715	76,3050833	Wastewater	Water	Illumina HiSeq 3000	NEXTflex PCR-free Library Preparation Kit	QIAamp Fast DNA Stool Mini Kit	ERP015409	ERR1725978			
+Hendriksen2019	ESP,75	Qualitative			41,409792	2,222826	Wastewater	Water	Illumina HiSeq 3000	NEXTflex PCR-free Library Preparation Kit	QIAamp Fast DNA Stool Mini Kit	ERP015409	ERR1725971			
+Hendriksen2019	DEU,27	Qualitative			52,5315714	13,2322464	Wastewater	Water	Illumina HiSeq 3000	NEXTflex PCR-free Library Preparation Kit	QIAamp Fast DNA Stool Mini Kit	ERP015409	ERR1725968			
+Hendriksen2019	CAN,22a	Qualitative			51,0130611	-114,0245778	Wastewater	Water	Illumina HiSeq 3000	NEXTflex PCR-free Library Preparation Kit	QIAamp Fast DNA Stool Mini Kit	ERP015409	ERR1725955			
+Hendriksen2019	AUS,18a	Qualitative			-37,9768333	144,6383056	Wastewater	Water	Illumina HiSeq 3000	NEXTflex PCR-free Library Preparation Kit	QIAamp Fast DNA Stool Mini Kit	ERP015409	ERR1725944			
+Hendriksen2019	ALB,17	Qualitative			41,3404389	19,7716056	Wastewater	Water	Illumina HiSeq 3000	NEXTflex PCR-free Library Preparation Kit	QIAamp Fast DNA Stool Mini Kit	ERP015409	ERR1725938			
+Hendriksen2019	ZMB,49	Qualitative			-15,39344	28,29661	Wastewater	Water	Illumina HiSeq 3000	NEXTflex PCR-free Library Preparation Kit	QIAamp Fast DNA Stool Mini Kit	ERP015409	ERR1713410			
+Hendriksen2019	XK,60	Qualitative			42,645875	21,169584	Wastewater	Water	Illumina HiSeq 3000	NEXTflex PCR-free Library Preparation Kit	QIAamp Fast DNA Stool Mini Kit	ERP015409	ERR1713408			
+Hendriksen2019	VNM,48	Qualitative			10,7170833	106,67935	Wastewater	Water	Illumina HiSeq 3000	NEXTflex PCR-free Library Preparation Kit	QIAamp Fast DNA Stool Mini Kit	ERP015409	ERR1713407			
+Hendriksen2019	USA,74i	Qualitative			40,017079	-105,254226	Wastewater	Water	Illumina HiSeq 3000	NEXTflex PCR-free Library Preparation Kit	QIAamp Fast DNA Stool Mini Kit	ERP015409	ERR1713406			
+Hendriksen2019	USA,74f	Qualitative			31,766991	-106,482545	Wastewater	Water	Illumina HiSeq 3000	NEXTflex PCR-free Library Preparation Kit	QIAamp Fast DNA Stool Mini Kit	ERP015409	ERR1713402			
+Hendriksen2019	ZMB,49b	Qualitative			-12,812009	28,25529	Wastewater	Water	Illumina HiSeq 3000	NEXTflex PCR-free Library Preparation Kit	QIAamp Fast DNA Stool Mini Kit	ERP015409	ERR1713401			
+Hendriksen2019	USA,74d	Qualitative			45,522747	-122,613568	Wastewater	Water	Illumina HiSeq 3000	NEXTflex PCR-free Library Preparation Kit	QIAamp Fast DNA Stool Mini Kit	ERP015409	ERR1713400			
+Hendriksen2019	USA,74	Qualitative			33,752502	-84,396132	Wastewater	Water	Illumina HiSeq 3000	NEXTflex PCR-free Library Preparation Kit	QIAamp Fast DNA Stool Mini Kit	ERP015409	ERR1713397			
+Hendriksen2019	TZA,15	Qualitative			-3,3889833	37,3498667	Wastewater	Water	Illumina HiSeq 3000	NEXTflex PCR-free Library Preparation Kit	QIAamp Fast DNA Stool Mini Kit	ERP015409	ERR1713396			
+Hendriksen2019	TUR,46	Qualitative			39,8983889	32,4536389	Wastewater	Water	Illumina HiSeq 3000	NEXTflex PCR-free Library Preparation Kit	QIAamp Fast DNA Stool Mini Kit	ERP015409	ERR1713395			
+Hendriksen2019	TGO,44	Qualitative			6,122775	1,226191	Wastewater	Water	Illumina HiSeq 3000	NEXTflex PCR-free Library Preparation Kit	QIAamp Fast DNA Stool Mini Kit	ERP015409	ERR1713394			
+Hendriksen2019	SWE,41a	Qualitative			57,6974167	11,891	Wastewater	Water	Illumina HiSeq 3000	NEXTflex PCR-free Library Preparation Kit	QIAamp Fast DNA Stool Mini Kit	ERP015409	ERR1713392			
+Hendriksen2019	SWE,41	Qualitative			59,8438333	17,6615556	Wastewater	Water	Illumina HiSeq 3000	NEXTflex PCR-free Library Preparation Kit	QIAamp Fast DNA Stool Mini Kit	ERP015409	ERR1713391			
+Hendriksen2019	SVN,38	Qualitative			46,075277	14,504718	Wastewater	Water	Illumina HiSeq 3000	NEXTflex PCR-free Library Preparation Kit	QIAamp Fast DNA Stool Mini Kit	ERP015409	ERR1713390			
+Hendriksen2019	SVK,9	Qualitative			48,155	17,2155556	Wastewater	Water	Illumina HiSeq 3000	NEXTflex PCR-free Library Preparation Kit	QIAamp Fast DNA Stool Mini Kit	ERP015409	ERR1713389			
+Hendriksen2019	SRB,37	Qualitative			44,8274444	20,4636111	Wastewater	Water	Illumina HiSeq 3000	NEXTflex PCR-free Library Preparation Kit	QIAamp Fast DNA Stool Mini Kit	ERP015409	ERR1713388			
+Hendriksen2019	SGP,52	Qualitative			1,3332222	103,7561111	Wastewater	Water	Illumina HiSeq 3000	NEXTflex PCR-free Library Preparation Kit	QIAamp Fast DNA Stool Mini Kit	ERP015409	ERR1713387			
+Hendriksen2019	SEN,8	Qualitative			14,6727761	-17,4327736	Wastewater	Water	Illumina HiSeq 3000	NEXTflex PCR-free Library Preparation Kit	QIAamp Fast DNA Stool Mini Kit	ERP015409	ERR1713386			
+Hendriksen2019	PER,35	Qualitative			-11,997	-76,8368333	Wastewater	Water	Illumina HiSeq 3000	NEXTflex PCR-free Library Preparation Kit	QIAamp Fast DNA Stool Mini Kit	ERP015409	ERR1713385			
+Hendriksen2019	PAK,7	Qualitative			24,8537778	67,0756389	Wastewater	Water	Illumina HiSeq 3000	NEXTflex PCR-free Library Preparation Kit	QIAamp Fast DNA Stool Mini Kit	ERP015409	ERR1713384			
+Hendriksen2019	NZL,56	Qualitative			-45,904233	170,520784	Wastewater	Water	Illumina HiSeq 3000	NEXTflex PCR-free Library Preparation Kit	QIAamp Fast DNA Stool Mini Kit	ERP015409	ERR1713382			
+Hendriksen2019	NPL,33	Qualitative			27,7166667	85,3166667	Wastewater	Water	Illumina HiSeq 3000	NEXTflex PCR-free Library Preparation Kit	QIAamp Fast DNA Stool Mini Kit	ERP015409	ERR1713381			
+Hendriksen2019	NOR,34	Qualitative			59,7933333	10,4986111	Wastewater	Water	Illumina HiSeq 3000	NEXTflex PCR-free Library Preparation Kit	QIAamp Fast DNA Stool Mini Kit	ERP015409	ERR1713380			
+Hendriksen2019	NGA,50	Qualitative			6,6155556	3,2627778	Wastewater	Water	Illumina HiSeq 3000	NEXTflex PCR-free Library Preparation Kit	QIAamp Fast DNA Stool Mini Kit	ERP015409	ERR1713378			
+Hendriksen2019	MYS,54	Qualitative			3,1832333	101,71125	Wastewater	Water	Illumina HiSeq 3000	NEXTflex PCR-free Library Preparation Kit	QIAamp Fast DNA Stool Mini Kit	ERP015409	ERR1713377			
+Hendriksen2019	MLT,63	Qualitative			35,8805389	14,5545083	Wastewater	Water	Illumina HiSeq 3000	NEXTflex PCR-free Library Preparation Kit	QIAamp Fast DNA Stool Mini Kit	ERP015409	ERR1713376			
+Hendriksen2019	MKD,62	Qualitative			41,9906111	21,4758333	Wastewater	Water	Illumina HiSeq 3000	NEXTflex PCR-free Library Preparation Kit	QIAamp Fast DNA Stool Mini Kit	ERP015409	ERR1713375			
+Hendriksen2019	LVA,31	Qualitative			56,9776667	24,0807222	Wastewater	Water	Illumina HiSeq 3000	NEXTflex PCR-free Library Preparation Kit	QIAamp Fast DNA Stool Mini Kit	ERP015409	ERR1713373			
+Hendriksen2019	LUX,32	Qualitative			49,650202	6,132113	Wastewater	Water	Illumina HiSeq 3000	NEXTflex PCR-free Library Preparation Kit	QIAamp Fast DNA Stool Mini Kit	ERP015409	ERR1713372			
+Hendriksen2019	LKA,40	Qualitative			6,962431	79,8742444	Wastewater	Water	Illumina HiSeq 3000	NEXTflex PCR-free Library Preparation Kit	QIAamp Fast DNA Stool Mini Kit	ERP015409	ERR1713371			
+Hendriksen2019	KHM,21	Qualitative			11,52255	104,9025889	Wastewater	Water	Illumina HiSeq 3000	NEXTflex PCR-free Library Preparation Kit	QIAamp Fast DNA Stool Mini Kit	ERP015409	ERR1713370			
+Hendriksen2019	KAZ,6	Qualitative			43,4038889	76,8891667	Wastewater	Water	Illumina HiSeq 3000	NEXTflex PCR-free Library Preparation Kit	QIAamp Fast DNA Stool Mini Kit	ERP015409	ERR1713368			
+Hendriksen2019	ITA,30	Qualitative			41,8193056	12,4281111	Wastewater	Water	Illumina HiSeq 3000	NEXTflex PCR-free Library Preparation Kit	QIAamp Fast DNA Stool Mini Kit	ERP015409	ERR1713367			
+Hendriksen2019	ISR,29	Qualitative			31,7577222	35,1002222	Wastewater	Water	Illumina HiSeq 3000	NEXTflex PCR-free Library Preparation Kit	QIAamp Fast DNA Stool Mini Kit	ERP015409	ERR1713366			
+Hendriksen2019	IRN,12	Qualitative			35,5678889	51,4392778	Wastewater	Water	Illumina HiSeq 3000	NEXTflex PCR-free Library Preparation Kit	QIAamp Fast DNA Stool Mini Kit	ERP015409	ERR1713364			
+Hendriksen2019	IRL,69	Qualitative			53,2632722	-9,0565528	Wastewater	Water	Illumina HiSeq 3000	NEXTflex PCR-free Library Preparation Kit	QIAamp Fast DNA Stool Mini Kit	ERP015409	ERR1713363			
+Hendriksen2019	HUN,61	Qualitative			47,5695833	19,0746167	Wastewater	Water	Illumina HiSeq 3000	NEXTflex PCR-free Library Preparation Kit	QIAamp Fast DNA Stool Mini Kit	ERP015409	ERR1713361			
+Hendriksen2019	HRV,68	Qualitative			45,787634	16,079189	Wastewater	Water	Illumina HiSeq 3000	NEXTflex PCR-free Library Preparation Kit	QIAamp Fast DNA Stool Mini Kit	ERP015409	ERR1713360			
+Hendriksen2019	GMB,10	Qualitative			13,4580556	-16,5830556	Wastewater	Water	Illumina HiSeq 3000	NEXTflex PCR-free Library Preparation Kit	QIAamp Fast DNA Stool Mini Kit	ERP015409	ERR1713359			
+Hendriksen2019	GHA,4	Qualitative			9,3968056	-0,8283333	Wastewater	Water	Illumina HiSeq 3000	NEXTflex PCR-free Library Preparation Kit	QIAamp Fast DNA Stool Mini Kit	ERP015409	ERR1713358			
+Hendriksen2019	GEO,59	Qualitative			41,87045	45,2696	Wastewater	Water	Illumina HiSeq 3000	NEXTflex PCR-free Library Preparation Kit	QIAamp Fast DNA Stool Mini Kit	ERP015409	ERR1713357			
+Hendriksen2019	FIN,25	Qualitative			60,2253889	24,9940278	Wastewater	Water	Illumina HiSeq 3000	NEXTflex PCR-free Library Preparation Kit	QIAamp Fast DNA Stool Mini Kit	ERP015409	ERR1713356			
+Hendriksen2019	ETH,24	Qualitative			8,919923	38,755649	Wastewater	Water	Illumina HiSeq 3000	NEXTflex PCR-free Library Preparation Kit	QIAamp Fast DNA Stool Mini Kit	ERP015409	ERR1713355			
+Hendriksen2019	ECU,14a	Qualitative			-0,9079278	-89,6030472	Wastewater	Water	Illumina HiSeq 3000	NEXTflex PCR-free Library Preparation Kit	QIAamp Fast DNA Stool Mini Kit	ERP015409	ERR1713353			
+Hendriksen2019	ECU,14	Qualitative			-0,2091667	-78,4766667	Wastewater	Water	Illumina HiSeq 3000	NEXTflex PCR-free Library Preparation Kit	QIAamp Fast DNA Stool Mini Kit	ERP015409	ERR1713352			
+Hendriksen2019	CZE,23	Qualitative			50,1137929	14,4001268	Wastewater	Water	Illumina HiSeq 3000	NEXTflex PCR-free Library Preparation Kit	QIAamp Fast DNA Stool Mini Kit	ERP015409	ERR1713347			
+Hendriksen2019	COL,2	Qualitative			4,5447667	-74,25825	Wastewater	Water	Illumina HiSeq 3000	NEXTflex PCR-free Library Preparation Kit	QIAamp Fast DNA Stool Mini Kit	ERP015409	ERR1713346			
+Hendriksen2019	CIV,13	Qualitative			5,3404722	-4,0156389	Wastewater	Water	Illumina HiSeq 3000	NEXTflex PCR-free Library Preparation Kit	QIAamp Fast DNA Stool Mini Kit	ERP015409	ERR1713345			
+Hendriksen2019	CHN,64	Qualitative			23,1114444	113,352	Wastewater	Water	Illumina HiSeq 3000	NEXTflex PCR-free Library Preparation Kit	QIAamp Fast DNA Stool Mini Kit	ERP015409	ERR1713344			
+Hendriksen2019	CHE,67	Qualitative			46,9722222	7,4285	Wastewater	Water	Illumina HiSeq 3000	NEXTflex PCR-free Library Preparation Kit	QIAamp Fast DNA Stool Mini Kit	ERP015409	ERR1713343			
+Hendriksen2019	CAN,22c	Qualitative			45,4620111	-75,5908972	Wastewater	Water	Illumina HiSeq 3000	NEXTflex PCR-free Library Preparation Kit	QIAamp Fast DNA Stool Mini Kit	ERP015409	ERR1713342			
+Hendriksen2019	CAN,22b	Qualitative			43,6336111	-79,4794444	Wastewater	Water	Illumina HiSeq 3000	NEXTflex PCR-free Library Preparation Kit	QIAamp Fast DNA Stool Mini Kit	ERP015409	ERR1713341			
+Hendriksen2019	BRA,53a	Qualitative			-1,35673	-48,44536	Wastewater	Water	Illumina HiSeq 3000	NEXTflex PCR-free Library Preparation Kit	QIAamp Fast DNA Stool Mini Kit	ERP015409	ERR1713337			
+Hendriksen2019	BRA,53	Qualitative			-19,8957389	-43,8791361	Wastewater	Water	Illumina HiSeq 3000	NEXTflex PCR-free Library Preparation Kit	QIAamp Fast DNA Stool Mini Kit	ERP015409	ERR1713336			
+Hendriksen2019	BGR,66	Qualitative			42,7506944	23,36475	Wastewater	Water	Illumina HiSeq 3000	NEXTflex PCR-free Library Preparation Kit	QIAamp Fast DNA Stool Mini Kit	ERP015409	ERR1713335			
+Hendriksen2019	AUS,18	Qualitative			-35,246401	148,969753	Wastewater	Water	Illumina HiSeq 3000	NEXTflex PCR-free Library Preparation Kit	QIAamp Fast DNA Stool Mini Kit	ERP015409	ERR1713332			
+Becsei2024	Gruppo HERA	Qualitative			44,4949	11,3426	Wastewater	Water	Illumina NovaSeq 6000		QIAamp Fast DNA Stool Mini Ki	PRJEB68319	ERR12510893			
+Becsei2024	Dokhaven	Qualitative			51,9244	4,4777	Wastewater	Water	Illumina NovaSeq 6000		QIAamp Fast DNA Stool Mini Ki	PRJEB68319	ERR12510866			
+Becsei2024	Budapesti Kozponti Szennyviztisztito Telep	Qualitative			47,4979	19,0402	Wastewater	Water	Illumina NovaSeq 6000		QIAamp Fast DNA Stool Mini Ki	PRJEB68319	ERR12510827			
+Becsei2024	Rensningsanlaeg_Damhusaaen	Qualitative			55,6405	12,5058	Wastewater	Water	Illumina NovaSeq 6000		QIAamp Fast DNA Stool Mini Ki	PRJEB68319	ERR12510689			
+Becsei2024	Rensningsanlaeg Lynetten	Qualitative			55,6956	12,6139	Wastewater	Water	Illumina NovaSeq 6000		QIAamp Fast DNA Stool Mini Ki	PRJEB68319	ERR12510664			

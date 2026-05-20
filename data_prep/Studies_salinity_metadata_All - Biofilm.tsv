@@ -1,0 +1,21 @@
+Site	Study	pH	Salinity (mS/cm)	Latitude	Longitude	Description	Soil/Tailing/Sediment	BioProject ID	Sequencing method	Kit	Sequence Reads Archive	Comments	IMG id	K+(mmol/kg)	Na+(mmol/kg)	T(°C)
+36312	Glasl2020			-19,15336	146,86514	Coral	Biofilm	PRJNA594068	Illumina HiSeq 2500		SRR10694891					
+YUM_mss	Turini2020			-4,034	139,00158	Cave	Biofilm	PRJNA616285	Illumina NextSeq 550	Nextera XT DNA sample preparation kit	SRR11450778					
+PH2017_28_MFU_U_A	Bouma-Gregson2019			39,828975	-123,07	River	Matt	PRJNA448579	Illumina HiSeq 4000		SRR12360564					
+PH2017_25_DOB_D_A	Bouma-Gregson2019			40,1915	-123,58914	River	Matt	PRJNA448579	Illumina HiSeq 4000		SRR12360567					
+CCPADA_MET_003_R1	Rodrigeuz-Cruz2024			26,82825	-102,0246	Salt lake	Matt	PRJNA847603	Illumina MiSeq	TruSeq DNA nano,	SRR19844289					
+Endolith_namib	Vikram2025			-23,533	15,0303	Desert	Endolith	SRR2124832	llumina Hiseq-2000		SRR2124832					
+La1709	Bontemps2024			45,05364	1,17008	Cave	Biofilm	PRJNA878937	Illumina NovaSeq 6000	NEBNext Ultra DNA Library Prep Kit	SRR21547730					
+FICUS_Selbmann_53	Ettinger2023			-75,662	158,876	Desert	Hypolith	PRJNA899255	Illumina NovaSeq 6000	Next Ultra DNA library prep kits	SRR22259525					
+Mars-15	Ettinger2023			-77,75281	160,74586	Desert	Hypolith	PRJNA905198	Illumina NovaSeq 6000	Next Ultra DNA library prep kits	SRR22405825					
+Mars-61	Ettinger2023			-74,93278	162,40444	Desert	Hypolith	PRJNA905198	Illumina NovaSeq 6000	Next Ultra DNA library prep kits	SRR22405828					
+Mars-3	Ettinger2023			-73,66942	162,59369	Desert	Hypolith	PRJNA905198	Illumina NovaSeq 6000	Next Ultra DNA library prep kits	SRR22405866					
+Mars-24	Ettinger2023			-71,73167	161,375667	Desert	Hypolith	PRJNA905198	Illumina NovaSeq 6000	Next Ultra DNA library prep kits	SRR22405873					
+Mars-90b	Ettinger2023			-62,10008	-58,51664	Desert	Hypolith	PRJNA905198	Illumina NovaSeq 6000	Next Ultra DNA library prep kits	SRR22405881					
+ignimbrite	Crist-Christoph2016			-23,95694	-68,17028	Desert	Endolith	PRJNA285514	Illumina HiSeq 2000	Nextera XT DNA	SRR2396013					
+TC-E-SC-1 GW	Bay2025			-38,0576	141,92	Cave	Biofilm	PRJNA1048116	Illumina NovaSeq 6000	Nextera XT DNA kit	SRR27067704					
+H1-CC-SB-BB	Bay2025			-37,9075	141,976	Cave	Biofilm	PRJNA1048116	Illumina NovaSeq 6000	Nextera XT DNA kit	SRR27067720					
+DT_7_shotgun	Tan2025			3,1368	101,8345	Hot spring	Biofilm	PRJNA1082868	Illumina NovaSeq 6000		SRR28200752					74,8
+Antarctica Hypoliths	Le2016			-78,6	164	Desert	Hypolith	SRR3471615	Illumina Hiseq2000		SRR3471615					
+PH2015_04U	Bouma-Gregson2019			39,839398	-123,708	River	Matt	PRJNA448579	Illumina HiSeq 4000		SRR7244336					
+PH2015_06S	Bouma-Gregson2019			39,93777	-123,8	River	Matt	PRJNA448579	Illumina HiSeq 4000		SRR7244345					

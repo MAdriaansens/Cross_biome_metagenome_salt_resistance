@@ -1,0 +1,551 @@
+Study	Site	Quantative,Qualative	pH	Salinity (mS/cm)	Latitude	Longitude	Description	Soil/Tailing/Sediment	Sequencing method	Library	Kit	BioProject ID	Sequence Reads Archive	K+(mmol/kg)	Na+(mmol/kg)	T(°C)									
+Anantharaman2016	Anantharaman2016	Quantatative	7,11	0,489	39,52889	-107,77194	Groundwater	Sediment	Illumina HiSeq 2000			PRJNA288027	SRR2090150												
+Babalola2025	D04_pooled	Qualatative			-26,02	27,73	Grassland	Soil	Illumina NovaSeq 6000			PRJNA982608	SRR24958429												
+Babalola2025	Cave replicate 1	Qualatative			-26,02	27,73	Cave Sediments	Sediment	Illumina NovaSeq 6000			PRJNA982608	SRR24958431												
+Bay2025	M3-CC	Quantatative	8,05	2,757	37,40591	148,21114	Cave Sediments	Sediment	Illumina NovaSeq 6000		Nextera XT DNA kit	PRJNA1048116	SRR27067774	7,62	4,08										
+Bay2025	TC-CC	Quantatative	4,25	1,592	38,05706	141,92	Cave Sediments	Sediment	Illumina NovaSeq 6000		Nextera XT DNA kit	PRJNA1048116	SRR27067707	14,02	56,14										
+Bay2025	M3-CA	Quantatative	8,04	0,937	37,40591	148,21114	Cave Sediments	Sediment	Illumina NovaSeq 6000		Nextera XT DNA kit	PRJNA1048116	SRR27067781	11,6	3,64										
+Bay2025	SC-E	Quantatative	7,98	0,755	37,44	148,17	Cave Sediments	Soil	Illumina NovaSeq 6000		Nextera XT DNA kit	PRJNA1048116	SRR27067793	41,33	2,72										
+Bay2025	TC-CB	Quantatative	3,66	0,62	38,05706	141,92	Cave Sediments	Sediment	Illumina NovaSeq 6000		Nextera XT DNA kit	PRJNA1048116	SRR27067711	6,15	28,78										
+Bay2025	SC-CA	Quantatative	8,06	0,531	37,44	148,17	Cave Sediments	Sediment	Illumina NovaSeq 6000		Nextera XT DNA kit	PRJNA1048116	SRR27067755	6,55	2,87										
+Bay2025	M3-E	Quantatative	7,97	0,37	37,40591	148,21114	Cave Sediments	Sediment	Illumina NovaSeq 6000		Nextera XT DNA kit	PRJNA1048116	SRR27067783	23,07	1,17										
+Bay2025	TC-CA	Quantatative	4,89	0,243	38,05706	141,92	Cave Sediments	Sediment	Illumina NovaSeq 6000		Nextera XT DNA kit	PRJNA1048116	SRR27067716	10,48	32,2										
+Bay2025	SC-CC	Quantatative	8,22	0,219	37,44	148,17	Cave Sediments	Sediment	Illumina NovaSeq 6000		Nextera XT DNA kit	PRJNA1048116	SRR27067792	5,92	2,41										
+Bay2025	M3-CB	Quantatative	8,72	0,206	37,40591	148,21114	Cave Sediments	Sediment	Illumina NovaSeq 6000		Nextera XT DNA kit	PRJNA1048116	SRR27067776	8,3	1,91										
+Bay2025	SC-CB	Quantatative	8,34	0,153	37,44	148,17	Cave Sediments	Sediment	Illumina NovaSeq 6000		Nextera XT DNA kit	PRJNA1048116	SRR27067733	5,94	3,04										
+Bay2025	TC-E	Quantatative	5,01	0,149	38,05706	141,92	Cave Sediments	Soil	Illumina NovaSeq 6000		Nextera XT DNA kit	PRJNA1048116	SRR27067706	15,07	8,31										
+Bay2025	H1-E	Quantatative	4,96	0,098	37,9075	141,9769	Cave Sediments	Sediment	Illumina NovaSeq 6000		Nextera XT DNA kit	PRJNA1048116	SRR27067732	7,97	6,05										
+Blaustein2025	S11	Qualatative			38,92	-76,14	Lake_Sediment	Sediment	Illumina NextSeq 1000	Illumina DNA Prep kit with UD Indexes		PRJNA1062331	SRR33648766												
+Brewer2017	NTP21-deep	Qualatative			43,44	-92,38	Grassland	Soil	Illumina HiSeq 2000			PRJNA342239	SRR4241755												
+Bueno-de-musquita et al,2021	SBSPR1A	Quantatative	7,75		37,4969	-122,1331	Saltern	Sediment	Illumina HiSeq 2500			PRJNA365332	SRR5209944			24,7									
+Camargo-Montoya2025	D-Bra	Quantatative	6,7	0,0049	11,5913	-72,3254	Semi-arid Soil	Soil	MGISEQ-2000RS			PRJNA817243	SRR19681066												
+Camargo-Montoya2025	D-Tor	Quantatative	6,78	0,004	11,5913	-72,3254	Semi-arid Soil	Soil	MGISEQ-2000RS			PRJNA817243	SRR19681047												
+Camargo-Montoya2025	D-Tru	Quantatative	6,1	0,0037	11,5913	-72,3254	Semi-arid Soil	Soil	MGISEQ-2000RS			PRJNA817243	SRR19681044												
+Camargo-Montoya2025	D-C	Quantatative	6,94	0,0014	11,5913	-72,3254	Semi-arid Soil	Soil	MGISEQ-2000RS			PRJNA817243	SRR19681049												
+Camargo-Montoya2025	W-Tru	Quantatative	6,38	0,001	11,5913	-72,3254	Semi-arid Soil	Soil	MGISEQ-2000RS			PRJNA817243	SRR19681052												
+Camargo-Montoya2025	W-Tor	Quantatative	6,97	0,001	11,5913	-72,3254	Semi-arid Soil	Soil	MGISEQ-2000RS			PRJNA817243	SRR19681057												
+Camargo-Montoya2025	W-C	Quantatative	6,68	0,0009	11,5913	-72,3254	Semi-arid Soil	Soil	MGISEQ-2000RS			PRJNA817243	SRR19681060												
+Camargo-Montoya2025	W-Bra	Quantatative	6,73	0,0007	11,5913	-72,3254	Semi-arid Soil	Soil	MGISEQ-2000RS			PRJNA817243	SRR19681061												
+Carnevali2021	BGXWG	Qualatative		38,9231	38,9231	-106,9513	Flood	Soil	Illumina Hiseq2500			PRJNA630765	SRR6262588												
+Carnevali2021	BGXTC	Qualatative			38,8895	-106,9087	Flood	Soil	Illumina Hiseq2500			PRJNA630765	SRR6262230												
+Carnevali2021	BGXWX	Qualatative			38,9225	-106,9514	Flood	Soil	Illumina Hiseq2500			PRJNA630765	SRR6262816												
+Carnevali2021	BHBXS	Qualatative			38,9779	-107,0032	Flood	Soil	Illumina Hiseq2500			PRJNA630765	SRR6448383												
+Carnevali2021	BSAXX	Qualatative			38,9229	-106,9517	Flood	Soil	Illumina Hiseq2500			PRJNA630765	SRR6824013												
+Chiciudean2022	PMV6	Quantatative	8,1	1,739	43,825694	28,560556	Cave Sediments	Sediment	Illumina NovaSeq 6000			PRJNA777757	SRR16971105	54,73	24,61	20,6									
+Chiciudean2022	PMV4	Quantatative	8,3	1,237	43,825694	28,560556	Cave Sediments	Sediment	Illumina NovaSeq 6000			PRJNA777757	SRR16971106	54,86	14,66	21,5									
+Chiciudean2022	PMV3	Quantatative	7,9	0,955	43,825694	28,560556	Cave Sediments	Sediment	Illumina NovaSeq 6000			PRJNA777757	SRR16971107	127,44	5,49	0,8									
+Chiciudean2022	PMV2	Quantatative	8,3	0,751	43,825694	28,560556	Cave Sediments	Sediment	Illumina NovaSeq 6000			PRJNA777757	SRR16971108	109,47	12,61	20,6									
+Chiciudean2022	PMV1	Quantatative	8,5	0,27	43,825694	28,560556	Cave Sediments	Sediment	Illumina NovaSeq 6000			PRJNA777757	SRR16971109	130,11	18,11	20,8									
+Chiciudean2022	PMV7	Quantatative	8,9	0,119	43,825694	28,560556	Cave Sediments	Sediment	Illumina NovaSeq 6000			PRJNA777757	SRR16971104	148,75	16,32	20,6									
+Chiciudean2022	PMV8	Quantatative	9,2	0,0606	43,825694	28,560556	Cave Sediments	Sediment	Illumina NovaSeq 6000			PRJNA777757	SRR16971103	158,18	10,47	20,8									
+Colman2024	PF01	Quantatative	2,12	6,28	44,24158	-110,72458	Hot spring	Sediment				PRJNA791658	SRR25522548			81,9									
+Colman2024	SYL01	Quantatative	2,304	6,1	44,70007	-110,76842	Hot spring	Sediment				PRJNA791658	SRR25522547			76,9									
+Colman2024	GCR05	Quantatative	8,415	5,89	44,689	-110,72839	Hot spring	Sediment				PRJNA791658	SRR25522544			69,8									
+Colman2024	NOR02	Quantatative	7,162	5,712	44,72658	-110,70914	Hot spring	Sediment				PRJNA791658	SRR25522556			85,5									
+Colman2024	NOR04	Quantatative	2,888	5,65	44,732445	-110,709871	Hot spring	Sediment				PRJNA791658	SRR25522553			82,7									
+Colman2024	GRV02	Quantatative	1,285	5,6	44,73616	-110,70644	Hot spring	Sediment				PRJNA791658	SRR25522565			91,3*									
+Colman2024	SYL03	Quantatative	2,406	5,595	44,69956	-110,76673	Hot spring	Sediment				PRJNA791658	SRR25522545			85,0									
+Colman2024	GCR07	Quantatative	6,077	5,38	44,69067	-110,72977	Hot spring	Sediment				PRJNA791658	SRR25522540			85,8									
+Colman2024	GCR11	Quantatative	6,607	5,18	44,68915	-110,7285	Hot spring	Sediment				PRJNA791658	SRR25522538			73,7									
+Colman2024	GCR10	Quantatative	6,017	5,09	44,69038	-110,7289	Hot spring	Sediment				PRJNA791658	SRR25522539			77,3									
+Colman2024	Control 1 replicate 3	Quantatative	2,841	4,99	44,76694	-110,42964	Hot spring	Sediment				PRJNA791658	SRR25522542			71,1									
+Colman2024	SYL02	Quantatative	5,798	4,972	44,69893	-110,76843	Hot spring	Sediment				PRJNA791658	SRR25522546			78,1									
+Colman2024	MGB02	Quantatative	8,991	4,369	44,51987	-110,81077	Hot spring	Sediment				PRJNA791658	SRR25522561			86,9									
+Colman2024	GOPA01	Quantatative	3,03	4,125	44,60993	-110,43939	Hot spring	Sediment				PRJNA791658	SRR25522537			66,3*									
+Colman2024	SMH03	Quantatative	8	4,107	44,75154	-110,4151	Hot spring	Sediment				PRJNA791658	SRR25522557			74,1									
+Colman2024	GCR01	Quantatative	6,18	3,935	44,68753	-110,72752	Hot spring	Sediment				PRJNA791658	SRR25522567			83,2									
+Colman2024	SYL04	Quantatative	6,509	3,92	44,70055	-110,76543	Hot spring	Sediment				PRJNA791658	SRR25522543			71,7									
+Colman2024	LGB02	Quantatative	8,58	3,83	44,56485	-110,86005	Hot spring	Sediment				PRJNA791658	SRR25522563			92,8									
+Colman2024	LGB01	Quantatative	7,78	3,693	44,56963	-110,86518	Hot spring	Sediment				PRJNA791658	SRR17752278			92,4									
+Colman2024	NOR06	Quantatative	5,02	3,635	44,73616	-110,70649	Hot spring	Sediment				PRJNA791658	SRR25522551			70,0									
+Colman2024	MGB01	Quantatative	8,78	3,602	44,51914	-110,80914	Hot spring	Sediment				PRJNA791658	SRR25522562			80,6									
+Colman2024	LGB05	Quantatative	8,727	3,447	44,56097	-110,83286	Hot spring	Sediment				PRJNA791658	SRR17752279			77,2									
+Colman2024	SMH02	Quantatative	6,301	3,378	44,75386	-110,40376	Hot spring	Sediment				PRJNA791658	SRR25522558			67,8*									
+Colman2024	NOR05	Quantatative	2,926	3,249	44,7311	-110,710192	Hot spring	Sediment				PRJNA791658	SRR25522552			78,8									
+Colman2024	NOR03	Quantatative	2,801	3,007	44,72689	-110,70882	Hot spring	Sediment				PRJNA791658	SRR25522554			77,2									
+Colman2024	NOR07	Quantatative	2,94	2,94	44,72041	-110,71326	Hot spring	Sediment				PRJNA791658	SRR25522550			81,6									
+Colman2024	NMC01	Quantatative	7,495	2,785	44,73616	-110,70644	Hot spring	Sediment				PRJNA791658	SRR25522549			74,8									
+Colman2024	GCR04	Quantatative	5,215	2,116	44,6877	-110,7282	Hot spring	Sediment				PRJNA791658	SRR25522555			66,8									
+Colman2024	SMH01	Quantatative	6,525	1,988	44,7536	-110,40418	Hot spring	Sediment				PRJNA791658	SRR25522559			77,4									
+Colman2024	GCR02	Quantatative	4	1,788	44,68772	-110,72821	Hot spring	Sediment				PRJNA791658	SRR25522566			76,1									
+Colman2024	GCR06	Quantatative	6,79	1,635	44,688757	-110,727987	Hot spring	Sediment				PRJNA791658	SRR25522541			83,1									
+Colman2024	GRV03	Quantatative	6,83	1,342	44,68406	-110,74355	Hot spring	Sediment				PRJNA791658	SRR25522564			89,2									
+Colman2024	GOPA02	Quantatative	5,901	1,121	44,61006	-110,43882	Hot spring	Sediment				PRJNA791658	SRR25522536			70,7									
+Colman2024	MGB03	Quantatative	7,16	0,095	44,50889	-110,80895	Hot spring	Sediment				PRJNA791658	SRR25522560			79,4									
+Das2024	 mangrove	Quantatative	8,5	7,127	22,01909	88,4056	Forest	Soil	Illumina  NextSeq 500 	TruSeq Nano DNA library Prep Kit		PRJNA436903	SRR6811659												
+Das2024	non-mangrove	Quantatative	5,3	0,464	22,0124	88,4119	Forest	Soil	Illumina  NextSeq 500 	TruSeq Nano DNA library Prep Kit		PRJNA437568	SRR6821719												
+Diamond2022	14_1009_09_20cm	Qualatative			39,74	-123,63	Grassland	Soil	Illumina HiSeq 2500			PRJNA449266 	SRR7042353												
+Dindhoria2024	Sambhar_lake	Quantatative	9,1	128,1	26,92961	75,17642	Salt lake	Sediment	Illumina NovaSeq 6000			PRJNA951920	SRR24060162 	0,00299	1,434	29,8									
+Dong2023	XS2	Quantatative	8,08	57,814	15,800736	111,212314	Coral_reef_Sediment	Sediment	Illumina NovaSeq 6000			PRJNA724996	SRR14844118			30,3									
+Dong2023	XS9	Quantatative	7,9	57,324	16,07205	112,517133	Coral_reef_Sediment	Sediment	Illumina NovaSeq 6000			PRJNA724996	SRR14844105			26,5									
+Dong2023	XS10	Quantatative	7,88	56,928	16,042286	112,51065	Coral_reef_Sediment	Sediment	Illumina NovaSeq 6000			PRJNA724996	SRR14844104			32,1									
+Dong2023	XS3	Quantatative	7,85	55,483	16,977517	112,309883	Coral_reef_Sediment	Sediment	Illumina NovaSeq 6000			PRJNA724996	SRR14844111			29,5									
+Dong2023	XS13	Quantatative	7,85	55,483	16,50553	111,585344	Coral_reef_Sediment	Sediment	Illumina NovaSeq 6000			PRJNA724996	SRR14844115			28,5									
+Dong2023	XS4	Quantatative	8,1	55,349	16,498767	111,693017	Coral_reef_Sediment	Sediment	Illumina NovaSeq 6000			PRJNA724996	SRR14844110			29,6									
+Dong2023	XS12	Quantatative	7,91	55,32	16,048842	112,470167	Coral_reef_Sediment	Sediment	Illumina NovaSeq 6000			PRJNA724996	SRR14844116			32,3									
+Dong2023	XS16	Quantatative	8,14	55,006	17,077019	111,473575	Coral_reef_Sediment	Sediment	Illumina NovaSeq 6000			PRJNA724996	SRR14844112			31,7									
+Dong2023	XS15	Quantatative	8,08	53,697	17,099583	111,464367	Coral_reef_Sediment	Sediment	Illumina NovaSeq 6000			PRJNA724996	SRR14844113			26,9									
+Dong2023	XS8	Quantatative	8,15	53,321	16,223619	111,815706	Coral_reef_Sediment	Sediment	Illumina NovaSeq 6000			PRJNA724996	SRR14844106			28,8									
+Dong2023	XS6	Quantatative	8,15	52,2471	16,468783	111,61595	Coral_reef_Sediment	Sediment	Illumina NovaSeq 6000			PRJNA724996	SRR14844108			29,6									
+Dong2023	XS11	Quantatative	8,03	51,674	16,060742	112,468911	Coral_reef_Sediment	Sediment	Illumina NovaSeq 6000			PRJNA724996	SRR14844117			27,2									
+Dong2023	XS1	Quantatative	8,12	50,96	16,2704	111,724133	Coral_reef_Sediment	Sediment	Illumina NovaSeq 6000			PRJNA724996	SRR14844119			29,5									
+Dong2023	XS7	Quantatative	7,99	49,86	16,074455	111,797417	Coral_reef_Sediment	Sediment	Illumina NovaSeq 6000			PRJNA724996	SRR14844107			27,4									
+Dong2023	XS5	Quantatative	7,95	45,225	16,659817	112,75505	Coral_reef_Sediment	Sediment	Illumina NovaSeq 6000			PRJNA724996	SRR14844109			29,8									
+Dong2023	XS14	Quantatative	7,81	44,305	16,525097	111,767961	Coral_reef_Sediment	Sediment	Illumina NovaSeq 6000			PRJNA724996	SRR14844114			20,6									
+Duchesneau2025	AZOGBG	Qualatative			47,50793	-93,4521	Peatland	Soil	Illumina HiSeq 2500	Truseq library	MoBio PowerSoil Pro Kit	PRJNA364951	SRR5823773												
+Frey2022	Sailon_B	Qualatative			46,1	7,09	Forest	Soil					SRR17205146												
+Frey2022	NE-B	Qualatative			47,41	8,32	Forest	Soil					SRR17205148												
+Frey2022	NB-B	Qualatative			47,41	8,39	Forest	Soil					SRR17205151												
+Frey2022	ChE-B	Qualatative			46,12	7,12	Forest	Soil					SRR17205152												
+Frey2022	Sailon_O	Qualatative			46,1	7,9	Forest	Soil					SRR17205155												
+Frey2022	ChB-B	Qualatative			46,12	7,12	Forest	Soil	Illumina Miseq				SRR17205156												
+Galisteo2024	M2_3C	Quantatative	6,3	69,2	37,22167	-6,96244	Saltmarsh	Soil	Illumina NovaSeq 6000			PRJNA1081324	SRR28149494			37,2									
+Galisteo2024	M2_3B	Quantatative	6,4	60,7	37,22167	-6,96244	Saltmarsh	Soil	Illumina NovaSeq 6000			PRJNA1081324	SRR28149495			37,2									
+Galisteo2024	M2_2A	Quantatative	7,5	46,1	37,20789	-6,95775	Saltmarsh	Soil	Illumina NovaSeq 6000			PRJNA1081324	SRR28149499			35,9									
+Galisteo2024	M2_2B	Quantatative	7,4	46	37,20789	-6,95775	Saltmarsh	Soil	Illumina NovaSeq 6000			PRJNA1081324	SRR28149497			35,9									
+Galisteo2024	M2_1B	Quantatative	8,2	42,6	37,20739	-6,96458	Saltmarsh	Soil	Illumina NovaSeq 6000			PRJNA1081324	SRR28149501			32,1									
+Galisteo2024	M2_3A	Quantatative	6	39,1	37,22167	-6,96244	Saltmarsh	Soil	Illumina NovaSeq 6000			PRJNA1081324	SRR28149496			37,2									
+Galisteo2024	M2_2C	Quantatative	7,7	37,9	37,20789	-6,95775	Saltmarsh	Soil	Illumina NovaSeq 6000			PRJNA1081324	SRR28149498			35,9									
+Galisteo2024	M2_1A	Quantatative	8,5	33,5	37,20739	-6,96458	Saltmarsh	Soil	Illumina NovaSeq 6000			PRJNA1081324	SRR28149503			32,1			0,36						
+Galisteo2024	M2_1C	Quantatative	8,4	27,1	37,20739	-6,96458	Saltmarsh	Soil	Illumina NovaSeq 6000			PRJNA1081324	SRR28149500			32,1									
+Galisteo2024	M3_1A	Quantatative	8,3	27	37,20739	-6,96458	Saltmarsh	Soil	Illumina NovaSeq 6000			PRJNA1081324	SRR28149508			30,6									
+Galisteo2024	M3_1B	Quantatative	8,4	26,9	37,20739	-6,96458	Saltmarsh	Soil	Illumina NovaSeq 6000			PRJNA1081324	SRR28149502			30,6									
+Galisteo2024	M3_2A	Quantatative	8,4	24,7	37,20789	-6,95775	Saltmarsh	Soil	Illumina NovaSeq 6000			PRJNA1081324	SRR28149492			34									
+Galisteo2024	M3_2B	Quantatative	7,8	24	37,20789	-6,95775	Saltmarsh	Soil	Illumina NovaSeq 6000			PRJNA1081324	SRR28149491			34									
+Galisteo2024	M3_3A	Quantatative	8,5	23,3	37,22167	-6,96244	Saltmarsh	Soil	Illumina NovaSeq 6000			PRJNA1081324	SRR28149506			33,7									
+Galisteo2024	M3_1C	Quantatative	8,2	22,4	37,20739	-6,96458	Saltmarsh	Soil	Illumina NovaSeq 6000			PRJNA1081324	SRR28149493			30,6									
+Galisteo2024	M3_3B	Quantatative	8,3	21,9	37,22167	-6,96244	Saltmarsh	Soil	Illumina NovaSeq 6000			PRJNA1081324	SRR28149505			33,7									
+Galisteo2024	M3_2C	Quantatative	7,7	18,5	37,20789	-6,95775	Saltmarsh	Soil	Illumina NovaSeq 6000			PRJNA1081324	SRR28149507			34									
+Galisteo2024	M3_3C	Quantatative	8,4	15,4	37,22167	-6,96244	Saltmarsh	Soil	Illumina NovaSeq 6000			PRJNA1081324	SRR28149504			33,7									
+Gao2022	DX1		3,08	8,39 	29,0025 	117,7275 	Acid minage sediment	Sediment	Illumina MiSeq	NEBNext Ultra II DNA Prep Kit	QIAquick Gel Extraction Kit	PRJNA666025	SRR13197465												
+Gao2022	MAS1		2,62	3,38 	31,6772 	118,6274 	Acid minage sediment	Sediment	Illumina MiSeq	NEBNext Ultra II DNA Prep Kit	QIAquick Gel Extraction Kit	PRJNA666025	SRR13190158												
+Gao2022	Fk3		5,45	2,88 	25,0491 	113,6640 	Acid minage sediment	Sediment	Illumina MiSeq	NEBNext Ultra II DNA Prep Kit	QIAquick Gel Extraction Kit	PRJNA666025	SRR13201255												
+Gao2022	BP4		2,4	2,86 	25,8098 	107,6186 	Acid minage sediment	Sediment	Illumina MiSeq	NEBNext Ultra II DNA Prep Kit	QIAquick Gel Extraction Kit	PRJNA666025	SRR13162838												
+Gao2022	BP6		2,46	2,63	25,809534	107,618123	Acid minage sediment	Sediment	Illumina MiSeq	NEBNext Ultra II DNA Prep Kit	QIAquick Gel Extraction Kit	PRJNA666025	SRR17201898												
+Gao2022	JA3		2,46	2,63 	26,5235 	106,5710 	Acid minage sediment	Sediment	Illumina MiSeq	NEBNext Ultra II DNA Prep Kit	QIAquick Gel Extraction Kit	PRJNA666025	SRR13201268												
+Gao2022	Fk2		2,49	2,16 	25,0490 	113,6640 	Acid minage sediment	Sediment	Illumina MiSeq	NEBNext Ultra II DNA Prep Kit	QIAquick Gel Extraction Kit	PRJNA666025	SRR13203224												
+Gao2022	YF5		2,89	1,73 	22,9640 	112,0150 	Acid minage sediment	Sediment	Illumina MiSeq	NEBNext Ultra II DNA Prep Kit	QIAquick Gel Extraction Kit	PRJNA666025	SRR13213329												
+Gao2022	DBS1-3		1,87	1,22	24,5595 	113,7451 	Acid minage sediment	Sediment	Illumina MiSeq	NEBNext Ultra II DNA Prep Kit	QIAquick Gel Extraction Kit	PRJNA666025	SRR13178631												
+Gionfriddo2020	Cub Bath	Quantatative	3,4	0	-35,407515	173,8554755	Hot spring	Sediment	Illumina HiSeq 2500	NexteraXT kit,		PRJNA622280	SRR11457942			28,8									
+Gionfriddo2020	Tiger bath	Quantatative	2,95	0	-35,4075155	173,8554535	Hot spring	Sediment	Illumina HiSeq 2500	NexteraXT kit,		PRJNA622280	SRR11457943			37,9									
+Hazzouri2022	Sample16	Quantatative	8,59	47,5	24,066972	53,374583	Salt_flat_Soil	Soil	Illumina NovaSeq 6000			PRJNA753691	SRR15430510	-	-	-									
+Hazzouri2022	Sample17	Quantatative	8,17	47	24,066972	53,374583	Salt_flat_Soil	Soil	Illumina NovaSeq 6000			PRJNA753691	SRR15430509	-	-	-									
+Hazzouri2022	Sample18	Quantatative	8,06	46,4	24,066972	53,374583	Salt_flat_Soil	Soil	Illumina NovaSeq 6000			PRJNA753691	SRR15430508	-	-	-									
+Hazzouri2022	Sample1	Quantatative	7,46	42,1	24,066972	53,374583	Salt_flat_Soil	Soil	Illumina HiSeq 1000			PRJNA753691	SRR15430507	-	-	-									
+Hazzouri2022	Sample3	Quantatative	8,1	40,4	24,066972	53,374583	Salt_flat_Soil	Soil	Illumina NovaSeq 6000			PRJNA753691	SRR15430506	-		-									
+Hazzouri2022	Sample15	Quantatative	8,21	28	24,066972	53,374583	Salt_flat_Soil	Soil	Illumina NovaSeq 6000			PRJNA753691	SRR15430511	-	-	-									
+Hazzouri2022	Sample14	Quantatative	7,97	23	24,066972	53,374583	Salt_flat_Soil	Soil	Illumina NovaSeq 6000			PRJNA753691	SRR15430520	-	-										
+Hazzouri2022	Sample13	Quantatative	8,73	22,5	24,066972	53,374583	Salt_flat_Soil	Soil	Illumina NovaSeq 6000			PRJNA753691	SRR15430531	-	-	-									
+Hazzouri2022	Sample12	Quantatative	8,73	14,69	24,066972	53,374583	Salt_flat_Soil	Soil	Illumina NovaSeq 6000			PRJNA753691	SRR15430532	-	-	-									
+Hazzouri2022	Sample8	Quantatative	8,56	4,08	24,066972	53,374583	Salt_flat_Soil	Soil	Illumina NovaSeq 6000			PRJNA753691	SRR15430505			-									
+Hernandez-Vazquez2026	DDsed	Qualatative	10		21,846621	-105,883377	Soda Lake	Sediment	Illumina MiSeq			PRJNA1240669	SRR32816590												
+Hernandez2020	1957	Qualatative			-38,34	-71,47	Geothermal Soil	Soil	Illumina MiSeq			PRJNA602600	SRR11271805												
+Hernandez2020	1751	Qualatative			-38,5	-71,38	Geothermal Soil	Soil	Illumina MiSeq			PRJNA602600	SRR11271808												
+Hernandez2020	1640	Qualatative			-38,49	-71,41	Geothermal Soil	Soil	Illumina MiSeq			PRJNA602600	SRR11271809												
+Högfors-Rönnholm2019	CWAHO	Qualatative	3,7		63,0472	21,7116	Acidic grassland	Soil	Illumina NovaSeq 6000	KAPA-Illumina library		PRJNA524144	SRR8554483												
+Högfors-Rönnholm2019	CWAHT	Qualatative	4,7		63,0472	21,7116	Acidic grassland	Soil	Illumina NovaSeq 6000	KAPA-Illumina library		PRJNA524144	SRR8554503												
+Högfors-Rönnholm2019	CWAHZ	Qualatative	8,1		63,0472	21,7116	Acidic grassland	Soil	Illumina NovaSeq 6000	KAPA-Illumina library		PRJNA524144	SRR8554643												
+Hortstmann2025	AZ_24	Quantatative	9,4	0,1006	-26,302717	-70,45735	Arid Soil	Soil	Illumina NovaSeq 6000			PRJEB76461	ERR13337195												
+Hortstmann2025	AZ_3	Quantatative	7,59	0,093	-26,302717	-70,45735	Arid Soil	Soil	Illumina NovaSeq 6000			PRJEB76461	ERR13337194												
+Hortstmann2025	NA_39,0	Quantatative	8,17	0,0098	-37,79381	-72,95043	Humid Soil	Soil	Illumina NovaSeq 6000	Accel-NGS 2S Plus DNA Library Kit		PRJEB76461	ERR13337193												
+Kosmopoulos2025	BOr1A	Qualatative	3,6		54,93046	-3,24013	Peatland	Soil	Illumina NovaSeq 6000	DNeasy PowerSoil Kit (	DNeasy PowerSoil Kit (	PRJNA1203648	SRR31840412												
+Kosmopoulos2025	BAr3I	Qualatative	3,62		56,92341	-3,15831	Peatland	Soil	Illumina NovaSeq 6000	DNeasy PowerSoil Kit (	DNeasy PowerSoil Kit (	PRJNA1203648	SRR31840413												
+Kosmopoulos2025	BAr3H	Qualatative	3,59		56,92341	-3,15831	Peatland	Soil	Illumina NovaSeq 6000	DNeasy PowerSoil Kit (	DNeasy PowerSoil Kit (	PRJNA1203648	SRR31840414												
+Kosmopoulos2025	SEr3I	Qualatative	3,74		54,1308	-1,95015	Peatland	Soil	Illumina NovaSeq 6000	DNeasy PowerSoil Kit (	DNeasy PowerSoil Kit (	PRJNA1203648	SRR31840415												
+Kosmopoulos2025	MHr1C	Qualatative	3,95		54,69457	-2,37661	Peatland	Soil	Illumina NovaSeq 6000	DNeasy PowerSoil Kit (	DNeasy PowerSoil Kit (	PRJNA1203648	SRR31840428												
+Kosmopoulos2025	MGr3H	Qualatative	3,86		52,99565	-3,81652	Peatland	Soil	Illumina NovaSeq 6000	DNeasy PowerSoil Kit (	DNeasy PowerSoil Kit (	PRJNA1203648	SRR31840433												
+Kosmopoulos2025	LAWAr2D	Qualatative			58,20588	-3,5552	Peatland	Soil	Illumina NovaSeq 6000	DNeasy PowerSoil Kit (	DNeasy PowerSoil Kit (	PRJNA1203648	SRR31840444												
+Kosmopoulos2025	CRr1B	Qualatative	4,04		58,39304	-4,00182	Peatland	Soil	Illumina NovaSeq 6000	DNeasy PowerSoil Kit (	DNeasy PowerSoil Kit (	PRJNA1203648	SRR31840466												
+Makcelprang2017	33KA	Qualatative			64,951	-147,621	Permafrost	Permafrost	Illumina HiSeq 2000			PRJNA350710	SRR5050798												
+Medeiras2026	Crater Lake	Qualatative			-62,9811	-60,6675	Beach	Soil	HiSeq 2500	Illumina Nextera Flex DNA Library Prep Kit	DNA easy (max)powerSoil	PRJEB95143	ERR15419862			1,4									
+Medeiras2026	Fumarole bay	Qualatative			-62,9674	-60,7099	Geothermal Soil	Soil	HiSeq 2500	Illumina Nextera Flex DNA Library Prep Kit	DNA easy (max)powerSoil	PRJEB95143	ERR15419867			48,9									
+Medeiras2026	Hannah_point	Qualatative			-62,647	-60,6031	Beach	Soil	HiSeq 2500	Illumina Nextera Flex DNA Library Prep Kit	DNA easy powerSoil	PRJEB95143	ERR15419868			2,5									
+Medeiras2026	Whalers bay	Qualatative			-62,9791	-60,556	Beach	Soil	Illumina NovaSeq 6000	Illumina DNA Prep Kit	DNA easy powerSoil	PRJEB95143	ERR15419881			5									
+Michoud2025	Gl127_u_KZ	Quantatative	8,204	0,997	39,4419	72,8983	Gletsjer_Sediment	Sediment	Illumina NovaSeq 6000		350PE	PRJNA781406 	SRR23617189			0,25									
+Michoud2025	Gl114_u_Nepal	Quantatative	8,262	0,593	28,77632	83,99507	Gletsjer_Sediment	Sediment	Illumina NovaSeq 6000		350PE	PRJNA781406 	SRR23617208			1,9									
+Michoud2025	Gl130_u_KZ	Quantatative	8,33	0,33	41,8245	78,1545	Gletsjer_Sediment	Sediment	Illumina NovaSeq 6000		350PE	PRJNA781406 	SRR23617183			3									
+Michoud2025	Gl100_u_Alp	Quantatative	7,8	0,238	44,883	6,2934	Gletsjer_Sediment	Sediment	Illumina NovaSeq 6000		350PE	PRJNA781406 	SRR23617155			2,2									
+Michoud2025	Gl22_u_Alp	Quantatative	9,24	0,1203	45,9166	7,2669	Gletsjer_Sediment	Sediment	Illumina NovaSeq 6000		350PE	PRJNA781406	SRR23617151			0,2									
+Michoud2025	Gl106_u_Nepa	Quantatative	7,66	0,1058	28,19602	85,69055	Gletsjer_Sediment	Sediment	Illumina NovaSeq 6000		350PE	PRJNA781406	SRR23617251			0,6									
+Michoud2025	Gl16_u_NZ	Quantatative	10,18	0,0958	-43,794	170,0643	Gletsjer_Sediment	Sediment	Illumina NovaSeq 6000			PRJNA781406	SRR23617156			5,7									
+Michoud2025	Gl103_u_Nepal	Quantatative	7,92	0,0862	28,2298	85,56236	Gletsjer_Sediment	Sediment	Illumina NovaSeq 6000		350PE	PRJNA781406	SRR23617295			0,2									
+Michoud2025	Gl133_u_KZ	Quantatative	9,14	0,0849	41,8879	77,6879	Gletsjer_Sediment	Sediment	Illumina NovaSeq 6000			PRJNA781406	SRR23617179			0,1									
+Michoud2025	Gl54_u_Caucasus	Quantatative	7,91	0,0685	43,2721	42,4468	Gletsjer_Sediment	Sediment	Illumina NovaSeq 6000		350PE	PRJNA781406	SRR23617289			4,1									
+Michoud2025	GL12_Up_NZ	Quantatative	9,83	0,0667	-44,4803	168,7265	Gletsjer_Sediment	Sediment	Illumina NovaSeq 6000			PRJNA781406	SRR23617186			6,6									
+Michoud2025	Gl116_u_Nepal	Quantatative	9,106	0,0351	27,90124	86,87882	Gletsjer_Sediment	Sediment	Illumina NovaSeq 6000		350PE	PRJNA781406	SRR23617204			0,7									
+Michoud2025	Gl81_u_Alp	Quantatative	8,59	0,0348	46,4035	9,8695	Gletsjer_Sediment	Sediment	Illumina NovaSeq 6000		350PE	PRJNA781406	SRR23617257			0,8									
+Michoud2025	Gl122_u_KZ	Quantatative	8,92	0,0302	42,4755	74,4829	Gletsjer_Sediment	Sediment	Illumina NovaSeq 6000		350PE	PRJNA781406	SRR23617193			0,3									
+Michoud2025	Gl99_u_Alp	Quantatative	7,4	0,0288	45,8973	6,8842	Gletsjer_Sediment	Sediment	Illumina NovaSeq 6000			PRJNA781406	SRR23617213			0									
+Michoud2025	Gl88_u_NZ	Quantatative	7,18	0,0165	69,4654	19,8359	Gletsjer_Sediment	Sediment	Illumina NovaSeq 6000			PRJNA781406	SRR23617248			0,9									
+Michoud2025	Gl124_u_KZ	Quantatative	9,819	0,0162	42,4383	74,4595	Gletsjer_Sediment	Sediment	Illumina NovaSeq 6000		350PE	PRJNA781406	SRR23617191			0,5									
+Michoud2025	Gl73_u_Ecuador	Quantatative	5,08	0,0153	-1,4612	-78,7769	Gletsjer_Sediment	Sediment	Illumina NovaSeq 6000		350PE	PRJNA781406	SRR23617270			0,8									
+Michoud2025	GL15_u_NZ	Quantatative	6,47	0,0104	-44,6121	168,0218	Gletsjer_Sediment	Sediment	Illumina NovaSeq 6000			PRJNA781406	SRR23617158			1,4									
+Michoud2025	Gl140_2_Ug	Quantatative	6,94	0,0104	0,3758	29,8785	Gletsjer_Sediment	Sediment	Illumina NovaSeq 6000			PRJNA781406	SRR23617167			0,4									
+Michoud2025	Gl74_u_Ecuador	Quantatative	4,9	0,0103	-1,4051	-78,7559	Gletsjer_Sediment	Sediment	Illumina NovaSeq 6000		350PE	PRJNA781406	SRR23617268			1,5									
+Michoud2025	Gl86_u_Norway	Quantatative	8,32	0,0098	69,4734	20,0001	Gletsjer_Sediment	Sediment	Illumina NovaSeq 6000			PRJNA781406	SRR23617250			2,7									
+Michoud2025	Gl140_5_Ug	Quantatative	6,5	0,0097	0,3758	29,8785	Gletsjer_Sediment	Sediment	Illumina NovaSeq 6000			PRJNA781406	SRR23617163			0,8									
+Michoud2025	GL_13_u_NZ	Quantatative	6,76	0,0093	-44,0819	169,4317	Gletsjer_Sediment	Sediment	Illumina NovaSeq 6000			PRJNA781406	SRR23617169			0,7									
+Michoud2025	Gl75_u_Ecuador	Quantatative	4,42	0,0061	-1,4462	-78,804	Gletsjer_Sediment	Sediment	Illumina NovaSeq 6000		350PE	PRJNA781406	SRR23617266			0									
+Michoud2025	Gl36_u_Greenland	Quantatative	6,06	0,0052	64,1211	-51,4805	Gletsjer_Sediment	Sediment	Illumina NovaSeq 6000			PRJNA781406	SRR23617239			7,3									
+Michoud2025	Gl91_u_Norway	Quantatative	6,65	0,0013	61,7124	7,2921	Gletsjer_Sediment	Sediment	Illumina NovaSeq 6000			PRJNA781406	SRR23617231			1									
+Muzami2025	KK3	Quantatative	5,45	0,0012	-1,0514	36,9608	Agricultural Soil	Soil	Illumina NovaSeq 6000		CTAB	SRR30184006	SRR30184006	-	-	-									
+Nathani2021	GOCS1	Qualatative		3,04	21,835	72	Estuary	Sediment	Illumina HiSeq 4000			PRJEB26614	ERR2564001												
+Nathani2021	GOCS2	Qualatative		3,04	22	72	Estuary	Sediment	Illumina HiSeq 4000			PRJEB26614	ERR2564002												
+Nathani2021	GOCS3	Qualatative		3,04	21,46916667	72,4091667	Estuary	Sediment	Illumina HiSeq 4000			PRJEB26614	ERR2564003												
+Nathani2021	GOCS4	Qualatative		3,04	21,38055556	72,22111	Estuary	Sediment	Illumina HiSeq 4000			PRJEB26614	ERR2564004												
+Nathani2021	GOCS5	Qualatative		3,04	20,7325	70,6561111	Estuary	Sediment	Illumina HiSeq 4000			PRJEB26614	ERR2564005												
+Noell 2024	Mel1-3	Quantatative	6,43	0,01277	-74,350016	164,700139	Geothermal Soil	Soil				PRJNA1113340	SRR29089224	0,006361	0	52									
+Noell 2024	Ritt1-3	Quantatative	6,73	0,00815	-73,448445	165,497444	Geothermal Soil	Soil	Illumina Hi-Seq 4000	NEBNext Ultra DNA Library Prep Kit		PRJNA1113340	SRR29089223	0,02482	0,034976	69									
+Noell 2024	Ritt3M-3	Quantatative	6	0,00728	-73,448445	165,497444	Geothermal Soil	Soil	Illumina Hi-Seq 4000			PRJNA1113340	SRR29089222	0,03642	0	65									
+Noell 2024	WC-50	Quantatative	9,2	0,00639	-77,519167	167,187778	Geothermal Soil	Soil	Illumina Hi-Seq 4000			PRJNA1113340	SRR29089225	3	0,6412	50			0,35 (g/kg)						
+Park2021	Melbourne,5_1,MG	Quantatative			-74,355	164,6955	Geothermal Soil	Soil	Illumina HiSeq4000	TruSeq Nano DNA Library Prep ki		PRJNA685225	SRR13254584												
+Passi2024	ena-EXPERIMENT-TAB-21-06-2023-17:25:10:062-50267	Qualatative			69,59	26,15	Tundra	Soil				ENA	ERR11584944												
+Paul2023	EPS170215	Qualatative	9,9		9,901885	-85,454327	Hot spring	Sediment	Illumina NextSeq 500			PRJNA627197	SRR11582139			26									
+Paul2023	AR170220	Qualatative			10,4861	-84,6872	Geothermal Soil	Soil	Illumina NextSeq 500			PRJNA627197	SRR11582142												
+Paul2023	CYS170214	Qualatative	6,3		10,287497	-84,955524	Hot spring	Sediment	Illumina NextSeq 500			PRJNA627197	SRR11582143			72									
+Paul2023	BR1S70218	Qualitative	6,2		10,89837	-85,32839	Hot spring	Sediment	Illumina NextSeq 500			PRJNA627197	SRR11582147			59									
+Paul2023	PBS170224	Qualatative			10,188962	-84,227388	Geothermal Soil	Soil	Illumina NextSeq 500			PRJNA627197	SRR11582165												
+Paul2023	ETS170220	Qualatative	6,1		10,484006	-84,675853	Hot spring	Sediment	Illumina NextSeq 500			PRJNA627197	SRR11582173			40									
+Remenyik2024	S16	Quantatative	4,19	1,5	48,19	21,27	Agricultural Soil	Soil	llumina NovaSeq 6000			PRJNA909960	SRR22573057												
+Remenyik2024	S15	Quantatative	4,56	1,003	48,19	21,27	Agricultural Soil	Soil	llumina NovaSeq 6000			PRJNA909960	SRR22573058												
+Remenyik2024	S27	Quantatative	5,66	0,762	48,19	21,27	Agricultural Soil	Soil	llumina NovaSeq 6000			PRJNA909960	SRR22573045												
+Remenyik2024	S48	Quantatative	5,11	0,678	48,19	21,27	Agricultural Soil	Soil	llumina NovaSeq 6000			PRJNA909960	SRR22573022												
+Remenyik2024	S14	Quantatative	4,68	0,668	48,19	21,27	Agricultural Soil	Soil	Illumina NovaSeq 6000			PRJNA909960	SRR22573059												
+Remenyik2024	S26	Quantatative	5,04	0,638	48,19	21,27	Agricultural Soil	Soil	llumina NovaSeq 6000			PRJNA909960	SRR22573046												
+Remenyik2024	S60	Quantatative	5,45	0,567	48,19	21,27	Agricultural Soil	Soil	Illumina NovaSeq 6000			PRJNA909960	SRR22573009												
+Remenyik2024	S25	Quantatative	4,95	0,476	48,19	21,27	Agricultural Soil	Soil	Illumina NovaSeq 6000			PRJNA909960	SRR22573047												
+Remenyik2024	S47	Quantatative	4,96	0,457	48,19	21,27	Agricultural Soil	Soil	Illumina NovaSeq 6000			PRJNA909960	SRR22573023												
+Remenyik2024	S13	Quantatative	3,61	0,342	48,19	21,27	Agricultural Soil	Soil	llumina NovaSeq 6000			PRJNA909960	SRR22573060												
+Remenyik2024	S38	Quantatative	5,59	0,316	48,19	21,27	Agricultural Soil	Soil	llumina NovaSeq 6000			PRJNA909960	SRR22573033												
+Remenyik2024	S39	Quantatative	5,34	0,306	48,19	21,27	Agricultural Soil	Soil	llumina NovaSeq 6000			PRJNA909960	SRR22573032												
+Remenyik2024	S8	Quantatative	6,55	0,295	48,19	21,27	Agricultural Soil	Soil	llumina NovaSeq 6000			PRJNA909960	SRR22573007												
+Remenyik2024	S5	Quantatative	6,7	0,287	48,19	21,27	Agricultural Soil	Soil	llumina NovaSeq 6000			PRJNA909960	SRR22573030												
+Remenyik2024	S40	Quantatative	5,25	0,285	48,19	21,27	Agricultural Soil	Soil	Illumina NovaSeq 6000			PRJNA909960	SRR22573031												
+Remenyik2024	S7	Quantatative	6,57	0,268	48,19	21,27	Agricultural Soil	Soil	Illumina NovaSeq 6000			PRJNA909960	SRR22573008												
+Remenyik2024	S9	Quantatative	6,69	0,265	48,19	21,27	Agricultural Soil	Soil	llumina NovaSeq 6000			PRJNA909960	SRR22573006												
+Remenyik2024	S33	Quantatative	4,83	0,257	48,19	21,27	Agricultural Soil	Soil	Illumina NovaSeq 6000			PRJNA909960	SRR22573038												
+Remenyik2024	S20	Quantatative	3,43	0,254	48,19	21,27	Agricultural Soil	Soil	llumina NovaSeq 6000			PRJNA909960	SRR22573053												
+Remenyik2024	S10	Quantatative	6,63	0,244	48,19	21,27	Agricultural Soil	Soil	llumina NovaSeq 6000			PRJNA909960	SRR22573005												
+Remenyik2024	S1	Quantatative	6,63	0,233	48,19	21,27	Agricultural Soil	Soil	llumina NovaSeq 6000			PRJNA909960	SRR22573064												
+Remenyik2024	S19	Quantatative	3,49	0,222	48,19	21,27	Agricultural Soil	Soil	llumina NovaSeq 6000			PRJNA909960	SRR22573054												
+Remenyik2024	S17	Quantatative	3,78	0,222	48,19	21,27	Agricultural Soil	Soil	Illumina NovaSeq 6000			PRJNA909960	SRR22573056												
+Remenyik2024	S12	Quantatative	3,66	0,191	48,19	21,27	Agricultural Soil	Soil	llumina NovaSeq 6000			PRJNA909960	SRR22573061												
+Remenyik2024	S54	Quantatative	4,57	0,179	48,19	21,27	Agricultural Soil	Soil	llumina NovaSeq 6000			PRJNA909960	SRR22573015												
+Remenyik2024	S57	Quantatative	4,45	0,17	48,19	21,27	Agricultural Soil	Soil	Illumina NovaSeq 6000			PRJNA909960	SRR22573012												
+Remenyik2024	S50	Quantatative	3,59	0,157	48,19	21,27	Agricultural Soil	Soil	Illumina NovaSeq 6000			PRJNA909960	SRR22573020												
+Remenyik2024	S46	Quantatative	4,54	0,142	48,19	21,27	Agricultural Soil	Soil	llumina NovaSeq 6000			PRJNA909960	SRR22573024												
+Remenyik2024	S43	Quantatative	4,64	0,138	48,19	21,27	Agricultural Soil	Soil	llumina NovaSeq 6000			PRJNA909960	SRR22573027												
+Remenyik2024	S11	Quantatative	3,74	0,102	48,19	21,27	Agricultural Soil	Soil	Illumina NovaSeq 6000			PRJNA909960	SRR22573062												
+Ren2018	A1	Qualitative	8,36		37,85725	80,49236	Arid Soil	Soil	NextSeq 500			PRJEB21269	ERR2004600												
+Ren2018	A2	Qualitative	8,25		37,859	80,49314	Arid Soil	Soil	NextSeq 500			PRJEB21269	ERR2004601												
+Ren2018	A3	Qualitative	8,04		37,85675	80,4925	Arid Soil	Soil	NextSeq 500			PRJEB21269	ERR2004602												
+Ren2018	B2	Qualitative	9,18		37,46622	79,57383	Arid Soil	Soil	NextSeq 500			PRJEB21269	ERR2004604												
+Ren2018	B3	Qualitative	8,67		37,46267	79,57133	Arid Soil	Soil	NextSeq 500			PRJEB21269	ERR2004605												
+Ren2018	C1	Qualitative	8,73		37,58283	80,14686	Arid Soil	Soil	NextSeq 500			PRJEB21269	ERR2004606												
+Ren2018	C2	Qualitative	8,74		37,58292	80,14758	Arid Soil	Soil	NextSeq 500			PRJEB21269	ERR2004607												
+Ren2018	C3	Qualitative	8,65		37,58361	80,14725	Arid Soil	Soil	NextSeq 500			PRJEB21269	ERR2004608												
+Ren2018	D1	Qualitative	8,57		41,03753	82,54983	Arid Soil	Soil	NextSeq 500			PRJEB21269	ERR2004609												
+Ren2018	D3	Qualitative	8,14		41,03756	82,54833	Arid Soil	Soil	NextSeq 500			PRJEB21269	ERR2004611												
+Ren2018	E1	Qualitative	7,99		41,15975	82,94144	Arid Soil	Soil	NextSeq 500			PRJEB21269	ERR2004612												
+Ren2018	E2	Qualitative	8,03		41,16	82,94058	Arid Soil	Soil	NextSeq 500			PRJEB21269	ERR2004613												
+Ren2018	E3	Qualitative	7,86		41,16022	82,94267	Arid Soil	Soil	NextSeq 500			PRJEB21269	ERR2004614												
+Ren2018	F1	Qualitative	8,75		40,9195	83,12964	Arid Soil	Soil	NextSeq 500			PRJEB21269	ERR2004615												
+Ren2018	F2	Qualitative	8,66		40,92072	83,129	Arid Soil	Soil	NextSeq 500			PRJEB21269	ERR2004616												
+Ren2018	F3	Qualitative	9,15		40,92081	83,12828	Arid Soil	Soil	NextSeq 500			PRJEB21269	ERR2004617												
+Ren2025	Lake_Manyara_Sediment	Qualitative			-3,702	35,82	Soda Lake	Sediment	Illumina NovaSeq 6000		NEB Next Ultra DNA Library Prep Kit	PRJNA857294	SRR20069367												
+Ren2025	small_momela_lake_Sediment	Qualitative			-3,2195	36,98	Soda Lake	Sediment	Illumina NovaSeq 6000		NEB Next Ultra DNA Library Prep Kit	PRJNA857294	SRR20069368												
+Ren2025	Lake_eyasi_Sediment	Qualitative			-3,566	35,25	Soda Lake	Sediment	Illumina NovaSeq 6000		NEB Next Ultra DNA Library Prep Kit	PRJNA857294	SRR20069370												
+Ren2025	Lake_jipe_Sediment	Qualitative			-3,6311	37,75	Soda Lake	Sediment	Illumina NovaSeq 6000		NEB Next Ultra DNA Library Prep Kit	PRJNA857294	SRR20069382												
+Ren2025	Lake_Balangita_Sediment	Qualitative			-4,4	35,3	Soda Lake	Sediment	Illumina NovaSeq 6000		NEB Next Ultra DNA Library Prep Kit	PRJNA857294	SRR20069394												
+Ren2025	Lake_kindai_Sediment	Qualitative			-4,8352	34,73	Soda Lake	Sediment	Illumina NovaSeq 6000		NEB Next Ultra DNA Library Prep Kit	PRJNA857294	SRR20069403												
+Ren2025	Big_momela_lake_Sediment	Qualitative			-3,2254	36,9	Soda Lake	Sediment	Illumina NovaSeq 6000		NEB Next Ultra DNA Library Prep Kit	PRJNA857294	SRR20069404												
+Rodrigeuz-Cruz2024	C1M08	Qualitative			26,82825	-102,02464	Salt lake	Sediment	Illumina MiSeq			PRJNA847603	SRR21542051												
+Singleton2025	MFD00960	Qualitative			57,65357	10,40729	Dune	Soil	Illumina NovaSeq 6000			PRJNA1071982	SRR27942845												
+Singleton2025	MFD01199	Qualitative			55,7433	9,43608	Forest	Soil	Illumina NovaSeq 6000			PRJNA1071982	SRR27973146												
+Singleton2025	MFD00665	Qualitative			55,30614	9,8969	Grassland	Soil	Illumina NovaSeq 6000			PRJNA1071982	SRR27942915												
+Singleton2025	MFD00546	Qualitative			54,9912	12,5326	Agricultural Soil	Soil	Illumina NovaSeq 6000			PRJNA1071982	SRR27942984												
+Singleton2025	MFD00534	Qualitative			56,6628	8,9691	Agricultural Soil	Soil	Illumina NovaSeq 6000			PRJNA1071982	SRR27942997												
+Singleton2025	MFD00533	Qualitative			56,6696	8,9477	Agricultural Soil	Soil	Illumina NovaSeq 6000			PRJNA1071982	SRR27942998												
+Singleton2025	MFD00499	Qualitative			55,4373	11,5897	Agricultural Soil	Soil	Illumina NovaSeq 6000			PRJNA1071982	SRR27943004												
+Singleton2025	MFD00496	Qualitative			55,64691501	12,64326073	city_parks	Soil	Illumina NovaSeq 6000			PRJNA1071982	SRR27943007												
+Singleton2025	MFD00490	Qualitative			55,66285751	12,63996073	CIty Pond	Sediment	Illumina NovaSeq 6000			PRJNA1071982	SRR27943014												
+Singleton2025	MFD00481	Qualitative			55,64096962	12,51735233	city_parks	Soil	Illumina NovaSeq 6000			PRJNA1071982	SRR27943023												
+Singleton2025	MFD00474	Qualitative			55,67958306	12,54497854	city_greenspace	Soil	Illumina NovaSeq 6000			PRJNA1071982	SRR27943031												
+Singleton2025	MFD00360	Qualitative			54,7545	11,4872	Agricultural Soil	Soil	Illumina NovaSeq 6000			PRJNA1071982	SRR27943092												
+Singleton2025	MFD00886	Qualitative			55,2713	8,94073	Dune	Soil	Illumina NovaSeq 6000			PRJNA1071982	SRR27943149												
+Singleton2025	MFD00516	Qualitative			57,3168	9,7837	Agricultural Soil	Soil	Illumina NovaSeq 6000			PRJNA1071982	SRR27943278												
+Singleton2025	MFD00508	Qualitative			56,5403	10,2915	Agricultural Soil	Soil	Illumina NovaSeq 6000			PRJNA1071982	SRR27943287												
+Singleton2025	MFD00463	Qualitative			55,736357	12,526018	city_greenspace	Soil	Illumina NovaSeq 6000			PRJNA1071982	SRR27943305												
+Singleton2025	MFD00462	Qualitative			55,736281	12,526207	city_greenspace	Soil	Illumina NovaSeq 6000			PRJNA1071982	SRR27943306												
+Singleton2025	MFD00205	Qualitative			56,894572	9,1699704	stream 	Sediment	Illumina NovaSeq 6000			PRJNA1071982	SRR27943461												
+Singleton2025	MFD00947	Qualitative			56,0693	8,10094	Dune	Soil	Illumina NovaSeq 6000			PRJNA1071982	SRR27943545												
+Singleton2025	MFD00764	Qualitative			56,28441	10,47007	Forest	Soil	Illumina NovaSeq 6000			PRJNA1071982	SRR27943544												
+Singleton2025	MFD00760	Qualitative			57,15117	8,99458	Saline wetland	Soil	Illumina NovaSeq 6000			PRJNA1071982	SRR27943548												
+Singleton2025	MFD00975	Qualitative			55,80665	12,24159	Grassland	Soil	Illumina NovaSeq 6000			PRJNA1071982	SRR27943742												
+Singleton2025	MFD00907	Qualitative			55,80284	12,33934	Forest	Soil	Illumina NovaSeq 6000			PRJNA1071982	SRR27943758												
+Singleton2025	MFD01308	Qualitative			55,81518	8,61364	Wetland	Soil	Illumina NovaSeq 6000			PRJNA1071982	SRR27973115												
+Singleton2025	MFD01212	Qualitative			56,25856	10,63396	Grassland	Soil	Illumina NovaSeq 6000			PRJNA1071982	SRR27973132												
+Singleton2025	MFD01485	Qualitative			55,44581	12,19796	Dune	Soil	Illumina NovaSeq 6000			PRJNA1071982	SRR27973287												
+Singleton2025	MFD01114	Qualitative			56,24979	10,08117	Peatland	Soil	Illumina NovaSeq 6000			PRJNA1071982	SRR27973407												
+Singleton2025	MFD01448	Qualitative			56,86693	9,82677	Grassland	Soil	Illumina NovaSeq 6000			PRJNA1071982	SRR27973429												
+Singleton2025	MFD01238	Qualitative			56,5336	10,79926	Wetland	Soil	Illumina NovaSeq 6000			PRJNA1071982	SRR27973487												
+Singleton2025	MFD01151	Qualitative			55,13513	10,26784	Wetland	Soil	Illumina NovaSeq 6000			PRJNA1071982	SRR27973522												
+Singleton2025	MFD01073	Qualitative			55,8198	8,61585	Forest	Soil	Illumina NovaSeq 6000			PRJNA1071982	SRR27973523												
+Singleton2025	MFD01885	Qualitative			57,65029	10,39139	Saline wetland	Soil	Illumina NovaSeq 6000			PRJNA1071982	SRR27973526												
+Singleton2025	MFD01878	Qualitative			56,52191	10,42384	Dune	Soil	Illumina NovaSeq 6000			PRJNA1071982	SRR27973533												
+Singleton2025	MFD01622	Qualitative			57,73833	10,63488	Dune	Soil	Illumina NovaSeq 6000			PRJNA1071982	SRR27973617												
+Singleton2025	MFD01103	Qualitative			56,89679	8,39621	Peatland	Soil	Illumina NovaSeq 6000			PRJNA1071982	SRR27973658												
+Singleton2025	MFD01947	Qualitative			57,28076	10,96584	Wetland	Soil	Illumina NovaSeq 6000			PRJNA1071982	SRR27973723												
+Singleton2025	MFD01863	Qualitative			56,31296	9,82947	Lake_Sediment	Sediment	Illumina NovaSeq 6000				SRR27973732												
+Singleton2025	MFD01765	Qualitative			56,46911	8,31459	Forest	Soil	Illumina NovaSeq 6000			PRJNA1071982	SRR27973755												
+Singleton2025	MFD01492	Qualitative			56,76313	8,82664	Forest	Soil	Illumina NovaSeq 6000			PRJNA1071982	SRR27973829												
+Singleton2025	MFD01385	Qualitative			55,78651	10,31065	Saline wetland	Soil	Illumina NovaSeq 6000			PRJNA1071982	SRR27973861												
+Singleton2025	MFD01919	Qualitative			57,53837	10,2894	Lake_Sediment	Sediment	Illumina NovaSeq 6000				SRR27973894												
+Singleton2025	MFD01656	Qualitative			55,65788	8,15414	Saline wetland	Soil	Illumina NovaSeq 6000			PRJNA1071982	SRR27973958												
+Singleton2025	MFD02579	Qualitative			57,28029	10,99053	Peatland	Soil	Illumina NovaSeq 6000			PRJNA1071982	SRR28002618												
+Singleton2025	MFD02551	Qualitative			56,99691	8,43783	Dune	Soil	Illumina NovaSeq 6000			PRJNA1071982	SRR28002647												
+Singleton2025	MFD02151	Qualitative			56,45576	10,50838	Wetland	Soil	Illumina NovaSeq 6000			PRJNA1071982	SRR28002755												
+Singleton2025	MFD02252	Qualitative			57,2815	10,9818	Grassland	Soil	Illumina NovaSeq 6000			PRJNA1071982	SRR28002804												
+Singleton2025	MFD02921	Qualitative			56,61116	9,30872	Forest	Soil	Illumina NovaSeq 6000			PRJNA1071982	SRR28003199												
+Singleton2025	MFD02694	Qualitative			55,50723	8,71553	Wetland	Soil	Illumina NovaSeq 6000			PRJNA1071982	SRR28003322												
+Singleton2025	MFD02530	Qualitative			56,80939	8,25039	Lake_Sediment	Sediment	Illumina NovaSeq 6000				SRR28003424												
+Singleton2025	MFD03576	Qualitative			57,4377	10,4319	Agricultural Soil	Soil	Illumina NovaSeq 6000			PRJNA1071982	SRR28011694												
+Singleton2025	MFD03608	Qualitative			56,93369	9,48618	Dune	Soil	Illumina NovaSeq 6000			PRJNA1071982	SRR28011825												
+Singleton2025	MFD04220	Qualitative			54,9234	10,8145	stream 	Sediment	Illumina NovaSeq 6000			PRJNA1071982	SRR28012002												
+Singleton2025	MFD04242	Qualitative			56,51725	8,95908	Peatland	Soil	Illumina NovaSeq 6000			PRJNA1071982	SRR28012167												
+Singleton2025	MFD05071	Qualitative			55,52922	11,31225	Forest	Soil	Illumina NovaSeq 6000			PRJNA1071982	SRR28022515												
+Singleton2025	MFD04906	Qualitative			54,95229	9,56477	Forest	Soil	Illumina NovaSeq 6000			PRJNA1071982	SRR28022528												
+Singleton2025	MFD04512	Qualitative			55,01858	8,95127	Wetland	Soil	Illumina NovaSeq 6000			PRJNA1071982	SRR28022649												
+Singleton2025	MFD04923	Qualitative			55,07135	9,32663	Forest	Soil	Illumina NovaSeq 6000			PRJNA1071982	SRR28022937												
+Singleton2025	MFD04760	Qualitative			55,37325	9,97936	Peatland	Soil	Illumina NovaSeq 6000			PRJNA1071982	SRR28022973												
+Singleton2025	MFD04649	Qualitative			56,3706	9,8226	stream 	Sediment	Illumina NovaSeq 6000			PRJNA1071982	SRR28023011												
+Singleton2025	MFD04541	Qualitative			55,71943	9,04101	Dune	Soil	Illumina NovaSeq 6000			PRJNA1071982	SRR28023043												
+Singleton2025	MFD04439	Qualitative			56,05624	12,54594	Forest	Soil	Illumina NovaSeq 6000			PRJNA1071982	SRR28023071												
+Singleton2025	MFD05037	Qualitative			55,37419	9,98192	Forest	Soil	Illumina NovaSeq 6000			PRJNA1071982	SRR28023265												
+Singleton2025	MFD05510	Qualitative			56,02956	8,45295	Grassland	Soil	Illumina NovaSeq 6000			PRJNA1071982	SRR28023824												
+Singleton2025	MFD05655	Qualitative			57,0197	8,45295	Grassland	Soil	Illumina NovaSeq 6000			PRJNA1071982	SRR28023971												
+Singleton2025	MFD05725	Qualitative			54,88364	12,14223	Peatland	Soil	Illumina NovaSeq 6000			PRJNA1071982	SRR28024122												
+Singleton2025	MFD10274	Qualitative			55,4862	10,5984	Sea Sediment	Sediment	Illumina NovaSeq 6000			PRJNA1071982	SRR28060632												
+Singleton2025	MFD10272	Qualitative			57,1265	8,6208	Sea Sediment	Sediment	Illumina NovaSeq 6000			PRJNA1071982	SRR28060635												
+Singleton2025	MFD10254	Qualitative			55,5021	10,6131	Sea Sediment	Sediment	Illumina NovaSeq 6000			PRJNA1071982	SRR28060653												
+Singleton2025	MFD10247	Qualitative			56,8039	10,2823	Sea Sediment	Sediment	Illumina NovaSeq 6000			PRJNA1071982	SRR28060661												
+Singleton2025	MFD10363	Qualitative			57,1439	10,4287	Sea Sediment	Sediment	Illumina NovaSeq 6000			PRJNA1071982	SRR28060993												
+Singleton2025	MFD10219	Qualitative			54,8378	11,4936	Sea Sediment	Sediment	Illumina NovaSeq 6000			PRJNA1071982	SRR28061030												
+Singleton2025	MFD10217	Qualitative			55,0205	14,9119	Sea Sediment	Sediment	Illumina NovaSeq 6000			PRJNA1071982	SRR28061031												
+Singleton2025	MFD09400	Qualitative			54,99118	15,07632	Dune	Soil	Illumina NovaSeq 6000			PRJNA1071982	SRR28061290												
+Singleton2025	MFD09399	Qualitative			55,29396	14,77209	Forest	Soil	Illumina NovaSeq 6000			PRJNA1071982	SRR28061291												
+Singleton2025	MFD09398	Qualitative			55,13179	14,95304	Lake_Sediment	Sediment	Illumina NovaSeq 6000				SRR28061292												
+Singleton2025	MFD09680	Qualitative			55,43068	9,43337	Wetland	Soil	Illumina NovaSeq 6000			PRJNA1071982	SRR28061466												
+Singleton2025	MFD09669	Qualitative			55,12532	14,94716	Grassland	Soil	Illumina NovaSeq 6000			PRJNA1071982	SRR28061478												
+Singleton2025	MFD09360	Qualitative			55,04874	12,2533	Forest	Soil	Illumina NovaSeq 6000			PRJNA1071982	SRR28061558												
+Singleton2025	MFD09615	Qualitative			55,29515	11,80578	Wetland	Soil	Illumina NovaSeq 6000			PRJNA1071982	SRR28061621												
+Singleton2025	MFD09307	Qualitative			54,85135	9,38989	Grassland	Soil	Illumina NovaSeq 6000			PRJNA1071982	SRR28061700												
+Singleton2025	MFD09431	Qualitative			57,47609	10,17374	Peatland	Soil	Illumina NovaSeq 6000			PRJNA1071982	SRR28062018												
+Singleton2025	MFD09831	Qualitative			55,8501	12,5382	stream 	Sediment	Illumina NovaSeq 6000			PRJNA1071982	SRR28062124												
+Singleton2025	MFD12206	Qualitative			56,15	9,5427	Lake_Sediment	Sediment	Illumina NovaSeq 6000		DNeasy PowerMax Soil Kit		SRR28062196												
+Singleton2025	MFD12194	Qualitative			55,7036	8,2215	Lake_Sediment	Sediment	Illumina NovaSeq 6000		DNeasy PowerMax Soil Kit		SRR28062209												
+Singleton2025	MFD12189	Qualitative			55,0221	9,7625	Lake_Sediment	Sediment	Illumina NovaSeq 6000		DNeasy PowerMax Soil Kit		SRR28062215												
+Singleton2025	MFD12199	Qualitative			55,2147	11,8264	Lake_Sediment	Sediment	Illumina NovaSeq 6000		DNeasy PowerMax Soil Kit		SRR28062779												
+Singleton2025	MFD13585	Qualitative			56,3264	9,644	Lake_Sediment	Sediment	Illumina NovaSeq 6000		DNeasy PowerMax Soil Kit		SRR28062831												
+Singleton2025	MFD13536	Qualitative			56,3261	9,6356	Lake_Sediment	Sediment	Illumina NovaSeq 6000		DNeasy PowerMax Soil Kit		SRR28062845												
+Somee2021	HS	Quantatative	8,54	35,1	27,06112	56,24636	Sea Sediment	Sediment	Illumina NovaSeq 6000			PRJNA575141 	SRR11922359			27									
+Somee2021	AS	Quantatative	8,8	26,6	27,31767	52,32542	Sea Sediment	Sediment	Illumina NovaSeq 6000			PRJNA575141 	SRR11922358			29									
+Somee2021	KS	Quantatative	8,23	19,7	29,13194	50,18105	Sea Sediment	Sediment	Illumina NovaSeq 6000			PRJNA575141 	SRR11922363			27									
+Song2025	BS	Quantatative	5,64	0,831	39,92	123,64	Wetland	Soil	Illumina NovaSeq 6000			PRJNA1162528	SRR30756407												
+Song2025	SS	Quantatative	4,75	0,19	39,91	123,65	Wetland	Soil	Illumina NovaSeq 6000			PRJNA1162528	SRR30756410												
+Song2025	PS	Quantatative	6,36	0,143	39,9	123,61	Wetland	Soil	Illumina NovaSeq 6000			PRJNA1162528	SRR30756406												
+Song2025	MS	Quantatative	6,42	0,069	39,9	123,61	Wetland	Soil	Illumina NovaSeq 6000			PRJNA1162528	SRR30756415												
+Song2025	BFS	Quantatative	7,32	0,06243	39,91	123,61	Wetland	Soil	Illumina NovaSeq 6000			PRJNA1162528	SRR30756412												
+Sriaporn2023	WA3	Quantatative	2,9		-38,36117	176,36917	Hot spring	Sediment	Illumina HiSeq 2500	Thruplex DNA-Seq libraries	DNeasy PowerSoil® Kit	PRJNA644733	SRR25645255			53									
+Sriaporn2023	OG5402-WA19	Quantatative	3,1		-38,3584937	176,3683939	Hot spring	Sediment	Illumina HiSeq 2500	Thruplex DNA-Seq libraries	DNeasy PowerSoil® Kit	PRJNA644733	SRR25645257			44									
+Sriaporn2023	OG5402-WA18	Quantatative	3,1		-38,3584937	176,3683939	Hot spring	Sediment	Illumina HiSeq 2500	Thruplex DNA-Seq libraries	DNeasy PowerSoil® Kit	PRJNA644733	SRR25645258			38									
+Sriaporn2023	OG5402-WA17	Quantatative	3,1		-38,3584937	176,3683939	Hot spring	Sediment	Illumina HiSeq 2500	Thruplex DNA-Seq libraries	DNeasy PowerSoil® Kit	PRJNA644733	SRR25645259			36									
+Sriaporn2024	OG5402-WA21	Quantatative	3,2		-38,3584937	176,3683939	Hot spring	Sediment	Illumina HiSeq 2500	Thruplex DNA-Seq libraries	DNeasy PowerSoil® Kit	PRJNA644733	SRR25645260			49									
+Sriaporn2025	OG5402-WA15	Quantatative	3,1		-38,3584937	176,3683939	Hot spring	Sediment	Illumina HiSeq 2500	Thruplex DNA-Seq libraries	DNeasy PowerSoil® Kit	PRJNA644733	SRR25645261			40									
+Sriaporn2026	OG5402-WA14	Quantatative	3,1		-38,3584937	176,3683939	Hot spring	Sediment	Illumina HiSeq 2500	Thruplex DNA-Seq libraries	DNeasy PowerSoil® Kit	PRJNA644733	SRR25645262			44									
+Sriaporn2026	OG5402-WA13	Quantatative	3,1		-38,3584937	176,3683939	Hot spring	Sediment	Illumina HiSeq 2500	Thruplex DNA-Seq libraries	DNeasy PowerSoil® Kit	PRJNA644733	SRR25645263			46									
+St,John2026	3517-1-1	Qualitative			27,011	-111,407	Hydrothermal	Deposit	NextSeq 2000	NexteraXT DNA prep		PRJNA1244896	SRR32938011												
+St,John2026	J-296-6	Qualitative			-25,3205	70,0403	Hydrothermal	Deposit	NextSeq 2000	NexteraXT DNA prep		PRJNA1244896	SRR33094751												
+St,John2026	J2-434-4-R1-2	Qualitative			-20,053847	-176,133	Hydrothermal	Deposit	NextSeq 2000	NexteraXT DNA prep		PRJNA1244896	SRR33151381												
+St,John2026	J2-130-1-R2-1	Qualitative			-22,180664	-176,601197	Hydrothermal	Deposit	NextSeq 2000	NexteraXT DNA prep		PRJNA1244896	SRR33151385												
+St,John2026	J2-357-6-R1-1	Qualitative			37,290881	-32,281932	Hydrothermal	Deposit	NextSeq 2000	NexteraXT DNA prep		PRJNA1244896	SRR33214771												
+St,John2026	J2-352-5-R1-1	Qualitative			36,229137	-33,903186	Hydrothermal	Deposit	NextSeq 2000	NexteraXT DNA prep		PRJNA1244896	SRR33214776												
+St,John2026	MS15-CHA3	Qualitative			23,369	-44,95	Hydrothermal	Deposit	NextSeq 2000	NexteraXT DNA prep		PRJNA1244896	SRR33214777												
+St,John2026	3987-4-1	Qualitative			9,83802	-104,291221	Hydrothermal	Deposit	NextSeq 2000	NexteraXT DNA prep		PRJNA1244896	SRR33939670												
+St,John2026	3119-7	Qualitative			37,29	-32,278	Hydrothermal	Deposit	NextSeq 2000	NexteraXT DNA prep		PRJNA1244896	SRR33956857												
+St,John2026	4136-1-2	Qualitative			47,97	-129,09	Hydrothermal	Deposit	NextSeq 2000	NexteraXT DNA prep		PRJNA1244896	SRR33956858												
+St,John2026	3795	Qualitative			0,83	-89,60833	Hydrothermal	Deposit	NextSeq 2000	NexteraXT DNA prep		PRJNA1244896	SRR33956860												
+St,John2026	3762-1	Qualitative			9,27883	-104,2202	Hydrothermal	Deposit	NextSeq 2000	NexteraXT DNA prep		PRJNA1244896	SRR33956862												
+St,John2026	Dive_187	Qualitative			13,3845	143,917	Hydrothermal	Deposit	NextSeq 2000	NexteraXT DNA prep		PRJNA1244896	SRR33956864												
+St,John2026	3769-1	Qualitative			9,84	-104,29	Hydrothermal	Deposit	NextSeq 2000	NexteraXT DNA prep		PRJNA1244896	SRR33956868												
+Sun2025	HSM1520D_47X3_metagenomics_Nextera_XT	Quantatative	7,91	54,409	-38,97	179,13	Deep sea Sediment	Sediment	Illumina NextSeq 500	Illumina Nextera XT libraries	PE150	PRJNA678552 	SRR30888636	10,72	477										
+Sun2025	HSM1520D_33X4_metagenomics_Nextera_XT	Quantatative	7,865	53,065	-38,97	179,13	Deep sea Sediment	Sediment	Illumina NextSeq 500	Illumina Nextera XT libraries	PE150	PRJNA678552 	SRR30888638	8,56	495										
+Sun2025	HSM1519E_6H3_metagenomics_Nextera_XT	Quantatative	7,955	50,37	-38,72	178,61	Deep sea Sediment	Sediment	Illumina NextSeq 500	Illumina Nextera XT libraries	PE150	PRJNA678552 	SRR30888630	10,29	463,7	-									
+Sun2025	2018_LW50_metagenomics_Nextera_XT	Quantatative	8,6	12,589	-26,44	153,06	Lagoon Sediment	Sediment	NextSeq 500	NexteraXT kit,		PRJNA678545	SRR30905122		-	-									
+Sun2025	2018_LW40_metagenomics_Nextera_XT	Quantatative	8,4	12,083	-26,44	153,06	Lagoon Sediment	Sediment	NextSeq 500	NexteraXT kit,		PRJNA678545	SRR30905123		-	-									
+Sun2025	2018_LW30_metagenomics_Nextera_XT	Quantatative	8,6	11,334	-26,44	153,06	Lagoon Sediment	Sediment	NextSeq 500	NexteraXT kit,		PRJNA678545	SRR30905124		-	-									
+Sun2025	lw2030_metagenomics_Nextera_XT	Quantatative	7,3	2,155	-26,44	153,06	Lagoon Sediment	Sediment	NextSeq 500	NexteraXT kit,		PRJNA678545	SRR30905131		-	-									
+Sun2025	lw40_metagenomics_Nextera_XT	Quantatative	8	1,663	-26,44	153,06	Lagoon Sediment	Sediment	NextSeq 500	NexteraXT kit,		PRJNA678545	SRR14802574												
+Sun2025	lw3040_metagenomics_Nextera_XT	Quantatative	6,8	1,097	-26,44	153,06	Lagoon Sediment	Sediment	NextSeq 500	NexteraXT kit,		PRJNA678545	SRR30905130		-	-									
+Tee21	S9R3	Quantatative	7,56	46,799	-36,542361	174,707472	Sea Sediment	Sediment	Illumina HiSeq 2500	TruSeq DNA nano libraries		PRJNA668816	SRR12825415	-	-	22,1									
+Tee21	S8R3	Quantatative	7,57	43,0568	-36,541722	174,703139	Sea Sediment	Sediment	Illumina HiSeq 2500	TruSeq DNA nano libraries		PRJNA668816	SRR12825418	-	-	20,3									
+Tee21	S7R3	Quantatative	7,57	38,411	-36,541361	174,701806	EstuarySediment	Sediment	Illumina HiSeq 2500	TruSeq DNA nano libraries		PRJNA668816	SRR12825421	-	-	20,3									
+Tee21	S6R1	Quantatative	7,44	30,774	-36,540917	174,678694	EstuarySediment	Sediment	Illumina HiSeq 2500	TruSeq DNA nano libraries		PRJNA668816	SRR12825427	-	-	18,6									
+Tee21	S3R3	Quantatative	7,18	15,13	-36,55025	174,665389	EstuarySediment	Sediment	Illumina HiSeq 2500	TruSeq DNA nano libraries		PRJNA668816	SRR12825370			20,3									
+Tee21	S1R1	Quantatative	7,26	0,537	-36,550667	174,65225	RiverSediment	Sediment	Illumina HiSeq 2500	TruSeq DNA nano libraries		PRJNA668816	SRR12825434	-	-	21,2									
+Tee21	S1R2	Quantatative	7,29	0,516	-36,550667	174,65225	RiverSediment	Sediment	Illumina HiSeq 2500	TruSeq DNA nano libraries		PRJNA668816	SRR12825433	-	-	20,8									
+Terhorst2023	GPS2_T1	Quantatative	6,5	82,1	38,31574444	-123,0568167	Saline wetland	Soil	Illumina NovaSeq 6009	KAPA DNA Hyper Prep kit		PRJNA913601	SRR22808091	1,381	118,181	10									0
+Terhorst2023	GPS3_T2	Quantatative	5,7	48,96	38,42576667	-123,05685	Saline wetland	Soil	Illumina NovaSeq 6011	KAPA DNA Hyper Prep kit		PRJNA913601	SRR22808086	9,2606	217,442	10									0
+Terhorst2023	BMLS3_T2	Quantatative	6,3	41,83	38,3181	-123,0566333	Saline wetland	Soil	Illumina NovaSeq 6002	KAPA DNA Hyper Prep kit		PRJNA913601	SRR22808035	1,586	9,612	7,22									0
+Terhorst2023	GPS3_T3	Quantatative	7,5	25,66	38,3158333	-123,0571	Saline wetland	Soil	Illumina NovaSeq 6012	KAPA DNA Hyper Prep kit		PRJNA913601	SRR22808083	10,64	283,51	11,11									0
+Terhorst2023	GPS1_T1	Quantatative	6,6	14,64	38,31598333	-123,0568833	Saline wetland	Soil	Illumina NovaSeq 6007	KAPA DNA Hyper Prep kit		PRJNA913601	SRR22808092	1,66	37,451	7,22									0
+Terhorst2023	BMLS3_T1	Quantatative	6,2	11,44	38,3182	-123,0565667	Saline wetland	Soil	Illumina NovaSeq 6001	KAPA DNA Hyper Prep kit		PRJNA913601	SRR22807978	4,221	4,088	9,44									0
+Terhorst2023	DP3_T3	Quantatative	7,8	8,8	38,3187667	-123,06965	Saline wetland	Soil	Illumina NovaSeq 6006	KAPA DNA Hyper Prep kit		PRJNA913601	SRR22808022	1,2535	14,48	7,77									0
+Terhorst2023	GPS2_T3	Quantatative	7,1	7,06	38,31595	-123,0568	Saline wetland	Soil	Illumina NovaSeq 6010	KAPA DNA Hyper Prep kit		PRJNA913601	SRR22808084	6,702	157,981	9,44									0
+Terhorst2023	DP2_T1	Quantatative	7,5	4,23	38,3188	-123,0696167	Saline wetland	Soil	Illumina NovaSeq 6004	KAPA DNA Hyper Prep kit		PRJNA913601	SRR22808029	14,95	290,95	12,77									0
+Terhorst2023	GPS1_T3	Quantatative	7,1	4,23	38,31608333	-123,056933	Saline wetland	Soil	Illumina NovaSeq 6008	KAPA DNA Hyper Prep kit		PRJNA913601	SRR22808085	9,107	171,72	11,11									0
+Terhorst2023	HC2_T3	Quantatative	4,1	2,64	38,3157333	-123,0686833	Saline wetland	Soil	Illumina NovaSeq 6013	KAPA DNA Hyper Prep kit		PRJNA913601	SRR22808053	11,895	302,392	10									0
+Terhorst2023	DP1_T1	Quantatative	7,2	2,15	38,3187	-123,0699333	Saline wetland	Soil	Illumina NovaSeq 6003	KAPA DNA Hyper Prep kit		PRJNA913601	SRR22808030	1,713	20,6611	10,55									0
+Terhorst2023	DP3_T2	Quantatative	8,1	1,27	38,31891667	-123,0697333	Saline wetland	Soil	Illumina NovaSeq 6005	KAPA DNA Hyper Prep kit		PRJNA913601	SRR22808025	2,04	37,277	13,88									0
+Terhorst2023	BMLS1_T3	Quantatative	6,6	1,15	38,31838333	-123,0564167	Saline wetland	Soil	Illumina NovaSeq 6000	KAPA DNA Hyper Prep kit		PRJNA913601	SRR22808034	1,202	3,654	7,22									0
+Terhorst2023	BMLB2_T2	Quantatative	6,6	0,8	38,31841667	-123,0564167	Wetland	Soil	Illumina NovaSeq 6000	KAPA DNA Hyper Prep		PRJNA913601	SRR22808038	1,45	1,384	10,55									
+Terhorst2023	HC2_T1	Quantatative	6,2	0,36	38,3157333	-123,068667	Wetland	Soil	Illumina NovaSeq 6000	KAPA DNA Hyper Prep		PRJNA913601	SRR22808081	28,21	968,682	12,22									0
+Terhorst2023	BMLF1_T1	Quantatative	6	0,24	38,3192	-123,05795	Wetland	Soil	Illumina NovaSeq 6000	KAPA DNA Hyper Prep		PRJNA913601	SRR22807990	3,88	13,571	15,55									0
+Terhorst2023	HC1_T1	Quantatative	5,6	0,23	38,3157333	-123,0686	Wetland	Soil	Illumina NovaSeq 6000	KAPA DNA Hyper Prep		PRJNA913601	SRR22808082	22,512	765,98	12,78									0
+Terhorst2023	BMLB3_T1	Quantatative	6,2	0,17	38,318675	-123,0570012	Wetland	Soil	Illumina NovaSeq 6000	KAPA DNA Hyper Prep		PRJNA913601	SRR22807998	3,121	6,742	12,22									0
+Terhorst2023	GPB1_T2	Quantatative	6,7	0,15	38,3147333	-123,0572833	Wetland	Soil	Illumina NovaSeq 6000	KAPA DNA Hyper Prep	2.00	PRJNA913601	SRR22808098	1,586	11,309	10,55									0
+Terhorst2023	GPB3_T3	Quantatative	6,2	0,11	38,3145333	-123,0574167	Wetland	Soil	Illumina NovaSeq 6000	KAPA DNA Hyper Prep		PRJNA913601	SRR22808093	5,832	97,607	11,11									0
+Terhorst2023	BMLF2_T3	Quantatative	5,2	0,06	38,319172	-123,057849	Wetland	Soil	Illumina NovaSeq 6000	KAPA DNA Hyper Prep		PRJNA913601	SRR22807983	0,895	5,654	10									0
+U1547_B_H3	Mara2023	Qualitative			27,05	-111,67	Sea Sediment	Sediment	Illumina NovaSeq 6000			PRJNA909197	SRR25383458												
+Ugwuanyi2023	PLP_M_b	Quantatative	2		40,82949	14,4728	Hot spring	Sediment	Illumina NovaSeq 6000	Accel-NGS 2S Plus DNA Library Kit		PRJNA889931	SRR22299277		-	78,9									
+Ugwuanyi2023	PLP_M_a	Quantatative	2,5		40,82949	14,4728	Hot spring	Sediment	Illumina NovaSeq 6000			PRJNA889931	SRR22299278		-	78,9									
+Wang02022	W1	Qualatative			24,8342	121,96232	Hot spring	Sediment				PRJNA851985	SRR19843167												
+Williams2023	Simpson	Qualatative			33,56417	-87,17316	AMD	Sediment	Illumina HiSeq 2500			PRJNA907387	SRR22572384												
+Williams2023	Martin_run	Qualatative			39,550828	-79,639311	AMD	Sediment	Illumina HiSeq 2500			PRJNA907387	SRR22572385												
+Williams2023	Maxine_mine	Qualatative			33,5742	-87,15634	AMD	Sediment	Illumina HiSeq 2500			PRJNA907387	SRR22572386												
+Williams2023	Porcupine_run	Qualatative			41,34378	-78,37827	AMD	Sediment	Illumina HiSeq 2500			PRJNA907387	SRR22572387												
+Woodcroft2018	20120500_P28,20140723,NA	Qualatative			68,3535	19,0473	Permafrost (peat)	Permafrost	Illumina HiSeq 2000			PRJNA386568	SRR7151554		8,31										
+Woodcroft2018	20110600_E1S,20140910,NA	Qualatative			68,3534	19,0467	Permafrost (peat)	Permafrost	NextSeq 500			PRJNA386568	SRR7151636												
+Woodcroft2018	20120500_P38,20140516,NA	Qualatative			68,3535	19,0472	Permafrost (peat)	Permafrost	Illumina HiSeq 2500			PRJNA386568	SRR7151655		28,78										
+Woodcroft2018	20110700_E1D,20140910,NA	Qualatative			68,3535	19,0473	Permafrost (peat)	Permafrost	NextSeq 500		TruSeq Nano	PRJNA386568	SRR7151735												
+Wu2023	MP_16,9	Quantatative	7	4,1	70,040903	159,52282	Marine permafrost	Permafrost	Illumina NovaSeq 6000			PRJNA601698	SRR10907113	5,4	170,6	-7,96									
+Wu2023	BP_5,4	Quantatative	7	1,1	70,04903	159,52282	Brackish permafrost	Permafrost	Illumina NovaSeq 6000			PRJNA601698	SRR10907120	0,6	33,2	-7,07									
+Wu2023	BP_1,75	Quantatative	7,3	0,3	70,04903	159,52282	Brackish permafrost	Permafrost	Illumina NovaSeq 6000			PRJNA601698 	SRR10907111	0,3	3,7	-4,89									
+Wu2023	FP_25,1	Quantatative	7,23	0,17	69,340633	154,995217	Fresh water Permafrost	Permafrost	Illumina NovaSeq 6000			PRJNA601698 	SRR10907121	0,41	1,76	5									
+Wu2023	FP_15,0	Quantatative	7,5	0,15	69,340633	154,995217	Fresh water Permafrost	Permafrost	Illumina NovaSeq 6000			PRJNA601698 	SRR10907122	0,66	2,4	-5,9									
+Wu2023	FP_6,0	Quantatative	7,03	0,14	69,340633	154,995217	Fresh water Permafrost	Permafrost	Illumina NovaSeq 6000			PRJNA601698 	SRR10907114	0,51	1,24	-5,5									
+Wu2023	FP_2,95	Quantatative	6,44	0,09	69,340633	154,995217	Fresh water Permafrost	Permafrost	Illumina NovaSeq 6000			PRJNA601698 	SRR10907116	0,27	0,89	-1,7									
+Xamxidin2025	S_3	Quantatative	8	124,798	43,61	92,79	Salt lake	Sediment	Illumina HiSeq 2500			PRJNA1200918	SRR31818007			2,4									
+Xie2025	X01	Quantatative	8,15	124,92	37,276	95,337	Salt lake	Sediment	Illumina HiSeq 4000			PRJNA1131488	SRR29700001												
+Xie2025	X20	Quantatative	8,09	118,696	37,268	95,283	Salt lake	Sediment	Illumina HiSeq 4000			PRJNA1131488	SRR29699996												
+Xie2025	X10	Quantatative	7,92	118,502	37,27	95,313	Salt lake	Sediment	Illumina HiSeq 4000			PRJNA1131488	SRR29699975												
+Xie2025	X04	Quantatative	7,97	117,976	37,276	96,335	Salt lake	Sediment	Illumina HiSeq 4000			PRJNA1131488	SRR29700000												
+Xie2025	X05	Quantatative	7,95	117,388	37,276	95,328	Salt lake	Sediment	Illumina HiSeq 4000			PRJNA1131488	SRR29699989												
+Xie2025	X11	Quantatative	8,07	113,2	37,268	95,308	Salt lake	Sediment	Illumina HiSeq 4000			PRJNA1131488	SRR29699974												
+Xie2025	X06	Quantatative	8,02	109,103	37,275	95,322	Salt lake	Sediment	Illumina HiSeq 4000			PRJNA1131488	SRR29699978												
+Xie2025	X12	Quantatative	8,09	98,935	37,226	95,304	Salt lake	Sediment	Illumina HiSeq 4000			PRJNA1131488	SRR29699973												
+Xie2025	X29	Quantatative	8,17	97,082	37,284	95,26	Brackish lake Sediment	Sediment	Illumina HiSeq 4000			PRJNA1131488	SRR29699993												
+Xie2025	X08	Quantatative	7,99	97,049	37,272	95,316	Salt lake	Sediment	Illumina HiSeq 4000			PRJNA1131488	SRR29699976												
+Xie2025	X18	Quantatative	8,11	72,694	37,314	95,268	Brackish lake Sediment	Sediment	Illumina HiSeq 4000			PRJNA1131488	SRR29699997												
+Xie2025	X28	Quantatative	8,19	69,268	37,282	95,262	Salt lake	Sediment	Illumina HiSeq 4000			PRJNA1131488	SRR29699994												
+Xie2025	X30	Quantatative	8,18	65,466	37,286	95,258	Brackish lake Sediment	Sediment	Illumina HiSeq 4000			PRJNA1131488	SRR29699992												
+Xie2025	X32	Quantatative	8,29	64,213	37,288	95,257	Brackish lake Sediment	Sediment	Illumina HiSeq 4000			PRJNA1131488	SRR29699991												
+Xie2025	X26	Quantatative	8,23	63,587	37,282	95,268	Salt lake	Sediment	Illumina HiSeq 4000			PRJNA1131488	SRR29699995												
+Xie2025	X33	Quantatative	8,25	42,638	37,29	95,256	Brackish lake Sediment	Sediment	Illumina HiSeq 4000			PRJNA1131488	SRR29699990												
+Xie2025	X34	Quantatative	8,24	30,357	37,293	95,256	Brackish lake Sediment	Sediment	Illumina HiSeq 4000			PRJNA1131488	SRR29699988												
+Xie2025	X17	Quantatative	8,17	25,965	37,314	95,267	Brackish lake Sediment	Sediment	Illumina HiSeq 4000			PRJNA1131488	SRR29699998												
+Xie2025	X35	Quantatative	8,18	22,429	37,297	95,258	Brackish lake Sediment	Sediment	Illumina HiSeq 4000			PRJNA1131488	SRR29699987												
+Xie2025	X36	Quantatative	8,23	17,69	37,301	95,258	Brackish lake Sediment	Sediment	Illumina HiSeq 4000			PRJNA1131488	SRR29699986												
+Xie2025	X40	Quantatative	8,75	10,662	37,314	95,253	Brackish lake Sediment	Sediment	Illumina HiSeq 4000			PRJNA1131488	SRR29699985												
+Xie2025	X13	Quantatative	8,3	5,87	37,316	95,265	Brackish lake Sediment	Sediment	Illumina HiSeq 4000			PRJNA1131488	SRR29699972												
+Xie2025	X15	Quantatative	7,96	2,929	37,314	95,258	Brackish lake Sediment	Sediment	Illumina HiSeq 4000			PRJNA1131488	SRR29699971												
+Xie2025	X16	Quantatative	7,82	2,916	37,314	95,261	Brackish lake Sediment	Sediment	Illumina HiSeq 4000			PRJNA1131488	SRR29699999												
+Xie2025	X47	Quantatative	7,62	2,234	37,222	95,254	Brackish Sediment	Sediment	Illumina HiSeq 4000			PRJNA1131488	SRR29699980												
+Xie2025	X49	Quantatative	7,69	2,02	37,317	95,259	Brackish Sediment	Sediment	Illumina HiSeq 4000			PRJNA1131488	SRR29699977												
+Xie2025	X48	Quantatative	7,55	1,986	37,318	95,257	Brackish Sediment	Sediment	Illumina HiSeq 4000			PRJNA1131488	SRR29699979												
+Xie2025	X46	Quantatative	7,62	1,974	37,328	95,252	Brackish Sediment	Sediment	Illumina HiSeq 4000			PRJNA1131488	SRR29699981												
+Xie2025	X43	Quantatative	7,82	1,919	37,334	95,246	Brackish Sediment	Sediment	Illumina HiSeq 4000			PRJNA1131488	SRR29699984												
+Xie2025	X45	Quantatative	7,53	1,918	37,33	95,25	Brackish Sediment	Sediment	Illumina HiSeq 4000			PRJNA1131488	SRR29699982												
+Xie2025	X44	Quantatative	7,7	1,894	37,332	95,428	Brackish Sediment	Sediment	Illumina HiSeq 4000			PRJNA1131488	SRR29699983												
+Xiong2025	SB3_1	Qualitative			23,58	109,68	Wetland	Soil	Illumina HiSeq 1000			PRJNA779832	SRR16945695												
+Xiong2025	S22_1	Qualitative			40,32	120,37	RiverSediment	Sediment	Illumina HiSeq 1000			PRJNA779832	SRR16945708												
+Xiong2025	S19_1	Qualitative			38,26	116,93	RiverSediment	Sediment	Illumina HiSeq 1000			PRJNA779832	SRR16945709												
+Xiong2025	S14_1	Qualitative			34,08	115,25	RiverSediment	Sediment	Illumina HiSeq 1000			PRJNA779832	SRR16945710												
+Xiong2025	S12_1	Qualitative			32,3	114,85	RiverSediment	Sediment	Illumina HiSeq 1000			PRJNA779832	SRR16945711												
+Xiong2025	S7_1	Qualitative			27,55	115,16	RiverSediment	Sediment	Illumina HiSeq 1000			PRJNA779832	SRR16945730												
+Xiong2025	S4_1	Qualitative			24,18	113,42	RiverSediment	Sediment	Illumina HiSeq 1000			PRJNA779832	SRR16945731												
+Xiong2025	S5_1	Qualitative			25,58	110,46	RiverSediment	Sediment	Illumina HiSeq 1000			PRJNA779832	SRR16945732												
+Xiong2025	S8_1	Qualitative			29,55	113,21	RiverSediment	Sediment	Illumina HiSeq 1000			PRJNA779832	SRR16945733												
+Xiong2025	S17_1	Qualitative			37,104	112,944	RiverSediment	Sediment	Illumina HiSeq 1000			PRJNA779832	SRR16945734												
+Xiong2025	S20_1	Qualitative			38,87	112,77	RiverSediment	Sediment	Illumina HiSeq 1000			PRJNA779832	SRR16945737												
+Xiong2025	S27_1	Qualitative			42,38	119,21	RiverSediment	Sediment	Illumina HiSeq 1000			PRJNA779832	SRR16945738												
+Xiong2025	SB30_1	Qualitative			45,08	124,92	Wetland	Soil	Illumina HiSeq 1000			PRJNA779832	SRR16945769												
+Xiong2025	BB12_1	Qualatative			32,3	114,85	Wetland	Soil	Illumina HiSeq 1000			PRJNA779832	SRR16945772												
+Xiong2025	S10_1	Qualitative			30,16	115,16	RiverSediment	Sediment	Illumina HiSeq 1000			PRJNA779832	SRR16945774												
+Xiong2025	S9_1	Qualitative			30,16	115,345	RiverSediment	Sediment	Illumina HiSeq 1000			PRJNA779832	SRR16945775												
+Xiong2025	S1_1	Qualitative			21,762	109,234	RiverSediment	Sediment	Illumina HiSeq 1000			PRJNA779832	SRR16945776												
+Xiong2025	S3_1	Qualitative			23,589	109,68	RiverSediment	Sediment	Illumina HiSeq 1000			PRJNA779832	SRR16945777												
+Xiong2025	S6_1	Qualitative			27,234	112,877	RiverSediment	Sediment	Illumina HiSeq 1000			PRJNA779832	SRR16945778												
+Xiong2025	S11_1	Qualitative			30,397	113,427	RiverSediment	Sediment	Illumina HiSeq 1000			PRJNA779832	SRR16945779												
+Xiong2025	S13_1	Qualitative			33,65	114,097	RiverSediment	Sediment	Illumina HiSeq 1000			PRJNA779832	SRR16945780												
+Xiong2025	SB29_1	Qualitative			44,425	125,196	Wetland	Soil	Illumina HiSeq 1000			PRJNA779832	SRR16945781												
+Xiong2025	S15_1	Qualitative			35,087	113,388	RiverSediment	Sediment	Illumina HiSeq 1000			PRJNA779832	SRR16945782												
+Xiong2025	S18_1	Qualitative			37,68	112,823	RiverSediment	Sediment	Illumina HiSeq 1000			PRJNA779832	SRR16945783												
+Xiong2025	S21_1	Qualitative			40,221	114,62	RiverSediment	Sediment	Illumina HiSeq 1000			PRJNA779832	SRR16945784												
+Xiong2025	S23_1	Qualitative			40,516	115,17	RiverSediment	Sediment	Illumina HiSeq 1000			PRJNA779832	SRR16945785												
+Xiong2025	S25_1	Qualitative			41,902	118,688	RiverSediment	Sediment	Illumina HiSeq 1000			PRJNA779832	SRR16945786												
+Xiong2025	S28_1	Qualitative			43,65	123,528	RiverSediment	Sediment	Illumina HiSeq 1000			PRJNA779832	SRR16945787												
+Xiong2025	S30_1	Qualitative			45,085	124,922	RiverSediment	Sediment	Illumina HiSeq 1000			PRJNA779832	SRR16945788												
+Xiong2025	S29_1	Qualitative			44,425	125,196	RiverSediment	Sediment	Illumina HiSeq 1000			PRJNA779832	SRR16945789												
+Xiong2025	S26_1	Qualitative			42,294	123,872	RiverSediment	Sediment	Illumina HiSeq 1000			PRJNA779832	SRR16945790												
+Xiong2025	SB24_1	Qualitative			41,536	122,655	Wetland	Soil	Illumina HiSeq 1000			PRJNA779832	SRR16945791												
+Xiong2025	SB12_1	Qualitative			32,305	114,852	Wetland	Soil	Illumina HiSeq 1000			PRJNA779832	SRR16945793												
+Xue2020	Xue_Pooled	Qualitative			78,186	15,9248	Tundra	Permafrost	Illumina HiSeq 2500			PRJEB30872	ERR3078911												
+Yeon2024	ST02	Qualitative		3,5	76,7476	174,261	Sea Sediment	Sediment				PRJEB76672	ERR13301384												
+Yeon2024	ST03	Qualitative		3,5	76,1074	172,6548	Sea Sediment	Sediment				PRJEB76672	ERR13301385												
+Yeon2024	ST04	Qualitative		3,5	75,4231	171,4932	Sea Sediment	Sediment				PRJEB76672	ERR13301386												
+Yeon2024	ST05	Qualitative		3,41	74,7589	170,4555	Sea Sediment	Sediment				PRJEB76672	ERR13301387												
+Yeon2024	ST07	Qualitative		3,31	73,8145	169,1941	Sea Sediment	Sediment				PRJEB76672	ERR13301388												
+Yeon2024	ST20	Qualitative		3,31	74,4674	167,9195	Sea Sediment	Sediment				PRJEB76672	ERR13301390												
+Yeon2024	ST08	Qualitative		3,22	73,6961	167,6757	Sea Sediment	Sediment				PRJEB76672	ERR13301389												
+Zhang2022	RS_1	Qualitative			22,01	119,28	Sea Sediment	Sediment	HiSeq X Ten			PRJNA707313	SRR13892590												
+Zhang2022	RS_11	Qualitative			22,17	119,28	Sea Sediment	Sediment	HiSeq X Ten			PRJNA707313	SRR13892601												
+Zhang2024	SY220-summit	Qualitative		3,53	11,44	139,41	Sea Sediment	Sediment	Illumina NovoSeq 6000		MoBio PowerSoil DNA	PRJNA113162	SRR29704029			2,18									
+Zhang2024	B02	Qualitative		3,458	11,25	142,23	Sea Sediment	Sediment	Illumina NovoSeq 6000		MoBio PowerSoil DNA	PRJNA113162	SRR29704036			1,5									
+Zhang2024	SY207	Qualitative		3,457	11,61	140,32	Sea Sediment	Sediment	Illumina NovoSeq 6000		MoBio PowerSoil DNA	PRJNA113162	SRR29704030			1,6									
+Zhang2024	SY212-flank	Qualitative		3,456	12,32	141,72	Sea Sediment	Sediment	Illumina NovoSeq 6000		MoBio PowerSoil DNA	PRJNA113162	SRR29704038			1,69									
+Zhang2024	SY222	Qualitative		3,456	11,65	138,62	Sea Sediment	Sediment	Illumina NovoSeq 6000		MoBio PowerSoil DNA	PRJNA113162	SRR29704047			1,54									
+Zhang2024	SY203	Qualitative		3,455	11,22	139,93	Sea Sediment	Sediment	Illumina NovoSeq 6000		MoBio PowerSoil DNA	PRJNA113162	SRR29704033			1,61									
+Zhang2024	SY194	Qualitative		3,453	12,42	140,92	Sea Sediment	Sediment	Illumina NovoSeq 6000		MoBio PowerSoil DNA	PRJNA113162	SRR29704040			1,75									
+Zhang2024	SY190	Qualitative		3,453	12,61	140,87	Sea Sediment	Sediment	Illumina NovoSeq 6000		MoBio PowerSoil DNA	PRJNA113162	SRR29704043			1,68									
+Zhang2025	S56	Quantatative	9,96	43,09	31,5862	86,7838	Salt lake	Sediment	MGISEQ-2000RS			PRJCA037687	DRR846336			16,4									
+Zhang2025	S57	Quantatative	9,99	42,59	31,5853	86,7849	Salt lake	Sediment	MGISEQ-2000RS			PRJCA037687	DRR846337			16,8									
+Zhang2025	S52	Quantatative	8,95	30,09	32,031	83,5685	Salt lake	Sediment	MGISEQ-2000RS			PRJCA037687	DRR846332			18,4									
+Zhang2025	S58	Quantatative	8,37	20,79	33,005	88,6643	Salt lake	Sediment	MGISEQ-2000RS			PRJCA037687	DRR846338			13,7									
+Zhang2025	S48	Quantatative	9,4	15,41	32,0456	84,1005	Salt lake	Sediment	MGISEQ-2000RS			PRJCA037687	DRR846331			16									
+Zhang2025	S42	Quantatative	9,26	13,61	32,6715	89,5329	Salt lake	Sediment	MGISEQ-2000RS			PRJCA037687	DRR846328			10,9									
+Zhang2025	S40	Quantatative	9,79	13,06	32,6684	89,5275	Salt lake	Sediment	MGISEQ-2000RS			PRJCA037687	DRR846326			11,4									
+Zhang2025	S47	Quantatative	9,47	12,74	32,0484	84,096	Salt lake	Sediment	MGISEQ-2000RS			PRJCA037687	DRR846330			16,3									
+Zhang2025	S41	Quantatative	9,91	11,6	32,6693	89,5343	Salt lake	Sediment	MGISEQ-2000RS			PRJCA037687	DRR846327			11,3									
+Zhang2025	S46	Quantatative	9,41	9,8	32,0513	84,093	Salt lake	Sediment	MGISEQ-2000RS			PRJCA037687	DRR846329			16,4									
+Zhang2025	S53	Quantatative	9,19	8,53	32,0431	83,5665	Salt lake	Sediment	MGISEQ-2000RS			PRJCA037687	DRR846333			18,3									
+Zhang2025	S54	Quantatative	9,39	6,75	32,0424	83,5663	Salt lake	Sediment	MGISEQ-2000RS			PRJCA037687	DRR846334			18,2									
+Zhang2025	S55	Quantatative	9,9	6,38	31,5879	86,7892	Salt lake	Sediment	MGISEQ-2000RS			PRJCA037687	DRR846335			16,9									
+Zhang2025	S30	Quantatative	10,24	3,88	31,8233	87,4706	Lake_Sediment	Sediment	MGISEQ-2000RS			PRJCA037687	DRR846325			15,1									
+Zhang2025	S29	Quantatative	10,35	3,61	31,8241	87,4769	Lake_Sediment	Sediment	MGISEQ-2000RS			PRJCA037687	DRR846324			15,4									
+Zhang2025	S28	Quantatative	10,38	3,16	31,8189	87,4699	Lake_Sediment	Sediment	MGISEQ-2000RS			PRJCA037687	DRR846323			15,5									
+Zhang2025	S19	Quantatative	9,77	1,072	31,703	88,7354	Lake_Sediment	Sediment	MGISEQ-2000RS			PRJCA037687	DRR846320			16,9									
+Zhang2025	S20	Quantatative	9,83	0,975	31,7093	88,7272	Lake_Sediment	Sediment	MGISEQ-2000RS			PRJCA037687	DRR846321			16,9									
+Zhang2025	S21	Quantatative	9,89	0,877	31,7098	88,7311	Lake_Sediment	Sediment	MGISEQ-2000RS			PRJCA037687	DRR846322			16,8									
+Zhang2025	S5	Quantatative	8,39	0,781	31,6582	88,8109	Lake_Sediment	Sediment	MGISEQ-2000RS			PRJCA037687 	DRR846315			15,4									
+Zhang2025	S4	Quantatative	8,38	0,64	31,644	88,8172	Lake_Sediment	Sediment	MGISEQ-2000RS			PRJCA037687 	DRR846314			15,3									
+Zhang2025	S6	Quantatative	8,4	0,561	31,6605	88,8108	Lake_Sediment	Sediment	MGISEQ-2000RS			PRJCA037687 	DRR846316			15,4									
+Zhang2025	S3	Quantatative	8,07	0,557	31,0229	88,5638	Lake_Sediment	Sediment	MGISEQ-2000RS			PRJCA037687 	DRR846313			13,2									
+Zhang2025	S12	Quantatative	8,9	0,546	30,87	91,0368	Brackish lake Sediment	Sediment	MGISEQ-2000RS			PRJCA037687	DRR846319			12,2									
+Zhang2025	S2	Quantatative	8,12	0,521	31,0215	88,5638	Lake_Sediment	Sediment	MGISEQ-2000RS			PRJCA037687 	DRR846312			13									
+Zhang2025	S11	Quantatative	9,01	0,422	30,8682	91,0358	Lake_Sediment	Sediment	MGISEQ-2000RS			PRJCA037687	DRR846318			12,3									
+Zhang2025	S1	Quantatative	8,26	0,31	31,0235	88,5678	Lake_Sediment	Sediment	MGISEQ-2000RS			PRJCA037687 	DRR846311			13,9									
+Zhang2025	S10	Quantatative	8,97	0,1551	30,8674	91,0432	Lake_Sediment	Sediment	MGISEQ-2000RS			PRJCA037687	DRR846317			12,6									
+Zhao2022	Hutong Qagan Lake	Qualitative			39,1825	109,0019	Soda Lake	Sediment	Illumina HiSeq 2000			PRJNA549802	SRR9330140												
+Zhao2022	Habor Lake	Qualitative			39,4214	108,6811	Soda Lake	Sediment	Illumina HiSeq 2000			PRJNA549802	SRR9330146												
+Moguel 2021	100_1_zon2_hyposaline				19.51	-98.55	Lake_Sediment	Sediment	NextSeq 500		Powersoil DNA Isolation Kit	PRJNA522291													

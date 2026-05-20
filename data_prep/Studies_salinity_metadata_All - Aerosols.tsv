@@ -1,0 +1,13 @@
+Site	Study	pH	Salinity (mS/cm)	Latitude	Longitude	Description	Soil/Tailing/Sediment	Quantative,Qualative	BioProject ID	Sequencing method	Library	Sequence Reads Archive	Comments	Temp
+TC-CA-air	Bay2025	-	-	-38,05706	141,92	Cave	 air swab	-	PRJNA1048116	Illumina NovaSeq 6000		SRR27067700		
+H1-CC-NA	Bay2025	-	-	37,9075	141,97	Cave	 air swab	-	PRJNA1048116	Illumina NovaSeq 6000		SRR27067718		
+Aerosol_0,1µm_15_19022020	Rahlff2023			58,8765692	11,1463651	Sea	Aerosol		PRJNA811790	Illumina HiSeq X	Illumina DNA Prep with Enrichment Reference Guide	SRR18243872		
+KAUST013	Aslismail2019			22,41	39,14	Red Sea	Dust		PRJEB31563	Illumina HiSeq 4000		ERR3230147		
+Thuwal001	Aslismail2019			25,33	37,03	Red Sea	Dust		PRJEB31564	Illumina HiSeq 4000		ERR3230148		
+Thuwal005	Aslismail2019			27,23	34,95	Red Sea	Dust		PRJEB31567	Illumina HiSeq 4000		ERR3230151		
+GLDS-256_metagenomics_NASA_ABC_Amp_7_S4	Jaig 2020			34,63883	-118,07714	Desert	Aerosol		GLDS-256(NASA)	Illumina NextSeq 500		Manual_download		
+Terrestial1	Jiang 2025			36,06	120,34	Mountain	Aerosol		PRJNA1028337	Illumina NovaSeq 6000		SRR26389827		
+Ocean1	Jiang 2025			30,92	125,39	Marine	Aerosol		PRJNA1028337	Illumina NovaSeq 6000		SRR26389832		
+Ocean2	Jiang 2025			29,32	123,37	Marine	Aerosol		PRJNA1028337	Illumina NovaSeq 6000		SRR26389831		
+Ocean3	Jiang 2025			31,64	122,5	Marine	Aerosol		PRJNA1028337	Illumina NovaSeq 6000		SRR26389830		
+Ocean4	Jiang 2025			28,63	122,35	Marine	Aerosol		PRJNA1028337	Illumina NovaSeq 6000		SRR26389829		
