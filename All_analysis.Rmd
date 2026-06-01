@@ -1,0 +1,746 @@
+---
+title: "Meta_analysis"
+output: html_document
+date: "2026-05-20"
+editor_options: 
+  chunk_output_type: console
+---
+
+
+```{r}
+library(ggplot2)
+library(dplyr)
+library(tidyverse)
+
+Earth_data<- read.delim('/home/mad149/chapter_meta_analysis/metadata/Studies_salinity_metadata_All - Studies_salinity_metadata_soil (4).tsv', sep='\t', stringsAsFactors = TRUE)
+
+names(Earth_data)[names(Earth_data) == 'Salinity..mS.cm.'] <- 'Salinity'
+names(Earth_data)[names(Earth_data) == 'Sequence.Reads.Archive'] <- 'SRA_id'
+
+
+Earth_data$Salinity<- as.numeric(gsub( ',','.', Earth_data$Salinity))
+Earth_data$pH<- as.numeric(gsub( ',','.',Earth_data$pH))
+
+Water_data <- read.delim('/home/mad149/chapter_meta_analysis/metadata/Studies_salinity_metadata_All - Studies_salinity_metadata_water.csv (1).tsv', sep='\t', stringsAsFactors = TRUE)
+Water_data$Salinity<- as.numeric(gsub( ',','.', Water_data$Salinity))
+Water_data$pH<- as.numeric(gsub( ',','.',Water_data$pH))
+
+
+Aerosol_data <- read.delim('/home/mad149/chapter_meta_analysis/metadata/Studies_salinity_metadata_All - Aerosols.tsv', sep='\t', stringsAsFactors = TRUE)
+names(Aerosol_data)[names(Aerosol_data) == 'Sequence.Reads.Archive'] <- 'SRA_id'
+names(Aerosol_data)[names(Aerosol_data) == 'Soil.Tailing.Sediment'] <- 'Airswab.Aerosol.Dust'
+
+Biofilm_data <- read.delim('/home/mad149/chapter_meta_analysis/metadata/Studies_salinity_metadata_All - Biofilm.tsv', sep='\t', stringsAsFactors = TRUE)
+names(Biofilm_data)[names(Biofilm_data) == 'Sequence.Reads.Archive'] <- 'SRA_id'
+names(Biofilm_data)[names(Biofilm_data) == 'Soil.Tailing.Sediment'] <- 'Microbialmat.Hypolith.Endolith'
+
+```
+
+```{r}
+xblast_half <- read.delim('/home/mad149/chapter_meta_analysis/xblast_output_may20_641_out_of_1116.tsv', sep='\t', stringsAsFactors = TRUE)
+
+merged_df_Aerosol <-  merge(Aerosol_data, xblast_half, by = "SRA_id")
+ggplot(data = merged_df_Aerosol, aes(x=Description, y=DEIK_ratio,col=Airswab.Aerosol.Dust)) + geom_boxplot() + geom_jitter()+ geom_hline(yintercept= c(0.75,0.9), linetype = 'dashed') + ggtitle("Aerosol DEIK-ratio")
+
+
+merged_df_Biofilm <-  merge(Biofilm_data, xblast_half, by = "SRA_id")
+ggplot(data = merged_df_Biofilm, aes(x=Microbialmat.Hypolith.Endolith, y=DEIK_ratio, col = Microbialmat.Hypolith.Endolith)) + geom_boxplot() + geom_jitter()+ geom_hline(yintercept= c(0.75,0.9), linetype = 'dashed') + ggtitle("Biofilm DEIK-ratio")
+
+
+
+ggplot(data = merged_df_Biofilm, aes(x=Description, y=DEIK_ratio, col = Microbialmat.Hypolith.Endolith)) + geom_boxplot() + geom_jitter()+ geom_hline(yintercept= c(0.75,0.9), linetype = 'dashed')+ ggtitle("Biofilm DEIK-ratio")
+
+
+merged_df_Earth <- merge(Earth_data, xblast_half, by = "SRA_id")
+ggplot(data = merged_df_Earth, aes(x=merged_df_Earth$Soil.Tailing.Sediment, y=DEIK_ratio, col=Soil.Tailing.Sediment)) + geom_boxplot() + geom_jitter()+ geom_hline(yintercept= c(0.75,0.9), linetype = 'dashed') + ggtitle("Earth DEIK-ratio")
+
+merged_df_Earth <- merge(Earth_data, xblast_half, by = "SRA_id")
+ggplot(data = merged_df_Earth, aes(x=Description, y=DEIK_ratio, col=Description))+ geom_boxplot() + geom_jitter()+ geom_hline(yintercept= c(0.75,0.9), linetype = 'dashed') + ggtitle("Earth DEIK-ratio")+ theme(axis.text.x = element_text(angle = 90)) 
+merged_df_Water <- merge(Water_data, xblast_half, by = "SRA_id")
+```
+
+```{r}
+
+merged_df_Water$Saltern <- NA
+merged_df_Water$Saltern[merged_df_Water$Description == 'Saltern'] <- 'Saltern'
+merged_df_Water$Saltern[merged_df_Water$Description == 'Sea'] <- 'Sea'
+merged_df_Water$Saltern[merged_df_Water$Description == 'River'] <- 'River'
+merged_df_Water$Saltern[merged_df_Water$Description == 'Lake'] <- 'Lake'
+merged_df_Water$Saltern[merged_df_Water$Description == 'Estuary'] <- 'Estuary'
+merged_df_Water$Saltern[merged_df_Water$Description == 'Salt lake'] <- 'Salt lake'
+merged_df_Water$Saltern[merged_df_Water$Description == 'Soda Lake'] <- 'Soda Lake'
+merged_df_Water$Saltern[merged_df_Water$Description == 'Acidic brine'] <- 'Acidic brine'
+
+ggplot(merged_df_Water, aes(x = Description, y = DEIK_ratio, color=Description)) + geom_boxplot(outlier.shape = NA) + ggtitle('Water types DE/IK ratio') + theme(axis.text.x = element_text(angle = 90)) + geom_jitter() 
+
+ggplot(merged_df_Water, aes(x = Description, y = pH, color=Description)) + geom_boxplot(outlier.shape = NA) + ggtitle('Water types pH') + theme(axis.text.x = element_text(angle = 90)) + geom_jitter() 
+ggplot(merged_df_Water, aes(x = Description, y = log(Salinity), color=Description)) + geom_boxplot(outlier.shape = NA) + ggtitle('Water types salinity') + theme(axis.text.x = element_text(angle = 90)) + geom_jitter() 
+
+ggplot(merged_df_Water, aes(x = log(Salinity), y = DEIK_ratio)) + geom_point(aes(col=merged_df_Water$Saltern)) + ggtitle('Water types DE/IK ratio')
+
+ggplot(merged_df_Water, aes(x = log(Salinity), y = DEIK_ratio)) + geom_point(alpha=0.7) + ggtitle('Water types DE/IK ratio') + geom_smooth()
+
+ggplot(merged_df_Water, aes(x = pH, y = DEIK_ratio, color=Saltern)) + geom_point() + ggtitle('Water types DE/IK ratio')
+Water_DEIK <- lm(data=merged_df_Water, DEIK_ratio~Salinity)
+summary(Water_DEIK)
+```
+
+
+```{r}
+'%!in%' <- function(x,y)!('%in%'(x,y))
+too_small <- c('Pond', 'Rain', 'Salt mine', 'Snow', 'Freshwater')
+merged_df_Water_big <- merged_df_Water[merged_df_Water$Description %!in% too_small,]
+pairwise.wilcox.test(merged_df_Water_big$DEIK_ratio, merged_df_Water_big$Description, p.adjust.method = "BH")
+```
+
+```{r}
+
+
+
+merged_df_Earth$Saltmarsh <- NA
+
+merged_df_Earth$Saltmarsh[merged_df_Earth$Description == 'Saltmarsh'] <- 'Saltmarsh'
+merged_df_Earth$Saltmarsh[merged_df_Earth$Description == 'Salt_flat_Earth'] <- 'Salt flat'
+
+merged_df_Earth$Saltmarsh[merged_df_Earth$Description == 'Geothermal Earth'] <- 'Geothermal'
+merged_df_Earth$Saltmarsh[merged_df_Earth$Description == 'Hot spring'] <- 'Hot spring'
+
+
+
+ggplot(merged_df_Earth, aes(x = log(as.numeric(Salinity)), y = DEIK_ratio, col=Saltmarsh )) + geom_point() + ggtitle('Earth types DE/IK ratio')
+
+ggplot(merged_df_Earth, aes(x = log(as.numeric(Salinity)), y = DEIK_ratio )) + geom_point() + geom_smooth() + ggtitle('Earth types DE/IK ratio')
+
+ggplot(merged_df_Earth, aes(x = log(as.numeric(Salinity)), y = DEIK_ratio, col=Soil.Tailing.Sediment)) + geom_point() + geom_smooth(se=FALSE) + ggtitle('Earth types DE/IK ratio')
+
+ggplot(merged_df_Earth, aes(x = (as.numeric(pH)), y = DEIK_ratio )) + geom_point() + geom_smooth() + ggtitle('Earth types DE/IK ratio')
+
+outlier.shape = NA
+ggplot(merged_df_Earth, aes(x = Description, y = DEIK_ratio, color=Description)) + geom_boxplot() + ggtitle('Earth types DE/IK ratio') + theme(axis.text.x = element_text(angle = 90))
+```
+
+
+```{r Normalize_Aerosol}
+
+
+
+merged_df_Aerosol$MIP_count <- merged_df_Aerosol$MIP_count/(merged_df_Aerosol$RpS2_count + merged_df_Aerosol$RpL4_count)
+merged_df_Aerosol$ClcA_count <- merged_df_Aerosol$ClcA_count/(merged_df_Aerosol$RpS2_count + merged_df_Aerosol$RpL4_count)
+merged_df_Aerosol$MscS_count <- merged_df_Aerosol$MscS_count/(merged_df_Aerosol$RpS2_count + merged_df_Aerosol$RpL4_count)
+merged_df_Aerosol$MscL_count <- merged_df_Aerosol$MscL_count/(merged_df_Aerosol$RpS2_count + merged_df_Aerosol$RpL4_count)
+merged_df_Aerosol$OpuAC_count <- merged_df_Aerosol$OpuAC_count/(merged_df_Aerosol$RpS2_count + merged_df_Aerosol$RpL4_count)
+merged_df_Aerosol$Na_ala_count <- merged_df_Aerosol$Na_ala_count/(merged_df_Aerosol$RpS2_count + merged_df_Aerosol$RpL4_count)
+merged_df_Aerosol$CorA_count <- merged_df_Aerosol$CorA_count/(merged_df_Aerosol$RpS2_count + merged_df_Aerosol$RpL4_count)
+merged_df_Aerosol$Na_Ca_count <- merged_df_Aerosol$Na_Ca_count/(merged_df_Aerosol$RpS2_count + merged_df_Aerosol$RpL4_count)
+merged_df_Aerosol$BCCT_count <- merged_df_Aerosol$BCCT_count/(merged_df_Aerosol$RpS2_count + merged_df_Aerosol$RpL4_count)
+merged_df_Aerosol$MgtE_count <- merged_df_Aerosol$MgtE_count/(merged_df_Aerosol$RpS2_count + merged_df_Aerosol$RpL4_count)
+merged_df_Aerosol$EctC_count <- merged_df_Aerosol$EctC_count/(merged_df_Aerosol$RpS2_count + merged_df_Aerosol$RpL4_count)
+merged_df_Aerosol$MnhE_count <- merged_df_Aerosol$MnhE_count/(merged_df_Aerosol$RpS2_count + merged_df_Aerosol$RpL4_count)
+merged_df_Aerosol$Trehalose_PPase_count <- merged_df_Aerosol$Trehalose_PPase_count/(merged_df_Aerosol$RpS2_count + merged_df_Aerosol$RpL4_count)
+merged_df_Aerosol$TrkH_count <- merged_df_Aerosol$TrkH_count/(merged_df_Aerosol$RpS2_count + merged_df_Aerosol$RpL4_count)
+merged_df_Aerosol$Kup_count <- merged_df_Aerosol$Kup_count/(merged_df_Aerosol$RpS2_count + merged_df_Aerosol$RpL4_count)
+merged_df_Aerosol$Hppase_count <- merged_df_Aerosol$Hppase_count/(merged_df_Aerosol$RpS2_count + merged_df_Aerosol$RpL4_count)
+merged_df_Aerosol$NhaB_count <- merged_df_Aerosol$NhaB_count/(merged_df_Aerosol$RpS2_count + merged_df_Aerosol$RpL4_count)
+merged_df_Aerosol$NhaC_count <- merged_df_Aerosol$NhaC_count/(merged_df_Aerosol$RpS2_count + merged_df_Aerosol$RpL4_count)
+merged_df_Aerosol$NhaD_count <- merged_df_Aerosol$NhaD_count/(merged_df_Aerosol$RpS2_count + merged_df_Aerosol$RpL4_count)
+merged_df_Aerosol$Kdp_count <- merged_df_Aerosol$Kdp_count/(merged_df_Aerosol$RpS2_count + merged_df_Aerosol$RpL4_count)
+merged_df_Aerosol$MtrA_count <- merged_df_Aerosol$MtrA_count/(merged_df_Aerosol$RpS2_count + merged_df_Aerosol$RpL4_count)
+merged_df_Aerosol$AApermease_count <- merged_df_Aerosol$AApermease_count/(merged_df_Aerosol$RpS2_count + merged_df_Aerosol$RpL4_count)
+merged_df_Aerosol$BranchedchainAA_transp_count <- merged_df_Aerosol$BranchedchainAA_transp_count/(merged_df_Aerosol$RpS2_count + merged_df_Aerosol$RpL4_count)
+merged_df_Aerosol$TreT_count <- merged_df_Aerosol$TreT_count/(merged_df_Aerosol$RpS2_count + merged_df_Aerosol$RpL4_count)
+merged_df_Aerosol$NqrA_count <- merged_df_Aerosol$NqrA_count/(merged_df_Aerosol$RpS2_count + merged_df_Aerosol$RpL4_count)
+merged_df_Aerosol$KimA_count <- merged_df_Aerosol$KimA_count/(merged_df_Aerosol$RpS2_count + merged_df_Aerosol$RpL4_count)
+merged_df_Aerosol$Betain_ald_dehyd_count <- merged_df_Aerosol$Betain_ald_dehyd_count/(merged_df_Aerosol$RpS2_count + merged_df_Aerosol$RpL4_count)
+
+
+merged_df_Aerosol$total_CPA_count <- merged_df_Aerosol$total_CPA_count/(merged_df_Aerosol$RpS2_count + merged_df_Aerosol$RpL4_count)
+merged_df_Aerosol$CPA1_count <- merged_df_Aerosol$CPA1_count/(merged_df_Aerosol$RpS2_count + merged_df_Aerosol$RpL4_count)
+merged_df_Aerosol$CPA1_SL_count <- merged_df_Aerosol$CPA1_SL_count/(merged_df_Aerosol$RpS2_count + merged_df_Aerosol$RpL4_count)
+merged_df_Aerosol$CHX_count <- merged_df_Aerosol$CHX_count/(merged_df_Aerosol$RpS2_count + merged_df_Aerosol$RpL4_count)
+
+merged_df_Aerosol$Kef_count <- merged_df_Aerosol$Kef_count/(merged_df_Aerosol$RpS2_count + merged_df_Aerosol$RpL4_count)
+merged_df_Aerosol$GerN_count <- merged_df_Aerosol$GerN_count/(merged_df_Aerosol$RpS2_count + merged_df_Aerosol$RpL4_count)
+merged_df_Aerosol$SOD2_count <- merged_df_Aerosol$SOD2_count/(merged_df_Aerosol$RpS2_count + merged_df_Aerosol$RpL4_count)
+merged_df_Aerosol$NhaS5_count <- merged_df_Aerosol$NhaS5_count/(merged_df_Aerosol$RpS2_count + merged_df_Aerosol$RpL4_count)
+merged_df_Aerosol$NhaP_CPA1_count <- merged_df_Aerosol$NhaP_CPA1_count/(merged_df_Aerosol$RpS2_count + merged_df_Aerosol$RpL4_count)
+
+
+merged_df_Aerosol$NhaA_count <- merged_df_Aerosol$NhaA_count/(merged_df_Aerosol$RpS2_count + merged_df_Aerosol$RpL4_count)
+merged_df_Aerosol$Uncharacterized_CPA_count <- merged_df_Aerosol$Uncharacterized_CPA_count/(merged_df_Aerosol$RpS2_count + merged_df_Aerosol$RpL4_count)
+merged_df_Aerosol$Undescribed_CPA1_count <- merged_df_Aerosol$Undescribed_CPA1_count/(merged_df_Aerosol$RpS2_count + merged_df_Aerosol$RpL4_count)
+merged_df_Aerosol$UndProkarya_CPA1_IDK_count <- merged_df_Aerosol$UndProkarya_CPA1_IDK_count/(merged_df_Aerosol$RpS2_count + merged_df_Aerosol$RpL4_count)
+```
+
+
+
+```{r Normalize_biofilm}
+
+
+
+merged_df_Biofilm$MIP_count <- merged_df_Biofilm$MIP_count/(merged_df_Biofilm$RpS2_count + merged_df_Biofilm$RpL4_count)
+merged_df_Biofilm$ClcA_count <- merged_df_Biofilm$ClcA_count/(merged_df_Biofilm$RpS2_count + merged_df_Biofilm$RpL4_count)
+merged_df_Biofilm$MscS_count <- merged_df_Biofilm$MscS_count/(merged_df_Biofilm$RpS2_count + merged_df_Biofilm$RpL4_count)
+merged_df_Biofilm$MscL_count <- merged_df_Biofilm$MscL_count/(merged_df_Biofilm$RpS2_count + merged_df_Biofilm$RpL4_count)
+merged_df_Biofilm$OpuAC_count <- merged_df_Biofilm$OpuAC_count/(merged_df_Biofilm$RpS2_count + merged_df_Biofilm$RpL4_count)
+merged_df_Biofilm$Na_ala_count <- merged_df_Biofilm$Na_ala_count/(merged_df_Biofilm$RpS2_count + merged_df_Biofilm$RpL4_count)
+merged_df_Biofilm$CorA_count <- merged_df_Biofilm$CorA_count/(merged_df_Biofilm$RpS2_count + merged_df_Biofilm$RpL4_count)
+merged_df_Biofilm$Na_Ca_count <- merged_df_Biofilm$Na_Ca_count/(merged_df_Biofilm$RpS2_count + merged_df_Biofilm$RpL4_count)
+merged_df_Biofilm$BCCT_count <- merged_df_Biofilm$BCCT_count/(merged_df_Biofilm$RpS2_count + merged_df_Biofilm$RpL4_count)
+merged_df_Biofilm$MgtE_count <- merged_df_Biofilm$MgtE_count/(merged_df_Biofilm$RpS2_count + merged_df_Biofilm$RpL4_count)
+merged_df_Biofilm$EctC_count <- merged_df_Biofilm$EctC_count/(merged_df_Biofilm$RpS2_count + merged_df_Biofilm$RpL4_count)
+merged_df_Biofilm$MnhE_count <- merged_df_Biofilm$MnhE_count/(merged_df_Biofilm$RpS2_count + merged_df_Biofilm$RpL4_count)
+merged_df_Biofilm$Trehalose_PPase_count <- merged_df_Biofilm$Trehalose_PPase_count/(merged_df_Biofilm$RpS2_count + merged_df_Biofilm$RpL4_count)
+merged_df_Biofilm$TrkH_count <- merged_df_Biofilm$TrkH_count/(merged_df_Biofilm$RpS2_count + merged_df_Biofilm$RpL4_count)
+merged_df_Biofilm$Kup_count <- merged_df_Biofilm$Kup_count/(merged_df_Biofilm$RpS2_count + merged_df_Biofilm$RpL4_count)
+merged_df_Biofilm$Hppase_count <- merged_df_Biofilm$Hppase_count/(merged_df_Biofilm$RpS2_count + merged_df_Biofilm$RpL4_count)
+merged_df_Biofilm$NhaB_count <- merged_df_Biofilm$NhaB_count/(merged_df_Biofilm$RpS2_count + merged_df_Biofilm$RpL4_count)
+merged_df_Biofilm$NhaC_count <- merged_df_Biofilm$NhaC_count/(merged_df_Biofilm$RpS2_count + merged_df_Biofilm$RpL4_count)
+merged_df_Biofilm$NhaD_count <- merged_df_Biofilm$NhaD_count/(merged_df_Biofilm$RpS2_count + merged_df_Biofilm$RpL4_count)
+merged_df_Biofilm$Kdp_count <- merged_df_Biofilm$Kdp_count/(merged_df_Biofilm$RpS2_count + merged_df_Biofilm$RpL4_count)
+merged_df_Biofilm$MtrA_count <- merged_df_Biofilm$MtrA_count/(merged_df_Biofilm$RpS2_count + merged_df_Biofilm$RpL4_count)
+merged_df_Biofilm$AApermease_count <- merged_df_Biofilm$AApermease_count/(merged_df_Biofilm$RpS2_count + merged_df_Biofilm$RpL4_count)
+merged_df_Biofilm$BranchedchainAA_transp_count <- merged_df_Biofilm$BranchedchainAA_transp_count/(merged_df_Biofilm$RpS2_count + merged_df_Biofilm$RpL4_count)
+merged_df_Biofilm$TreT_count <- merged_df_Biofilm$TreT_count/(merged_df_Biofilm$RpS2_count + merged_df_Biofilm$RpL4_count)
+merged_df_Biofilm$NqrA_count <- merged_df_Biofilm$NqrA_count/(merged_df_Biofilm$RpS2_count + merged_df_Biofilm$RpL4_count)
+merged_df_Biofilm$KimA_count <- merged_df_Biofilm$KimA_count/(merged_df_Biofilm$RpS2_count + merged_df_Biofilm$RpL4_count)
+merged_df_Biofilm$Betain_ald_dehyd_count <- merged_df_Biofilm$Betain_ald_dehyd_count/(merged_df_Biofilm$RpS2_count + merged_df_Biofilm$RpL4_count)
+
+
+merged_df_Biofilm$total_CPA_count <- merged_df_Biofilm$total_CPA_count/(merged_df_Biofilm$RpS2_count + merged_df_Biofilm$RpL4_count)
+merged_df_Biofilm$CPA1_count <- merged_df_Biofilm$CPA1_count/(merged_df_Biofilm$RpS2_count + merged_df_Biofilm$RpL4_count)
+merged_df_Biofilm$CPA1_SL_count <- merged_df_Biofilm$CPA1_SL_count/(merged_df_Biofilm$RpS2_count + merged_df_Biofilm$RpL4_count)
+merged_df_Biofilm$CHX_count <- merged_df_Biofilm$CHX_count/(merged_df_Biofilm$RpS2_count + merged_df_Biofilm$RpL4_count)
+
+merged_df_Biofilm$Kef_count <- merged_df_Biofilm$Kef_count/(merged_df_Biofilm$RpS2_count + merged_df_Biofilm$RpL4_count)
+merged_df_Biofilm$GerN_count <- merged_df_Biofilm$GerN_count/(merged_df_Biofilm$RpS2_count + merged_df_Biofilm$RpL4_count)
+merged_df_Biofilm$SOD2_count <- merged_df_Biofilm$SOD2_count/(merged_df_Biofilm$RpS2_count + merged_df_Biofilm$RpL4_count)
+merged_df_Biofilm$NhaS5_count <- merged_df_Biofilm$NhaS5_count/(merged_df_Biofilm$RpS2_count + merged_df_Biofilm$RpL4_count)
+merged_df_Biofilm$NhaP_CPA1_count <- merged_df_Biofilm$NhaP_CPA1_count/(merged_df_Biofilm$RpS2_count + merged_df_Biofilm$RpL4_count)
+
+
+merged_df_Biofilm$NhaA_count <- merged_df_Biofilm$NhaA_count/(merged_df_Biofilm$RpS2_count + merged_df_Biofilm$RpL4_count)
+merged_df_Biofilm$Uncharacterized_CPA_count <- merged_df_Biofilm$Uncharacterized_CPA_count/(merged_df_Biofilm$RpS2_count + merged_df_Biofilm$RpL4_count)
+merged_df_Biofilm$Undescribed_CPA1_count <- merged_df_Biofilm$Undescribed_CPA1_count/(merged_df_Biofilm$RpS2_count + merged_df_Biofilm$RpL4_count)
+merged_df_Biofilm$UndProkarya_CPA1_IDK_count <- merged_df_Biofilm$UndProkarya_CPA1_IDK_count/(merged_df_Biofilm$RpS2_count + merged_df_Biofilm$RpL4_count)
+```
+
+```{r Normalize_water}
+
+
+
+merged_df_Water$MIP_count <- merged_df_Water$MIP_count/(merged_df_Water$RpS2_count + merged_df_Water$RpL4_count)
+merged_df_Water$ClcA_count <- merged_df_Water$ClcA_count/(merged_df_Water$RpS2_count + merged_df_Water$RpL4_count)
+merged_df_Water$MscS_count <- merged_df_Water$MscS_count/(merged_df_Water$RpS2_count + merged_df_Water$RpL4_count)
+merged_df_Water$MscL_count <- merged_df_Water$MscL_count/(merged_df_Water$RpS2_count + merged_df_Water$RpL4_count)
+merged_df_Water$OpuAC_count <- merged_df_Water$OpuAC_count/(merged_df_Water$RpS2_count + merged_df_Water$RpL4_count)
+merged_df_Water$Na_ala_count <- merged_df_Water$Na_ala_count/(merged_df_Water$RpS2_count + merged_df_Water$RpL4_count)
+merged_df_Water$CorA_count <- merged_df_Water$CorA_count/(merged_df_Water$RpS2_count + merged_df_Water$RpL4_count)
+merged_df_Water$Na_Ca_count <- merged_df_Water$Na_Ca_count/(merged_df_Water$RpS2_count + merged_df_Water$RpL4_count)
+merged_df_Water$BCCT_count <- merged_df_Water$BCCT_count/(merged_df_Water$RpS2_count + merged_df_Water$RpL4_count)
+merged_df_Water$MgtE_count <- merged_df_Water$MgtE_count/(merged_df_Water$RpS2_count + merged_df_Water$RpL4_count)
+merged_df_Water$EctC_count <- merged_df_Water$EctC_count/(merged_df_Water$RpS2_count + merged_df_Water$RpL4_count)
+merged_df_Water$MnhE_count <- merged_df_Water$MnhE_count/(merged_df_Water$RpS2_count + merged_df_Water$RpL4_count)
+merged_df_Water$Trehalose_PPase_count <- merged_df_Water$Trehalose_PPase_count/(merged_df_Water$RpS2_count + merged_df_Water$RpL4_count)
+merged_df_Water$TrkH_count <- merged_df_Water$TrkH_count/(merged_df_Water$RpS2_count + merged_df_Water$RpL4_count)
+merged_df_Water$Kup_count <- merged_df_Water$Kup_count/(merged_df_Water$RpS2_count + merged_df_Water$RpL4_count)
+merged_df_Water$Hppase_count <- merged_df_Water$Hppase_count/(merged_df_Water$RpS2_count + merged_df_Water$RpL4_count)
+merged_df_Water$NhaB_count <- merged_df_Water$NhaB_count/(merged_df_Water$RpS2_count + merged_df_Water$RpL4_count)
+merged_df_Water$NhaC_count <- merged_df_Water$NhaC_count/(merged_df_Water$RpS2_count + merged_df_Water$RpL4_count)
+merged_df_Water$NhaD_count <- merged_df_Water$NhaD_count/(merged_df_Water$RpS2_count + merged_df_Water$RpL4_count)
+merged_df_Water$Kdp_count <- merged_df_Water$Kdp_count/(merged_df_Water$RpS2_count + merged_df_Water$RpL4_count)
+merged_df_Water$MtrA_count <- merged_df_Water$MtrA_count/(merged_df_Water$RpS2_count + merged_df_Water$RpL4_count)
+merged_df_Water$AApermease_count <- merged_df_Water$AApermease_count/(merged_df_Water$RpS2_count + merged_df_Water$RpL4_count)
+merged_df_Water$BranchedchainAA_transp_count <- merged_df_Water$BranchedchainAA_transp_count/(merged_df_Water$RpS2_count + merged_df_Water$RpL4_count)
+merged_df_Water$TreT_count <- merged_df_Water$TreT_count/(merged_df_Water$RpS2_count + merged_df_Water$RpL4_count)
+merged_df_Water$NqrA_count <- merged_df_Water$NqrA_count/(merged_df_Water$RpS2_count + merged_df_Water$RpL4_count)
+merged_df_Water$KimA_count <- merged_df_Water$KimA_count/(merged_df_Water$RpS2_count + merged_df_Water$RpL4_count)
+merged_df_Water$Betain_ald_dehyd_count <- merged_df_Water$Betain_ald_dehyd_count/(merged_df_Water$RpS2_count + merged_df_Water$RpL4_count)
+
+
+merged_df_Water$total_CPA_count <- merged_df_Water$total_CPA_count/(merged_df_Water$RpS2_count + merged_df_Water$RpL4_count)
+merged_df_Water$CPA1_count <- merged_df_Water$CPA1_count/(merged_df_Water$RpS2_count + merged_df_Water$RpL4_count)
+merged_df_Water$CPA1_SL_count <- merged_df_Water$CPA1_SL_count/(merged_df_Water$RpS2_count + merged_df_Water$RpL4_count)
+merged_df_Water$CHX_count <- merged_df_Water$CHX_count/(merged_df_Water$RpS2_count + merged_df_Water$RpL4_count)
+
+merged_df_Water$Kef_count <- merged_df_Water$Kef_count/(merged_df_Water$RpS2_count + merged_df_Water$RpL4_count)
+merged_df_Water$GerN_count <- merged_df_Water$GerN_count/(merged_df_Water$RpS2_count + merged_df_Water$RpL4_count)
+merged_df_Water$SOD2_count <- merged_df_Water$SOD2_count/(merged_df_Water$RpS2_count + merged_df_Water$RpL4_count)
+merged_df_Water$NhaS5_count <- merged_df_Water$NhaS5_count/(merged_df_Water$RpS2_count + merged_df_Water$RpL4_count)
+merged_df_Water$NhaP_CPA1_count <- merged_df_Water$NhaP_CPA1_count/(merged_df_Water$RpS2_count + merged_df_Water$RpL4_count)
+
+merged_df_Water$NhaA_count <- merged_df_Water$NhaA_count/(merged_df_Water$RpS2_count + merged_df_Water$RpL4_count)
+merged_df_Water$Uncharacterized_CPA_count <- merged_df_Water$Uncharacterized_CPA_count/(merged_df_Water$RpS2_count + merged_df_Water$RpL4_count)
+merged_df_Water$Undescribed_CPA1_count <- merged_df_Water$Undescribed_CPA1_count/(merged_df_Water$RpS2_count + merged_df_Water$RpL4_count)
+merged_df_Water$UndProkarya_CPA1_IDK_count <- merged_df_Water$UndProkarya_CPA1_IDK_count/(merged_df_Water$RpS2_count + merged_df_Water$RpL4_count)
+``` 
+
+
+
+```{r}
+
+
+
+merged_df_Earth$MIP_count <- merged_df_Earth$MIP_count/(merged_df_Earth$RpS2_count + merged_df_Earth$RpL4_count)
+merged_df_Earth$ClcA_count <- merged_df_Earth$ClcA_count/(merged_df_Earth$RpS2_count + merged_df_Earth$RpL4_count)
+merged_df_Earth$MscS_count <- merged_df_Earth$MscS_count/(merged_df_Earth$RpS2_count + merged_df_Earth$RpL4_count)
+merged_df_Earth$MscL_count <- merged_df_Earth$MscL_count/(merged_df_Earth$RpS2_count + merged_df_Earth$RpL4_count)
+merged_df_Earth$OpuAC_count <- merged_df_Earth$OpuAC_count/(merged_df_Earth$RpS2_count + merged_df_Earth$RpL4_count)
+merged_df_Earth$Na_ala_count <- merged_df_Earth$Na_ala_count/(merged_df_Earth$RpS2_count + merged_df_Earth$RpL4_count)
+merged_df_Earth$CorA_count <- merged_df_Earth$CorA_count/(merged_df_Earth$RpS2_count + merged_df_Earth$RpL4_count)
+merged_df_Earth$Na_Ca_count <- merged_df_Earth$Na_Ca_count/(merged_df_Earth$RpS2_count + merged_df_Earth$RpL4_count)
+merged_df_Earth$BCCT_count <- merged_df_Earth$BCCT_count/(merged_df_Earth$RpS2_count + merged_df_Earth$RpL4_count)
+merged_df_Earth$MgtE_count <- merged_df_Earth$MgtE_count/(merged_df_Earth$RpS2_count + merged_df_Earth$RpL4_count)
+merged_df_Earth$EctC_count <- merged_df_Earth$EctC_count/(merged_df_Earth$RpS2_count + merged_df_Earth$RpL4_count)
+merged_df_Earth$MnhE_count <- merged_df_Earth$MnhE_count/(merged_df_Earth$RpS2_count + merged_df_Earth$RpL4_count)
+merged_df_Earth$Trehalose_PPase_count <- merged_df_Earth$Trehalose_PPase_count/(merged_df_Earth$RpS2_count + merged_df_Earth$RpL4_count)
+merged_df_Earth$TrkH_count <- merged_df_Earth$TrkH_count/(merged_df_Earth$RpS2_count + merged_df_Earth$RpL4_count)
+merged_df_Earth$Kup_count <- merged_df_Earth$Kup_count/(merged_df_Earth$RpS2_count + merged_df_Earth$RpL4_count)
+merged_df_Earth$Hppase_count <- merged_df_Earth$Hppase_count/(merged_df_Earth$RpS2_count + merged_df_Earth$RpL4_count)
+merged_df_Earth$NhaB_count <- merged_df_Earth$NhaB_count/(merged_df_Earth$RpS2_count + merged_df_Earth$RpL4_count)
+merged_df_Earth$NhaC_count <- merged_df_Earth$NhaC_count/(merged_df_Earth$RpS2_count + merged_df_Earth$RpL4_count)
+merged_df_Earth$NhaD_count <- merged_df_Earth$NhaD_count/(merged_df_Earth$RpS2_count + merged_df_Earth$RpL4_count)
+merged_df_Earth$Kdp_count <- merged_df_Earth$Kdp_count/(merged_df_Earth$RpS2_count + merged_df_Earth$RpL4_count)
+merged_df_Earth$MtrA_count <- merged_df_Earth$MtrA_count/(merged_df_Earth$RpS2_count + merged_df_Earth$RpL4_count)
+merged_df_Earth$AApermease_count <- merged_df_Earth$AApermease_count/(merged_df_Earth$RpS2_count + merged_df_Earth$RpL4_count)
+merged_df_Earth$BranchedchainAA_transp_count <- merged_df_Earth$BranchedchainAA_transp_count/(merged_df_Earth$RpS2_count + merged_df_Earth$RpL4_count)
+merged_df_Earth$TreT_count <- merged_df_Earth$TreT_count/(merged_df_Earth$RpS2_count + merged_df_Earth$RpL4_count)
+merged_df_Earth$NqrA_count <- merged_df_Earth$NqrA_count/(merged_df_Earth$RpS2_count + merged_df_Earth$RpL4_count)
+merged_df_Earth$KimA_count <- merged_df_Earth$KimA_count/(merged_df_Earth$RpS2_count + merged_df_Earth$RpL4_count)
+merged_df_Earth$Betain_ald_dehyd_count <- merged_df_Earth$Betain_ald_dehyd_count/(merged_df_Earth$RpS2_count + merged_df_Earth$RpL4_count)
+
+
+merged_df_Earth$total_CPA_count <- merged_df_Earth$total_CPA_count/(merged_df_Earth$RpS2_count + merged_df_Earth$RpL4_count)
+merged_df_Earth$CPA1_count <- merged_df_Earth$CPA1_count/(merged_df_Earth$RpS2_count + merged_df_Earth$RpL4_count)
+merged_df_Earth$CPA1_SL_count <- merged_df_Earth$CPA1_SL_count/(merged_df_Earth$RpS2_count + merged_df_Earth$RpL4_count)
+merged_df_Earth$CHX_count <- merged_df_Earth$CHX_count/(merged_df_Earth$RpS2_count + merged_df_Earth$RpL4_count)
+
+merged_df_Earth$Kef_count <- merged_df_Earth$Kef_count/(merged_df_Earth$RpS2_count + merged_df_Earth$RpL4_count)
+merged_df_Earth$GerN_count <- merged_df_Earth$GerN_count/(merged_df_Earth$RpS2_count + merged_df_Earth$RpL4_count)
+merged_df_Earth$SOD2_count <- merged_df_Earth$SOD2_count/(merged_df_Earth$RpS2_count + merged_df_Earth$RpL4_count)
+merged_df_Earth$NhaS5_count <- merged_df_Earth$NhaS5_count/(merged_df_Earth$RpS2_count + merged_df_Earth$RpL4_count)
+merged_df_Earth$NhaP_CPA1_count <- merged_df_Earth$NhaP_CPA1_count/(merged_df_Earth$RpS2_count + merged_df_Earth$RpL4_count)
+
+merged_df_Earth$NhaA_count <- merged_df_Earth$NhaA_count/(merged_df_Earth$RpS2_count + merged_df_Earth$RpL4_count)
+merged_df_Earth$Uncharacterized_CPA_count <- merged_df_Earth$Uncharacterized_CPA_count/(merged_df_Earth$RpS2_count + merged_df_Earth$RpL4_count)
+merged_df_Earth$Undescribed_CPA1_count <- merged_df_Earth$Undescribed_CPA1_count/(merged_df_Earth$RpS2_count + merged_df_Earth$RpL4_count)
+merged_df_Earth$UndProkarya_CPA1_IDK_count <- merged_df_Earth$UndProkarya_CPA1_IDK_count/(merged_df_Earth$RpS2_count + merged_df_Earth$RpL4_count)
+
+
+merged_df_Soil <- merged_df_Earth[merged_df_Earth$Soil.Tailing.Sediment == 'Soil',]
+merged_df_Sediment <- merged_df_Earth[merged_df_Earth$Soil.Tailing.Sediment == 'Sediment',]
+
+
+``` 
+
+```{r}
+library(dplyr)
+library(devtools)
+apply(merged_df_Water, 2, function(x) var(x, na.rm = TRUE) == 0)
+
+library(corrplot)
+corrplot(cor(merged_df_Water[,-c(1:19, 59)]), method = "circle")
+
+grote_spelers <- c('Salt lake', 'Soda Lake', 'Wastewater', 'River', 'Sea', 'Lake', 'Hot spring', 'Estuary', 'Groundwater')
+
+merged_df_Water_big<- merged_df_Water[merged_df_Water$Description %in% grote_spelers,]
+
+library(factoextra)
+res.pc <- prcomp(merged_df_Water_big[,-c(1:19, 59)], center = TRUE, scale.=TRUE)
+
+fviz_pca_ind(res.pc, 
+             geom.ind = "point",
+             shape.ind = 16,
+             addEllipses = TRUE,
+             habillage = merged_df_Water_big$Description) # Only
+```
+
+
+```{r}
+
+library(corrplot)
+corrplot(cor(merged_df_Earth_clean[,-c(1:28, 68)]), method = "circle")
+corrplot(cor(merged_df_Soil_clean[,-c(1:28, 68)]), method = "circle")
+corrplot(cor(merged_df_Sediment_clean[,-c(1:28, 68)]), method = "circle")
+
+merged_df_Water_big<- merged_df_Water[merged_df_Water$Description %in% grote_spelers,]
+
+library(factoextra)
+res.pc <- prcomp(merged_df_Water_big[,-c(1:19, 59)], center = TRUE, scale.=TRUE)
+
+fviz_pca_ind(res.pc, 
+             geom.ind = "point",
+             shape.ind = 16,
+             addEllipses = TRUE,
+             habillage = merged_df_Water_big$Description) # Only
+```
+
+```{r}
+ggplot(data=merged_df_Water, aes(x=Description, y=total_CPA_count, col=Description)) + geom_boxplot() + geom_jitter(alpha=0.5) +  theme(axis.text.x = element_text(angle = 90))
+
+ggplot(data=merged_df_Water, aes(x=Description, y=Kef_count/total_CPA_count, col=Description)) + geom_boxplot() + geom_jitter(alpha=0.5) +  theme(axis.text.x = element_text(angle = 90))
+
+ggplot(data=merged_df_Water, aes(x=Description, y=UndProkarya_CPA1_IDK_count/total_CPA_count, col=Description)) + geom_boxplot() + geom_jitter(alpha=0.5) +  theme(axis.text.x = element_text(angle = 90))
+
+ggplot(data=merged_df_Water, aes(x=Description, y=CPA1_count/total_CPA_count, col=Description)) + geom_boxplot() + geom_jitter(alpha=0.5) +  theme(axis.text.x = element_text(angle = 90))
+
+ggplot(data=merged_df_Water, aes(x=Description, y=Uncharacterized_CPA_count/total_CPA_count, col=Description)) + geom_boxplot() + geom_jitter(alpha=0.5) +  theme(axis.text.x = element_text(angle = 90))
+
+ggplot(data=merged_df_Water, aes(x=Description, y=CHX_count/total_CPA_count, col=Description)) + geom_boxplot() + geom_jitter(alpha=0.5) +  theme(axis.text.x = element_text(angle = 90))
+
+ggplot(data=merged_df_Water, aes(x=Description, y=GerN_count/total_CPA_count, col=Description)) + geom_boxplot() + geom_jitter(alpha=0.5) +  theme(axis.text.x = element_text(angle = 90))
+
+ggplot(data=merged_df_Water, aes(x=Description, y=NhaS5_count/total_CPA_count, col=Description)) + geom_boxplot() + geom_jitter(alpha=0.5) +  theme(axis.text.x = element_text(angle = 90))
+
+ggplot(data=merged_df_Water, aes(x=Description, y=CPA1_SL_count/total_CPA_count, col=Description)) + geom_boxplot() + geom_jitter(alpha=0.5) +  theme(axis.text.x = element_text(angle = 90))
+
+ggplot(data=merged_df_Water, aes(x=Description, y=Undescribed_CPA1_count/total_CPA_count, col=Description)) + geom_boxplot() + geom_jitter(alpha=0.5) +  theme(axis.text.x = element_text(angle = 90))
+
+
+ggplot(data=merged_df_Water, aes(x=Description, y=Na_Ca_count, col=Description)) + geom_boxplot() + geom_jitter(alpha=0.5) +  theme(axis.text.x = element_text(angle = 90))
+
+ggplot(data=merged_df_Water, aes(x=Description, y=MscS_count, col=Description)) + geom_boxplot() + geom_jitter(alpha=0.5) +  theme(axis.text.x = element_text(angle = 90))
+
+ggplot(data=merged_df_Water, aes(x=Description, y=AApermease_count, col=Description)) + geom_boxplot() + geom_jitter(alpha=0.5) +  theme(axis.text.x = element_text(angle = 90))
+
+ggplot(data=merged_df_Water, aes(x=Description, y=MgtE_count, col=Description)) + geom_boxplot() + geom_jitter(alpha=0.5) +  theme(axis.text.x = element_text(angle = 90))
+
+ggplot(data=merged_df_Water, aes(x=Description, y=CorA_count, col=Description)) + geom_boxplot() + geom_jitter(alpha=0.5) +  theme(axis.text.x = element_text(angle = 90))
+
+ggplot(data=merged_df_Water, aes(x=Description, y=MIP_count, col=Description)) + geom_boxplot() + geom_jitter(alpha=0.5) +  theme(axis.text.x = element_text(angle = 90))
+
+ggplot(data=merged_df_Water, aes(x=Description, y=Na_ala_count, col=Description)) + geom_boxplot() + geom_jitter(alpha=0.5) +  theme(axis.text.x = element_text(angle = 90))
+
+ggplot(data=merged_df_Water, aes(x=Description, y=TrkH_count, col=Description)) + geom_boxplot() + geom_jitter(alpha=0.5) +  theme(axis.text.x = element_text(angle = 90))
+
+ggplot(data=merged_df_Water, aes(x=Description, y=KimA_count, col=Description)) + geom_boxplot() + geom_jitter(alpha=0.5) +  theme(axis.text.x = element_text(angle = 90))
+
+ggplot(data=merged_df_Water, aes(x=Description, y=Kup_count, col=Description)) + geom_boxplot() + geom_jitter(alpha=0.5) +  theme(axis.text.x = element_text(angle = 90))
+
+ggplot(data=merged_df_Water, aes(x=Description, y=Kdp_count, col=Description)) + geom_boxplot() + geom_jitter(alpha=0.5) +  theme(axis.text.x = element_text(angle = 90))
+```
+
+```{r}
+ggplot(data=merged_df_Earth, aes(x=Soil.Tailing.Sediment, y=total_CPA_count, col=Soil.Tailing.Sediment)) + geom_boxplot() + geom_jitter(alpha=0.5) +  theme(axis.text.x = element_text(angle = 90))
+ggplot(data=merged_df_Earth, aes(x=Soil.Tailing.Sediment, y=Undescribed_CPA1_count/total_CPA_count, col=Soil.Tailing.Sediment)) + geom_boxplot() + geom_jitter(alpha=0.5) +  theme(axis.text.x = element_text(angle = 90))
+ggplot(data=merged_df_Earth, aes(x=Soil.Tailing.Sediment, y=CPA1_count/total_CPA_count, col=Soil.Tailing.Sediment)) + geom_boxplot() + geom_jitter(alpha=0.5) +  theme(axis.text.x = element_text(angle = 90))
+ggplot(data=merged_df_Earth, aes(x=Soil.Tailing.Sediment, y=Kef_count/total_CPA_count, col=Soil.Tailing.Sediment)) + geom_boxplot() + geom_jitter(alpha=0.5) +  theme(axis.text.x = element_text(angle = 90))
+```
+
+
+```{r}
+ggplot(data=merged_df_Biofilm, aes(x=Microbialmat.Hypolith.Endolith, y=total_CPA_count/(RpL4_count + RpS2_count), col=Microbialmat.Hypolith.Endolith)) + geom_boxplot() + geom_jitter(alpha=0.5) +  theme(axis.text.x = element_text(angle = 90))
+
+ggplot(data=merged_df_Biofilm, aes(x=Microbialmat.Hypolith.Endolith, y=Kef_count/total_CPA_count, col=Microbialmat.Hypolith.Endolith)) + geom_boxplot() + geom_jitter(alpha=0.5) +  theme(axis.text.x = element_text(angle = 90))
+
+ggplot(data=merged_df_Biofilm, aes(x=Microbialmat.Hypolith.Endolith, y=CPA1_count/total_CPA_count, col=Microbialmat.Hypolith.Endolith)) + geom_boxplot() + geom_jitter(alpha=0.5) +  theme(axis.text.x = element_text(angle = 90))
+
+ggplot(data=merged_df_Biofilm, aes(x=Microbialmat.Hypolith.Endolith, y=UndProkarya_CPA1_IDK_count/total_CPA_count, col=Microbialmat.Hypolith.Endolith)) + geom_boxplot() + geom_jitter(alpha=0.5) +  theme(axis.text.x = element_text(angle = 90))
+```
+
+
+```{r}
+ggplot(data=merged_df_Aerosol, aes(x=Airswab.Aerosol.Dust, y=total_CPA_count/(RpL4_count + RpS2_count), col=Airswab.Aerosol.Dust)) + geom_boxplot() + geom_jitter(alpha=0.5) +  theme(axis.text.x = element_text(angle = 90))
+
+ggplot(data=merged_df_Aerosol, aes(x=Airswab.Aerosol.Dust, y=UndProkarya_CPA1_IDK_count/total_CPA_count, col=Airswab.Aerosol.Dust)) + geom_boxplot() + geom_jitter(alpha=0.5) +  theme(axis.text.x = element_text(angle = 90))
+
+ggplot(data=merged_df_Aerosol, aes(x=Airswab.Aerosol.Dust, y=Kef_count/total_CPA_count, col=Airswab.Aerosol.Dust)) + geom_boxplot() + geom_jitter(alpha=0.5) +  theme(axis.text.x = element_text(angle = 90))
+       
+ggplot(data=merged_df_Aerosol, aes(x=Airswab.Aerosol.Dust, y=CPA1_count/total_CPA_count, col=Airswab.Aerosol.Dust)) + geom_boxplot() + geom_jitter(alpha=0.5) +  theme(axis.text.x = element_text(angle = 90))
+ 
+ggplot(data=merged_df_Aerosol, aes(x=Airswab.Aerosol.Dust, y=Uncharacterized_CPA_count/total_CPA_count, col=Airswab.Aerosol.Dust)) + geom_boxplot() + geom_jitter(alpha=0.5) +  theme(axis.text.x = element_text(angle = 90))              
+```
+
+
+```{r}
+ggplot(data=merged_df_Water, aes(x=Description, y=total_CPA_count, col=Description)) + geom_boxplot() + geom_jitter(alpha=0.5) +  theme(axis.text.x = element_text(angle = 90))
+
+ggplot(data=merged_df_Biofilm, aes(x=Microbialmat.Hypolith.Endolith, y=total_CPA_count/(RpL4_count + RpS2_count), col=Microbialmat.Hypolith.Endolith)) + geom_boxplot() + geom_jitter(alpha=0.5) +  theme(axis.text.x = element_text(angle = 90))
+
+ggplot(data=merged_df_Aerosol, aes(x=Airswab.Aerosol.Dust, y=total_CPA_count/(RpL4_count + RpS2_count), col=Airswab.Aerosol.Dust)) + geom_boxplot() + geom_jitter(alpha=0.5) +  theme(axis.text.x = element_text(angle = 90))
+       
+ggplot(data=merged_df_Earth, aes(x=Soil.Tailing.Sediment, y=total_CPA_count, col=Soil.Tailing.Sediment)) + geom_boxplot() + geom_jitter(alpha=0.5) +  theme(axis.text.x = element_text(angle = 90))
+
+ggplot(data=merged_df_Water, aes(x=Description, y=UndProkarya_CPA1_IDK_count, col=Description)) + geom_boxplot() + geom_jitter(alpha=0.5) +  theme(axis.text.x = element_text(angle = 90))
+```
+
+
+
+
+```{r}
+ggplot(data=merged_df_Water, aes(x=Description, y=Kef_count, col=Description)) + geom_boxplot() + geom_jitter(alpha=0.5) +  theme(axis.text.x = element_text(angle = 90))
+
+ggplot(data=merged_df_Biofilm, aes(x=Microbialmat.Hypolith.Endolith, y=Kef_count/(RpL4_count + RpS2_count), col=Microbialmat.Hypolith.Endolith)) + geom_boxplot() + geom_jitter(alpha=0.5) +  theme(axis.text.x = element_text(angle = 90))
+
+ggplot(data=merged_df_Aerosol, aes(x=Airswab.Aerosol.Dust, y=Kef_count/(RpL4_count + RpS2_count), col=Airswab.Aerosol.Dust)) + geom_boxplot() + geom_jitter(alpha=0.5) +  theme(axis.text.x = element_text(angle = 90))
+       
+ggplot(data=merged_df_Earth, aes(x=Soil.Tailing.Sediment, y=Kef_count, col=Soil.Tailing.Sediment)) + geom_boxplot() + geom_jitter(alpha=0.5) +  theme(axis.text.x = element_text(angle = 90))
+
+```
+
+
+```{r}
+ggplot(data=merged_df_Water, aes(x=Description, y=TrkH_count, col=Description)) + geom_boxplot() + geom_jitter(alpha=0.5) +  theme(axis.text.x = element_text(angle = 90))
+
+ggplot(data=merged_df_Water, aes(x=Description, y=KimA_count, col=Description)) + geom_boxplot() + geom_jitter(alpha=0.5) +  theme(axis.text.x = element_text(angle = 90))
+
+ggplot(data=merged_df_Water, aes(x=Description, y=Kdp_count, col=Description)) + geom_boxplot() + geom_jitter(alpha=0.5) +  theme(axis.text.x = element_text(angle = 90))
+
+ggplot(data=merged_df_Water, aes(x=Description, y=Kup_count, col=Description)) + geom_boxplot() + geom_jitter(alpha=0.5) +  theme(axis.text.x = element_text(angle = 90))
+
+ggplot(data=merged_df_Water, aes(x=Description, y=MgtE_count, col=Description)) + geom_boxplot() + geom_jitter(alpha=0.5) +  theme(axis.text.x = element_text(angle = 90))
+
+ggplot(data=merged_df_Water, aes(x=Description, y=CorA_count, col=Description)) + geom_boxplot() + geom_jitter(alpha=0.5) +  theme(axis.text.x = element_text(angle = 90))
+
+ggplot(data=merged_df_Water, aes(x=Description, y=Na_Ca_count, col=Description)) + geom_boxplot() + geom_jitter(alpha=0.5) +  theme(axis.text.x = element_text(angle = 90))
+
+ggplot(data=merged_df_Water, aes(x=Description, y=Na_ala_count, col=Description)) + geom_boxplot() + geom_jitter(alpha=0.5) +  theme(axis.text.x = element_text(angle = 90))
+
+ggplot(data=merged_df_Water, aes(x=Description, y=AApermease_count, col=Description)) + geom_boxplot() + geom_jitter(alpha=0.5) +  theme(axis.text.x = element_text(angle = 90))
+
+
+ggplot(data=merged_df_Water, aes(x=Description, y=Betain_ald_dehyd_count, col=Description)) + geom_boxplot() + geom_jitter(alpha=0.5) +  theme(axis.text.x = element_text(angle = 90))
+
+ggplot(data=merged_df_Water, aes(x=Description, y=MscS_count, col=Description)) + geom_boxplot() + geom_jitter(alpha=0.5) +  theme(axis.text.x = element_text(angle = 90))
+ggplot(data=merged_df_Water, aes(x=Description, y=MscL_count, col=Description)) + geom_boxplot() + geom_jitter(alpha=0.5) +  theme(axis.text.x = element_text(angle = 90))
+ggplot(data=merged_df_Water, aes(x=Description, y=MtrA_count, col=Description)) + geom_boxplot() + geom_jitter(alpha=0.5) +  theme(axis.text.x = element_text(angle = 90))
+ggplot(data=merged_df_Water, aes(x=Description, y=BCCT_count, col=Description)) + geom_boxplot() + geom_jitter(alpha=0.5) +  theme(axis.text.x = element_text(angle = 90))
+ggplot(data=merged_df_Water, aes(x=Description, y=Hppase_count, col=Description)) + geom_boxplot() + geom_jitter(alpha=0.5) +  theme(axis.text.x = element_text(angle = 90))
+ggplot(data=merged_df_Water, aes(x=Description, y=NqrA_count, col=Description)) + geom_boxplot() + geom_jitter(alpha=0.5) +  theme(axis.text.x = element_text(angle = 90))
+ggplot(data=merged_df_Water, aes(x=Description, y=BranchedchainAA_transp_count, col=Description)) + geom_boxplot() + geom_jitter(alpha=0.5) +  theme(axis.text.x = element_text(angle = 90))
+ggplot(data=merged_df_Water, aes(x=Description, y=Trehalose_PPase_count, col=Description)) + geom_boxplot() + geom_jitter(alpha=0.5) +  theme(axis.text.x = element_text(angle = 90))
+ggplot(data=merged_df_Water, aes(x=Description, y=EctC_count, col=Description)) + geom_boxplot() + geom_jitter(alpha=0.5) +  theme(axis.text.x = element_text(angle = 90))
+
+ggplot(data=merged_df_Water, aes(x=Description, y=TreT_count, col=Description)) + geom_boxplot() + geom_jitter(alpha=0.5) +  theme(axis.text.x = element_text(angle = 90))
+
+```
+
+```{r}
+ggplot(data=merged_df_Water, aes(x=Description, y=TrkH_count, col=Description)) + geom_boxplot() + geom_jitter(alpha=0.5) +  theme(axis.text.x = element_text(angle = 90))
+
+ggplot(data=merged_df_Biofilm, aes(x=Microbialmat.Hypolith.Endolith, y=TrkH_count/(RpL4_count + RpS2_count), col=Microbialmat.Hypolith.Endolith)) + geom_boxplot() + geom_jitter(alpha=0.5) +  theme(axis.text.x = element_text(angle = 90))
+
+ggplot(data=merged_df_Aerosol, aes(x=Airswab.Aerosol.Dust, y=TrkH_count/(RpL4_count + RpS2_count), col=Airswab.Aerosol.Dust)) + geom_boxplot() + geom_jitter(alpha=0.5) +  theme(axis.text.x = element_text(angle = 90))
+       
+ggplot(data=merged_df_Earth, aes(x=Soil.Tailing.Sediment, y=TrkH_count, col=Soil.Tailing.Sediment)) + geom_boxplot() + geom_jitter(alpha=0.5) +  theme(axis.text.x = element_text(angle = 90))
+
+ggplot(data=merged_df_Soil, aes(x=Description, y=TrkH_count, col=Description)) + geom_boxplot() + geom_jitter(alpha=0.5) +  theme(axis.text.x = element_text(angle = 90))
+
+
+```
+
+```{r}
+ggplot(data=merged_df_Water, aes(x=Description, y=UndProkarya_CPA1_IDK_count, col=Description)) + geom_boxplot() + geom_jitter(alpha=0.5) +  theme(axis.text.x = element_text(angle = 90))
+
+ggplot(data=merged_df_Biofilm, aes(x=Microbialmat.Hypolith.Endolith, y=UndProkarya_CPA1_IDK_count/(RpL4_count + RpS2_count), col=Microbialmat.Hypolith.Endolith)) + geom_boxplot() + geom_jitter(alpha=0.5) +  theme(axis.text.x = element_text(angle = 90))
+
+ggplot(data=merged_df_Aerosol, aes(x=Airswab.Aerosol.Dust, y=UndProkarya_CPA1_IDK_count/(RpL4_count + RpS2_count), col=Airswab.Aerosol.Dust)) + geom_boxplot() + geom_jitter(alpha=0.5) +  theme(axis.text.x = element_text(angle = 90))
+       
+ggplot(data=merged_df_Earth, aes(x=Soil.Tailing.Sediment, y=UndProkarya_CPA1_IDK_count, col=Soil.Tailing.Sediment)) + geom_boxplot() + geom_jitter(alpha=0.5) +  theme(axis.text.x = element_text(angle = 90))
+```
+
+
+
+
+
+```{r}
+
+ggplot(merged_df_Water, aes(x = pH, y = CPA1_count/total_CPA_count)) + geom_point() + ggtitle('CPA1 and pH in aquatic environments') + geom_smooth()
+
+ggplot(merged_df_Water, aes(x = pH, y = Kef_count/total_CPA_count)) + geom_point() + ggtitle('Kef and pH in aquatic environments') + geom_smooth()
+ggplot(merged_df_Water, aes(x = Salinity, y = Kef_count/total_CPA_count)) + geom_point() + ggtitle('Kef and pH in aquatic environments') + geom_smooth()
+
+
+
+DEIK_Salt_LM <- lm(data=merged_df_Water, DEIK_ratio ~Salinity)
+summary(DEIK_Salt_LM)
+#Radj = 0.7633, p-value < 2.2*10^-16
+MgtE_Salt_LM <- lm(data=merged_df_Water, MgtE_count~Salinity)
+summary(MgtE_Salt_LM)
+
+Kef_Salt_LM <- lm(data=merged_df_Water, Kef_count ~Salinity)
+summary(Kef_Salt_LM)
+#p-value 5.115*10^-6, radj > 0.1
+
+CPA1_pH_LM <- lm(data=merged_df_Water, CPA1_count ~pH)
+summary(CPA1_pH_LM)
+
+Kup_pH_LM <- lm(data=merged_df_Water, Kup_count ~pH)
+summary(Kup_pH_LM)
+
+DEIK_Salt_LM <- lm(data=merged_df_Water, DEIK_ratio ~Salinity)
+summary(DEIK_Salt_LM)
+
+IDK_Salt_LM <- lm(data=merged_df_Water[merged_df_Water$Description == 'Soda Lake',], UndProkarya_CPA1_IDK_count ~Salinity)
+summary(IDK_Salt_LM)
+#p-value <2.2*10-16, radj = 0.66, excluding soda lakes it becoems p-value 4.768*10-6 and Radj = 0.7708
+
+TrkH_Salt_LM <- lm(data=merged_df_Water[merged_df_Water$Description == 'Soda Lake',], TrkH_count ~Salinity)
+summary(TrkH_Salt_LM)
+#p-value <2.2*10-16, radj = 0.5, excluding soda lakes it becoems p-value 7.819*10-6 and Radj = 0.7543
+
+MscS_Salt_LM <- lm(data=merged_df_Water, MscS_count ~Salinity)
+summary(MscS_Salt_LM)
+#p-value <2.2*10-16, radj = 0.51, excluding soda lakes it becoems p-value 1.37*10-5 and Radj = 0.7342
+#MscS prevents flow of water into the cell by exporting solutes
+
+TreT_Salt_LM <- lm(data=merged_df_Water, Trehalose_PPase_count ~Salinity)
+summary(TreT_Salt_LM)
+#p-value =0.00076, radj = 0.0321
+
+BCCT_Salt_LM <- lm(data=merged_df_Water, BCCT_count ~Salinity)
+summary(BCCT_Salt_LM)
+#p-value <2.2*10-16 radj = 0.341
+
+MIP_Salt_LM <- lm(data=merged_df_Water, MIP_count ~Salinity)
+summary(MIP_Salt_LM)
+#p-value <2.2*10-16, radj = 0.25
+
+Kup_Salt_LM <- lm(data=merged_df_Water, Kup_count ~Salinity)
+summary(Kup_Salt_LM)
+#p-value <2.2*10-16, radj = 0.1992
+
+KimA_Salt_LM <- lm(data=merged_df_Water, KimA_count ~Salinity)
+summary(KimA_Salt_LM)
+#p-value 1.12(*10-15), radj = 0.1847
+
+EctC_Salt_LM <- lm(data=merged_df_Water, EctC_count ~Salinity)
+summary(EctC_Salt_LM)
+#p-value 0.0002661, radj > 0.1
+
+EctC_Salt_LM <- lm(data=merged_df_Water, EctC_count ~Salinity)
+summary(EctC_Salt_LM)
+#p-value 0.0002661, radj > 0.1
+
+DEIK_Salt_LM <- lm(data=merged_df_Sediment, DEIK_ratio ~Salinity)
+summary(DEIK_Salt_LM)
+DEIK_Salt_LM <- lm(data=merged_df_Soil, DEIK_ratio ~Salinity)
+summary(DEIK_Salt_LM)
+
+#no R above 
+```
+
+
+```{r}
+library(data.table)
+long <- melt(setDT(merged_df_Water[,c(6, 20:62)]), id.vars = c("Salinity"), variable.name = "Protein_id")
+long <- na.omit(long)
+
+merged_df_Soil <- merged_df_Earth[merged_df_Earth$Soil.Tailing.Sediment == 'Soil',]
+ggplot(data=merged_df_Soil, aes(x=Description, y=DEIK_ratio, col=Description))+ theme(axis.text.x = element_text(angle = 90))  + geom_boxplot()
+
+
+
+ggplot(data=merged_df_Sediment, aes(x=Description, y=DEIK_ratio, col=Description))+ theme(axis.text.x = element_text(angle = 90))  + geom_boxplot()
+
+longEarth <- melt(setDT(merged_df_Earth[,c(6, 30:71)]), id.vars = c("Salinity"), variable.name = "Protein_id")
+
+longSoil <- melt(setDT(merged_df_Soil[,c(6, 30:71)]), id.vars = c("Salinity"), variable.name = "Protein_id")
+
+longSediment <- melt(setDT(merged_df_Sediment[,c(6, 30:71)]), id.vars = c("Salinity"), variable.name = "Protein_id")
+longSediment <- na.omit(longSediment)
+longSoil <- na.omit(longSoil)
+longEarth <- na.omit(longEarth)
+
+Solutes <- c('MIP_count', 'MscL_count', 'MscS_count', 'OpuA_countC', 'Na_ala_count', 'BCCT_count', 'EctC_count', 'Trehalose_PPase_count', 'BranchedchainAA_transp_count', 'TreT_count')
+
+#AApermease_count'
+long_solutes <- long[long$Protein_id %in% Solutes]
+water_solutes <- ggplot(long_solutes, aes(x = log(Salinity), y = value , colour = Protein_id)) +geom_smooth(se=FALSE)+ geom_vline(xintercept = c(log(0.5),log(1), log(2), log(3.5), log(10)), linetype = 'dotted')+ggtitle('Water')
+water_solutes
+
+longEarth_solutes <- longEarth[longEarth$Protein_id %in% Solutes]
+longSoil_solutes <- longSoil[longSoil$Protein_id %in% Solutes]
+longSediment_solutes <- longSediment[longSediment$Protein_id %in% Solutes]CPA2_c
+
+earth_solutes<-ggplot(longEarth_solutes, aes(x = log(Salinity), y = value , colour = Protein_id)) +geom_smooth(se=FALSE)+ geom_vline(xintercept = c(log(3.5),log(4.3),log(7), log(10)), linetype = 'dotted')+ggtitle('Earth')
+
+Soil_solutes <- ggplot(longSoil_solutes, aes(x = log(Salinity), y = value , colour = Protein_id)) +geom_smooth(se=FALSE)+ geom_vline(xintercept = c(log(3.5),log(4.3),log(7), log(10)), linetype = 'dotted')+ggtitle('Soil')
+
+
+sediment_solutes <- ggplot(longSediment_solutes, aes(x = log(Salinity), y = value , colour = Protein_id)) +geom_smooth(se=FALSE)+ geom_vline(xintercept = c(log(3.5),log(4.3),log(7), log(10)), linetype = 'dotted')+ggtitle('Sediment')
+
+library(patchwork)
+(earth_solutes | water_solutes) / (sediment_solutes|Soil_solutes)+ plot_annotation(title = "Main Combined Title")
+
+```
+
+
+
+
+
+
+
+```{r}
+CPA <- c('CPA1_count', 'CHX_count', 'CPA1_SL_count', 'UndProkarya_CPA1_IDK_count','Kef_count', 'Uncharacterized_CPA_count', 'NhaP_CPA1_count', 'Undescribed_CPA1_count', 'GerN_count', 'SOD2_count', 'NhaS5_count')
+
+long_CPA <- long[long$Protein_id %in% CPA]
+CPA_water <-ggplot(long_CPA, aes(x = log(Salinity), y = value , colour = Protein_id)) +geom_smooth(se=FALSE)+ geom_vline(xintercept = c(log(3.5),log(4.3),log(7), log(10)), linetype = 'dotted')+ggtitle('Water') #+ geom_point()
+
+
+CPA_water
+CPA <- c( 'CPA1_count', 'CHX_count', 'CPA1_SL_count', 'UndProkarya_CPA1_IDK_count','Kef_count', 'Uncharacterized_CPA_count', 'NhaP_CPA1_count', 'Undescribed_CPA1_count', 'GerN_count', 'SOD2_count', 'NhaS5_count')
+
+
+longEarth_CPA <- longEarth[longEarth$Protein_id %in% CPA]
+CPA_Earth <-ggplot(longEarth_CPA, aes(x = log(Salinity), y = value , colour = Protein_id)) +geom_smooth(se=FALSE)+ggtitle('Earth') #+ geom_point()
+
+longSoil_CPA <- longSoil[longSoil$Protein_id %in% CPA]
+CPA_soil <- ggplot(longSoil_CPA, aes(x = log(Salinity), y = value , colour = Protein_id)) +geom_smooth(se=FALSE)+ggtitle('Soil') #+ geom_point()
+
+longSediment_CPA <- longSediment[longSediment$Protein_id %in% CPA]
+CPA_sediment <- ggplot(longSediment_CPA, aes(x = log(Salinity), y = value , colour = Protein_id)) +geom_smooth(se=FALSE)+ggtitle('Sediment') #+ geom_point()
+
+(CPA_Earth | CPA_water) / (CPA_sediment|CPA_soil)+ plot_annotation(title = "Main Combined Title")
+
+```
+
+```{r}
+K_importers <- c('TrkH_count', 'Kdp_count', 'Kup_count', 'KimA_count')
+
+long_K<- long[long$Protein_id %in% K_importers]
+Water_K <- ggplot(long_K, aes(x = log(Salinity), y = value , colour = Protein_id)) +geom_smooth(se=FALSE)+ geom_vline(xintercept = c(log(3.5),log(4.3),log(7), log(10)), linetype = 'dotted')+ggtitle('Water')
+
+
+longEarth_K<- longEarth[longEarth$Protein_id %in% K_importers]
+Earth_K <- ggplot(longEarth_K, aes(x = log(Salinity), y = value , colour = Protein_id)) +geom_smooth(se=FALSE)+ geom_vline(xintercept = c(log(3.5),log(4.3),log(7), log(10)), linetype = 'dotted')+ggtitle('Earth')
+
+longSediment_K<- longSediment[longSediment$Protein_id %in% K_importers]
+Sediment_K <- ggplot(longSediment_K, aes(x = log(Salinity), y = value , colour = Protein_id)) +geom_smooth(se=FALSE)+ geom_vline(xintercept = c(log(3.5),log(4.3),log(7), log(10)), linetype = 'dotted')+ggtitle('Sediment')
+
+longSoil_K<- longSoil[longSoil$Protein_id %in% K_importers]
+Soil_K <- ggplot(longSoil_K, aes(x = log(Salinity), y = value , colour = Protein_id)) +geom_smooth(se=FALSE)+ geom_vline(xintercept = c(log(50)), linetype = 'dotted')+ggtitle('Soil')
+
+(Earth_K| Water_K) / (Sediment_K|Soil_K)+ plot_annotation(title = "Main Combined Title")
+
+```
+
+
+```{r}
+Exporters <- c( 'CorA_count', 'NhaB_count', 'NhaC_count', 'NhaD_count_count',  'Na_Ca_count','Hppase_count', 'MtrA_count', 'NqrA_count', 'MgtE_count','ClcA_count', 'TrkH_count','MnhE_count')
+#'
+
+long_ex<- long[long$Protein_id %in% Exporters]
+WaterX<-ggplot(long_ex, aes(x = log(Salinity), y = value , colour = Protein_id)) +geom_smooth(se=FALSE)+ geom_vline(xintercept = c(log(3.5),log(4.3),log(7), log(10)), linetype = 'dotted')+ggtitle('Water') #+ geom_point
+
+
+longEarth_ex<- longEarth[longEarth$Protein_id %in% Exporters]
+EarthX<-ggplot(longEarth_ex, aes(x = log(Salinity), y = value , colour = Protein_id)) +geom_smooth(se=FALSE)+ geom_vline(xintercept = c(log(3.5),log(4.3),log(7), log(10)), linetype = 'dotted')+ggtitle('Earth') #+ geom_point()
+
+
+longSoil_ex<- longSoil[longSoil$Protein_id %in% Exporters]
+SoilX<-ggplot(longSoil_ex, aes(x = log(Salinity), y = value , colour = Protein_id)) +geom_smooth(se=FALSE)+ geom_vline(xintercept = c(log(3.5),log(4.3),log(7), log(10)), linetype = 'dotted')+ggtitle('Soil') #+ geom_point()
+
+
+longSediment_ex<- longSediment[longSediment$Protein_id %in% Exporters]
+SedimentX<-ggplot(longSediment_ex, aes(x = log(Salinity), y = value , colour = Protein_id)) +geom_smooth(se=FALSE)+ geom_vline(xintercept = c(log(3.5),log(4.3),log(7), log(10)), linetype = 'dotted')+ggtitle('Sediment') #+ geom_point()
+
+(EarthX| WaterX) / (SedimentX|SoilX)+ plot_annotation(title = "Main Combined Title")
+
+```
+
+```{r}
+ggplot(merged_df_Water, aes(x = log(Salinity), y = MnhE_count )) +geom_smooth(se=FALSE)+ geom_vline(xintercept = c(log(3.5),log(4.3),log(7), log(10)), linetype = 'dotted')+ggtitle('Water') + geom_point()
+```
+
+
+
