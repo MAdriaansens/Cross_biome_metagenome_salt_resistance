@@ -1,0 +1,220 @@
+---
+title: "Untitled"
+output: html_document
+date: "2026-06-01"
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+```{r}
+library(ggplot2)
+library(dplyr)
+library(tidyverse)
+
+Water_data <- read.delim('/home/mad149/chapter_meta_analysis/metadata/Studies_salinity_metadata_All - Studies_salinity_metadata_water.csv(2).tsv', sep='\t', stringsAsFactors = TRUE)
+Water_data$Salinity<- as.numeric(gsub( ',','.', Water_data$Salinity))
+Water_data$pH<- as.numeric(gsub( ',','.',Water_data$pH))
+xblast_half <- read.delim('/home/mad149/chapter_meta_analysis/xblast_output_may20_641_out_of_1116.tsv', sep='\t', stringsAsFactors = TRUE)
+merged_df_Water <- merge(Water_data, xblast_half, by = "SRA_id")
+
+```
+
+```{r Normalize_water}
+
+
+
+merged_df_Water$MIP_count <- merged_df_Water$MIP_count/(merged_df_Water$RpS2_count + merged_df_Water$RpL4_count)
+merged_df_Water$ClcA_count <- merged_df_Water$ClcA_count/(merged_df_Water$RpS2_count + merged_df_Water$RpL4_count)
+merged_df_Water$MscS_count <- merged_df_Water$MscS_count/(merged_df_Water$RpS2_count + merged_df_Water$RpL4_count)
+merged_df_Water$MscL_count <- merged_df_Water$MscL_count/(merged_df_Water$RpS2_count + merged_df_Water$RpL4_count)
+merged_df_Water$OpuAC_count <- merged_df_Water$OpuAC_count/(merged_df_Water$RpS2_count + merged_df_Water$RpL4_count)
+merged_df_Water$Na_ala_count <- merged_df_Water$Na_ala_count/(merged_df_Water$RpS2_count + merged_df_Water$RpL4_count)
+merged_df_Water$CorA_count <- merged_df_Water$CorA_count/(merged_df_Water$RpS2_count + merged_df_Water$RpL4_count)
+merged_df_Water$Na_Ca_count <- merged_df_Water$Na_Ca_count/(merged_df_Water$RpS2_count + merged_df_Water$RpL4_count)
+merged_df_Water$BCCT_count <- merged_df_Water$BCCT_count/(merged_df_Water$RpS2_count + merged_df_Water$RpL4_count)
+merged_df_Water$MgtE_count <- merged_df_Water$MgtE_count/(merged_df_Water$RpS2_count + merged_df_Water$RpL4_count)
+merged_df_Water$EctC_count <- merged_df_Water$EctC_count/(merged_df_Water$RpS2_count + merged_df_Water$RpL4_count)
+merged_df_Water$MnhE_count <- merged_df_Water$MnhE_count/(merged_df_Water$RpS2_count + merged_df_Water$RpL4_count)
+merged_df_Water$Trehalose_PPase_count <- merged_df_Water$Trehalose_PPase_count/(merged_df_Water$RpS2_count + merged_df_Water$RpL4_count)
+merged_df_Water$TrkH_count <- merged_df_Water$TrkH_count/(merged_df_Water$RpS2_count + merged_df_Water$RpL4_count)
+merged_df_Water$Kup_count <- merged_df_Water$Kup_count/(merged_df_Water$RpS2_count + merged_df_Water$RpL4_count)
+merged_df_Water$Hppase_count <- merged_df_Water$Hppase_count/(merged_df_Water$RpS2_count + merged_df_Water$RpL4_count)
+merged_df_Water$NhaB_count <- merged_df_Water$NhaB_count/(merged_df_Water$RpS2_count + merged_df_Water$RpL4_count)
+merged_df_Water$NhaC_count <- merged_df_Water$NhaC_count/(merged_df_Water$RpS2_count + merged_df_Water$RpL4_count)
+merged_df_Water$NhaD_count <- merged_df_Water$NhaD_count/(merged_df_Water$RpS2_count + merged_df_Water$RpL4_count)
+merged_df_Water$Kdp_count <- merged_df_Water$Kdp_count/(merged_df_Water$RpS2_count + merged_df_Water$RpL4_count)
+merged_df_Water$MtrA_count <- merged_df_Water$MtrA_count/(merged_df_Water$RpS2_count + merged_df_Water$RpL4_count)
+merged_df_Water$AApermease_count <- merged_df_Water$AApermease_count/(merged_df_Water$RpS2_count + merged_df_Water$RpL4_count)
+merged_df_Water$BranchedchainAA_transp_count <- merged_df_Water$BranchedchainAA_transp_count/(merged_df_Water$RpS2_count + merged_df_Water$RpL4_count)
+merged_df_Water$TreT_count <- merged_df_Water$TreT_count/(merged_df_Water$RpS2_count + merged_df_Water$RpL4_count)
+merged_df_Water$NqrA_count <- merged_df_Water$NqrA_count/(merged_df_Water$RpS2_count + merged_df_Water$RpL4_count)
+merged_df_Water$KimA_count <- merged_df_Water$KimA_count/(merged_df_Water$RpS2_count + merged_df_Water$RpL4_count)
+merged_df_Water$Betain_ald_dehyd_count <- merged_df_Water$Betain_ald_dehyd_count/(merged_df_Water$RpS2_count + merged_df_Water$RpL4_count)
+
+
+merged_df_Water$total_CPA_count <- merged_df_Water$total_CPA_count/(merged_df_Water$RpS2_count + merged_df_Water$RpL4_count)
+merged_df_Water$CPA1_count <- merged_df_Water$CPA1_count/(merged_df_Water$RpS2_count + merged_df_Water$RpL4_count)
+merged_df_Water$CPA1_SL_count <- merged_df_Water$CPA1_SL_count/(merged_df_Water$RpS2_count + merged_df_Water$RpL4_count)
+merged_df_Water$CHX_count <- merged_df_Water$CHX_count/(merged_df_Water$RpS2_count + merged_df_Water$RpL4_count)
+
+merged_df_Water$Kef_count <- merged_df_Water$Kef_count/(merged_df_Water$RpS2_count + merged_df_Water$RpL4_count)
+merged_df_Water$GerN_count <- merged_df_Water$GerN_count/(merged_df_Water$RpS2_count + merged_df_Water$RpL4_count)
+merged_df_Water$SOD2_count <- merged_df_Water$SOD2_count/(merged_df_Water$RpS2_count + merged_df_Water$RpL4_count)
+merged_df_Water$NhaS5_count <- merged_df_Water$NhaS5_count/(merged_df_Water$RpS2_count + merged_df_Water$RpL4_count)
+merged_df_Water$NhaP_CPA1_count <- merged_df_Water$NhaP_CPA1_count/(merged_df_Water$RpS2_count + merged_df_Water$RpL4_count)
+
+merged_df_Water$NhaA_count <- merged_df_Water$NhaA_count/(merged_df_Water$RpS2_count + merged_df_Water$RpL4_count)
+merged_df_Water$Uncharacterized_CPA_count <- merged_df_Water$Uncharacterized_CPA_count/(merged_df_Water$RpS2_count + merged_df_Water$RpL4_count)
+merged_df_Water$Undescribed_CPA1_count <- merged_df_Water$Undescribed_CPA1_count/(merged_df_Water$RpS2_count + merged_df_Water$RpL4_count)
+merged_df_Water$UndProkarya_CPA1_IDK_count <- merged_df_Water$UndProkarya_CPA1_IDK_count/(merged_df_Water$RpS2_count + merged_df_Water$RpL4_count)
+``` 
+
+```{r}
+merged_df_Water$Saltern <- NA
+merged_df_Water$Saltern[merged_df_Water$Description == 'Saltern'] <- 'Saltern'
+merged_df_Water$Saltern[merged_df_Water$Description == 'Sea'] <- 'Sea'
+merged_df_Water$Saltern[merged_df_Water$Description == 'River'] <- 'River'
+merged_df_Water$Saltern[merged_df_Water$Description == 'Lake'] <- 'Lake'
+merged_df_Water$Saltern[merged_df_Water$Description == 'Estuary'] <- 'Estuary'
+merged_df_Water$Saltern[merged_df_Water$Description == 'Salt lake'] <- 'Salt lake'
+merged_df_Water$Saltern[merged_df_Water$Description == 'Soda Lake'] <- 'Soda Lake'
+merged_df_Water$Saltern[merged_df_Water$Description == 'Acidic brine'] <- 'Acidic brine'
+
+ggplot(merged_df_Water, aes(x = Description, y = DEIK_ratio, color=Description)) + geom_boxplot(outlier.shape = NA) + ggtitle('Water types DE/IK ratio') + theme(axis.text.x = element_text(angle = 90)) + geom_jitter() 
+
+ggplot(merged_df_Water, aes(x = Description, y = pH, color=Description)) + geom_boxplot(outlier.shape = NA) + ggtitle('Water types pH') + theme(axis.text.x = element_text(angle = 90)) + geom_jitter() 
+ggplot(merged_df_Water, aes(x = Description, y = log(Salinity), color=Description)) + geom_boxplot(outlier.shape = NA) + ggtitle('Water types salinity') + theme(axis.text.x = element_text(angle = 90)) + geom_jitter() 
+
+ggplot(merged_df_Water, aes(x = log(Salinity), y = DEIK_ratio)) + geom_point(aes(col=merged_df_Water$Saltern)) + ggtitle('Water types DE/IK ratio')
+
+ggplot(merged_df_Water, aes(x = log(Salinity), y = DEIK_ratio)) + geom_point(alpha=0.7) + ggtitle('Water types DE/IK ratio') + geom_smooth()
+
+ggplot(merged_df_Water, aes(x = pH, y = DEIK_ratio, color=Saltern)) + geom_point() + ggtitle('Water types DE/IK ratio')
+Water_DEIK <- lm(data=merged_df_Water, DEIK_ratio~Salinity)
+summary(Water_DEIK)
+
+ggplot(merged_df_Water, aes(x = pH, y =DEIK_ratio)) + geom_point() + geom_smooth()+ ggtitle('Water types DE/IK ratio')
+
+```
+
+
+```{r}
+library(data.table)
+long <- melt(setDT(merged_df_Water[,c(6, 20:61)]), id.vars = c("Salinity"), variable.name = "Protein_id")
+long <- na.omit(long)
+```
+
+
+```{r}
+Exporters <- c( 'total_CPA_count','CorA_count', 'NhaB_count', 'NhaC_count', 'NhaD_count',  'Na_Ca_count','Hppase_count', 'MtrA_count', 'NqrA_count', 'MgtE_count','ClcA_count', 'TrkH_count','MnhE_count')
+
+long_ex<- long[long$Protein_id %in% Exporters]
+Water_ex <- ggplot(long_ex, aes(x = log(Salinity), y = value , colour = Protein_id)) +geom_smooth(se=FALSE)+ geom_vline(xintercept = c(log(0.5),log(1), log(2), log(3.5), log(7),log(10)), linetype = 'dotted')+ggtitle('Water') #+ geom_point
+Water_ex 
+```
+```{r}
+K_importers <- c('TrkH_count', 'Kdp_count', 'Kup_count', 'KimA_count')
+
+long_K<- long[long$Protein_id %in% K_importers]
+Water_K <- ggplot(long_K, aes(x = log(Salinity), y = value , colour = Protein_id)) +geom_smooth(se=FALSE)+ geom_vline(xintercept = c(log(0.5),log(1), log(2), log(3.5), log(7),log(10)), linetype = 'dotted')+ggtitle('Water')
+Water_K
+
+```
+```{r}
+CPA <- c('CPA1_count', 'CHX_count', 'CPA1_SL_count', 'UndProkarya_CPA1_IDK_count','Kef_count', 'Uncharacterized_CPA_count', 'NhaP_CPA1_count', 'Undescribed_CPA1_count', 'GerN_count', 'SOD2_count', 'NhaS5_count')
+
+long_CPA <- long[long$Protein_id %in% CPA]
+Water_CPA <-ggplot(long_CPA, aes(x = log(Salinity), y = value , colour = Protein_id)) +geom_smooth(se=FALSE)+ geom_vline(xintercept = c(log(0.5),log(1), log(2), log(3.5), log(7),log(10)), linetype = 'dotted')+ggtitle('Water') #+ geom_point()
+
+
+
+Water_CPA
+```
+
+```{r}
+Solutes <- c('MIP_count', 'MscL_count', 'MscS_count', 'OpuA_countC', 'Na_ala_count', 'BCCT_count', 'EctC_count', 'Trehalose_PPase_count', 'BranchedchainAA_transp_count', 'TreT_count')
+
+#AApermease_count'
+long_solutes <- long[long$Protein_id %in% Solutes]
+water_solutes <- ggplot(long_solutes, aes(x = log(Salinity), y = value , colour = Protein_id)) +geom_smooth(se=FALSE)+ geom_vline(xintercept = c(log(0.5),log(1), log(2), log(3.5), log(7),log(10)), linetype = 'dotted')+ggtitle('Water')
+water_solutes
+```
+
+```{r}
+library(patchwork)
+((Water_CPA|Water_ex)/(Water_K|water_solutes))+ plot_annotation(title = "Main Combined Title")
+```
+
+
+```{r}
+library(corrplot)
+corrplot(cor(merged_df_Water[,-c(1:19, 62)]), method = "square")
+clean_df_water_sal  <- merged_df_Water %>% drop_na(Salinity)
+corrplot(cor(clean_df_water_sal[clean_df_water_sal$Description == 'Soda Lake',][,-c(1:5, 7:19, 62)]), method = "square")
+corrplot(cor(clean_df_water_sal[clean_df_water_sal$Description == 'Saltern',][,-c(1:5, 7:19, 62)]), method = "square")
+corrplot(cor(clean_df_water_sal[clean_df_water_sal$Description == 'Salt lake',][,-c(1:5, 7:19, 62)]), method = "square")
+
+corrplot(cor(clean_df_water_sal[clean_df_water_sal$Description != 'Soda Lake',][,-c(1:5, 7:19, 62)]), method = "square")
+
+
+clean_df_water_pH  <- merged_df_Water %>% drop_na(pH)
+corrplot(cor(clean_df_water_pH[,-c(1:4, 6:19, 62)]), method = "square")
+
+
+```
+
+```{r}
+library(factoextra)
+#install.packages('ggfortify')
+library(ggfortify)
+library(ggplot2)
+library(dplyr)
+```
+
+```{r}
+grote_spelers <- c('Sea', 'River', 'Estuary', 'Deepsea', 'Lake', 'Saltern', 'Salt lake', 'Groundwater', 'AMD', 'Soda Lake', 'Acidic brine')
+
+merged_df_Water_big<- merged_df_Water[merged_df_Water$Description %in% grote_spelers,]
+
+
+pca_values <- prcomp(merged_df_Water_big[,-c(1:19, 62)], center = TRUE, scale.=TRUE)
+
+autoplot(pca_values, loadings = TRUE, loadings.label = TRUE, data = merged_df_Water_big, colour='Description')
+
+pca_points <- 
+  as_tibble(pca_values$x) %>% 
+  bind_cols(merged_df_Water_big)
+
+head(pca_points)
+
+basic_plot <- 
+  ggplot(pca_points, aes(x = PC1, y = PC2)) +
+  geom_point(aes(colour = Description)) +
+  theme_light()
+
+basic_plot
+
+pca_hull <- 
+  pca_points %>% 
+  group_by(Description) %>% 
+  slice(chull(PC1, PC2))
+
+# now, we'll just continue to build on our ggplot object
+chull_plot <- 
+  basic_plot +
+  geom_polygon(data = pca_hull,
+               aes(fill = Description,
+                   colour = Description),
+               alpha = 0.3,
+               show.legend = FALSE)
+
+chull_plot
+```
+
+
+
