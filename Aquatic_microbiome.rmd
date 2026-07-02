@@ -1,0 +1,659 @@
+---
+title: "Metase_analysis"
+output: html_document
+date: "2026-05-20"
+editor_options: 
+  chunk_output_type: console
+---
+
+
+```{r}
+library(ggplot2)
+library(dplyr)
+library(tidyverse)
+
+
+Water_data<- read.delim('/home/mad149/chapter_meta_analysis/metadata/Studies_salinity_metadata_All - Studies_salinity_metadata_water.csv(8).tsv', sep='\t', stringsAsFactors = TRUE)
+
+Water_data$Salinity<- as.numeric(gsub( ',','.', Water_data$Salinity))
+Water_data$pH<- as.numeric(gsub( ',','.',Water_data$pH))
+
+
+xblast_half <- read.delim('/home/mad149/chapter_meta_analysis/xblast_output_may20_641_out_of_1116Kef.tsv', sep='\t', stringsAsFactors = TRUE)
+
+merged_df_Aqua <- merge(Water_data, xblast_half, by = "SRA_id")
+merged_df_Aqua$Environment <- 'Aqueous'
+
+#install.packages("readr")
+library(readr)
+
+# Write your data frame to a TSV file
+write.table(merged_df_Aqua, file = "Studies_salinity_metadata_All_aquatic_Jun13th.tsv", sep = "\t", row.names = FALSE, quote = FALSE)
+```
+
+```{r}
+global_coordinates<- rbind( merged_df_Aqua[c('SRA_id','Environment', 'Longitude', 'Latitude')])
+global_coordinates$Longitude<- as.numeric(gsub( ',','.',global_coordinates$Longitude))
+global_coordinates$Latitude<- as.numeric(gsub( ',','.',global_coordinates$Latitude))
+#install.packages('rnaturalearth')
+library(rnaturalearth)
+library(sf)
+
+world <- rnaturalearth::ne_countries(scale = "small", returnclass = "sf")
+
+world  %>%
+  ggplot() + geom_sf() + theme_minimal()+
+  geom_point(data = global_coordinates, aes(x=Longitude, y=Latitude), size=4, alpha=0.7)+ theme(legend.title=element_text(size=32), axis.title.x = element_text(size=28), axis.title.y = element_text(size=28), legend.text = element_text(size=24))
+
+```
+
+```{r}
+ggplot(data = merged_df_Aqua, aes(x=Description, y=DEIK_ratio, col=Description)) +geom_boxplot(outliers = FALSE) + geom_jitter()
+```
+
+
+```{r}
+'%!in%' <- function(x,y)!('%in%'(x,y))
+library(patchwork)
+ggplot(data=merged_df_Aqua, aes(x=log10(Salinity), y=DEIK_ratio)) + geom_point(size = 5) + geom_smooth()+ geom_vline(xintercept = log10(1.8))
+ggplot(data=merged_df_Aqua, aes(x=Salinity, y=DEIK_ratio)) + geom_point(size = 5) + geom_smooth()+ geom_vline(xintercept = 3.5)
+
+
+ggplot(merged_df_Aqua, aes(x = Description, y = DEIK_ratio, color=Description)) + geom_boxplot(outlier.shape = NA) + ggtitle('Water types DE/IK ratio') + theme(axis.text.x = element_text(angle = 90)) + geom_jitter() 
+
+```
+
+
+
+
+```{r Normalize_water}
+
+
+
+merged_df_Aqua$MIP_count <- merged_df_Aqua$MIP_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+merged_df_Aqua$ClcA_count <- merged_df_Aqua$ClcA_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+merged_df_Aqua$MscS_count <- merged_df_Aqua$MscS_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+merged_df_Aqua$MscL_count <- merged_df_Aqua$MscL_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+merged_df_Aqua$OpuAC_count <- merged_df_Aqua$OpuAC_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+merged_df_Aqua$Na_ala_count <- merged_df_Aqua$Na_ala_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+merged_df_Aqua$CorA_count <- merged_df_Aqua$CorA_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+merged_df_Aqua$Na_Ca_count <- merged_df_Aqua$Na_Ca_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+merged_df_Aqua$BCCT_count <- merged_df_Aqua$BCCT_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+merged_df_Aqua$MgtE_count <- merged_df_Aqua$MgtE_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+merged_df_Aqua$EctC_count <- merged_df_Aqua$EctC_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+merged_df_Aqua$MnhE_count <- merged_df_Aqua$MnhE_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+merged_df_Aqua$Trehalose_PPase_count <- merged_df_Aqua$Trehalose_PPase_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+merged_df_Aqua$TrkH_count <- merged_df_Aqua$TrkH_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+merged_df_Aqua$Kup_count <- merged_df_Aqua$Kup_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+merged_df_Aqua$Hppase_count <- merged_df_Aqua$Hppase_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+merged_df_Aqua$NhaB_count <- merged_df_Aqua$NhaB_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+merged_df_Aqua$NhaC_count <- merged_df_Aqua$NhaC_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+merged_df_Aqua$NhaD_count <- merged_df_Aqua$NhaD_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+merged_df_Aqua$Kdp_count <- merged_df_Aqua$Kdp_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+merged_df_Aqua$MtrA_count <- merged_df_Aqua$MtrA_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+merged_df_Aqua$AApermease_count <- merged_df_Aqua$AApermease_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+merged_df_Aqua$BranchedchainAA_transp_count <- merged_df_Aqua$BranchedchainAA_transp_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+merged_df_Aqua$TreT_count <- merged_df_Aqua$TreT_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+merged_df_Aqua$NqrA_count <- merged_df_Aqua$NqrA_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+merged_df_Aqua$KimA_count <- merged_df_Aqua$KimA_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+merged_df_Aqua$Betain_ald_dehyd_count <- merged_df_Aqua$Betain_ald_dehyd_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+
+
+merged_df_Aqua$total_CPA_count <- merged_df_Aqua$total_CPA_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+merged_df_Aqua$CPA1_count <- merged_df_Aqua$CPA1_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+merged_df_Aqua$CPA1_SL_count <- merged_df_Aqua$CPA1_SL_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+merged_df_Aqua$CHX_count <- merged_df_Aqua$CHX_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+
+merged_df_Aqua$Kef_count <- merged_df_Aqua$Kef_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+
+
+
+merged_df_Aqua$GerN_count <- merged_df_Aqua$GerN_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+merged_df_Aqua$SOD2_count <- merged_df_Aqua$SOD2_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+merged_df_Aqua$NhaS5_count <- merged_df_Aqua$NhaS5_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+merged_df_Aqua$NhaP_CPA1_count <- merged_df_Aqua$NhaP_CPA1_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+
+merged_df_Aqua$NhaA_count <- merged_df_Aqua$NhaA_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+merged_df_Aqua$Uncharacterized_CPA_count <- merged_df_Aqua$Uncharacterized_CPA_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+merged_df_Aqua$Undescribed_CPA1_count <- merged_df_Aqua$Undescribed_CPA1_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+merged_df_Aqua$UndProkarya_CPA1_IDK_count <- merged_df_Aqua$UndProkarya_CPA1_IDK_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+
+merged_df_Aqua$Kef_subclade29950<- merged_df_Aqua$Kef_subclade29950/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+merged_df_Aqua$Kef_subclade42457<- merged_df_Aqua$Kef_subclade42457/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+merged_df_Aqua$Kef_subclade44199<- merged_df_Aqua$Kef_subclade44199/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+merged_df_Aqua$Kef_subclade42947<- merged_df_Aqua$Kef_subclade42947/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+merged_df_Aqua$Kef_subclade42415<- merged_df_Aqua$Kef_subclade42415/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+merged_df_Aqua$Kef_subclade44013<- merged_df_Aqua$Kef_subclade44013/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+merged_df_Aqua$Kef_subclade44600<- merged_df_Aqua$Kef_subclade44600/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+merged_df_Aqua$Kef_subclade43808<- merged_df_Aqua$Kef_subclade43808/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+merged_df_Aqua$Kef_subclade44514<- merged_df_Aqua$Kef_subclade44514/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+merged_df_Aqua$Kef_subclade43312<- merged_df_Aqua$Kef_subclade43312/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+merged_df_Aqua$Kef_subclade43225<- merged_df_Aqua$Kef_subclade43225/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+merged_df_Aqua$Kef_subclade43377<- merged_df_Aqua$Kef_subclade43377/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+merged_df_Aqua$Kef_subclade43531<- merged_df_Aqua$Kef_subclade43531/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+merged_df_Aqua$Kef_subclade43598<- merged_df_Aqua$Kef_subclade43598/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+merged_df_Aqua$Kef_subclade43720<- merged_df_Aqua$Kef_subclade43720/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+merged_df_Aqua$Kef_subclade44121<- merged_df_Aqua$Kef_subclade44121/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+merged_df_Aqua$Kef_subclade43954<- merged_df_Aqua$Kef_subclade43954/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+merged_df_Aqua$Kef_subclade43914<- merged_df_Aqua$Kef_subclade43914/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+merged_df_Aqua$Kef_subclade42396<- merged_df_Aqua$Kef_subclade42396/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+merged_df_Aqua$Kef_subclade44582<- merged_df_Aqua$Kef_subclade44582/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+merged_df_Aqua$Kef_subclade44712<- merged_df_Aqua$Kef_subclade44712/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+merged_df_Aqua$Kef_group38142<- merged_df_Aqua$Kef_group38142/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+merged_df_Aqua$Missing_kef<- merged_df_Aqua$Missing_kef/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+merged_df_Aqua$total_CPA_noKef_count <- merged_df_Aqua$total_CPA_count - merged_df_Aqua$Kef_count
+
+merged_df_Aqua$total_NaExp <- merged_df_Aqua$total_CPA_count + merged_df_Aqua$MnhE_count + merged_df_Aqua$Hppase_count + merged_df_Aqua$MtrA_count + merged_df_Aqua$NhaB_count + merged_df_Aqua$NhaC_count + merged_df_Aqua$NhaD_count + merged_df_Aqua$NqrA_count- merged_df_Aqua$Kef_count
+merged_df_Aqua$total_KImp <- merged_df_Aqua$TrkH_count + merged_df_Aqua$Kdp_count + merged_df_Aqua$KimA_count + merged_df_Aqua$Kup_count
+merged_df_Aqua$total_OsImp <- merged_df_Aqua$MIP_count + merged_df_Aqua$BCCT_count + merged_df_Aqua$OpuAC_count
+merged_df_Aqua$total_MgImp <- merged_df_Aqua$MgtE_count + merged_df_Aqua$CorA_count 
+merged_df_Aqua$total_Synth <- merged_df_Aqua$EctC_count + merged_df_Aqua$TreT_count + merged_df_Aqua$Trehalose_PPase_count + merged_df_Aqua$Betain_ald_dehyd_count 
+
+
+cleanAqua <- merged_df_Aqua[!is.na(merged_df_Aqua$Salinity),]
+``` 
+
+
+
+```{r}
+dev.off()
+
+splinefitTDEIKAqua <- smooth.spline(cleanAqua$Salinity, cleanAqua$DEIK_ratio)
+plot(cleanAqua$Salinity, cleanAqua$DEIK_ratio, pch = 20,
+     col = adjustcolor("black", alpha.f = 0.7), 
+     cex =4,
+     main = "DEIK ratio vs Salinity",
+     xlab = "Salinity (w/v) %",
+    ylab = "DEIK ratio",cex.main = 4, cex.lab = 1.5)+ lines(splinefitTDEIKAqua, col = "black", lwd = 4)+abline(v = c(0.1, 3.5, 14, 25), col = "red") 
+splinefitTDEIKAqua <- smooth.spline(log10(cleanAqua$Salinity), cleanAqua$DEIK_ratio)
+
+
+
+```
+
+
+```{r}
+par(mfrow=c(1,9))
+
+splinefit_NaExAq <- smooth.spline(cleanAqua$Salinity, cleanAqua$total_NaExp)
+splinefit_KimpAq <- smooth.spline(cleanAqua$Salinity,cleanAqua$total_KImp) 
+splinefit_OsImpAq <- smooth.spline(cleanAqua$Salinity,cleanAqua$total_OsImp) 
+splinefit_MgImpAq <- smooth.spline(cleanAqua$Salinity,cleanAqua$total_MgImp)
+splinefit_SynthAq <- smooth.spline(cleanAqua$Salinity,cleanAqua$total_Synth)
+
+spline_fitNa_CaAq <- smooth.spline(cleanAqua$Salinity, cleanAqua$Na_Ca_count)
+
+```
+
+
+
+```{r}
+par(mfrow=c(2,3))
+
+plot(cleanAqua$Salinity, cleanAqua$DEIK_ratio, pch = 20,
+     col = adjustcolor("grey", alpha.f = 0.7), 
+     cex = 4,
+     cex.axis=2,
+     main = "DEIK-ratio",
+     xlab = "Log10(Salinity) %(w/v)",
+    ylab = "DEIK ratio",cex.main = 4, cex.lab = 4)+ lines(splinefitTDEIKAqua, col = "black", lwd = 10)+abline(v = c(log10(0.1), log10(14)), col = "black", lwd=4)+abline(v = c(3.5,25), col = "black", lwd=4) 
+plot(cleanAqua$Salinity, cleanAqua$total_KImp, pch = 20,
+     col = adjustcolor("red", alpha.f = 0.4), 
+     cex = 4,
+     cex.axis = 2,
+     main = "Aq K+ imp",
+     xlab = "Log10(Salinity) %(w/v)",
+      ylab = "Relative abundane",cex.main = 4, cex.lab = 4) + lines(splinefit_KimpAq, col='red', lwd=10)+abline(v = c(3.5,25), col = "black", lwd=4) + lines(splinefitTDEIKAqua, col='black', lwd=8)
+
+ plot(cleanAqua$Salinity, cleanAqua$total_OsImp, pch = 20, 
+     col = adjustcolor("gold2", alpha.f = 0.4), 
+     cex = 4,
+     cex.axis=2,
+     main = "Osmolyte importers",
+     xlab = "Log10(Salinity) %(w/v)",
+      ylab = "Relative abundane",cex.main = 4, cex.lab = 4) + lines(splinefit_OsImpAq, col ="gold2", lwd = 10) +abline(v = c(log10(0.1), log10(14)), col = "black", lwd=4)+ lines(splinefitTDEIKAqua, col='black', lwd=8)+abline(v = c(3.5,25), col = "black", lwd=4) 
+
+plot(cleanAqua$Salinity, cleanAqua$total_NaExp, pch = 20, 
+     col = adjustcolor("pink", alpha.f = 0.4), 
+     cex = 4,
+     cex.axis = 2,
+     main = "Sodium exporters",
+     xlab = "Log10(Salinity) %(w/v)",
+      ylab = "Relative abundane",cex.main = 4, cex.lab = 4) + lines(splinefit_NaExAq, col='pink2', lwd=10)+abline(v = c(log10(0.1), log10(14)), col = "black", lwd=4) + lines(splinefitTDEIKAqua, col='black', lwd=8)+abline(v = c(3.5,25), col = "black", lwd=4) 
+ 
+
+plot(cleanAqua$Salinity, cleanAqua$Na_Ca_count, pch = 20,
+     col = adjustcolor("deepskyblue", alpha.f = 0.4), 
+     cex = 4,
+     cex.axis=2,
+     main = "Aq Na+/Ca2+ exp",
+     xlab = "Log10(Salinity) %(w/v)",
+      ylab = "Relative abundane",cex.main = 4, cex.lab = 4)+ lines(spline_fitNa_CaAq, col = "deepskyblue", lwd = 10)+abline(v = c(log10(0.1), log10(14)), col = "black", lwd=4) + lines(splinefitTDEIKAqua, col='black', lwd=8)+abline(v = c(3.5,25), col = "black", lwd=4) 
+
+plot(cleanAqua$Salinity, cleanAqua$total_Synth, pch = 20, 
+     col = adjustcolor("green", alpha.f = 0.4), 
+     cex = 4,
+     cex.axis=2,
+     main = "Aq Os Synth",
+     xlab = "Log10(Salinity) %(w/v)",
+      ylab = "Relative abundane",cex.main = 4, cex.lab = 4) + lines(splinefit_SynthAq, col ="green", lwd = 10)+abline(v = c(log10(0.1), log10(14)), col = "black", lwd=4) + lines(splinefitTDEIKAqua, col='black', lwd=8)+abline(v = c(3.5,25), col = "black", lwd=4) 
+
+
+```
+
+
+
+```{r}
+par(mfrow=c(1,9))
+
+splinefit_NaExAq <- smooth.spline(log10(cleanAqua$Salinity), cleanAqua$total_NaExp)
+splinefit_KimpAq <- smooth.spline(log10(cleanAqua$Salinity),cleanAqua$total_KImp) 
+splinefit_OsImpAq <- smooth.spline(log10(cleanAqua$Salinity),cleanAqua$total_OsImp) 
+splinefit_MgImpAq <- smooth.spline(log10(cleanAqua$Salinity),cleanAqua$total_MgImp)
+splinefit_SynthAq <- smooth.spline(log10(cleanAqua$Salinity),cleanAqua$total_Synth)
+
+splinefitTDEIKAqua <- smooth.spline(log10(cleanAqua$Salinity), cleanAqua$DEIK_ratio)
+
+
+par(mfrow=c(2,3))
+
+plot(cleanAqua$Salinity, cleanAqua$DEIK_ratio, pch = 20,
+     col = adjustcolor("grey", alpha.f = 0.7), 
+     cex = 4,
+     cex.axis=2,
+     main = "DEIK-ratio",
+     xlab = "Log10(Salinity) %(w/v)",
+    ylab = "DEIK ratio",cex.main = 4, cex.lab = 4)+ lines(splinefitTDEIKAqua, col = "black", lwd = 10)+abline(v = c(log10(0.1), log10(14)), col = "black", lwd=4)+abline(v = c(3.5,25), col = "black", lwd=4) 
+plot(cleanAqua$Salinity, cleanAqua$total_KImp, pch = 20,
+     col = adjustcolor("red", alpha.f = 0.4), 
+     cex = 4,
+     cex.axis = 2,
+     main = "Aq K+ imp",
+     xlab = "Log10(Salinity) %(w/v)",
+      ylab = "Relative abundane",cex.main = 4, cex.lab = 4) + lines(splinefit_KimpAq, col='red', lwd=10)+abline(v = c(3.5,25), col = "black", lwd=4) + lines(splinefitTDEIKAqua, col='black', lwd=8)
+
+ plot(cleanAqua$Salinity, cleanAqua$total_OsImp, pch = 20, 
+     col = adjustcolor("gold2", alpha.f = 0.4), 
+     cex = 4,
+     cex.axis=2,
+     main = "Osmolyte importers",
+     xlab = "Log10(Salinity) %(w/v)",
+      ylab = "Relative abundane",cex.main = 4, cex.lab = 4) + lines(splinefit_OsImpAq, col ="gold2", lwd = 10) +abline(v = c(log10(0.1), log10(14)), col = "black", lwd=4)+ lines(splinefitTDEIKAqua, col='black', lwd=8)+abline(v = c(3.5,25), col = "black", lwd=4) 
+
+plot(cleanAqua$Salinity, cleanAqua$total_NaExp, pch = 20, 
+     col = adjustcolor("pink", alpha.f = 0.4), 
+     cex = 4,
+     cex.axis = 2,
+     main = "Sodium exporters",
+     xlab = "Log10(Salinity) %(w/v)",
+      ylab = "Relative abundane",cex.main = 4, cex.lab = 4) + lines(splinefit_NaExAq, col='pink2', lwd=10)+abline(v = c(log10(0.1), log10(14)), col = "black", lwd=4) + lines(splinefitTDEIKAqua, col='black', lwd=8)+abline(v = c(3.5,25), col = "black", lwd=4) 
+ 
+
+plot(cleanAqua$Salinity, cleanAqua$Na_Ca_count, pch = 20,
+     col = adjustcolor("deepskyblue", alpha.f = 0.4), 
+     cex = 4,
+     cex.axis=2,
+     main = "Aq Na+/Ca2+ exp",
+     xlab = "Log10(Salinity) %(w/v)",
+      ylab = "Relative abundane",cex.main = 4, cex.lab = 4)+ lines(spline_fitNa_CaAq, col = "deepskyblue", lwd = 10)+abline(v = c(log10(0.1), log10(14)), col = "black", lwd=4) + lines(splinefitTDEIKAqua, col='black', lwd=8)+abline(v = c(3.5,25), col = "black", lwd=4) 
+
+plot(cleanAqua$Salinity, cleanAqua$total_Synth, pch = 20, 
+     col = adjustcolor("green", alpha.f = 0.4), 
+     cex = 4,
+     cex.axis=2,
+     main = "Aq Os Synth",
+     xlab = "Log10(Salinity) %(w/v)",
+      ylab = "Relative abundane",cex.main = 4, cex.lab = 4) + lines(splinefit_SynthAq, col ="green", lwd = 10)+abline(v = c(log10(0.1), log10(14)), col = "black", lwd=4) + lines(splinefitTDEIKAqua, col='black', lwd=8)+abline(v = c(3.5,25), col = "black", lwd=4) 
+
+
+```
+
+
+```{r}
+
+dev.off()
+par(mfrow=c(1,3))
+
+spline_fitTrkHAq<- smooth.spline(log10(cleanAqua$Salinity), cleanAqua$TrkH_count)
+spline_fitKupAq <- smooth.spline(log10(cleanAqua$Salinity), cleanAqua$Kup_count)
+spline_fitKimAAq <- smooth.spline(log10(cleanAqua$Salinity), cleanAqua$KimA_count)
+spline_fitKdpAq <- smooth.spline(log10(cleanAqua$Salinity), cleanAqua$Kdp_count)
+spline_fitSumAq <- smooth.spline(log10(cleanAqua$Salinity), (cleanAqua$KimA_count + cleanAqua$Kdp_count + cleanAqua$TrkH_count + cleanAqua$Kup_count))
+
+plot(log10(cleanAqua$Salinity), cleanAqua$KimA_count, pch = 20, ylim=c(0,2),
+     col = adjustcolor("grey", alpha.f = 0), 
+     cex = 4,
+     cex.axis=2,
+     main = "K+ importers",
+     xlab = "Log10(Salinity) %(w/v)",
+      ylab = "Relative abundane",cex.main = 4, cex.lab = 4)  + lines(spline_fitTrkHAq, col = "purple", lwd = 4)+ lines(spline_fitKupAq, col ="green3", lwd = 4)+ lines(spline_fitKimAAq, col = "grey", lwd = 4)  + lines(spline_fitKdpAq, col = "turquoise3", lwd = 4)+ lines(spline_fitSumAq, col = "red", lwd = 4)+  abline(v = c(log10(14), log10(0.1),log10(3.5), log10(25)), col = "black", lty = "solid", lwd=4) 
+
+spline_fitNqrAAq<- smooth.spline(log10(cleanAqua$Salinity), cleanAqua$NqrA_count)
+spline_fitHppaseAq <- smooth.spline(log10(cleanAqua$Salinity), cleanAqua$Hppase_count)
+spline_fitNhaDAq <- smooth.spline(log10(cleanAqua$Salinity), cleanAqua$NhaD_count)
+spline_fitNhaCAq <- smooth.spline(log10(cleanAqua$Salinity), cleanAqua$NhaC_count)
+spline_fitMnhEAq <- smooth.spline(log10(cleanAqua$Salinity), cleanAqua$MnhE_count)
+spline_fitBCCTAq <- smooth.spline(log10(cleanAqua$Salinity), cleanAqua$BCCT_count)
+spline_fitMIPAq <- smooth.spline(log10(cleanAqua$Salinity), cleanAqua$MIP_count)
+spline_fitOpuACAq <- smooth.spline(log10(cleanAqua$Salinity), cleanAqua$OpuAC_count)
+spline_fitMscLAq <- smooth.spline(log10(cleanAqua$Salinity), cleanAqua$MscL_count)
+spline_fitMscSAq <- smooth.spline(log10(cleanAqua$Salinity), cleanAqua$MscS_count)
+
+plot(log10(cleanAqua$Salinity), cleanAqua$total_OsImp, pch = 20, 
+     col = adjustcolor("gold2", alpha.f = 0),  ylim=c(0,2.5),
+     cex = 4,
+     cex.axis=2,
+     main = "Aq Os Synth",
+     xlab = "Log10(Salinity) %(w/v)",
+      ylab = "Relative abundane",cex.main = 4, cex.lab = 4)  + lines(splinefit_OsImpAq, col ="gold2", lwd = 4) + abline(v = c(log10(0.1), log10(14), log10(3.5), log10(25)), col = 'black', lwd=4) + lines(spline_fitBCCTAq, col='magenta2', lwd=4)  + lines(spline_fitMIPAq, col='cadetblue', lwd=4) + lines(spline_fitOpuACAq, col='darkblue', lwd=4)
+
+
+spline_fit_nonKef_CPA_Aq <-smooth.spline(log10(cleanAqua$Salinity), (cleanAqua$total_CPA_count - cleanAqua$Kef_count))
+plot(log10(cleanAqua$Salinity), cleanAqua$total_NaExp, pch = 20, ylim=c(0,5),
+     col = adjustcolor("blue4", alpha.f = 0), 
+     cex = 4,
+     cex.axis=2,
+     main = "Na+ exporter ",
+     xlab = "Log10(Salinity) %(w/v)",
+      ylab = "Relative abundane",cex.main = 4, cex.lab = 4) + lines(splinefit_NaExAq, col ="pink2", lwd = 4) + lines(spline_fitNqrAAq, col ="orange1", lwd = 4) +lines(spline_fitHppaseAq, col ="grey2", lwd = 4) +lines(spline_fitNhaDAq, col ="yellow2", lwd = 4) +lines(spline_fitNhaCAq , col ="orange4", lwd = 4) +lines(spline_fitMnhEAq , col ="cyan2", lwd = 4)+  abline(v = c(log10(14), log10(0.1), log10(3.5), log10(25)), col = "black", lty = "solid", lwd=4) + lines(spline_fit_nonKef_CPA_Aq, col ="darkgreen", lwd = 4)
+
+
+```
+
+
+
+
+```{r}
+
+
+
+```
+
+```{r}
+
+```
+
+```{r}
+spline_fitTreTAq <- smooth.spline(log10(cleanAqua$Salinity), cleanAqua$TreT_count)
+spline_fitOtsBAq <- smooth.spline(log10(cleanAqua$Salinity), cleanAqua$Trehalose_PPase_count)
+splinefitEctCAq <- smooth.spline(log10(cleanAqua$Salinity), cleanAqua$EctC_count)
+spline_fitBetBAq <- smooth.spline(log10(cleanAqua$Salinity), cleanAqua$Betain_ald_dehyd_count)
+splinefitTreTAq <- smooth.spline(log10(cleanAqua$Salinity), cleanAqua$TreT_count)
+
+plot(log10(cleanAqua$Salinity), cleanAqua$total_Synth, pch = 20, 
+     col = adjustcolor("green", alpha.f = 0.4), 
+     cex = 4,
+     cex.axis=2,
+     main = "Aq Os Synth",
+     xlab = "Log10(Salinity) %(w/v)",
+      ylab = "Relative abundane",cex.main = 4, cex.lab = 4) + lines(splinefit_SynthAq, col ='green2', lwd = 4) + abline(v = c(log10(0.1), log10(14)), col = 'black', lwd=4) + lines(splinefitTreTAq, col='firebrick1', lwd=4) + lines(splinefitEctCAq, col='magenta2', lwd=4)  + lines(spline_fitBetBAq, col='cadetblue', lwd=4)  + lines(spline_fitOtsBAq, col='yellow2', lwd=4) 
+
+
+
+```
+
+
+
+```{r}
+spline_fitKefAq<- smooth.spline(log10(cleanAqua$Salinity), cleanAqua$Kef_count)
+spline_fitIDKAq<- smooth.spline(log10(cleanAqua$Salinity), cleanAqua$UndProkarya_CPA1_IDK_count)
+spline_fitKefAq<- smooth.spline(log10(cleanAqua$Salinity), cleanAqua$Kef_count)
+spline_fit_nonKef_Aq<- smooth.spline(log10(cleanAqua$Salinity), (cleanAqua$total_CPA_count-cleanAqua$Kef_count))
+splinefitTotalCPAAq<- smooth.spline(log10(cleanAqua$Salinity), cleanAqua$total_CPA_count)
+
+spline_fit_Kef44514<-smooth.spline(log10(cleanAqua$Salinity),cleanAqua$Kef_subclade44514)
+
+plot(log10(cleanAqua$Salinity), cleanAqua$UndProkarya_CPA1_IDK_count, pch = 20, xlim = c(-3.5, 2), ylim=c(0,2),
+     col = adjustcolor("blue4", alpha.f = 0), 
+     cex = 2,
+     main = "CPA/Kef importer Aqua",
+     xlab = "Log10(Salinity) %(w/v)",
+      ylab = "Relative abundane",cex.main = 4, cex.lab = 1.5)  + lines(spline_fitKefAq, col = "deeppink", lwd = 4)+ abline(v = c(log10(0.7), log10(14), log10(3.5), log10(0.03)), col = "black", lty = "solid")+ lines(spline_fit_nonKef_Aq, col ="darkgreen", lwd = 4) + lines(splinefitTotalCPAAq, col ="orange3", lwd = 4)  + lines(spline_fit_Kef44514, col='grey', lwd=4)+ lines(spline_fitIDKAq, col='blue4', lwd=4) 
+```
+
+```{r}
+
+Env_frequently_observed <- c('Saltern', 'Salt lake',  'High Salt Soda Lake','Soda Lake', 'Sea', 'Estuary','River', 'Lake')
+
+Merged_df_Aqua_Big <- merged_df_Aqua[merged_df_Aqua$Description %in% Env_frequently_observed,]
+
+
+
+Merged_df_Aqua_Big$Description<- factor(Merged_df_Aqua_Big$Description, levels = c("Saltern", "Salt lake", "High Salt Soda Lake", "Soda Lake", "Sea", "Estuary", "River", "Lake"))
+
+ggplot(data=Merged_df_Aqua_Big, aes(x=Description, y=DEIK_ratio, col=Description)) +geom_boxplot(outliers = FALSE) + geom_jitter()
+
+
+ggplot(data=Merged_df_Aqua_Big, aes(x=Description, y=TrkH_count, col=Description)) +geom_boxplot(outliers = FALSE) + geom_jitter() + geom_hline(yintercept=median(merged_df_Aqua$TrkH_count), lty='dashed')
+
+ggplot(data=Merged_df_Aqua_Big, aes(x=Description, y=Kup_count, col=Description)) +geom_boxplot(outliers = FALSE) + geom_jitter()+ geom_hline(yintercept=median(merged_df_Aqua$Kup_count), lty='dashed')
+
+ggplot(data=Merged_df_Aqua_Big, aes(x=Description, y=Na_Ca_count, col=Description)) +geom_boxplot(outliers = FALSE) + geom_jitter()+ geom_hline(yintercept=median(merged_df_Aqua$Na_Ca_count))
+
+ggplot(data=Merged_df_Aqua_Big, aes(x=Description, y=Kef_count, col=Description)) +geom_boxplot(outliers = FALSE) + geom_jitter()+ geom_hline(yintercept=median(merged_df_Aqua$Kef_count))
+
+ggplot(data=Merged_df_Aqua_Big, aes(x=Description, y=total_CPA_count, col=Description)) +geom_boxplot(outliers = FALSE) + geom_jitter() +geom_hline(yintercept=median(merged_df_Aqua$total_CPA_count))
+
+ggplot(data=Merged_df_Aqua_Big, aes(x=Description, y=ClcA_count, col=Description)) +geom_boxplot(outliers = FALSE) + geom_jitter()+geom_hline(yintercept=median(merged_df_Aqua$ClcA_count))
+
+ggplot(data=Merged_df_Aqua_Big, aes(x=Description, y=Hppase_count, col=Description)) +geom_boxplot(outliers = FALSE) + geom_jitter()+geom_hline(yintercept=median(merged_df_Aqua$Hppase_count))
+
+ggplot(data=Merged_df_Aqua_Big, aes(x=Description, y=CHX_count, col=Description)) +geom_boxplot(outliers = FALSE) + geom_jitter()+geom_hline(yintercept=median(merged_df_Aqua$CHX_count))
+
+ggplot(data=Merged_df_Aqua_Big, aes(x=Description, y=CPA1_count, col=Description)) +geom_boxplot(outliers = FALSE) +geom_jitter() + geom_hline(yintercept=median(merged_df_Aqua$CPA1_count))
+
+ggplot(data=Merged_df_Aqua_Big, aes(x=Description, y=Betain_ald_dehyd_count, col=Description)) +geom_boxplot(outliers = FALSE) + geom_jitter()+geom_hline(yintercept=median(merged_df_Aqua$Betain_ald_dehyd_count))
+
+ggplot(data=Merged_df_Aqua_Big, aes(x=Description, y=OpuAC_count, col=Description)) +geom_boxplot(outliers = FALSE) + geom_jitter()+geom_hline(yintercept=median(merged_df_Aqua$OpuAC_count))
+ggplot(data=Merged_df_Aqua_Big, aes(x=Description, y=MIP_count, col=Description)) +geom_boxplot(outliers = FALSE) + geom_jitter()+geom_hline(yintercept=median(Merged_df_Aqua_Big$MIP_count))
+
+ggplot(data=Merged_df_Aqua_Big, aes(x=Description, y=CorA_count, col=Description)) +geom_boxplot(outliers = FALSE) + geom_jitter()+geom_hline(yintercept=median(Merged_df_Aqua_Big$CorA_count))
+
+ggplot(data=Merged_df_Aqua_Big, aes(x=Description, y=MgtE_count, col=Description)) +geom_boxplot(outliers = FALSE) + geom_jitter()+geom_hline(yintercept=median(Merged_df_Aqua_Big$MgtE_count))
+
+ggplot(data=Merged_df_Aqua_Big, aes(x=Description, y=UndProkarya_CPA1_IDK_count, col=Description)) +geom_boxplot(outliers = FALSE) + geom_jitter()+geom_hline(yintercept=median(Merged_df_Aqua_Big$UndProkarya_CPA1_IDK_count))
+
+ggplot(data=Merged_df_Aqua_Big, aes(x=Description, y=total_NaExp, col=Description)) +geom_boxplot(outliers = FALSE) + geom_jitter()+geom_hline(yintercept=median(Merged_df_Aqua_Big$total_NaExp))
+
+ggplot(data=Merged_df_Aqua_Big, aes(x=Description, y=total_KImp, col=Description)) +geom_boxplot(outliers = FALSE) + geom_jitter()+geom_hline(yintercept=median(Merged_df_Aqua_Big$total_KImp))
+
+ggplot(data=Merged_df_Aqua_Big, aes(x=Description, y=total_OsImp, col=Description)) +geom_boxplot(outliers = FALSE)+ geom_jitter()+geom_hline(yintercept=median(Merged_df_Aqua_Big$total_OsImp))
+
+ggplot(data=Merged_df_Aqua_Big, aes(x=Description, y=total_Synth, col=Description)) +geom_boxplot(outliers = FALSE)+ geom_jitter()+geom_hline(yintercept=median(Merged_df_Aqua_Big$total_Synth))
+
+ggplot(data=Merged_df_Aqua_Big, aes(x=Description, y=MscS_count, col=Description)) + geom_boxplot(outliers = FALSE)+ geom_jitter()+geom_hline(yintercept=median(Merged_df_Aqua_Big$MscS_count))
+```
+
+```{r}
+spline_fitTrkHAq<- smooth.spline(cleanAqua$Salinity, cleanAqua$TrkH_count)
+spline_fitKupAq <- smooth.spline(cleanAqua$Salinity, cleanAqua$Kup_count)
+spline_fitKimAAq <- smooth.spline(cleanAqua$Salinity, cleanAqua$KimA_count)
+spline_fitKdpAq <- smooth.spline(cleanAqua$Salinity, cleanAqua$Kdp_count)
+spline_fitSumAq <- smooth.spline(cleanAqua$Salinity, (cleanAqua$KimA_count + cleanAqua$Kdp_count + cleanAqua$TrkH_count + cleanAqua$Kup_count))
+splinefitTDEIKAqua <- smooth.spline(cleanAqua$Salinity, cleanAqua$DEIK_ratio)
+
+plot(cleanAqua$Salinity, cleanAqua$total_KImp, pch = 20,
+     col = adjustcolor("red", alpha.f = 0.5), 
+     cex = 4,
+     cex.axis=2,
+     main = "K+ importers",
+     xlab = "Log10(Salinity) %(w/v)",
+      ylab = "Relative abundane",cex.main = 4, cex.lab = 1.5)+ lines(spline_fitTrkHAq, col = "purple", lwd = 2)+ lines(spline_fitKupAq, col ="green3", lwd = 2)+ lines(spline_fitKimAAq, col = "grey", lwd = 2)  + lines(spline_fitKdpAq, col = "turquoise3", lwd = 2)+ lines(spline_fitSumAq, col = "red", lwd = 6)+  abline(v = c(14, 0.1,3.5, 25), col = "black", lty = "solid", lwd=4) +abline(h = 1.75, col = "black", lty = "solid", lwd=4) + lines(splinefitTDEIKAqua, col = "black", lwd = 4)
+```
+
+```{r}
+dev.off()
+spline_fitBCCTAq <- smooth.spline(cleanAqua$Salinity, cleanAqua$BCCT_count)
+spline_fitMIPAq <- smooth.spline(cleanAqua$Salinity, cleanAqua$MIP_count)
+spline_fitOpuACAq <- smooth.spline(cleanAqua$Salinity, cleanAqua$OpuAC_count)
+spline_fitMscLAq <- smooth.spline(cleanAqua$Salinity, cleanAqua$MscL_count)
+spline_fitMscSAq <- smooth.spline(cleanAqua$Salinity, cleanAqua$MscS_count)
+splinefit_OsImpAq <- smooth.spline(cleanAqua$Salinity,cleanAqua$total_OsImp) 
+
+plot(cleanAqua$Salinity, cleanAqua$OpuAC_count, pch = 20, 
+     col = adjustcolor("darkblue", alpha.f = 0.5), ylim=c(0,5),
+     cex = 4,
+     cex.axis=2,
+     main = "Aq Os Synth",
+     xlab = "Log10(Salinity) %(w/v)",
+      ylab = "Relative abundane",cex.main = 4, cex.lab = 4)  + lines(splinefit_OsImpAq, col ="gold2", lwd = 4) + abline(v = c(0.1, 14, 3.5, 25), col = 'black', lwd=4) + lines(spline_fitBCCTAq, col='magenta2', lwd=4)  + lines(spline_fitMIPAq, col='cadetblue', lwd=4) + lines(spline_fitOpuACAq, col='darkblue', lwd=4) + lines(splinefitTDEIKAqua, col = "black", lwd = 4)+ abline(h=0, col='black' )
+```
+
+
+```{r}
+plot(cleanAqua$Salinity, cleanAqua$total_KImp, pch = 20, 
+     col = adjustcolor("blue", alpha.f = 0.5),
+     cex = 4,
+     cex.axis=2,
+     main = "Aq Os Synth",
+     xlab = "Log10(Salinity) %(w/v)",
+      ylab = "Relative abundane",cex.main = 4, cex.lab = 4)+ abline(v = c(0.1, 14, 3.5, 25), col = "black", lty = "solid")
+```
+
+
+```{r}
+spline_fitKefAq<- smooth.spline(cleanAqua$Salinity, cleanAqua$Kef_count)
+spline_fitIDKAq<- smooth.spline(cleanAqua$Salinity, cleanAqua$UndProkarya_CPA1_IDK_count)
+
+spline_fit_Kef44514<-smooth.spline(cleanAqua$Salinity,cleanAqua$Kef_subclade44514)
+splinefitTotalCPAAq <- smooth.spline(cleanAqua$Salinity, cleanAqua$total_CPA_count)
+spline_fit_nonKef_Aq <-smooth.spline(cleanAqua$Salinity, (cleanAqua$total_CPA_count - cleanAqua$Kef_count))
+
+plot(cleanAqua$Salinity, cleanAqua$Kef_count, pch = 20,
+     col = adjustcolor("deeppink", alpha.f = 0.5), ylim=c(0,5),
+     cex = 2,
+     main = "CPA/Kef importer Aqua",
+     xlab = "Log10(Salinity) %(w/v)",
+      ylab = "Relative abundane",cex.main = 4, cex.lab = 1.5)  + lines(spline_fitKefAq, col = "deeppink", lwd = 4)+ abline(v = c(0.1, 14, 3.5, 25), col = "black", lty = "solid")+ lines(spline_fit_nonKef_Aq, col ="darkgreen", lwd = 4) + lines(splinefitTotalCPAAq, col ="orange3", lwd = 4)  + lines(spline_fit_Kef44514, col='grey', lwd=4)+ lines(spline_fitIDKAq, col='blue4', lwd=4)+ lines(splinefitTDEIKAqua, col = "black", lwd = 4)
+```
+
+```{r}
+cleanAqua$Salt_block[cleanAqua$Salinity > 25 ] <- "ES"
+cleanAqua$Salt_block[cleanAqua$Salinity == 25] <- "ES"
+
+cleanAqua$Salt_block[cleanAqua$Salinity < 0.1 ] <- "NS"
+cleanAqua$Salt_block[cleanAqua$Salinity == 0.1 ] <- "BM"
+cleanAqua$Salt_block[cleanAqua$Salinity == 3.5 ] <- "BM"
+
+cleanAqua$Salt_block[cleanAqua$Salinity > 0.1 & cleanAqua$Salinity <3.5] <- "BM"
+cleanAqua$Salt_block[cleanAqua$Salinity > 3.5 & cleanAqua$Salinity <14] <- "S"
+cleanAqua$Salt_block[cleanAqua$Salinity == 14] <- "S"
+
+cleanAqua$Salt_block[cleanAqua$Salinity > 14 & cleanAqua$Salinity <25 ] <- "HS"
+
+cleanAqua_subset_Kimp <- cleanAqua[,c(36,37,42,48,99)]
+library(data.table)
+# Source - https://stackoverflow.com/a/25856135
+# Posted by Jaap, modified by community. See post 'Timeline' for change history
+# Retrieved 2026-06-30, License - CC BY-SA 4.0
+
+library(tidyr)
+
+long <- cleanAqua_subset_Kimp %>% 
+  pivot_longer(
+    cols = 'TrkH_count': 'KimA_count',
+    names_to = "Gene",
+    values_to = "Relative_abundance"
+)
+
+long$Salt_block<- factor(long$Salt_block, levels = c("NS", "BM", "S", "HS", "ES"))
+long$Gene<- factor(long$Gene, levels = c("Kdp_count", "KimA_count", "Kup_count", "TrkH_count"))
+
+ggplot(long, aes(x=Salt_block, y=Relative_abundance, fill=Gene)) +   geom_point(position=position_jitterdodge(), aes(colour = Gene), alpha=0.5) + geom_boxplot(outlier.shape=NA)
+```
+
+```{r}
+cleanAqua_subset_OsImp <- cleanAqua[,c(23,25,26,27,31,99)]
+
+library(tidyr)
+
+long <- cleanAqua_subset_OsImp %>% 
+  pivot_longer(
+    cols = 'MIP_count': 'BCCT_count',
+    names_to = "Gene",
+    values_to = "Relative_abundance"
+)
+
+long$Salt_block<- factor(long$Salt_block, levels = c("NS", "BM", "S", "HS", "ES"))
+long$Gene<- factor(long$Gene, levels = c("MscL_count", "MIP_count", "OpuAC_count", "BCCT_count", "MscS_count"))
+
+ggplot(long, aes(x=Salt_block, y=Relative_abundance, fill=Gene)) +   geom_point(position=position_jitterdodge(), aes(colour = Gene), alpha=0.5) + geom_boxplot(outlier.shape=NA)
+```
+
+```{r}
+cleanAqua_subset_OsImp <- cleanAqua[,c(34,38,40,41,47,93,99)]
+
+library(tidyr)
+
+long <- cleanAqua_subset_OsImp %>% 
+  pivot_longer(
+    cols = 'MnhE_count': 'total_CPA_noKef_count',
+    names_to = "Gene",
+    values_to = "Relative_abundance"
+)
+
+long$Salt_block<- factor(long$Salt_block, levels = c("NS", "BM", "S", "HS", "ES"))
+long$Gene<- factor(long$Gene, levels = c("NqrA_count","Hppase_count","MnhE_count","NhaC_count","total_CPA_noKef_count","NhaD_count"))
+
+ggplot(long, aes(x=Salt_block, y=Relative_abundance, fill=Gene)) +   geom_point(position=position_jitterdodge(), aes(colour = Gene), alpha=0.5) + geom_boxplot(outlier.shape=NA)
+```
+
+```{r}
+cleanAqua_subset_OsImp <- cleanAqua[,c(34,38,40,41,47,93,99)]
+
+library(tidyr)
+
+long <- cleanAqua_subset_OsImp %>% 
+  pivot_longer(
+    cols = 'MnhE_count': 'total_CPA_noKef_count',
+    names_to = "Gene",
+    values_to = "Relative_abundance"
+)
+
+long$Salt_block<- factor(long$Salt_block, levels = c("NS", "BM", "S", "HS", "ES"))
+long$Gene<- factor(long$Gene, levels = c("NqrA_count","Hppase_count","MnhE_count","NhaC_count","total_CPA_noKef_count","NhaD_count"))
+
+ggplot(long, aes(x=Salt_block, y=Relative_abundance, fill=Gene)) +   geom_point(position=position_jitterdodge(), aes(colour = Gene), alpha=0.5) + geom_boxplot(outlier.shape=NA)
+```
+
+```{r}
+cleanAqua_subset_CPA <- cleanAqua[,c(52, 53,56,62,99)]
+
+library(tidyr)
+
+long <- cleanAqua_subset_CPA %>% 
+  pivot_longer(
+    cols = 'Kef_count': 'UndProkarya_CPA1_IDK_count',
+    names_to = "Gene",
+    values_to = "Relative_abundance"
+)
+
+long$Salt_block<- factor(long$Salt_block, levels = c("NS", "BM", "S", "HS", "ES"))
+long$Gene<- factor(long$Gene, levels = c("CHX_count","CPA1_count","UndProkarya_CPA1_IDK_count","Kef_count"))
+
+ggplot(long, aes(x=Salt_block, y=Relative_abundance, fill=Gene)) +   geom_point(position=position_jitterdodge(), aes(colour = Gene), alpha=0.5) + geom_boxplot(outlier.shape=NA)
+```
+
+```{r}
+cleanAqua_subset_Other <- cleanAqua[,c(24,28,29,30,32,99)]
+
+library(tidyr)
+
+long <- cleanAqua_subset_Other %>% 
+  pivot_longer(
+    cols = 'ClcA_count': 'MgtE_count',
+    names_to = "Gene",
+    values_to = "Relative_abundance"
+)
+
+long$Salt_block<- factor(long$Salt_block, levels = c("NS", "BM", "S", "HS", "ES"))
+long$Gene<- factor(long$Gene, levels = c("Na_ala_count","ClcA_count","CorA_count","MgtE_count","Na_Ca_count"))
+
+ggplot(long, aes(x=Salt_block, y=Relative_abundance, fill=Gene)) +   geom_point(position=position_jitterdodge(), aes(colour = Gene), alpha=0.5) + geom_boxplot(outlier.shape=NA)
+```
+
+```{r}
+res.aov <- aov(TrkH_count~Salt_block,data=cleanAqua)
+summary(res.aov)
+```
+
