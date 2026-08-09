@@ -1,0 +1,206 @@
+---
+title: "Metase_analysis"
+output: html_document
+date: "2026-05-20"
+editor_options: 
+  chunk_output_type: console
+---
+
+
+```{r}
+library(ggplot2)
+library(dplyr)
+library(tidyverse)
+
+
+Water_data<- read.delim('/home/mad149/chapter_meta_analysis/metadata/Studies_salinity_metadata_All - Studies_salinity_metadata_water.csv(8).tsv', sep='\t', stringsAsFactors = TRUE)
+
+Water_data$Salinity<- as.numeric(gsub( ',','.', Water_data$Salinity))
+Water_data$pH<- as.numeric(gsub( ',','.',Water_data$pH))
+
+
+xblast_half <- read.delim('/home/mad149/chapter_meta_analysis/xblast_output_may20_641_out_of_1116Kef.tsv', sep='\t', stringsAsFactors = TRUE)
+
+merged_df_Aqua <- merge(Water_data, xblast_half, by = "SRA_id")
+merged_df_Aqua$Environment <- 'Aqueous'
+
+#install.packages("readr")
+library(readr)
+
+# Write your data frame to a TSV file
+write.table(merged_df_Aqua, file = "Studies_salinity_metadata_All_aquatic_Jun13th.tsv", sep = "\t", row.names = FALSE, quote = FALSE)
+```
+
+```{r}
+global_coordinates<- rbind( merged_df_Aqua[c('SRA_id','Environment', 'Longitude', 'Latitude')])
+global_coordinates$Longitude<- as.numeric(gsub( ',','.',global_coordinates$Longitude))
+global_coordinates$Latitude<- as.numeric(gsub( ',','.',global_coordinates$Latitude))
+#install.packages('rnaturalearth')
+library(rnaturalearth)
+library(sf)
+
+world <- rnaturalearth::ne_countries(scale = "small", returnclass = "sf")
+
+world  %>%
+  ggplot() + geom_sf() + theme_minimal()+
+  geom_point(data = global_coordinates, aes(x=Longitude, y=Latitude), size=4, alpha=0.7)+ theme(legend.title=element_text(size=32), axis.title.x = element_text(size=28), axis.title.y = element_text(size=28), legend.text = element_text(size=24))
+
+```
+
+```{r}
+ggplot(data = merged_df_Aqua, aes(x=Description, y=DEIK_ratio, col=Description)) +geom_boxplot(outliers = FALSE) + geom_jitter()
+```
+
+
+
+
+
+```{r Normalize_water}
+
+
+
+merged_df_Aqua$MIP_count <- merged_df_Aqua$MIP_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+merged_df_Aqua$ClcA_count <- merged_df_Aqua$ClcA_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+merged_df_Aqua$MscS_count <- merged_df_Aqua$MscS_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+merged_df_Aqua$MscL_count <- merged_df_Aqua$MscL_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+merged_df_Aqua$OpuAC_count <- merged_df_Aqua$OpuAC_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+merged_df_Aqua$Na_ala_count <- merged_df_Aqua$Na_ala_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+merged_df_Aqua$CorA_count <- merged_df_Aqua$CorA_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+merged_df_Aqua$Na_Ca_count <- merged_df_Aqua$Na_Ca_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+merged_df_Aqua$BCCT_count <- merged_df_Aqua$BCCT_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+merged_df_Aqua$MgtE_count <- merged_df_Aqua$MgtE_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+merged_df_Aqua$EctC_count <- merged_df_Aqua$EctC_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+merged_df_Aqua$MnhE_count <- merged_df_Aqua$MnhE_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+merged_df_Aqua$Trehalose_PPase_count <- merged_df_Aqua$Trehalose_PPase_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+merged_df_Aqua$TrkH_count <- merged_df_Aqua$TrkH_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+merged_df_Aqua$Kup_count <- merged_df_Aqua$Kup_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+merged_df_Aqua$Hppase_count <- merged_df_Aqua$Hppase_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+merged_df_Aqua$NhaB_count <- merged_df_Aqua$NhaB_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+merged_df_Aqua$NhaC_count <- merged_df_Aqua$NhaC_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+merged_df_Aqua$NhaD_count <- merged_df_Aqua$NhaD_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+merged_df_Aqua$Kdp_count <- merged_df_Aqua$Kdp_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+merged_df_Aqua$MtrA_count <- merged_df_Aqua$MtrA_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+merged_df_Aqua$AApermease_count <- merged_df_Aqua$AApermease_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+merged_df_Aqua$BranchedchainAA_transp_count <- merged_df_Aqua$BranchedchainAA_transp_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+merged_df_Aqua$TreT_count <- merged_df_Aqua$TreT_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+merged_df_Aqua$NqrA_count <- merged_df_Aqua$NqrA_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+merged_df_Aqua$KimA_count <- merged_df_Aqua$KimA_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+merged_df_Aqua$Betain_ald_dehyd_count <- merged_df_Aqua$Betain_ald_dehyd_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+
+
+merged_df_Aqua$total_CPA_count <- merged_df_Aqua$total_CPA_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+merged_df_Aqua$CPA1_count <- merged_df_Aqua$CPA1_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+merged_df_Aqua$CPA1_SL_count <- merged_df_Aqua$CPA1_SL_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+merged_df_Aqua$CHX_count <- merged_df_Aqua$CHX_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+
+merged_df_Aqua$Kef_count <- merged_df_Aqua$Kef_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+
+
+
+merged_df_Aqua$GerN_count <- merged_df_Aqua$GerN_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+merged_df_Aqua$SOD2_count <- merged_df_Aqua$SOD2_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+merged_df_Aqua$NhaS5_count <- merged_df_Aqua$NhaS5_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+merged_df_Aqua$NhaP_CPA1_count <- merged_df_Aqua$NhaP_CPA1_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+
+merged_df_Aqua$NhaA_count <- merged_df_Aqua$NhaA_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+merged_df_Aqua$Uncharacterized_CPA_count <- merged_df_Aqua$Uncharacterized_CPA_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+merged_df_Aqua$Undescribed_CPA1_count <- merged_df_Aqua$Undescribed_CPA1_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+merged_df_Aqua$UndProkarya_CPA1_IDK_count <- merged_df_Aqua$UndProkarya_CPA1_IDK_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+
+merged_df_Aqua$Kef_subclade29950<- merged_df_Aqua$Kef_subclade29950/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+merged_df_Aqua$Kef_subclade42457<- merged_df_Aqua$Kef_subclade42457/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+merged_df_Aqua$Kef_subclade44199<- merged_df_Aqua$Kef_subclade44199/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+merged_df_Aqua$Kef_subclade42947<- merged_df_Aqua$Kef_subclade42947/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+merged_df_Aqua$Kef_subclade42415<- merged_df_Aqua$Kef_subclade42415/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+merged_df_Aqua$Kef_subclade44013<- merged_df_Aqua$Kef_subclade44013/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+merged_df_Aqua$Kef_subclade44600<- merged_df_Aqua$Kef_subclade44600/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+merged_df_Aqua$Kef_subclade43808<- merged_df_Aqua$Kef_subclade43808/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+merged_df_Aqua$Kef_subclade44514<- merged_df_Aqua$Kef_subclade44514/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+merged_df_Aqua$Kef_subclade43312<- merged_df_Aqua$Kef_subclade43312/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+merged_df_Aqua$Kef_subclade43225<- merged_df_Aqua$Kef_subclade43225/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+merged_df_Aqua$Kef_subclade43377<- merged_df_Aqua$Kef_subclade43377/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+merged_df_Aqua$Kef_subclade43531<- merged_df_Aqua$Kef_subclade43531/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+merged_df_Aqua$Kef_subclade43598<- merged_df_Aqua$Kef_subclade43598/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+merged_df_Aqua$Kef_subclade43720<- merged_df_Aqua$Kef_subclade43720/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+merged_df_Aqua$Kef_subclade44121<- merged_df_Aqua$Kef_subclade44121/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+merged_df_Aqua$Kef_subclade43954<- merged_df_Aqua$Kef_subclade43954/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+merged_df_Aqua$Kef_subclade43914<- merged_df_Aqua$Kef_subclade43914/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+merged_df_Aqua$Kef_subclade42396<- merged_df_Aqua$Kef_subclade42396/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+merged_df_Aqua$Kef_subclade44582<- merged_df_Aqua$Kef_subclade44582/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+merged_df_Aqua$Kef_subclade44712<- merged_df_Aqua$Kef_subclade44712/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+merged_df_Aqua$Kef_group38142<- merged_df_Aqua$Kef_group38142/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+merged_df_Aqua$Missing_kef<- merged_df_Aqua$Missing_kef/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+merged_df_Aqua$total_CPA_noKef_count <- merged_df_Aqua$total_CPA_count - merged_df_Aqua$Kef_count
+
+merged_df_Aqua$total_NaExp <- merged_df_Aqua$total_CPA_count + merged_df_Aqua$MnhE_count + merged_df_Aqua$Hppase_count + merged_df_Aqua$MtrA_count + merged_df_Aqua$NhaB_count + merged_df_Aqua$NhaC_count + merged_df_Aqua$NhaD_count + merged_df_Aqua$NqrA_count- merged_df_Aqua$Kef_count
+merged_df_Aqua$total_KImp <- merged_df_Aqua$TrkH_count + merged_df_Aqua$Kdp_count + merged_df_Aqua$KimA_count + merged_df_Aqua$Kup_count
+merged_df_Aqua$total_OsImp <-  merged_df_Aqua$BCCT_count + merged_df_Aqua$OpuAC_count
+merged_df_Aqua$total_MgImp <- merged_df_Aqua$MgtE_count + merged_df_Aqua$CorA_count 
+merged_df_Aqua$total_Synth <- merged_df_Aqua$EctC_count + merged_df_Aqua$TreT_count + merged_df_Aqua$Trehalose_PPase_count + merged_df_Aqua$Betain_ald_dehyd_count 
+
+
+cleanAqua <- merged_df_Aqua[!is.na(merged_df_Aqua$Salinity),]
+``` 
+
+
+```{r}
+#install.packages("segmented")
+library(segmented)
+library(mgcv)
+
+#DEIk to salinity
+gam(DEIK_ratio~Salinity, data=cleanAqua)
+base_model <- lm(DEIK_ratio ~ Salinity
+                 , data = cleanAqua)
+
+my_control <- seg.control(n.boot = 1000, display = FALSE)
+
+
+seg_model <- segmented(base_model, nps=7)
+summary(seg_model)
+
+print(seg_model)
+davies.test(seg_model)
+breakpoint_ci <- confint(seg_model, var.diff = TRUE, method = "delta", p.df = 0)
+
+print(breakpoint_ci)
+
+#NaExp to log10(salinity)
+cleanAqua$log10_salinity <- log10(cleanAqua$Salinity)
+gam(total_NaExp ~ log10_salinity, data=cleanAqua)
+
+base_Na10salmodel <- lm(total_NaExp ~ log10_salinity
+                 , data = cleanAqua)
+summary(base_Na10salmodel)
+seg_model <- segmented(base_Na10salmodel, nps=1)
+
+summary(seg_model)
+print(seg_model)
+davies.test(seg_model)
+breakpoint_ci <- confint(seg_model, var.diff = TRUE, method = "delta", p.df = 0)
+print(breakpoint_ci)
+
+
+#KImp
+cleanAqua$log10_salinity <- log10(cleanAqua$Salinity)
+gam(total_SynthImp ~ log10_salinity, data=cleanAqua)
+
+baseSynthSalmodel <- lm(total_OsImp ~ Salinity
+                 , data = cleanAqua)
+summary(baseSynthSalmodel)
+seg_model <- segmented(baseSynthSalmodel, nps=4)
+davies.test(seg_model)
+
+summary(seg_model)
+
+print(seg_model)
+breakpoint_ci <- confint(seg_model, var.diff = TRUE, method = "delta", p.df = 0)
+print(breakpoint_ci)
+```
+
+
+
+```{r}
+total_KImp<-
+```
+
