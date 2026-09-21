@@ -1,33 +1,40 @@
 ---
-title: "Metase_analysis"
+title: "CPM_ratio"
 output: html_document
-date: "2026-05-20"
+date: "2026-09-09"
 editor_options: 
   chunk_output_type: console
 ---
 
 
 ```{r}
-library(ggplot2)
-library(tidyverse)
+Read_count<- read.delim('/home/mad149/Read_count_file_Sept10 - Read_count_file(1).tsv', sep='\t', stringsAsFactors = TRUE)
+Read_count <- Read_count[,c(1,4)]
+```
 
 
-Water_data<- read.delim('/home/mad149/chapter_meta_analysis/metadata/Studies_salinity_metadata_All - Studies_salinity_metadata_water.csv(8).tsv', sep='\t', stringsAsFactors = TRUE)
+```{r}
+
+Water_data<- read.delim('/home/mad149/chapter_meta_analysis/metadata/Studies_salinity_metadata_All - Studies_salinity_metadata_water.csv.tsv', sep='\t', stringsAsFactors = TRUE)
 
 Water_data$Salinity<- as.numeric(gsub( ',','.', Water_data$Salinity))
 Water_data$pH<- as.numeric(gsub( ',','.',Water_data$pH))
 
 
-xblast_half <- read.delim('/home/mad149/chapter_meta_analysis/xblast_output_may20_641_out_of_1116Kef.tsv', sep='\t', stringsAsFactors = TRUE)
 
-merged_df_Aqua <- merge(Water_data, xblast_half, by = "SRA_id")
+xblast_output <- read.delim('/home/mad149/chapter_meta_analysis/xblast_output_Sept10.tsv', sep='\t', stringsAsFactors = TRUE)
+merged_df_Aqua <- merge(Water_data, Read_count, by = "SRA_id")
+merged_df_Aqua <- merge(merged_df_Aqua, xblast_output, by = "SRA_id")
+
+
 merged_df_Aqua$Environment <- 'Aqueous'
+merged_df_Aqua$Description[merged_df_Aqua$SRA_id == 'ERR864073' ] <- "Estuary"
 
 #install.packages("readr")
 library(readr)
 
 # Write your data frame to a TSV file
-write.table(merged_df_Aqua, file = "Studies_salinity_metadata_All_aquatic_Jun13th.tsv", sep = "\t", row.names = FALSE, quote = FALSE)
+write.table(merged_df_Aqua, file = "Studies_salinity_metadata_All_aquatic_Sept10.tsv", sep = "\t", row.names = FALSE, quote = FALSE)
 ```
 
 ```{r}
@@ -46,248 +53,387 @@ world  %>%
 
 ```
 
+
 ```{r}
-ggplot(data = merged_df_Aqua, aes(x=Description, y=DEIK_ratio, col=Description)) +geom_boxplot(outliers = FALSE) + geom_jitter()
+merged_df_Aqua$CPM_Ribosomal_count <- ((merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)/merged_df_Aqua$Read_count)*1000000
 ```
-
-
-
 
 
 ```{r Normalize_water}
 
+merged_df_Aqua$MIP_count <- ((merged_df_Aqua$MIP_count/merged_df_Aqua$Read_count)*1000000)/merged_df_Aqua$CPM_Ribosomal_count
+merged_df_Aqua$ClcA_count <- ((merged_df_Aqua$ClcA_count/merged_df_Aqua$Read_count)*1000000)/merged_df_Aqua$CPM_Ribosomal_count
+merged_df_Aqua$MscS_count <- ((merged_df_Aqua$MscS_count/merged_df_Aqua$Read_count)*1000000)/merged_df_Aqua$CPM_Ribosomal_count
+merged_df_Aqua$MscL_count <- ((merged_df_Aqua$MscL_count/merged_df_Aqua$Read_count)*1000000)/merged_df_Aqua$CPM_Ribosomal_count
+merged_df_Aqua$OpuAC_count <- ((merged_df_Aqua$OpuAC_count/merged_df_Aqua$Read_count)*1000000)/merged_df_Aqua$CPM_Ribosomal_count
+merged_df_Aqua$Na_ala_count <- ((merged_df_Aqua$Na_ala_count/merged_df_Aqua$Read_count)*1000000)/merged_df_Aqua$CPM_Ribosomal_count
+merged_df_Aqua$CorA_count <- ((merged_df_Aqua$CorA_count/merged_df_Aqua$Read_count)*1000000)/merged_df_Aqua$CPM_Ribosomal_count
+merged_df_Aqua$Na_Ca_count <- ((merged_df_Aqua$Na_Ca_count/merged_df_Aqua$Read_count)*1000000)/merged_df_Aqua$CPM_Ribosomal_count
+merged_df_Aqua$BCCT_count <- ((merged_df_Aqua$BCCT_count/merged_df_Aqua$Read_count)*1000000)/merged_df_Aqua$CPM_Ribosomal_count
+merged_df_Aqua$MgtE_count <- ((merged_df_Aqua$MgtE_count/merged_df_Aqua$Read_count)*1000000)/merged_df_Aqua$CPM_Ribosomal_count
+merged_df_Aqua$EctC_count <- ((merged_df_Aqua$EctC_count/merged_df_Aqua$Read_count)*1000000)/merged_df_Aqua$CPM_Ribosomal_count
+merged_df_Aqua$MnhE_count <- ((merged_df_Aqua$MnhE_count/merged_df_Aqua$Read_count)*1000000)/merged_df_Aqua$CPM_Ribosomal_count
+merged_df_Aqua$Trehalose_PPase_count <- ((merged_df_Aqua$Trehalose_PPase_count/merged_df_Aqua$Read_count)*1000000)/merged_df_Aqua$CPM_Ribosomal_count
+merged_df_Aqua$TrkH_count <- ((merged_df_Aqua$TrkH_count/merged_df_Aqua$Read_count)*1000000)/merged_df_Aqua$CPM_Ribosomal_count
+merged_df_Aqua$Kup_count <- ((merged_df_Aqua$Kup_count/merged_df_Aqua$Read_count)*1000000)/merged_df_Aqua$CPM_Ribosomal_count
+merged_df_Aqua$Hppase_count <- ((merged_df_Aqua$Hppase_count/merged_df_Aqua$Read_count)*1000000)/merged_df_Aqua$CPM_Ribosomal_count
+merged_df_Aqua$NhaB_count <- ((merged_df_Aqua$NhaB_count/merged_df_Aqua$Read_count)*1000000)/merged_df_Aqua$CPM_Ribosomal_count
+merged_df_Aqua$NhaC_count <- ((merged_df_Aqua$NhaC_count/merged_df_Aqua$Read_count)*1000000)/merged_df_Aqua$CPM_Ribosomal_count
+merged_df_Aqua$NhaD_count <- ((merged_df_Aqua$NhaD_count/merged_df_Aqua$Read_count)*1000000)/merged_df_Aqua$CPM_Ribosomal_count
+merged_df_Aqua$Kdp_count <- ((merged_df_Aqua$Kdp_count/merged_df_Aqua$Read_count)*1000000)/merged_df_Aqua$CPM_Ribosomal_count
+merged_df_Aqua$MtrA_count <- ((merged_df_Aqua$MtrA_count/merged_df_Aqua$Read_count)*1000000)/merged_df_Aqua$CPM_Ribosomal_count
+merged_df_Aqua$AApermease_count <- ((merged_df_Aqua$AApermease_count/merged_df_Aqua$Read_count)*1000000)/merged_df_Aqua$CPM_Ribosomal_count
+merged_df_Aqua$BranchedchainAA_transp_count <- ((merged_df_Aqua$BranchedchainAA_transp_count/merged_df_Aqua$Read_count)*1000000)/merged_df_Aqua$CPM_Ribosomal_count
+merged_df_Aqua$TreT_count <- ((merged_df_Aqua$TreT_count/merged_df_Aqua$Read_count)*1000000)/merged_df_Aqua$CPM_Ribosomal_count
+merged_df_Aqua$NqrA_count <- ((merged_df_Aqua$NqrA_count/merged_df_Aqua$Read_count)*1000000)/merged_df_Aqua$CPM_Ribosomal_count
+merged_df_Aqua$KimA_count <- ((merged_df_Aqua$KimA_count/merged_df_Aqua$Read_count)*1000000)/merged_df_Aqua$CPM_Ribosomal_count
+merged_df_Aqua$Betain_ald_dehyd_count <- ((merged_df_Aqua$Betain_ald_dehyd_count/merged_df_Aqua$Read_count)*1000000)/merged_df_Aqua$CPM_Ribosomal_count
 
 
-merged_df_Aqua$MIP_count <- merged_df_Aqua$MIP_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
-merged_df_Aqua$ClcA_count <- merged_df_Aqua$ClcA_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
-merged_df_Aqua$MscS_count <- merged_df_Aqua$MscS_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
-merged_df_Aqua$MscL_count <- merged_df_Aqua$MscL_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
-merged_df_Aqua$OpuAC_count <- merged_df_Aqua$OpuAC_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
-merged_df_Aqua$Na_ala_count <- merged_df_Aqua$Na_ala_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
-merged_df_Aqua$CorA_count <- merged_df_Aqua$CorA_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
-merged_df_Aqua$Na_Ca_count <- merged_df_Aqua$Na_Ca_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
-merged_df_Aqua$BCCT_count <- merged_df_Aqua$BCCT_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
-merged_df_Aqua$MgtE_count <- merged_df_Aqua$MgtE_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
-merged_df_Aqua$EctC_count <- merged_df_Aqua$EctC_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
-merged_df_Aqua$MnhE_count <- merged_df_Aqua$MnhE_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
-merged_df_Aqua$Trehalose_PPase_count <- merged_df_Aqua$Trehalose_PPase_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
-merged_df_Aqua$TrkH_count <- merged_df_Aqua$TrkH_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
-merged_df_Aqua$Kup_count <- merged_df_Aqua$Kup_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
-merged_df_Aqua$Hppase_count <- merged_df_Aqua$Hppase_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
-merged_df_Aqua$NhaB_count <- merged_df_Aqua$NhaB_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
-merged_df_Aqua$NhaC_count <- merged_df_Aqua$NhaC_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
-merged_df_Aqua$NhaD_count <- merged_df_Aqua$NhaD_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
-merged_df_Aqua$Kdp_count <- merged_df_Aqua$Kdp_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
-merged_df_Aqua$MtrA_count <- merged_df_Aqua$MtrA_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
-merged_df_Aqua$AApermease_count <- merged_df_Aqua$AApermease_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
-merged_df_Aqua$BranchedchainAA_transp_count <- merged_df_Aqua$BranchedchainAA_transp_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
-merged_df_Aqua$TreT_count <- merged_df_Aqua$TreT_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
-merged_df_Aqua$NqrA_count <- merged_df_Aqua$NqrA_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
-merged_df_Aqua$KimA_count <- merged_df_Aqua$KimA_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
-merged_df_Aqua$Betain_ald_dehyd_count <- merged_df_Aqua$Betain_ald_dehyd_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+merged_df_Aqua$total_CPA_count <- ((merged_df_Aqua$total_CPA_count/merged_df_Aqua$Read_count)*1000000)/merged_df_Aqua$CPM_Ribosomal_count
+merged_df_Aqua$NHX_count <- ((merged_df_Aqua$NHX_count/merged_df_Aqua$Read_count)*1000000)/merged_df_Aqua$CPM_Ribosomal_count
+merged_df_Aqua$CPA1_SL_count <- ((merged_df_Aqua$CPA1_SL_count/merged_df_Aqua$Read_count)*1000000)/merged_df_Aqua$CPM_Ribosomal_count
+merged_df_Aqua$CHX_count <- ((merged_df_Aqua$CHX_count/merged_df_Aqua$Read_count)*1000000)/merged_df_Aqua$CPM_Ribosomal_count
+
+merged_df_Aqua$Kef_count <- ((merged_df_Aqua$Kef_count/merged_df_Aqua$Read_count)*1000000)/merged_df_Aqua$CPM_Ribosomal_count
 
 
-merged_df_Aqua$total_CPA_count <- merged_df_Aqua$total_CPA_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
-merged_df_Aqua$CPA1_count <- merged_df_Aqua$CPA1_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
-merged_df_Aqua$CPA1_SL_count <- merged_df_Aqua$CPA1_SL_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
-merged_df_Aqua$CHX_count <- merged_df_Aqua$CHX_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+merged_df_Aqua$NhaP_CPA1_count <- ((merged_df_Aqua$NhaP_CPA1_count/merged_df_Aqua$Read_count)*1000000)/merged_df_Aqua$CPM_Ribosomal_count
+merged_df_Aqua$GerN_count <- ((merged_df_Aqua$GerN_count/merged_df_Aqua$Read_count)*1000000)/merged_df_Aqua$CPM_Ribosomal_count
+merged_df_Aqua$SOD2_count <- ((merged_df_Aqua$SOD2_count/merged_df_Aqua$Read_count)*1000000)/merged_df_Aqua$CPM_Ribosomal_count
+merged_df_Aqua$NhaS5_count <- ((merged_df_Aqua$NhaS5_count/merged_df_Aqua$Read_count)*1000000)/merged_df_Aqua$CPM_Ribosomal_count
+merged_df_Aqua$NhaP_CPA1_count <- ((merged_df_Aqua$NhaP_CPA1_count/merged_df_Aqua$Read_count)*1000000)/merged_df_Aqua$CPM_Ribosomal_count
 
-merged_df_Aqua$Kef_count <- merged_df_Aqua$Kef_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+merged_df_Aqua$NhaA_count <- ((merged_df_Aqua$NhaA_count/merged_df_Aqua$Read_count)*1000000)/merged_df_Aqua$CPM_Ribosomal_count
+merged_df_Aqua$Uncharacterized_CPA_count <- ((merged_df_Aqua$Uncharacterized_CPA_count/merged_df_Aqua$Read_count)*1000000)/merged_df_Aqua$CPM_Ribosomal_count
+merged_df_Aqua$Undescribed_CPA1_count <- ((merged_df_Aqua$Undescribed_CPA1_count/merged_df_Aqua$Read_count)*1000000)/merged_df_Aqua$CPM_Ribosomal_count
+merged_df_Aqua$UndProkarya_CPA1_IDR_count <-((merged_df_Aqua$UndProkarya_CPA1_IDR_count/merged_df_Aqua$Read_count)*1000000)/merged_df_Aqua$CPM_Ribosomal_count
+
+merged_df_Aqua$Kef_subclade29950<- ((merged_df_Aqua$Kef_subclade29950/merged_df_Aqua$Read_count)*1000000)/merged_df_Aqua$CPM_Ribosomal_count
+merged_df_Aqua$Kef_subclade42457<- ((merged_df_Aqua$Kef_subclade42457/merged_df_Aqua$Read_count)*1000000)/merged_df_Aqua$CPM_Ribosomal_count
+merged_df_Aqua$Kef_subclade44199<-  ((merged_df_Aqua$Kef_subclade44199/merged_df_Aqua$Read_count)*1000000)/merged_df_Aqua$CPM_Ribosomal_count
+merged_df_Aqua$Kef_subclade42947<-  ((merged_df_Aqua$Kef_subclade42947/merged_df_Aqua$Read_count)*1000000)/merged_df_Aqua$CPM_Ribosomal_count
+merged_df_Aqua$Kef_subclade42415<-  ((merged_df_Aqua$Kef_subclade42415/merged_df_Aqua$Read_count)*1000000)/merged_df_Aqua$CPM_Ribosomal_count
+merged_df_Aqua$Kef_subclade44013<-  ((merged_df_Aqua$Kef_subclade44013/merged_df_Aqua$Read_count)*1000000)/merged_df_Aqua$CPM_Ribosomal_count
+merged_df_Aqua$Kef_subclade44600<-  ((merged_df_Aqua$Kef_subclade44600/merged_df_Aqua$Read_count)*1000000)/merged_df_Aqua$CPM_Ribosomal_count
+merged_df_Aqua$Kef_subclade43808<-  ((merged_df_Aqua$Kef_subclade43808/merged_df_Aqua$Read_count)*1000000)/merged_df_Aqua$CPM_Ribosomal_count
+merged_df_Aqua$Kef_subclade44514<-  ((merged_df_Aqua$Kef_subclade44514/merged_df_Aqua$Read_count)*1000000)/merged_df_Aqua$CPM_Ribosomal_count
+merged_df_Aqua$Kef_subclade43312<-  ((merged_df_Aqua$Kef_subclade43312/merged_df_Aqua$Read_count)*1000000)/merged_df_Aqua$CPM_Ribosomal_count
+merged_df_Aqua$Kef_subclade43225<-  ((merged_df_Aqua$Kef_subclade43225/merged_df_Aqua$Read_count)*1000000)/merged_df_Aqua$CPM_Ribosomal_count
+merged_df_Aqua$Kef_subclade43377<-  ((merged_df_Aqua$Kef_subclade43377/merged_df_Aqua$Read_count)*1000000)/merged_df_Aqua$CPM_Ribosomal_count
+merged_df_Aqua$Kef_subclade43531<-  ((merged_df_Aqua$Kef_subclade43531/merged_df_Aqua$Read_count)*1000000)/merged_df_Aqua$CPM_Ribosomal_count
+merged_df_Aqua$Kef_subclade43598<-  ((merged_df_Aqua$Kef_subclade43598/merged_df_Aqua$Read_count)*1000000)/merged_df_Aqua$CPM_Ribosomal_count
+merged_df_Aqua$Kef_subclade43720<-  ((merged_df_Aqua$Kef_subclade43720/merged_df_Aqua$Read_count)*1000000)/merged_df_Aqua$CPM_Ribosomal_count
+merged_df_Aqua$Kef_subclade44121<-  ((merged_df_Aqua$Kef_subclade44121/merged_df_Aqua$Read_count)*1000000)/merged_df_Aqua$CPM_Ribosomal_count
+merged_df_Aqua$Kef_subclade43954<-  ((merged_df_Aqua$Kef_subclade43954/merged_df_Aqua$Read_count)*1000000)/merged_df_Aqua$CPM_Ribosomal_count
+merged_df_Aqua$Kef_subclade43914<-  ((merged_df_Aqua$Kef_subclade43914/merged_df_Aqua$Read_count)*1000000)/merged_df_Aqua$CPM_Ribosomal_count
+merged_df_Aqua$Kef_subclade42396<-  ((merged_df_Aqua$Kef_subclade42396/merged_df_Aqua$Read_count)*1000000)/merged_df_Aqua$CPM_Ribosomal_count
+merged_df_Aqua$Kef_subclade44582<-  ((merged_df_Aqua$Kef_subclade44582/merged_df_Aqua$Read_count)*1000000)/merged_df_Aqua$CPM_Ribosomal_count
+merged_df_Aqua$Kef_subclade44712<-  ((merged_df_Aqua$Kef_subclade44712/merged_df_Aqua$Read_count)*1000000)/merged_df_Aqua$CPM_Ribosomal_count
+merged_df_Aqua$Kef_group38142<-  ((merged_df_Aqua$Kef_group38142/merged_df_Aqua$Read_count)*1000000)/merged_df_Aqua$CPM_Ribosomal_count
 
 
-merged_df_Aqua$NhaP_CPA1_count <- merged_df_Aqua$NhaP_CPA1_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
-merged_df_Aqua$GerN_count <- merged_df_Aqua$GerN_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
-merged_df_Aqua$SOD2_count <- merged_df_Aqua$SOD2_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
-merged_df_Aqua$NhaS5_count <- merged_df_Aqua$NhaS5_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
-merged_df_Aqua$NhaP_CPA1_count <- merged_df_Aqua$NhaP_CPA1_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
+merged_df_Aqua$Missing_kef<-  ((merged_df_Aqua$Missing_kef/merged_df_Aqua$Read_count)*1000000)/merged_df_Aqua$CPM_Ribosomal_count
 
-merged_df_Aqua$NhaA_count <- merged_df_Aqua$NhaA_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
-merged_df_Aqua$Uncharacterized_CPA_count <- merged_df_Aqua$Uncharacterized_CPA_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
-merged_df_Aqua$Undescribed_CPA1_count <- merged_df_Aqua$Undescribed_CPA1_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
-merged_df_Aqua$UndProkarya_CPA1_IDK_count <- merged_df_Aqua$UndProkarya_CPA1_IDK_count/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
-
-merged_df_Aqua$Kef_subclade29950<- merged_df_Aqua$Kef_subclade29950/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
-merged_df_Aqua$Kef_subclade42457<- merged_df_Aqua$Kef_subclade42457/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
-merged_df_Aqua$Kef_subclade44199<- merged_df_Aqua$Kef_subclade44199/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
-merged_df_Aqua$Kef_subclade42947<- merged_df_Aqua$Kef_subclade42947/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
-merged_df_Aqua$Kef_subclade42415<- merged_df_Aqua$Kef_subclade42415/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
-merged_df_Aqua$Kef_subclade44013<- merged_df_Aqua$Kef_subclade44013/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
-merged_df_Aqua$Kef_subclade44600<- merged_df_Aqua$Kef_subclade44600/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
-merged_df_Aqua$Kef_subclade43808<- merged_df_Aqua$Kef_subclade43808/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
-merged_df_Aqua$Kef_subclade44514<- merged_df_Aqua$Kef_subclade44514/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
-merged_df_Aqua$Kef_subclade43312<- merged_df_Aqua$Kef_subclade43312/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
-merged_df_Aqua$Kef_subclade43225<- merged_df_Aqua$Kef_subclade43225/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
-merged_df_Aqua$Kef_subclade43377<- merged_df_Aqua$Kef_subclade43377/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
-merged_df_Aqua$Kef_subclade43531<- merged_df_Aqua$Kef_subclade43531/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
-merged_df_Aqua$Kef_subclade43598<- merged_df_Aqua$Kef_subclade43598/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
-merged_df_Aqua$Kef_subclade43720<- merged_df_Aqua$Kef_subclade43720/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
-merged_df_Aqua$Kef_subclade44121<- merged_df_Aqua$Kef_subclade44121/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
-merged_df_Aqua$Kef_subclade43954<- merged_df_Aqua$Kef_subclade43954/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
-merged_df_Aqua$Kef_subclade43914<- merged_df_Aqua$Kef_subclade43914/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
-merged_df_Aqua$Kef_subclade42396<- merged_df_Aqua$Kef_subclade42396/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
-merged_df_Aqua$Kef_subclade44582<- merged_df_Aqua$Kef_subclade44582/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
-merged_df_Aqua$Kef_subclade44712<- merged_df_Aqua$Kef_subclade44712/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
-merged_df_Aqua$Kef_group38142<- merged_df_Aqua$Kef_group38142/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
-merged_df_Aqua$Missing_kef<- merged_df_Aqua$Missing_kef/(merged_df_Aqua$RpS2_count + merged_df_Aqua$RpL4_count)
 merged_df_Aqua$total_CPA_noKef_count <- merged_df_Aqua$total_CPA_count - merged_df_Aqua$Kef_count
 
 merged_df_Aqua$total_NaExp <- merged_df_Aqua$total_CPA_count + merged_df_Aqua$MnhE_count + merged_df_Aqua$Hppase_count + merged_df_Aqua$MtrA_count + merged_df_Aqua$NhaB_count + merged_df_Aqua$NhaC_count + merged_df_Aqua$NhaD_count + merged_df_Aqua$NqrA_count- merged_df_Aqua$Kef_count
+
+
 merged_df_Aqua$total_KImp <- merged_df_Aqua$TrkH_count + merged_df_Aqua$Kdp_count + merged_df_Aqua$KimA_count + merged_df_Aqua$Kup_count
 merged_df_Aqua$total_OsImp <- merged_df_Aqua$MIP_count + merged_df_Aqua$BCCT_count + merged_df_Aqua$OpuAC_count
 merged_df_Aqua$total_MgImp <- merged_df_Aqua$MgtE_count + merged_df_Aqua$CorA_count 
-merged_df_Aqua$total_Synth <- merged_df_Aqua$EctC_count + merged_df_Aqua$TreT_count + merged_df_Aqua$Trehalose_PPase_count + merged_df_Aqua$Betain_ald_dehyd_count 
+merged_df_Aqua$total_Synth <- merged_df_Aqua$EctC_count + merged_df_Aqua$TreT_count + merged_df_Aqua$Trehalose_PPase_count 
 
 
 cleanAqua <- merged_df_Aqua[!is.na(merged_df_Aqua$Salinity),]
 ``` 
-
-
-
-```{r}
-library(mgcv)
-gam(DEIK_ratio~Salinity, data=cleanAqua)
-par(mfrow=c(1,3))
-
-splinefitTDEIKAqua <- smooth.spline(cleanAqua$Salinity, cleanAqua$DEIK_ratio)
-plot(cleanAqua$Salinity, cleanAqua$DEIK_ratio, pch = 20,
-     col = adjustcolor("black", alpha.f = 0.2),
-     cex =4,
-     cex.axis = 2,
-     main = "DEIK ratio vs Salinity",
-     xlab = "Salinity (w/v) %",
-    ylab = "DEIK ratio",cex.main = 4, cex.lab = 4)+ lines(splinefitTDEIKAqua, col = "black", lwd = 4)+abline(v = c(3.12,14.2, 37), col = "black", lwd=4) +abline(h = c(1.59), col = "black", lwd=4) 
-splinefit_KimpAq <- smooth.spline(cleanAqua$Salinity, cleanAqua$total_KImp) 
-
-plot(cleanAqua$Salinity, cleanAqua$total_KImp, pch = 20,
-     col = adjustcolor('purple', alpha.f = 0.4), 
-     cex = 4,
-     cex.axis = 2,
-     main = "K importers",
-     xlab = "Salinity %(w/v)",
-      ylab = "Relative abundane",cex.main = 4, cex.lab = 4) + lines(splinefit_KimpAq, col='purple', lwd=4)+abline(v = c(3.12, 14.2,37), col = "black", lwd=4)+ lines(splinefitTDEIKAqua, col='black', lwd=4)+abline(h = c(1.862), col = "black", lwd=4) 
-
-gam(total_OsImp~Salinity, data=cleanAqua)
-
-splinefit_OsImpAq <- smooth.spline(cleanAqua$total_OsImp ~ cleanAqua$Salinity, spar=0.549824)
-splinefit_OsImpAq <- smooth.spline(cleanAqua$total_OsImp ~ cleanAqua$Salinity)
-
- plot(cleanAqua$Salinity, cleanAqua$total_OsImp, pch = 20, 
-     col = adjustcolor("saddlebrown", alpha.f = 0.4), 
-     cex = 4,
-     cex.axis=2,
-     main = "Osmolyte importers",
-     xlab = "Salinity %(w/v)",
-      ylab = "Relative abundane",cex.main = 4, cex.lab = 4) + lines(splinefit_OsImpAq, col ="saddlebrown", lwd = 4) +abline(v = c(3.12, 14.2,37), col = "black", lwd=4)+ lines(splinefitTDEIKAqua, col='black', lwd=4)+abline(h = c(0.789), col = "black", lwd=4) 
- 
-```
-
 
 ```{r}
 #install.packages("segmented")
 library(segmented)
 library(mgcv)
 
+#DEIk to salinity
+gam(DEIK_ratio~Salinity, data=cleanAqua)
 base_model <- lm(DEIK_ratio ~ Salinity
                  , data = cleanAqua)
 
-my_control <- seg.control(n.boot = 1000, display = FALSE)
-
+my_control <- seg.control(n.boot = 1000000, display = FALSE)
 
 summary(base_model)
-seg_model <- segmented(base_model, nps=9)
-print(seg_model)
+
+
+seg_model <- segmented(base_model, nps=5)
 davies.test(seg_model)
+
+summary(seg_model)
+
+
 breakpoint_ci <- confint(seg_model, var.diff = TRUE, method = "delta", p.df = 0)
 
 print(breakpoint_ci)
+```
 
 
+```{r}
+cleanAqua$Salt_block[cleanAqua$Salinity > 26 ] <- "ES"
+cleanAqua$Salt_block[cleanAqua$Salinity == 26] <- "ES"
+
+
+cleanAqua$Salt_block[cleanAqua$Salinity < 2.4] <- "NBS"
+cleanAqua$Salt_block[cleanAqua$Salinity == 2.4 ] <- "NBS"
+
+cleanAqua$Salt_block[cleanAqua$Salinity > 2.4 & cleanAqua$Salinity <14] <- "S"
+cleanAqua$Salt_block[cleanAqua$Salinity == 14] <- "S"
+
+cleanAqua$Salt_block[cleanAqua$Salinity > 14 & cleanAqua$Salinity <26] <- "HS"
+```
+
+
+```{r}
+DEIK_lm <- lm(data=cleanAqua, DEIK_ratio~Salinity)
+summary(DEIK_lm)
+
+DEIK_lm24 <- lm(data=cleanAqua[cleanAqua$Salinity<2.4,], DEIK_ratio~Salinity)
+summary(DEIK_lm24)
+
+DEIK_lmbetween <- lm(data=cleanAqua[cleanAqua$Salinity>2.4&cleanAqua$Salinity<14,], DEIK_ratio~Salinity)
+summary(DEIK_lmbetween)
+
+DEIK_small14 <- lm(data=cleanAqua[cleanAqua$Salinity<14,], DEIK_ratio~Salinity)
+summary(DEIK_small14)
+
+DEIK_big14 <- lm(data=cleanAqua[cleanAqua$Salinity>14,], DEIK_ratio~Salinity)
+summary(DEIK_big14)
+
+DEIK_lm1426 <- lm(data=cleanAqua[cleanAqua$Salinity>14&cleanAqua$Salinity<26,], DEIK_ratio~Salinity)
+summary(DEIK_lm1426)
+
+DEIK_lm24 <- lm(data=cleanAqua[cleanAqua$Salinity>26,], DEIK_ratio~Salinity)
+summary(DEIK_lm24)
+
+KImp <- lm(data=cleanAqua, total_KImp~Salinity)
+summary(KImp)
+
+KImp24 <- lm(data=cleanAqua[cleanAqua$Salinity<2.4,], total_KImp~Salinity)
+summary(KImp24)
+
+
+KImp_lmbetween <- lm(data=cleanAqua[cleanAqua$Salinity>2.4&cleanAqua$Salinity<14,], total_KImp~Salinity)
+summary(KImp_lmbetween)
+
+KImp_lm1426 <- lm(data=cleanAqua[cleanAqua$Salinity>14&cleanAqua$Salinity<26,], total_KImp~Salinity)
+summary(KImp_lm1426)
+
+KImp_lmg14 <- lm(data=cleanAqua[cleanAqua$Salinity>14,], total_KImp~Salinity)
+summary(KImp_lmg14)
+KImp_lms14 <- lm(data=cleanAqua[cleanAqua$Salinity<14,], total_KImp~Salinity)
+summary(KImp_lms14)
+
+
+KImp_lm1426 <- lm(data=cleanAqua[cleanAqua$Salinity>14&cleanAqua$Salinity<26,], total_KImp~Salinity)
+summary(KImp_lm1426)
+
+KImp_lm26 <- lm(data=cleanAqua[cleanAqua$Salinity>26,], total_KImp~Salinity)
+summary(KImp_lm26)
+
+
+KImp <- lm(data=cleanAqua, total_KImp~Salinity*Description)
+summary(KImp)
+
+OsImp <- lm(data=cleanAqua, total_OsImp~Salinity)
+summary(OsImp)
+
+OsImp <- lm(data=cleanAqua[cleanAqua$Salinity< 14,], total_OsImp~Salinity)
+summary(OsImp)
+OsImp <- lm(data=cleanAqua[cleanAqua$Salinity> 14,], total_OsImp~Salinity)
+summary(OsImp)
+OsImp <- lm(data=cleanAqua[cleanAqua$Salinity<2.4,], total_OsImp~Salinity)
+summary(OsImp)
+OsImp <- lm(data=cleanAqua[cleanAqua$Salinity>2.4&cleanAqua$Salinity<14,], total_OsImp~Salinity)
+summary(OsImp)
+OsImp <- lm(data=cleanAqua[cleanAqua$Salinity>14&cleanAqua$Salinity<26,], total_OsImp~Salinity)
+summary(OsImp)
+OsImp <- lm(data=cleanAqua[cleanAqua$Salinity>26,], total_OsImp~Salinity)
+summary(OsImp)
+
+
+Synth <- lm(data=cleanAqua, total_Synth~Salinity)
+summary(Synth)
+Synth <- lm(data=cleanAqua[cleanAqua$Salinity<2.4,], total_Synth~Salinity)
+summary(Synth)
+
+
+
+Synth <- lm(data=cleanAqua[cleanAqua$Salinity>2.4&cleanAqua$Salinity<14,], total_Synth~Salinity)
+summary(Synth)
+Synth <- lm(data=cleanAqua[cleanAqua$Salinity>14&cleanAqua$Salinity<26,], total_Synth~Salinity)
+summary(Synth)
+Synth <- lm(data=cleanAqua[cleanAqua$Salinity>26,], total_Synth~Salinity)
+summary(Synth)
+Synth <- lm(data=cleanAqua[cleanAqua$Salinity<14,], total_Synth~Salinity)
+summary(Synth)
+Synth <- lm(data=cleanAqua[cleanAqua$Salinity>14,], total_Synth~Salinity)
+summary(Synth)
+
+NaExp <- lm(data=cleanAqua, total_NaExp~Salinity)
+summary(NaExp)
+
+
+NaExp <- lm(data=cleanAqua[cleanAqua$Salinity< 14,], total_NaExp~Salinity)
+summary(NaExp)
+
+NaExp <- lm(data=cleanAqua[cleanAqua$Salinity> 14,], total_NaExp~Salinity)
+summary(NaExp)
+NaExp <- lm(data=cleanAqua[cleanAqua$Salinity> 26,], total_NaExp~Salinity)
+summary(NaExp)
+NaExp <- lm(data=cleanAqua[cleanAqua$Salinity< 2.4,], total_NaExp~Salinity)
+summary(NaExp)
+NaExp <- lm(data=cleanAqua[cleanAqua$Salinity>2.4&cleanAqua$Salinity<14,], total_NaExp~Salinity)
+summary(NaExp)
+NaExp <- lm(data=cleanAqua[cleanAqua$Salinity>14&cleanAqua$Salinity<26,], total_NaExp~Salinity)
+summary(NaExp)
+NaExp <- lm(data=cleanAqua[cleanAqua$Salinity> 26,], total_NaExp~Salinity)
+summary(NaExp)
+summary(lm(data=cleanAqua, NqrA_count~Salinity))
+summary(lm(data=cleanAqua, Hppase_count~Salinity))
 
 ```
 
 
-
-
-
 ```{r}
 
+Kdp_Sal <-lm(data=cleanAqua, Kdp_count~Salinity)
+summary(Kdp_Sal)
 
-plot(cleanAqua$Salinity, cleanAqua$DEIK_ratio, pch = 20,
-     col = adjustcolor("grey", alpha.f = 0.7), 
-     cex = 4,
-     cex.axis=2,
-     main = "DEIK-ratio",
-     xlab = "Log10(Salinity) %(w/v)",
-    ylab = "DEIK ratio",cex.main = 4, cex.lab = 4)+ lines(splinefitTDEIKAqua, col = "black", lwd = 10)+abline(v = c(3.12, 14.2, 25.1), col = "black", lwd=4)
+KimA_Sal <-lm(data=cleanAqua, KimA_count~Salinity)
+summary(KimA_Sal)
 
-gam(total_KImp~Salinity, data=cleanAqua)
-par(mfrow=c(2,2))
+Kup_Sal <-lm(data=cleanAqua, Kup_count~Salinity)
+summary(Kup_Sal)
 
-splinefit_KimpAq <- smooth.spline(cleanAqua$Salinity, cleanAqua$total_KImp, spar=0.1521244)
+TrkH_Sal <-lm(data=cleanAqua, TrkH_count~Salinity)
+summary(TrkH_Sal)
+Kef_Sal <-lm(data=cleanAqua, Kef_count~Salinity)
+summary(Kef_Sal)
 
-plot(cleanAqua$Salinity, cleanAqua$total_KImp, pch = 20,
-     col = adjustcolor("red", alpha.f = 0.4), 
-     cex = 4,
-     cex.axis = 2,
-     main = "Aq K+ imp",
-     xlab = "Log10(Salinity) %(w/v)",
-      ylab = "Relative abundane",cex.main = 4, cex.lab = 4) + lines(splinefit_KimpAq, col='red', lwd=10)+abline(v = c(3.12, 14.2, 25.1), col = "black", lwd=4)+ lines(splinefitTDEIKAqua, col='black', lwd=8)
+OpuAC_Sal <-lm(data=cleanAqua, OpuAC_count~Salinity)
+summary(OpuAC_Sal)
+BCCT_Sal <-lm(data=cleanAqua, BCCT_count~Salinity)
+summary(BCCT_Sal)
+MscL_Sal <-lm(data=cleanAqua, MscL_count~Salinity)
+summary(MscL_Sal)
+MIP_Sal <-lm(data=cleanAqua, MIP_count~Salinity)
+summary(MIP_Sal)
+MscS_Sal <-lm(data=cleanAqua, MscS_count~Salinity)
+summary(MscS_Sal)
 
-gam(total_OsImp~Salinity, data=cleanAqua)
-
-splinefit_OsImpAq <- smooth.spline(cleanAqua$total_OsImp ~ cleanAqua$Salinity, spar=0.549824)
-
- plot(cleanAqua$Salinity, cleanAqua$total_OsImp, pch = 20, 
-     col = adjustcolor("gold2", alpha.f = 0.4), 
-     cex = 4,
-     cex.axis=2,
-     main = "Osmolyte importers",
-     xlab = "Log10(Salinity) %(w/v)",
-      ylab = "Relative abundane",cex.main = 4, cex.lab = 4) + lines(splinefit_OsImpAq, col ="gold2", lwd = 10) +abline(v = c(3.12, 14.2, 25.1), col = "black", lwd=4)+ lines(splinefitTDEIKAqua, col='black', lwd=8)
- 
-gam(total_NaExp ~ Salinity, data=cleanAqua)
-splinefit_NaExAq <- smooth.spline(cleanAqua$total_NaExp ~ cleanAqua$Salinity, spar=2.06)
-plot(cleanAqua$Salinity, cleanAqua$total_NaExp, pch = 20, 
-     col = adjustcolor("pink", alpha.f = 0.4), 
-     cex = 4,
-     cex.axis = 2,
-     main = "Sodium exporters",
-     xlab = "Log10(Salinity) %(w/v)",
-      ylab = "Relative abundane",cex.main = 4, cex.lab = 4) + lines(splinefit_NaExAq, col='pink2', lwd=10)+abline(v = c(3.12, 14.2, 25.1), col = "black", lwd=4) + lines(splinefitTDEIKAqua, col='black', lwd=8)
- 
-#spline_fitNa_CaAq<-smooth.spline(cleanAqua$Na_Ca_count ~ cleanAqua$Salinity)
-#plot(cleanAqua$Salinity, cleanAqua$Na_Ca_count, pch = 20,
-#     col = adjustcolor("deepskyblue", alpha.f = 0.4), 
-#     cex = 4,
-#     cex.axis=2,
-#     main = "Aq Na+/Ca2+ exp",
-#     xlab = "Log10(Salinity) %(w/v)",
-#      ylab = "Relative abundane",cex.main = 4, cex.lab = 4)+ lines(spline_fitNa_CaAq, col = "deepskyblue", lwd = 10)+abline(v = c(log10(0.1), log10(14)), col = "black", lwd=4) + lines(splinefitTDEIKAqua, col='black', lwd=8)+abline(v = c(3.5,25), col = "black", lwd=4) 
-
-gam(total_Synth ~ Salinity, data=cleanAqua)
-
-splinefut_SynthAq <- smooth.spline(cleanAqua$total_Synth ~ cleanAqua$Salinity, spar=2.195637)
-plot(cleanAqua$Salinity, cleanAqua$total_Synth, pch = 20, 
-     col = adjustcolor("green", alpha.f = 0.4), 
-     cex = 4,
-     cex.axis=2,
-     main = "Aq Os Synth",
-     xlab = "Log10(Salinity) %(w/v)",
-      ylab = "Relative abundane",cex.main = 4, cex.lab = 4) + lines(splinefut_SynthAq, col ="green", lwd = 10)+abline(v = c(3.12, 14.2, 25.1), col = "black", lwd=4) + lines(splinefitTDEIKAqua, col='black', lwd=8)
-
-
+HPPase_Sal <-lm(data=cleanAqua, Hppase_count~Salinity)
+summary(HPPase_Sal)
+NqrA_Sal <-lm(data=cleanAqua, NqrA_count~Salinity)
+summary(NqrA_Sal)
+NhaD_Sal <-lm(data=cleanAqua, NhaD_count~Salinity)
+summary(NhaD_Sal)
+NhaC_Sal <-lm(data=cleanAqua, NhaC_count~Salinity)
+summary(NhaC_Sal)
+MnhE_Sal <-lm(data=cleanAqua, MnhE_count~Salinity)
+summary(MnhE_Sal)
+CPA_noKef_Sal <-lm(data=cleanAqua, total_CPA_noKef_count~Salinity)
+summary(CPA_noKef_Sal)
+CaNa_Sal <-lm(data=cleanAqua, Na_Ca_count~Salinity)
+summary(CaNa_Sal)
+MgtE_Sal <-lm(data=cleanAqua, MgtE_count~Salinity)
+summary(MgtE_Sal)
+CorA_Sal <-lm(data=cleanAqua, CorA_count~Salinity)
+summary(CorA_Sal)
+CPA1_IDR_Sal <-lm(data=cleanAqua, UndProkarya_CPA1_IDR_count~Salinity)
+summary(CPA1_IDR_Sal)
+Kef_subclade44514_Sal <-lm(data=cleanAqua, Kef_subclade44514~Salinity)
+summary(Kef_subclade44514_Sal)
 ```
 
+```{r}
+cleanAqua$Salt_block
+ggplot(cleanAqua, aes(Salinity,DEIK_ratio, col=Salt_block)) + 
+    geom_point(size = 6, alpha=0.5) +geom_smooth(method = 'lm', se = F,linewidth=2) +
+  theme(text = element_text(size = 20)) +  geom_point(data =cleanAqua[cleanAqua$Description == 'High Salt Soda Lake' | cleanAqua$Description == 'Soda Lake' ,], aes(x = Salinity, y = DEIK_ratio), color = "black", size = 1)+  theme(
+    axis.text = element_text(size = 20))
 
 
+library(patchwork)
+NaPlot<-ggplot(cleanAqua, aes(Salinity,total_NaExp, col=Salt_block)) + 
+    geom_point(size = 6, alpha=0.5) +geom_smooth(method = 'lm', se = F,linewidth=2)+
+  theme(text = element_text(size = 20)) +  geom_point(data = cleanAqua[cleanAqua$Description == 'High Salt Soda Lake' | cleanAqua$Description == 'Soda Lake' ,], aes(x = Salinity, y = total_NaExp), color = "black", size = 1)+  theme(
+    axis.text = element_text(size = 20))
 
+
+Osplot<-ggplot(cleanAqua, aes(Salinity,total_OsImp, col=Salt_block)) + 
+    geom_point(size = 6, alpha=0.5) +geom_smooth(method = 'lm', se = F,linewidth=2)+
+  theme(text = element_text(size = 20)) +  geom_point(data =cleanAqua[cleanAqua$Description == 'High Salt Soda Lake' | cleanAqua$Description == 'Soda Lake' ,], aes(x = Salinity, y = total_OsImp), color = "black", size = 1)
+Synplot<-ggplot(cleanAqua, aes(Salinity,total_Synth, col=Salt_block)) + 
+    geom_point(size = 6, alpha=0.5) +geom_smooth(method = 'lm', se = F,linewidth=2)+
+  theme(text = element_text(size = 20)) +  geom_point(data =cleanAqua[cleanAqua$Description == 'High Salt Soda Lake' | cleanAqua$Description == 'Soda Lake' ,], aes(x = Salinity, y = total_Synth), color = "black", size = 1)+  theme(
+    axis.text = element_text(size = 20))
+
+
+KImplot<-ggplot(cleanAqua, aes(Salinity,total_KImp, col=Salt_block)) + 
+    geom_point(size = 6, alpha=0.5) +geom_smooth(method = 'lm', se = F,linewidth=2 )+
+  theme(text = element_text(size = 20)) +  geom_point(data =cleanAqua[cleanAqua$Description == 'High Salt Soda Lake' | cleanAqua$Description == 'Soda Lake' ,], aes(x = Salinity, y = total_KImp), color = "black", size = 1)+  theme(
+    axis.text = element_text(size = 20))
+
+((KImplot|Osplot)/(Synplot|NaPlot))
+```
 
 ```{r}
 
+cleanAqua_subset_Kimp <- cleanAqua[,c(37,38,43,49,53,101)]
+
+library(data.table)
+
+
+library(tidyr)
+
+long <- cleanAqua_subset_Kimp %>% 
+  pivot_longer(
+    cols = 'TrkH_count': 'Kef_count',
+    names_to = "Gene",
+    values_to = "CMP_ratio"
+)
+
+long$Salt_block<- factor(long$Salt_block, levels = c("NBS", "S", "HS", "ES"))
+long$Gene<- factor(long$Gene, levels = c("Kdp_count", "KimA_count", "Kup_count", "TrkH_count", "Kef_count"))
+
+Kblocks<-ggplot(long, aes(x = Gene,
+                 y = CMP_ratio,
+                 main = "Osmotic channels",
+                 colour = Salt_block)) + geom_boxplot(outlier.shape=NA) + scale_fill_manual(values = c("NBS" = '#fc8d59' ,"S"='#91bfdb' ,"HS"='#fee090',"ES"='#d73027')) +
+  geom_point(position = position_jitterdodge()) +
+  scale_colour_manual(values = c("NBS" = '#fc8d59' ,"S"='#91bfdb' ,"HS"='#fee090',"ES"='#d73027')) +
+  theme(axis.title = element_text(size = 20))+
+  theme(axis.text = element_text(size = 18))+ theme(legend.text = element_text(size = 14))+ theme(legend.title = element_text(size = 16))
 dev.off()
-par(mfrow=c(1,3))
+
+resKdp.aov <- aov(Kdp_count~Salt_block, data=cleanAqua)
+TukeyHSD(resKdp.aov)
+
+resKimA.aov <- aov(KimA_count~Salt_block, data=cleanAqua)
+TukeyHSD(resKimA.aov)
+
+resKup.aov <- aov(Kup_count~Salt_block, data=cleanAqua)
+TukeyHSD(resKup.aov)
+
+resBCCT.aov <- aov(BCCT_count~Salt_block, data=cleanAqua)
+TukeyHSD(resBCCT.aov)
+
+resMscS.aov <- aov(MscS_count~Salt_block, data=cleanAqua)
+TukeyHSD(resMscS.aov)
+
+Kblocks
 
 spline_fitTrkHAq<- smooth.spline(log10(cleanAqua$Salinity), cleanAqua$TrkH_count)
+spline_fitKefAq<- smooth.spline(log10(cleanAqua$Salinity), cleanAqua$Kef_count)
+
 spline_fitKupAq <- smooth.spline(log10(cleanAqua$Salinity), cleanAqua$Kup_count)
 spline_fitKimAAq <- smooth.spline(log10(cleanAqua$Salinity), cleanAqua$KimA_count)
 spline_fitKdpAq <- smooth.spline(log10(cleanAqua$Salinity), cleanAqua$Kdp_count)
@@ -298,69 +444,40 @@ plot(log10(cleanAqua$Salinity), cleanAqua$KimA_count, pch = 20, ylim=c(0,2),
      cex = 4,
      cex.axis=2,
      main = "K+ importers",
-     xlab = "Log10(Salinity) %(w/v)",
-      ylab = "Relative abundane",cex.main = 4, cex.lab = 4)  + lines(spline_fitTrkHAq, col = "purple", lwd = 4)+ lines(spline_fitKupAq, col ="green3", lwd = 4)+ lines(spline_fitKimAAq, col = "grey", lwd = 4)  + lines(spline_fitKdpAq, col = "turquoise3", lwd = 4)+ lines(spline_fitSumAq, col = "red", lwd = 4)+  abline(v = c(log10(14), log10(0.1),log10(3.5), log10(25)), col = "black", lty = "solid", lwd=4) 
+     xlab = "Log10(%(w/v) Salinity)",
+      ylab = "CMP ratio",cex.main = 4, cex.lab = 4)  + lines(spline_fitTrkHAq, col = "purple", lwd = 4)+ lines(spline_fitKupAq, col ="green3", lwd = 4)+ lines(spline_fitKimAAq, col = "grey", lwd = 4)  + lines(spline_fitKdpAq, col = "turquoise3", lwd = 4)+ lines(spline_fitSumAq, col = "red", lwd = 4) +lines(spline_fitKefAq, col='orange',lwd=4)+  abline(v = c(log10(14),  log10(2.4),log10(26)), col = "black", lty = "solid", lwd=4) 
 
-spline_fitNqrAAq<- smooth.spline(log10(cleanAqua$Salinity), cleanAqua$NqrA_count)
-spline_fitHppaseAq <- smooth.spline(log10(cleanAqua$Salinity), cleanAqua$Hppase_count)
-spline_fitNhaDAq <- smooth.spline(log10(cleanAqua$Salinity), cleanAqua$NhaD_count)
-spline_fitNhaCAq <- smooth.spline(log10(cleanAqua$Salinity), cleanAqua$NhaC_count)
-spline_fitMnhEAq <- smooth.spline(log10(cleanAqua$Salinity), cleanAqua$MnhE_count)
-spline_fitBCCTAq <- smooth.spline(log10(cleanAqua$Salinity), cleanAqua$BCCT_count)
-spline_fitMIPAq <- smooth.spline(log10(cleanAqua$Salinity), cleanAqua$MIP_count)
-spline_fitOpuACAq <- smooth.spline(log10(cleanAqua$Salinity), cleanAqua$OpuAC_count)
-spline_fitMscLAq <- smooth.spline(log10(cleanAqua$Salinity), cleanAqua$MscL_count)
-spline_fitMscSAq <- smooth.spline(log10(cleanAqua$Salinity), cleanAqua$MscS_count)
+spline_fitTrkHAq<- smooth.spline((cleanAqua$Salinity), cleanAqua$TrkH_count)
+spline_fitKefAq<- smooth.spline((cleanAqua$Salinity), cleanAqua$Kef_count)
 
-plot(log10(cleanAqua$Salinity), cleanAqua$total_OsImp, pch = 20, 
-     col = adjustcolor("gold2", alpha.f = 0),  ylim=c(0,2.5),
+spline_fitKupAq <- smooth.spline((cleanAqua$Salinity), cleanAqua$Kup_count)
+spline_fitKimAAq <- smooth.spline((cleanAqua$Salinity), cleanAqua$KimA_count)
+spline_fitKdpAq <- smooth.spline((cleanAqua$Salinity), cleanAqua$Kdp_count)
+spline_fitSumAq <- smooth.spline((cleanAqua$Salinity), (cleanAqua$KimA_count + cleanAqua$Kdp_count + cleanAqua$TrkH_count + cleanAqua$Kup_count))
+
+plot((cleanAqua$Salinity), cleanAqua$KimA_count, pch = 20, ylim=c(0,2),
+     col = adjustcolor("grey", alpha.f = 0), 
      cex = 4,
      cex.axis=2,
-     main = "Aq Os Synth",
-     xlab = "Log10(Salinity) %(w/v)",
-      ylab = "Relative abundane",cex.main = 4, cex.lab = 4)  + lines(splinefit_OsImpAq, col ="gold2", lwd = 4) + abline(v = c(log10(0.1), log10(14), log10(3.5), log10(25)), col = 'black', lwd=4) + lines(spline_fitBCCTAq, col='magenta2', lwd=4)  + lines(spline_fitMIPAq, col='cadetblue', lwd=4) + lines(spline_fitOpuACAq, col='darkblue', lwd=4)
-
-splinefit_NaExAq <- smooth.spline(cleanAqua$total_NaExp ~ log10(cleanAqua$Salinity))
-
-spline_fit_nonKef_CPA_Aq <-smooth.spline(log10(cleanAqua$Salinity), (cleanAqua$total_CPA_count - cleanAqua$Kef_count))
-plot(log10(cleanAqua$Salinity), cleanAqua$total_NaExp, pch = 20, ylim=c(0,5),
-     col = adjustcolor("blue4", alpha.f = 0), 
-     cex = 4,
-     cex.axis=2,
-     main = "Na+ exporter ",
-     xlab = "Log10(Salinity) %(w/v)",
-      ylab = "Relative abundane",cex.main = 4, cex.lab = 4) + lines(splinefit_NaExAq, col ="pink2", lwd = 4) + lines(spline_fitNqrAAq, col ="orange1", lwd = 4) +lines(spline_fitHppaseAq, col ="grey2", lwd = 4) +lines(spline_fitNhaDAq, col ="yellow2", lwd = 4) +lines(spline_fitNhaCAq , col ="orange4", lwd = 4) +lines(spline_fitMnhEAq , col ="cyan2", lwd = 4)+  abline(v = c(log10(14.2), log10(3.12), log10(25.1)), col = "black", lty = "solid", lwd=4) + lines(spline_fit_nonKef_CPA_Aq, col ="darkgreen", lwd = 4)
-
-
+     main = "K+ importers",
+     xlab = "%(w/v) Salinity ",
+      ylab = "CMP ratio",cex.main = 4, cex.lab = 4)  + lines(spline_fitTrkHAq, col = "purple", lwd = 4)+ lines(spline_fitKupAq, col ="green3", lwd = 4)+ lines(spline_fitKimAAq, col = "grey", lwd = 4)  + lines(spline_fitKdpAq, col = "turquoise3", lwd = 4)+ lines(spline_fitSumAq, col = "red", lwd = 4) +lines(spline_fitKefAq, col='orange',lwd=4)+  abline(v = c((14),  (2.4),(26)), col = "black", lty = "solid", lwd=4) 
 ```
 
-
-
-
-```{r}
-
-
-
-```
-
-```{r}
-
-```
 
 ```{r}
 spline_fitTreTAq <- smooth.spline(cleanAqua$Salinity, cleanAqua$TreT_count)
 spline_fitOtsBAq <- smooth.spline(cleanAqua$Salinity, cleanAqua$Trehalose_PPase_count)
 splinefitEctCAq <- smooth.spline(cleanAqua$Salinity, cleanAqua$EctC_count)
-spline_fitBetBAq <- smooth.spline(cleanAqua$Salinity, cleanAqua$Betain_ald_dehyd_count)
 splinefitTreTAq <- smooth.spline(cleanAqua$Salinity, cleanAqua$TreT_count)
 splinefit_SynthAq <- smooth.spline(cleanAqua$Salinity, cleanAqua$total_Synth)
 plot(cleanAqua$Salinity, cleanAqua$total_Synth, pch = 20, 
-     col = adjustcolor("green", alpha.f = 0.4), 
+     col = adjustcolor("green", alpha.f = 0), 
      cex = 4,
      cex.axis=2,
      main = "Osmolyte synthases",
      xlab = "Salinity %(w/v)",
-      ylab = "Relative abundane",cex.main = 4, cex.lab = 2) + lines(splinefit_SynthAq, col ='green2', lwd = 4) + abline(v = c(3.12, 14.2, 25.1), col = 'black', lwd=4) + lines(splinefitTreTAq, col='firebrick1', lwd=4) + lines(splinefitEctCAq, col='magenta2', lwd=4)  + lines(spline_fitBetBAq, col='cadetblue', lwd=4)  + lines(spline_fitOtsBAq, col='yellow2', lwd=4) + lines(splinefitTDEIKAqua, col = "black", lwd = 4)
+      ylab = "CPMR",cex.main = 4, cex.lab = 2) + lines(splinefit_SynthAq, col ='green2', lwd = 4) + abline(v = c(2.4, 14, 26), col = 'black', lwd=4) + lines(splinefitTreTAq, col='firebrick1', lwd=4) + lines(splinefitEctCAq, col='magenta2', lwd=4) + lines(spline_fitOtsBAq, col='yellow2', lwd=4)
 
 plot(log10(cleanAqua$Salinity), cleanAqua$TreT_count, pch = 20, 
      col = adjustcolor("green", alpha.f = 0.4), 
@@ -373,461 +490,1371 @@ plot(log10(cleanAqua$Salinity), cleanAqua$TreT_count, pch = 20,
 ```
 
 
-
-
 ```{r}
+spline_fitKefAq<- smooth.spline(cleanAqua$Salinity, cleanAqua$Kef_count)
+spline_fitIDRAq<- smooth.spline(cleanAqua$Salinity, cleanAqua$UndProkarya_CPA1_IDR_count)
+splinefitTDEIKAqua <- smooth.spline(cleanAqua$Salinity, cleanAqua$DEIK_ratio)
+splinefitNHX <- smooth.spline(cleanAqua$Salinity,cleanAqua$NHX_count)
+splinefitCHX <- smooth.spline(cleanAqua$Salinity,cleanAqua$CHX_count)
+splinefitCPA1_Sl <- smooth.spline(cleanAqua$Salinity, cleanAqua$CPA1_SL_count)
+splinefitNhaA <- smooth.spline(cleanAqua$Salinity, cleanAqua$NhaA_count)
+splinefitNhaP <- smooth.spline(cleanAqua$Salinity, cleanAqua$NhaP_CPA1_count)
+spline_fit_nonKef_CPA_Aq <- smooth.spline(cleanAqua$Salinity, cleanAqua$total_CPA_noKef_count)
+spline_fit_Kef44514<-smooth.spline(cleanAqua$Salinity,cleanAqua$Kef_subclade44514)
+splinefitTotalCPAAq <- smooth.spline(cleanAqua$Salinity, cleanAqua$total_CPA_count)
 
-Env_frequently_observed <- c('Saltern', 'Salt lake',  'High Salt Soda Lake','Soda Lake', 'Sea', 'Estuary','River', 'Lake')
-
-Merged_df_Aqua_Big <- merged_df_Aqua[merged_df_Aqua$Description %in% Env_frequently_observed,]
-
-
-
-Merged_df_Aqua_Big$Description<- factor(Merged_df_Aqua_Big$Description, levels = c("Saltern", "Salt lake", "High Salt Soda Lake", "Soda Lake", "Sea", "Estuary", "River", "Lake"))
-
-ggplot(data=Merged_df_Aqua_Big, aes(x=Description, y=DEIK_ratio, col=Description)) +geom_boxplot(outliers = FALSE) + geom_jitter()
-
-
-ggplot(data=Merged_df_Aqua_Big, aes(x=Description, y=TrkH_count, col=Description)) +geom_boxplot(outliers = FALSE) + geom_jitter() + geom_hline(yintercept=median(merged_df_Aqua$TrkH_count), lty='dashed')
-
-ggplot(data=Merged_df_Aqua_Big, aes(x=Description, y=Kup_count, col=Description)) +geom_boxplot(outliers = FALSE) + geom_jitter()+ geom_hline(yintercept=median(merged_df_Aqua$Kup_count), lty='dashed')
-
-ggplot(data=Merged_df_Aqua_Big, aes(x=Description, y=Na_Ca_count, col=Description)) +geom_boxplot(outliers = FALSE) + geom_jitter()+ geom_hline(yintercept=median(merged_df_Aqua$Na_Ca_count))
-
-ggplot(data=Merged_df_Aqua_Big, aes(x=Description, y=Kef_count, col=Description)) +geom_boxplot(outliers = FALSE) + geom_jitter()+ geom_hline(yintercept=median(merged_df_Aqua$Kef_count))
-ggplot(data=Merged_df_Aqua_Big, aes(x=Description, y=ClcA_count, col=Description)) +geom_boxplot(outliers = FALSE) + geom_jitter()+geom_hline(yintercept=median(merged_df_Aqua$ClcA_count))
-
-ggplot(data=Merged_df_Aqua_Big, aes(x=Description, y=Hppase_count, col=Description)) +geom_boxplot(outliers = FALSE) + geom_jitter()+geom_hline(yintercept=median(merged_df_Aqua$Hppase_count))
-
-ggplot(data=Merged_df_Aqua_Big, aes(x=Description, y=CHX_count, col=Description)) +geom_boxplot(outliers = FALSE) + geom_jitter()+geom_hline(yintercept=median(merged_df_Aqua$CHX_count))
-
-ggplot(data=Merged_df_Aqua_Big, aes(x=Description, y=CPA1_count, col=Description)) +geom_boxplot(outliers = FALSE) +geom_jitter() + geom_hline(yintercept=median(merged_df_Aqua$CPA1_count))
-
-ggplot(data=Merged_df_Aqua_Big, aes(x=Description, y=Betain_ald_dehyd_count, col=Description)) +geom_boxplot(outliers = FALSE) + geom_jitter()+geom_hline(yintercept=median(merged_df_Aqua$Betain_ald_dehyd_count))
-
-ggplot(data=Merged_df_Aqua_Big, aes(x=Description, y=OpuAC_count, col=Description)) +geom_boxplot(outliers = FALSE) + geom_jitter()+geom_hline(yintercept=median(merged_df_Aqua$OpuAC_count))
-ggplot(data=Merged_df_Aqua_Big, aes(x=Description, y=MIP_count, col=Description)) +geom_boxplot(outliers = FALSE) + geom_jitter()+geom_hline(yintercept=median(Merged_df_Aqua_Big$MIP_count))
-
-ggplot(data=Merged_df_Aqua_Big, aes(x=Description, y=CorA_count, col=Description)) +geom_boxplot(outliers = FALSE) + geom_jitter()+geom_hline(yintercept=median(Merged_df_Aqua_Big$CorA_count))
-
-ggplot(data=Merged_df_Aqua_Big, aes(x=Description, y=MgtE_count, col=Description)) +geom_boxplot(outliers = FALSE) + geom_jitter()+geom_hline(yintercept=median(Merged_df_Aqua_Big$MgtE_count))
-
-ggplot(data=Merged_df_Aqua_Big, aes(x=Description, y=UndProkarya_CPA1_IDK_count, col=Description)) +geom_boxplot(outliers = FALSE) + geom_jitter()+geom_hline(yintercept=median(Merged_df_Aqua_Big$UndProkarya_CPA1_IDK_count))
-
-ggplot(data=Merged_df_Aqua_Big, aes(x=Description, y=total_NaExp, col=Description)) +geom_boxplot(outliers = FALSE) + geom_jitter()+geom_hline(yintercept=median(Merged_df_Aqua_Big$total_NaExp))
-
-ggplot(data=Merged_df_Aqua_Big, aes(x=Description, y=total_KImp, col=Description)) +geom_boxplot(outliers = FALSE) + geom_jitter()+geom_hline(yintercept=median(Merged_df_Aqua_Big$total_KImp))
-
-ggplot(data=Merged_df_Aqua_Big, aes(x=Description, y=total_OsImp, col=Description)) +geom_boxplot(outliers = FALSE)+ geom_jitter()+geom_hline(yintercept=median(Merged_df_Aqua_Big$total_OsImp))
-
-ggplot(data=Merged_df_Aqua_Big, aes(x=Description, y=total_Synth, col=Description)) +geom_boxplot(outliers = FALSE)+ geom_jitter()+geom_hline(yintercept=median(Merged_df_Aqua_Big$total_Synth))
-
-ggplot(data=Merged_df_Aqua_Big, aes(x=Description, y=MscS_count, col=Description)) + geom_boxplot(outliers = FALSE)+ geom_jitter()+geom_hline(yintercept=median(Merged_df_Aqua_Big$MscS_count))
+plot(cleanAqua$Salinity, cleanAqua$UndProkarya_CPA1_IDR_count, pch = 20,
+     col = adjustcolor("blue4", alpha.f = 0), ylim=c(0,3),
+     cex = 2,
+     cex.axis = 2,
+     main = "CPA/Kef families",
+     xlab = "%(w/v) Salinity",
+      ylab = "CPMR",cex.main = 4, cex.lab = 3)  + lines(spline_fitKefAq, col = "deeppink", lwd = 4)+ abline(v = c(14, 2.4, 26), col = "black", lty = "solid")+ lines(spline_fit_nonKef_CPA_Aq, col ="darkgreen", lwd = 4) + lines(splinefitTotalCPAAq, col ="orange3", lwd = 4)  + lines(spline_fit_Kef44514, col='grey', lwd=4)+ lines(spline_fitIDRAq, col='blue4', lwd=4)+ lines(splinefitCHX, col ="red", lwd = 4)  + lines(spline_fit_Kef44514, col='grey', lwd=4)+ lines(splinefitNHX, col='cyan', lwd=4)+lines(splinefitNhaA, col='orange', lwd=4) + lines(splinefitCPA1_Sl, col='green', lwd=4)+ lines(splinefitNhaP, col='purple', lwd=4)
+summary(lm(data=cleanAqua, UndProkarya_CPA1_IDR_count~Salinity))
+summary(lm(data=cleanAqua, Kef_subclade44514~Salinity))
 ```
 
-```{r}
-spline_fitTrkHAq<- smooth.spline(cleanAqua$Salinity, cleanAqua$TrkH_count)
-spline_fitKupAq <- smooth.spline(cleanAqua$Salinity, cleanAqua$Kup_count)
-spline_fitKimAAq <- smooth.spline(cleanAqua$Salinity, cleanAqua$KimA_count)
-spline_fitKdpAq <- smooth.spline(cleanAqua$Salinity, cleanAqua$Kdp_count)
-spline_fitSumAq <- smooth.spline(log10(cleanAqua$Salinity), (cleanAqua$KimA_count + cleanAqua$Kdp_count + cleanAqua$TrkH_count + cleanAqua$Kup_count))
-splinefitTDEIKAqua <- smooth.spline(log10(cleanAqua$Salinity), cleanAqua$DEIK_ratio)
-
-#par(mfrow=c(1,3))
-dev.off()
-plot(log10(cleanAqua$Salinity), cleanAqua$total_KImp, pch = 20,
-     col = adjustcolor("#4575b4", alpha.f = 0.4), 
-     cex = 6,
-     cex.axis=2,
-     main = "K+ importers",
-     xlab = "Salinity %(w/v)",
-      ylab = "Relative abundane",cex.main = 4, cex.lab = 1.5)+abline(v = c(log10(3.12),log10(14.2)), col = "black", lty = "solid", lwd=5) + lines(spline_fitSumAq , col = "#4575b4", lwd = 6) + lines(splinefitTDEIKAqua, col = "black", lwd = 6)
-
-
-spline_fitTrkHAq<- smooth.spline(log10(cleanAqua$Salinity), cleanAqua$TrkH_count)
-spline_fitKupAq <- smooth.spline(log10(cleanAqua$Salinity), cleanAqua$Kup_count)
-spline_fitKimAAq <- smooth.spline(log10(cleanAqua$Salinity), cleanAqua$KimA_count)
-spline_fitKdpAq <- smooth.spline(log10(cleanAqua$Salinity), cleanAqua$Kdp_count)
-spline_fitSumAq <- smooth.spline(log10(cleanAqua$Salinity), (cleanAqua$KimA_count + cleanAqua$Kdp_count + cleanAqua$TrkH_count + cleanAqua$Kup_count))
-splinefitTDEIKAqua <- smooth.spline(log10(cleanAqua$Salinity), cleanAqua$DEIK_ratio)
-
-
-splinefit_OsImpAq <- smooth.spline(log10(cleanAqua$Salinity),cleanAqua$total_OsImp )
-
-plot(log10(cleanAqua$Salinity), cleanAqua$total_OsImp, pch = 20,
-     col = adjustcolor("#F5C710", alpha.f = 0.6), 
-     cex = 6,
-     cex.axis=2,
-     main = "Osmolyte importers",
-     xlab = "Log10(Salinity) %(w/v)",
-      ylab = "Relative abundane",cex.main = 4, cex.lab = 1.5)+  abline(v = c(log10(3.12),log10(14.2)), col = "black", lty = "solid", lwd=5) + lines(splinefit_OsImpAq , col = "#F5C710", lwd = 6)+ lines(splinefitTDEIKAqua, col = "black", lwd = 6)
-
-
-splinefit_OsImpAq <- smooth.spline(log10(cleanAqua$Salinity),cleanAqua$total_OsImp )
-
-plot(log10(cleanAqua$Salinity), cleanAqua$DEIK_ratio, pch = 20,
-     col = adjustcolor("black", alpha.f = 0.3), 
-     cex = 6,
-     cex.axis=2,
-     main = "DEIK importers",
-     xlab = "Log10(Salinity) %(w/v)",
-      ylab = "DEIK ratio",cex.main = 4, cex.lab = 1.5)+abline(v = c(log10(0.06),log10(14.2)),, col = "black", lty = "solid", lwd=5)  + lines(splinefitTDEIKAqua, col = "black", lwd = 6) + abline(h=0.68)
-```
 
 ```{r}
-dev.off()
+spline_fitNqrAAq<- smooth.spline(cleanAqua$Salinity, cleanAqua$NqrA_count)
+spline_fitHppaseAq <- smooth.spline(cleanAqua$Salinity, cleanAqua$Hppase_count)
+spline_fitNhaDAq <- smooth.spline(cleanAqua$Salinity, cleanAqua$NhaD_count)
+spline_fitNhaCAq <- smooth.spline(cleanAqua$Salinity, cleanAqua$NhaC_count)
+spline_fitMnhEAq <- smooth.spline(cleanAqua$Salinity, cleanAqua$MnhE_count)
 spline_fitBCCTAq <- smooth.spline(cleanAqua$Salinity, cleanAqua$BCCT_count)
 spline_fitMIPAq <- smooth.spline(cleanAqua$Salinity, cleanAqua$MIP_count)
 spline_fitOpuACAq <- smooth.spline(cleanAqua$Salinity, cleanAqua$OpuAC_count)
 spline_fitMscLAq <- smooth.spline(cleanAqua$Salinity, cleanAqua$MscL_count)
 spline_fitMscSAq <- smooth.spline(cleanAqua$Salinity, cleanAqua$MscS_count)
-splinefitTDEIKAqua <- smooth.spline(cleanAqua$Salinity, cleanAqua$DEIK_ratio)
+spline_fit_nonKef_CPA_Aq <-smooth.spline(cleanAqua$Salinity, (cleanAqua$total_CPA_count - cleanAqua$Kef_count))
 
-plot(cleanAqua$Salinity, cleanAqua$OpuAC_count, pch = 20, 
-     col = adjustcolor("darkblue", alpha.f = 0.5), ylim=c(0,5),
+plot(cleanAqua$Salinity, cleanAqua$total_OsImp, pch = 20, 
+     col = adjustcolor("gold2", alpha.f = 0),  ylim=c(0,4),
      cex = 4,
      cex.axis=2,
-     main = "Osmolyte importers",
+     main = "Aq Os Uptake",
      xlab = "Salinity %(w/v)",
-      ylab = "Relative abundane",cex.main = 4, cex.lab = 2) + abline(v = c(3.12, 14.2, 25.1), col = 'black', lwd=4) + lines(spline_fitBCCTAq, col='magenta2', lwd=4) + lines(spline_fitOpuACAq, col='darkblue', lwd=4) + lines(splinefitTDEIKAqua, col = "black", lwd = 4)
-```
+      ylab = "CPMR",cex.main = 4, cex.lab = 4)  + abline(v = c(2.4, 14,26), col = 'black', lwd=4) + lines(spline_fitBCCTAq, col='magenta2', lwd=4)  + lines(spline_fitMIPAq, col='cadetblue', lwd=4) + lines(spline_fitOpuACAq, col='darkblue', lwd=4)
 
-
-```{r}
-plot(cleanAqua$Salinity, cleanAqua$total_KImp, pch = 20, 
-     col = adjustcolor("blue", alpha.f = 0.5),
+splinefit_NaExAq <- smooth.spline(cleanAqua$total_NaExp ~cleanAqua$Salinity)
+dev.off()
+spline_fit_nonKef_CPA_Aq <-smooth.spline(cleanAqua$Salinity, (cleanAqua$total_CPA_count - cleanAqua$Kef_count))
+plot(cleanAqua$Salinity, cleanAqua$total_NaExp, pch = 20, ylim=c(0,7),
+     col = adjustcolor("blue4", alpha.f = 0), 
      cex = 4,
      cex.axis=2,
-     main = "Aq Os Synth",
-     xlab = "Log10(Salinity) %(w/v)",
-      ylab = "Relative abundane",cex.main = 4, cex.lab = 4)+ abline(v = c(0.1, 14, 3.5, 25), col = "black", lty = "solid")
-```
-
-
-```{r}
-spline_fitKefAq<- smooth.spline(cleanAqua$Salinity, cleanAqua$Kef_count)
-spline_fitIDKAq<- smooth.spline(cleanAqua$Salinity, cleanAqua$UndProkarya_CPA1_IDK_count)
-splinefitTDEIKAqua <- smooth.spline(cleanAqua$Salinity, cleanAqua$DEIK_ratio)
-splinefitCPA1 <- smooth.spline(cleanAqua$Salinity,cleanAqua$CPA1_count)
-splinefitCHX <- smooth.spline(cleanAqua$Salinity,cleanAqua$CHX_count)
-splinefitCPA1_Sl <- smooth.spline(cleanAqua$Salinity, cleanAqua$CPA1_SL_count)
-splinefitNhaA <- smooth.spline(cleanAqua$Salinity, cleanAqua$NhaA_count)
-splinefitNhaP <- smooth.spline(cleanAqua$Salinity, cleanAqua$NhaP_CPA1_count)
-
-spline_fit_Kef44514<-smooth.spline(cleanAqua$Salinity,cleanAqua$Kef_subclade44514)
-splinefitTotalCPAAq <- smooth.spline(cleanAqua$Salinity, cleanAqua$total_CPA_count)
-spline_fit_nonKef_Aq <-smooth.spline(cleanAqua$Salinity, (cleanAqua$total_CPA_count - cleanAqua$Kef_count))
-
-plot(cleanAqua$Salinity, cleanAqua$UndProkarya_CPA1_IDK_count, pch = 20,
-     col = adjustcolor("blue4", alpha.f = 0.5), ylim=c(0,3),
-     cex = 2,
-     main = "CPA/Kef importer Aqua",
-     xlab = "Salinity %(w/v)",
-      ylab = "Relative abundane",cex.main = 4, cex.lab = 1.5)  + lines(spline_fitKefAq, col = "deeppink", lwd = 4)+ abline(v = c(0.1, 14, 3.5, 25), col = "black", lty = "solid")+ lines(spline_fit_nonKef_Aq, col ="darkgreen", lwd = 4) + lines(splinefitTotalCPAAq, col ="orange3", lwd = 4)  + lines(spline_fit_Kef44514, col='grey', lwd=4)+ lines(spline_fitIDKAq, col='blue4', lwd=4)+ lines(splinefitTDEIKAqua, col = "black", lwd = 8)+ lines(splinefitCHX, col ="red", lwd = 4)  + lines(spline_fit_Kef44514, col='grey', lwd=4)+ lines(splinefitCPA1, col='cyan', lwd=4)+lines(splinefitNhaA, col='orange', lwd=4) + lines(splinefitCPA1_Sl, col='green')+ lines(splinefitNhaP, col='purple', lwd=4)
-```
-
-```{r}
-spline_fitKefAq<- smooth.spline(log10(cleanAqua$Salinity), cleanAqua$Kef_count)
-spline_fitIDKAq<- smooth.spline(log10(cleanAqua$Salinity), cleanAqua$UndProkarya_CPA1_IDK_count)
-spline_fitKefAq<- smooth.spline(log10(cleanAqua$Salinity), cleanAqua$Kef_count)
-spline_fit_nonKef_Aq<- smooth.spline(log10(cleanAqua$Salinity), (cleanAqua$total_CPA_count-cleanAqua$Kef_count))
-splinefitTotalCPAAq<- smooth.spline(log10(cleanAqua$Salinity), cleanAqua$total_CPA_count)
-splinefitTDEIKAqua <- smooth.spline(log10(cleanAqua$Salinity), cleanAqua$DEIK_ratio)
-
-spline_fit_Kef44514<-smooth.spline(log10(cleanAqua$Salinity),cleanAqua$Kef_subclade44514)
-
-plot(log10(cleanAqua$Salinity), cleanAqua$UndProkarya_CPA1_IDK_count, pch = 20, xlim = c(-3.5, 2), ylim=c(0,2),
-     col = adjustcolor("blue4", alpha.f = 0.5), 
-     cex = 2,
-     main = "CPA/Kef importer Aqua",
-     xlab = "Log10(Salinity) %(w/v)",
-      ylab = "Relative abundane",cex.main = 4, cex.lab = 1.5)  + lines(spline_fitKefAq, col = "deeppink", lwd = 4)+ abline(v = c(log10(3.12), log10(14.2), log10(25.1)), col = "black", lty = "solid")+ lines(spline_fit_nonKef_Aq, col ="darkgreen", lwd = 4) + lines(splinefitTotalCPAAq, col ="orange3", lwd = 4)  + lines(spline_fit_Kef44514, col='grey', lwd=4)+ lines(spline_fitIDKAq, col='blue4', lwd=4) + lines(splinefitTDEIKAqua, col='black', lwd=8)
-
-summary(lm(Kef_count~Salinity, data=cleanAqua))
-summary(lm(Kef_count~Salinity, data=cleanAqua[cleanAqua$Salinity < 3.12 & cleanAqua$Salinity < 14.2,]))
-
-summary(lm(total_CPA_noKef_count ~ Salinity, data=cleanAqua))
-summary(lm(total_CPA_noKef_count ~ Salinity, data=cleanAqua[cleanAqua$Salinity < 14.2,]))
-
-```
-
-
-
-```{r}
-library("scales")
-library("ggplot2")
-library(ggthemes)
-show_col(colorblind_pal()(7))
-
-cleanAqua$Salt_block[cleanAqua$Salinity > 25.1 ] <- "ES"
-cleanAqua$Salt_block[cleanAqua$Salinity == 25.1] <- "ES"
-
-
-cleanAqua$Salt_block[cleanAqua$Salinity < 3.12] <- "NBS"
-cleanAqua$Salt_block[cleanAqua$Salinity == 3.12 ] <- "NBS"
-
-cleanAqua$Salt_block[cleanAqua$Salinity > 3.12 & cleanAqua$Salinity <14.2] <- "S"
-cleanAqua$Salt_block[cleanAqua$Salinity == 14.2] <- "S"
-
-cleanAqua$Salt_block[cleanAqua$Salinity > 14.2 & cleanAqua$Salinity <25.1 ] <- "HS"
-
-cleanAqua_subset_Kimp <- cleanAqua[,c(36,37,42,48,52,99)]
-library(data.table)
-# Source - https://stackoverflow.com/a/25856135
-# Posted by Jaap, modified by community. See post 'Timeline' for change history
-# Retrieved 2026-06-30, License - CC BY-SA 4.0
-
-library(tidyr)
-
-long <- cleanAqua_subset_Kimp %>% 
-  pivot_longer(
-    cols = 'TrkH_count': 'Kef_count',
-    names_to = "Gene",
-    values_to = "Relative_abundance"
-)
-
-long$Salt_block<- factor(long$Salt_block, levels = c("NBS", "S", "HS", "ES"))
-long$Gene<- factor(long$Gene, levels = c("Kdp_count", "KimA_count", "Kup_count", "TrkH_count", "Kef_count"))
-
-Kblocks<-ggplot(long, aes(x = Salt_block,
-                 y = Relative_abundance,
-                 colour = Gene)) + geom_boxplot(outlier.shape=NA) + scale_fill_manual(values = c("Kdp_count" = '#DF536B' ,"KimA_count"='#61D04F' ,"Kup_count"='#2297E6',"TrkH_count"='#F5C710',"Kef_count" = "#CD0BBC")) +
-  geom_point(position = position_jitterdodge()) +
-  scale_colour_manual(values = c("Kdp_count" = '#DF536B' ,"KimA_count"='#61D04F' ,"Kup_count"='#2297E6',"TrkH_count"='#F5C710',"Kef_count" = "#CD0BBC")) +
-  theme(axis.title = element_text(size = 18))+theme(axis.text = element_text(size = 14))+ theme(legend.text = element_text(size = 14))+ theme(legend.title = element_text(size = 16))
-```
-
-```{r}
-cleanAqua_subset_OsImp <- cleanAqua[,c(23,25,26,27,31,99)]
-
-library(tidyr)
-
-long <- cleanAqua_subset_OsImp %>% 
-  pivot_longer(
-    cols = 'MIP_count': 'BCCT_count',
-    names_to = "Gene",
-    values_to = "Relative_abundance"
-)
-
-long$Salt_block<- factor(long$Salt_block, levels = c("NBS", "S", "HS", "ES"))
-long$Gene<- factor(long$Gene, levels = c("MscL_count", "MIP_count", "OpuAC_count", "BCCT_count", "MscS_count"))
-
-Impblocks<-ggplot(long, aes(x = Salt_block,
-                 y = Relative_abundance,
-                 colour = Gene)) + geom_boxplot(outlier.shape=NA) + scale_fill_manual(values = c("MscL_count" = '#fc8d59' ,"MIP_count"='#91bfdb' ,"OpuAC_count"='#fee090',"BCCT_count"='#d73027',"MscS_count" = "#4575b4")) +
-  geom_point(position = position_jitterdodge()) +
-  scale_colour_manual(values = c("MscL_count" = '#fc8d59' ,"MIP_count"='#91bfdb' ,"OpuAC_count"='#fee090',"BCCT_count"='#d73027',"MscS_count" = "#4575b4")) +
-  theme(axis.title = element_text(size = 18))+
-  theme(axis.text = element_text(size = 14))+ theme(legend.text = element_text(size = 14))+ theme(legend.title = element_text(size = 16))
-
-```
-
-```{r}
-resMscL.aov <- aov(MscL_count~Salt_block, data=cleanAqua)
-TukeyHSD(resMscL.aov)
-
-resMscS.aov <- aov(MscS_count~Salt_block, data=cleanAqua)
-TukeyHSD(resMscS.aov)
-
-resMIP.aov <- aov(MIP_count~Salt_block, data=cleanAqua)
-TukeyHSD(resMIP.aov)
-```
-
-
-```{r}
-cleanAqua_subset_Na <- cleanAqua[,c(34,38,40,41,50,93,99)]
-
-library(tidyr)
-
-long <- cleanAqua_subset_Na %>% 
-  pivot_longer(
-    cols = 'MnhE_count': 'total_CPA_noKef_count',
-    names_to = "Gene",
-    values_to = "Relative_abundance"
-)
-
-long$Salt_block<- factor(long$Salt_block, levels = c("NBS", "S", "HS", "ES"))
-long$Gene<- factor(long$Gene, levels = c("Hppase_count","MnhE_count","NhaC_count","total_CPA_count", "total_CPA_noKef_count","NhaD_count"))
-
-Na_blocks<-ggplot(long, aes(x = Salt_block,
-                 y = Relative_abundance,
-                 colour = Gene)) + geom_boxplot(outlier.shape=NA) + scale_fill_manual(values = c("Hppase_count"='#5ab4ac' ,"MnhE_count"='#01665e',"NhaC_count"='#d8b365',"total_CPA_noKef_count" = "#35978f","NhaD_count"="#bf812d")) + geom_point(position = position_jitterdodge()) + scale_colour_manual(values = c("Hppase_count"='#5ab4ac' ,"MnhE_count"='#01665e',"NhaC_count"='#d8b365',"total_CPA_noKef_count" = "#35978f","NhaD_count"="#bf812d"))+
-  theme(axis.title = element_text(size = 18))+
-  theme(axis.text = element_text(size = 14))+ theme(legend.text = element_text(size = 14))+ theme(legend.title = element_text(size = 16))
-
+     main = "Na+ exporter ",
+     xlab = "%(w/v) Salinity",
+      ylab = "CPMR",cex.main = 4, cex.lab = 4) + lines(splinefit_NaExAq, col ="pink2", lwd = 4) + lines(spline_fitNqrAAq, col ="orange1", lwd = 4) +lines(spline_fitHppaseAq, col ="grey", lwd = 4) +lines(spline_fitNhaDAq, col ="yellow2", lwd = 4) +lines(spline_fitNhaCAq , col ="orange4", lwd = 4) +lines(spline_fitMnhEAq , col ="cyan2", lwd = 4) + lines(spline_fit_nonKef_CPA_Aq, col ="darkgreen", lwd = 4)+ abline(v= c(2, 14,26), col = 'black', lwd=4) 
 
 
 ```
 
-```{r}
-summary(lm(total_NaExp~Salinity, data=cleanAqua))
-summary(lm(total_NaExp~Salinity, data=cleanAqua))
 
+```{r}
+library(ggplot2)
+library(dplyr)
+library(multcompView)
+cleanAqua$Salt_block<- factor(cleanAqua$Salt_block, levels = c("NBS", "S", "HS", "ES"))
+
+# 1. Fit ANOVA and run Tukey test
+anova_model <- aov(TrkH_count ~ Salt_block, data = cleanAqua)
+tukey_res <- TukeyHSD(anova_model)
+
+# 2. Extract letters
+cld <- multcompLetters4(anova_model, tukey_res)
+letters_df <- data.frame(Letter = cld$Salt_block$Letters)
+letters_df$Salt_block<- rownames(letters_df)
+
+# 3. Find placement height (max value per group + offset)
+placement <- cleanAqua %>% 
+  group_by(Salt_block) %>% 
+  summarise(Y_pos = max(TrkH_count) + 0.5)
+
+letters_df <- left_join(letters_df, placement, by = "Salt_block")
+
+# 4. Draw boxplot with letters
+TrkHtukey<-ggplot(cleanAqua, aes(x = Salt_block, y = TrkH_count, fill = Salt_block)) +
+  geom_boxplot(outliers = FALSE) +
+  geom_text(data = letters_df, aes(x = Salt_block, y = Y_pos, label = Letter,), size=16)+theme(axis.text=element_text(,size=18),
+        axis.title=element_text(size=22,face="bold"))+geom_jitter()
+
+
+
+# 1. Fit ANOVA and run Tukey test
+anova_model <- aov(Kef_count ~ Salt_block, data = cleanAqua)
+tukey_res <- TukeyHSD(anova_model)
+
+# 2. Extract letters
+cld <- multcompLetters4(anova_model, tukey_res)
+letters_df <- data.frame(Letter = cld$Salt_block$Letters)
+letters_df$Salt_block<- rownames(letters_df)
+
+# 3. Find placement height (max value per group + offset)
+placement <- cleanAqua %>% 
+  group_by(Salt_block) %>% 
+  summarise(Y_pos = max(Kef_count) + 0.5)
+
+letters_df <- left_join(letters_df, placement, by = "Salt_block")
+
+# 4. Draw boxplot with letters
+Keftukey<-ggplot(cleanAqua, aes(x = Salt_block, y = Kef_count, fill = Salt_block)) +
+  geom_boxplot(outliers = FALSE) +
+  geom_text(data = letters_df, aes(x = Salt_block, y = Y_pos, label = Letter,), size=16)+theme(axis.text=element_text(,size=18),
+        axis.title=element_text(size=22,face="bold"))+geom_jitter()
+Keftukey
+
+```
+
+```{r}
+
+
+# 1. Fit ANOVA and run Tukey test
+anova_model <- aov(Kup_count ~ Salt_block, data = cleanAqua)
+tukey_res <- TukeyHSD(anova_model)
+
+# 2. Extract letters
+cld <- multcompLetters4(anova_model, tukey_res)
+letters_df <- data.frame(Letter = cld$Salt_block$Letters)
+letters_df$Salt_block<- rownames(letters_df)
+
+# 3. Find placement height (max value per group + offset)
+placement <- cleanAqua %>% 
+  group_by(Salt_block) %>% 
+  summarise(Y_pos = max(Kup_count) + 0.5)
+
+letters_df <- left_join(letters_df, placement, by = "Salt_block")
+
+# 4. Draw boxplot with letters
+Kuptukey<-ggplot(cleanAqua, aes(x = Salt_block, y = Kup_count, fill = Salt_block)) +
+  geom_boxplot(outliers = FALSE) +
+  geom_text(data = letters_df, aes(x = Salt_block, y = Y_pos, label = Letter,), size=16)+theme(axis.text=element_text(,size=18),
+        axis.title=element_text(size=22,face="bold"))+geom_jitter()
+
+anova_model <- aov(Kdp_count ~ Salt_block, data = cleanAqua)
+tukey_res <- TukeyHSD(anova_model)
+
+# 2. Extract letters
+cld <- multcompLetters4(anova_model, tukey_res)
+letters_df <- data.frame(Letter = cld$Salt_block$Letters)
+letters_df$Salt_block<- rownames(letters_df)
+
+# 3. Find placement height (max value per group + offset)
+placement <- cleanAqua %>% 
+  group_by(Salt_block) %>% 
+  summarise(Y_pos = max(Kdp_count) + 0.5)
+
+letters_df <- left_join(letters_df, placement, by = "Salt_block")
+
+# 4. Draw boxplot with letters
+KdpTukey<-ggplot(cleanAqua, aes(x = Salt_block, y = Kdp_count, fill = Salt_block)) +
+  geom_boxplot(outliers = FALSE) +
+  geom_text(data = letters_df, aes(x = Salt_block, y = Y_pos, label = Letter,), size=16)+theme(axis.text=element_text(,size=18),
+        axis.title=element_text(size=22,face="bold"))+geom_jitter()
+
+
+anova_model <- aov(KimA_count ~ Salt_block, data = cleanAqua)
+tukey_res <- TukeyHSD(anova_model)
+
+# 2. Extract letters
+cld <- multcompLetters4(anova_model, tukey_res)
+letters_df <- data.frame(Letter = cld$Salt_block$Letters)
+letters_df$Salt_block<- rownames(letters_df)
+
+# 3. Find placement height (max value per group + offset)
+placement <- cleanAqua %>% 
+  group_by(Salt_block) %>% 
+  summarise(Y_pos = max(KimA_count) + 0.5)
+
+letters_df <- left_join(letters_df, placement, by = "Salt_block")
+
+# 4. Draw boxplot with letters
+Kimtukey<-ggplot(cleanAqua, aes(x = Salt_block, y = KimA_count, fill = Salt_block)) +
+  geom_boxplot(outliers = FALSE) +
+  geom_text(data = letters_df, aes(x = Salt_block, y = Y_pos, label = Letter,), size=16)+theme(axis.text=element_text(,size=18),
+        axis.title=element_text(size=22,face="bold"))+geom_jitter()
+```
+
+```{r}
+(Kimtukey| KdpTukey| Kuptukey|TrkHtukey|Keftukey)
+```
+
+```{r}
+# 1. Fit ANOVA and run Tukey test
+anova_model <- aov(MscL_count ~ Salt_block, data = cleanAqua)
+tukey_res <- TukeyHSD(anova_model)
+
+# 2. Extract letters
+cld <- multcompLetters4(anova_model, tukey_res)
+letters_df <- data.frame(Letter = cld$Salt_block$Letters)
+letters_df$Salt_block<- rownames(letters_df)
+
+# 3. Find placement height (max value per group + offset)
+placement <- cleanAqua %>% 
+  group_by(Salt_block) %>% 
+  summarise(Y_pos = max(MscL_count) + 0.5)
+
+letters_df <- left_join(letters_df, placement, by = "Salt_block")
+
+# 4. Draw boxplot with letters
+MscLtukey<-ggplot(cleanAqua, aes(x = Salt_block, y = MscL_count, fill = Salt_block)) +
+  geom_boxplot(outliers = FALSE) +
+  geom_text(data = letters_df, aes(x = Salt_block, y = Y_pos, label = Letter,), size=16)+theme(axis.text=element_text(,size=18),
+        axis.title=element_text(size=22,face="bold"))+geom_jitter()
+
+
+
+
+# 1. Fit ANOVA and run Tukey test
+anova_model <- aov(MIP_count ~ Salt_block, data = cleanAqua)
+tukey_res <- TukeyHSD(anova_model)
+
+# 2. Extract letters
+cld <- multcompLetters4(anova_model, tukey_res)
+letters_df <- data.frame(Letter = cld$Salt_block$Letters)
+letters_df$Salt_block<- rownames(letters_df)
+
+# 3. Find placement height (max value per group + offset)
+placement <- cleanAqua %>% 
+  group_by(Salt_block) %>% 
+  summarise(Y_pos = max(MIP_count) + 0.5)
+
+letters_df <- left_join(letters_df, placement, by = "Salt_block")
+
+# 4. Draw boxplot with letters
+MIPtukey<-ggplot(cleanAqua, aes(x = Salt_block, y = MIP_count, fill = Salt_block)) +
+  geom_boxplot(outliers = FALSE) +
+  geom_text(data = letters_df, aes(x = Salt_block, y = Y_pos, label = Letter,), size=16)+theme(axis.text=element_text(,size=18),
+        axis.title=element_text(size=22,face="bold"))+geom_jitter()
+```
+
+```{r}
+
+
+# 1. Fit ANOVA and run Tukey test
+anova_model <- aov(OpuAC_count ~ Salt_block, data = cleanAqua)
+tukey_res <- TukeyHSD(anova_model)
+
+# 2. Extract letters
+cld <- multcompLetters4(anova_model, tukey_res)
+letters_df <- data.frame(Letter = cld$Salt_block$Letters)
+letters_df$Salt_block<- rownames(letters_df)
+
+# 3. Find placement height (max value per group + offset)
+placement <- cleanAqua %>% 
+  group_by(Salt_block) %>% 
+  summarise(Y_pos = max(OpuAC_count) + 0.5)
+
+letters_df <- left_join(letters_df, placement, by = "Salt_block")
+
+# 4. Draw boxplot with letters
+OpuACtukey<-ggplot(cleanAqua, aes(x = Salt_block, y = OpuAC_count, fill = Salt_block)) +
+  geom_boxplot(outliers = FALSE) +
+  geom_text(data = letters_df, aes(x = Salt_block, y = Y_pos, label = Letter,), size=16)+theme(axis.text=element_text(,size=18),
+        axis.title=element_text(size=22,face="bold"))+geom_jitter()
+
+anova_model <- aov(BCCT_count ~ Salt_block, data = cleanAqua)
+tukey_res <- TukeyHSD(anova_model)
+
+# 2. Extract letters
+cld <- multcompLetters4(anova_model, tukey_res)
+letters_df <- data.frame(Letter = cld$Salt_block$Letters)
+letters_df$Salt_block<- rownames(letters_df)
+
+# 3. Find placement height (max value per group + offset)
+placement <- cleanAqua %>% 
+  group_by(Salt_block) %>% 
+  summarise(Y_pos = max(BCCT_count) + 0.5)
+
+letters_df <- left_join(letters_df, placement, by = "Salt_block")
+
+# 4. Draw boxplot with letters
+BCCTTukey<-ggplot(cleanAqua, aes(x = Salt_block, y = BCCT_count, fill = Salt_block)) +
+  geom_boxplot(outliers = FALSE) +
+  geom_text(data = letters_df, aes(x = Salt_block, y = Y_pos, label = Letter,), size=16)+theme(axis.text=element_text(,size=18),
+        axis.title=element_text(size=22,face="bold"))+geom_jitter()
+
+
+anova_model <- aov(MscS_count ~ Salt_block, data = cleanAqua)
+tukey_res <- TukeyHSD(anova_model)
+
+# 2. Extract letters
+cld <- multcompLetters4(anova_model, tukey_res)
+letters_df <- data.frame(Letter = cld$Salt_block$Letters)
+letters_df$Salt_block<- rownames(letters_df)
+
+# 3. Find placement height (max value per group + offset)
+placement <- cleanAqua %>% 
+  group_by(Salt_block) %>% 
+  summarise(Y_pos = max(MscS_count) + 0.5)
+
+letters_df <- left_join(letters_df, placement, by = "Salt_block")
+
+# 4. Draw boxplot with letters
+MscSukey<-ggplot(cleanAqua, aes(x = Salt_block, y = MscS_count, fill = Salt_block)) +
+  geom_boxplot(outliers = FALSE) +
+  geom_text(data = letters_df, aes(x = Salt_block, y = Y_pos, label = Letter,), size=16)+theme(axis.text=element_text(,size=18),
+        axis.title=element_text(size=22,face="bold"))+geom_jitter()
+```
+
+```{r}
+(MscLtukey|MIPtukey|OpuACtukey|BCCTTukey|MscSukey)
 ```
 
 
 
 ```{r}
-cleanAqua_subset_Other <- cleanAqua[,c(24,28,29,30,32,99)]
+# 1. Fit ANOVA and run Tukey test
+anova_model <- aov(NqrA_count ~ Salt_block, data = cleanAqua)
+tukey_res <- TukeyHSD(anova_model)
 
-library(tidyr)
+# 2. Extract letters
+cld <- multcompLetters4(anova_model, tukey_res)
+letters_df <- data.frame(Letter = cld$Salt_block$Letters)
+letters_df$Salt_block<- rownames(letters_df)
 
-long <- cleanAqua_subset_Other %>% 
-  pivot_longer(
-    cols = 'ClcA_count': 'MgtE_count',
-    names_to = "Gene",
-    values_to = "Relative_abundance"
-)
+# 3. Find placement height (max value per group + offset)
+placement <- cleanAqua %>% 
+  group_by(Salt_block) %>% 
+  summarise(Y_pos = max(NqrA_count) + 0.5)
 
-long$Salt_block<- factor(long$Salt_block, levels = c("NBS", "S", "HS", "ES"))
-long$Gene<- factor(long$Gene, levels = c("Na_ala_count","ClcA_count","CorA_count","MgtE_count","Na_Ca_count"))
+letters_df <- left_join(letters_df, placement, by = "Salt_block")
 
-Other_blocks<-ggplot(long, aes(x = Salt_block,
-                 y = Relative_abundance,
-                 colour = Gene)) + geom_boxplot(outlier.shape=NA) + scale_fill_manual(values = c("Na_ala_count" = '#E69F00' ,"ClcA_count"='#56B4E9' ,"CorA_count"='#009E73',"MgtE_count"='#D55E00',"Na_Ca_count" = "#0072B2")) +
-  geom_point(position = position_jitterdodge()) +
-  scale_colour_manual(values = c(
-    "Na_ala_count" = "#E69F00",
-    "ClcA_count"   = "#56B4E9",
-    "CorA_count"   = "#009E73",
-    "MgtE_count"   = "#D55E00",
-    "Na_Ca_count"  = "#0072B2"
-  )) +
-  theme(axis.title = element_text(size = 18))+
-  theme(axis.text = element_text(size = 14))+ theme(legend.text = element_text(size = 14))+ theme(legend.title = element_text(size = 16))
-```
-
-```{r}
-library(patchwork)
-((Kblocks|Na_blocks)/(Other_blocks|Impblocks))
-```
+# 4. Draw boxplot with letters
+NqrAtukey<-ggplot(cleanAqua, aes(x = Salt_block, y = NqrA_count, fill = Salt_block)) +
+  geom_boxplot(outliers = FALSE) +
+  geom_text(data = letters_df, aes(x = Salt_block, y = Y_pos, label = Letter,), size=16)+theme(axis.text=element_text(,size=18),
+        axis.title=element_text(size=22,face="bold"))+geom_jitter()
 
 
-```{r}
-resTrkH.aov <- aov(TrkH_count ~ cleanAqua$Salt_block, data=cleanAqua)
-summary(resTrkH.aov)
-TukeyHSD(resTrkH.aov)
 
-resKef.aov <- aov(Kef_count ~ cleanAqua$Salt_block, data=cleanAqua)
-summary(resKef.aov)
-TukeyHSD(resKef.aov)
+# 1. Fit ANOVA and run Tukey test
+anova_model <- aov(Hppase_count ~ Salt_block, data = cleanAqua)
+tukey_res <- TukeyHSD(anova_model)
 
-resKdpA.aov <- aov(Kdp_count ~ cleanAqua$Salt_block, data=cleanAqua)
-summary(resKdpA.aov)
-TukeyHSD(resKdpA.aov)
+# 2. Extract letters
+cld <- multcompLetters4(anova_model, tukey_res)
+letters_df <- data.frame(Letter = cld$Salt_block$Letters)
+letters_df$Salt_block<- rownames(letters_df)
 
-resKimA.aov <- aov(KimA_count ~ cleanAqua$Salt_block, data=cleanAqua)
-summary(resKimA.aov)
-TukeyHSD(resKimA.aov)
+# 3. Find placement height (max value per group + offset)
+placement <- cleanAqua %>% 
+  group_by(Salt_block) %>% 
+  summarise(Y_pos = max(Hppase_count) + 0.5)
 
-resKup.aov <- aov(Kup_count ~ cleanAqua$Salt_block, data=cleanAqua)
-summary(resKup.aov)
-TukeyHSD(resKup.aov)
-```
+letters_df <- left_join(letters_df, placement, by = "Salt_block")
 
+# 4. Draw boxplot with letters
+Hppasetukey<-ggplot(cleanAqua, aes(x = Salt_block, y = Hppase_count, fill = Salt_block)) +
+  geom_boxplot(outliers = FALSE) +
+  geom_text(data = letters_df, aes(x = Salt_block, y = Y_pos, label = Letter,), size=16)+theme(axis.text=element_text(,size=18),
+        axis.title=element_text(size=22,face="bold"))+geom_jitter() 
 
-```{r}
-summary(lm(OpuAC_count~Salinity, data=cleanAqua[cleanAqua$Salinity > 3.12 & cleanAqua$Salinity <14.2,]))
-summary(lm(BCCT_count~Salinity, data=cleanAqua[cleanAqua$Salinity > 3.12 & cleanAqua$Salinity <14.2,]))
-
-resBCCT.aov <- aov(BCCT_count ~ cleanAqua$Salt_block, data=cleanAqua)
-summary(resBCCT.aov)
-TukeyHSD(resBCCT.aov)
-
-resOpuAC.aov <- aov(OpuAC_count ~ cleanAqua$Salt_block, data=cleanAqua)
-summary(resOpuAC.aov)
-TukeyHSD(resOpuAC.aov)
-
-summary(lm(OpuAC_count~Salinity, data=cleanAqua[cleanAqua$Salinity >14.2,]))
-summary(lm(BCCT_count~Salinity, data=cleanAqua[cleanAqua$Salinity > 14.2,]))
-
-resBetB.aov <- aov(Betain_ald_dehyd_count ~ cleanAqua$Salt_block, data=cleanAqua)
-TukeyHSD(resBetB.aov)
-
-resBCCT.aov <- aov(DEIK_ratio ~ cleanAqua$Description, data=cleanAqua)
-TukeyHSD(resBCCT.aov)
-```
-
-
-```{r}
-cleanAqua_subset_CPA <- cleanAqua[,c(52, 53,56,62,99)]
-
-library(tidyr)
-
-long <- cleanAqua_subset_CPA %>% 
-  pivot_longer(
-    cols = 'Kef_count': 'UndProkarya_CPA1_IDK_count',
-    names_to = "Gene",
-    values_to = "Relative_abundance"
-)
-
-long$Salt_block<- factor(long$Salt_block, levels = c("NBS", "S", "HS", "ES"))
-long$Gene<- factor(long$Gene, levels = c("CHX_count","CPA1_count","UndProkarya_CPA1_IDK_count","Kef_count"))
-
-ggplot(long, aes(x=Salt_block, y=Relative_abundance, fill=Gene)) +   geom_point(position=position_jitterdodge(), aes(colour = Gene), alpha=0.5) + geom_boxplot(outlier.shape=NA)
 ```
 
 ```{r}
 
+
+# 1. Fit ANOVA and run Tukey test
+anova_model <- aov(MnhE_count ~ Salt_block, data = cleanAqua)
+tukey_res <- TukeyHSD(anova_model)
+
+# 2. Extract letters
+cld <- multcompLetters4(anova_model, tukey_res)
+letters_df <- data.frame(Letter = cld$Salt_block$Letters)
+letters_df$Salt_block<- rownames(letters_df)
+
+# 3. Find placement height (max value per group + offset)
+placement <- cleanAqua %>% 
+  group_by(Salt_block) %>% 
+  summarise(Y_pos = max(MnhE_count) + 0.5)
+
+letters_df <- left_join(letters_df, placement, by = "Salt_block")
+
+# 4. Draw boxplot with letters
+MnhEtukey<-ggplot(cleanAqua, aes(x = Salt_block, y = MnhE_count, fill = Salt_block)) +
+  geom_boxplot(outliers = FALSE) +
+  geom_text(data = letters_df, aes(x = Salt_block, y = Y_pos, label = Letter,), size=16)+theme(axis.text=element_text(,size=18),
+        axis.title=element_text(size=22,face="bold"))+geom_jitter()
+
+anova_model <- aov(NhaC_count ~ Salt_block, data = cleanAqua)
+tukey_res <- TukeyHSD(anova_model)
+
+# 2. Extract letters
+cld <- multcompLetters4(anova_model, tukey_res)
+letters_df <- data.frame(Letter = cld$Salt_block$Letters)
+letters_df$Salt_block<- rownames(letters_df)
+
+# 3. Find placement height (max value per group + offset)
+placement <- cleanAqua %>% 
+  group_by(Salt_block) %>% 
+  summarise(Y_pos = max(NhaC_count) + 0.5)
+
+letters_df <- left_join(letters_df, placement, by = "Salt_block")
+
+# 4. Draw boxplot with letters
+NhaCTukey<-ggplot(cleanAqua, aes(x = Salt_block, y = NhaC_count, fill = Salt_block)) +
+  geom_boxplot(outliers = FALSE) +
+  geom_text(data = letters_df, aes(x = Salt_block, y = Y_pos, label = Letter,), size=16)+theme(axis.text=element_text(,size=18),
+        axis.title=element_text(size=22,face="bold"))+geom_jitter()
+
+anova_model <- aov(NhaD_count ~ Salt_block, data = cleanAqua)
+tukey_res <- TukeyHSD(anova_model)
+
+# 2. Extract letters
+cld <- multcompLetters4(anova_model, tukey_res)
+letters_df <- data.frame(Letter = cld$Salt_block$Letters)
+letters_df$Salt_block<- rownames(letters_df)
+
+# 3. Find placement height (max value per group + offset)
+placement <- cleanAqua %>% 
+  group_by(Salt_block) %>% 
+  summarise(Y_pos = max(NhaD_count) + 0.5)
+
+letters_df <- left_join(letters_df, placement, by = "Salt_block")
+
+# 4. Draw boxplot with letters
+NhaDtukey<-ggplot(cleanAqua, aes(x = Salt_block, y = NhaD_count, fill = Salt_block)) +
+  geom_boxplot(outliers = FALSE) +
+  geom_text(data = letters_df, aes(x = Salt_block, y = Y_pos, label = Letter,), size=16)+theme(axis.text=element_text(,size=18),
+        axis.title=element_text(size=22,face="bold"))+geom_jitter()
+
+anova_model <- aov(total_CPA_noKef_count ~ Salt_block, data = cleanAqua)
+tukey_res <- TukeyHSD(anova_model)
+
+# 2. Extract letters
+cld <- multcompLetters4(anova_model, tukey_res)
+letters_df <- data.frame(Letter = cld$Salt_block$Letters)
+letters_df$Salt_block<- rownames(letters_df)
+
+# 3. Find placement height (max value per group + offset)
+placement <- cleanAqua %>% 
+  group_by(Salt_block) %>% 
+  summarise(Y_pos = max(total_CPA_noKef_count) + 0.5)
+
+letters_df <- left_join(letters_df, placement, by = "Salt_block")
+
+# 4. Draw boxplot with letters
+total_CPA_noKef_counttukey<-ggplot(cleanAqua, aes(x = Salt_block, y = total_CPA_noKef_count, fill = Salt_block)) +
+  geom_boxplot(outliers = FALSE) +
+  geom_text(data = letters_df, aes(x = Salt_block, y = Y_pos, label = Letter,), size=16)+theme(axis.text=element_text(,size=18),
+        axis.title=element_text(size=22,face="bold"))+geom_jitter()
+```
+
+```{r}
+(Hppasetukey| NqrAtukey|MnhEtukey|NhaCTukey|NhaDtukey)
+```
+
+
+
+
+
+```{r}
+
+
+# 1. Fit ANOVA and run Tukey test
+anova_model <- aov(Na_ala_count ~ Salt_block, data = cleanAqua)
+tukey_res <- TukeyHSD(anova_model)
+
+# 2. Extract letters
+cld <- multcompLetters4(anova_model, tukey_res)
+letters_df <- data.frame(Letter = cld$Salt_block$Letters)
+letters_df$Salt_block<- rownames(letters_df)
+
+# 3. Find placement height (max value per group + offset)
+placement <- cleanAqua %>% 
+  group_by(Salt_block) %>% 
+  summarise(Y_pos = max(Na_ala_count) + 0.5)
+
+letters_df <- left_join(letters_df, placement, by = "Salt_block")
+
+# 4. Draw boxplot with letters
+Na_ala_tukey<-ggplot(cleanAqua, aes(x = Salt_block, y = Na_ala_count, fill = Salt_block)) +
+  geom_boxplot(outliers = FALSE) +
+  geom_text(data = letters_df, aes(x = Salt_block, y = Y_pos, label = Letter,), size=16)+theme(axis.text=element_text(,size=18),
+        axis.title=element_text(size=22,face="bold"))+geom_jitter()
+
+anova_model <- aov(ClcA_count ~ Salt_block, data = cleanAqua)
+tukey_res <- TukeyHSD(anova_model)
+
+# 2. Extract letters
+cld <- multcompLetters4(anova_model, tukey_res)
+letters_df <- data.frame(Letter = cld$Salt_block$Letters)
+letters_df$Salt_block<- rownames(letters_df)
+
+# 3. Find placement height (max value per group + offset)
+placement <- cleanAqua %>% 
+  group_by(Salt_block) %>% 
+  summarise(Y_pos = max(ClcA_count) + 0.5)
+
+letters_df <- left_join(letters_df, placement, by = "Salt_block")
+
+# 4. Draw boxplot with letters
+ClcATukey<-ggplot(cleanAqua, aes(x = Salt_block, y = ClcA_count, fill = Salt_block)) +
+  geom_boxplot(outliers = FALSE) +
+  geom_text(data = letters_df, aes(x = Salt_block, y = Y_pos, label = Letter,), size=16)+theme(axis.text=element_text(,size=18),
+        axis.title=element_text(size=22,face="bold"))+geom_jitter()
+
+
+anova_model <- aov(CorA_count ~ Salt_block, data = cleanAqua)
+tukey_res <- TukeyHSD(anova_model)
+
+# 2. Extract letters
+cld <- multcompLetters4(anova_model, tukey_res)
+letters_df <- data.frame(Letter = cld$Salt_block$Letters)
+letters_df$Salt_block<- rownames(letters_df)
+
+# 3. Find placement height (max value per group + offset)
+placement <- cleanAqua %>% 
+  group_by(Salt_block) %>% 
+  summarise(Y_pos = max(CorA_count) + 0.5)
+
+letters_df <- left_join(letters_df, placement, by = "Salt_block")
+
+# 4. Draw boxplot with letters
+CorAtukey<-ggplot(cleanAqua, aes(x = Salt_block, y = CorA_count, fill = Salt_block)) +
+  geom_boxplot(outliers = FALSE) +
+  geom_text(data = letters_df, aes(x = Salt_block, y = Y_pos, label = Letter,), size=16)+theme(axis.text=element_text(,size=18),
+        axis.title=element_text(size=22,face="bold"))+geom_jitter()
+
+anova_model <- aov(MgtE_count ~ Salt_block, data = cleanAqua)
+tukey_res <- TukeyHSD(anova_model)
+
+# 2. Extract letters
+cld <- multcompLetters4(anova_model, tukey_res)
+letters_df <- data.frame(Letter = cld$Salt_block$Letters)
+letters_df$Salt_block<- rownames(letters_df)
+
+# 3. Find placement height (max value per group + offset)
+placement <- cleanAqua %>% 
+  group_by(Salt_block) %>% 
+  summarise(Y_pos = max(MgtE_count) + 0.5)
+
+letters_df <- left_join(letters_df, placement, by = "Salt_block")
+
+# 4. Draw boxplot with letters
+MgtEtukey<-ggplot(cleanAqua, aes(x = Salt_block, y = MgtE_count, fill = Salt_block)) +
+  geom_boxplot(outliers = FALSE) +
+  geom_text(data = letters_df, aes(x = Salt_block, y = Y_pos, label = Letter,), size=16)+theme(axis.text=element_text(,size=18),
+        axis.title=element_text(size=22,face="bold"))+geom_jitter()
+
+anova_model <- aov(Na_Ca_count ~ Salt_block, data = cleanAqua)
+tukey_res <- TukeyHSD(anova_model)
+
+# 2. Extract letters
+cld <- multcompLetters4(anova_model, tukey_res)
+letters_df <- data.frame(Letter = cld$Salt_block$Letters)
+letters_df$Salt_block<- rownames(letters_df)
+
+# 3. Find placement height (max value per group + offset)
+placement <- cleanAqua %>% 
+  group_by(Salt_block) %>% 
+  summarise(Y_pos = max(Na_Ca_count) + 0.5)
+
+letters_df <- left_join(letters_df, placement, by = "Salt_block")
+
+# 4. Draw boxplot with letters
+Na_Ca_tukey<-ggplot(cleanAqua, aes(x = Salt_block, y = Na_Ca_count, fill = Salt_block)) +
+  geom_boxplot(outliers = FALSE) +
+  geom_text(data = letters_df, aes(x = Salt_block, y = Y_pos, label = Letter,), size=16)+theme(axis.text=element_text(,size=18),
+        axis.title=element_text(size=22,face="bold"))+geom_jitter()
+
+
+(Na_ala_tukey|ClcATukey|CorAtukey|MgtEtukey|Na_Ca_tukey)
+```
+
+
+
+```{r}
 Env_frequently_observed <- c('Saltern', 'Salt lake',  'High Salt Soda Lake','Soda Lake', 'Sea', 'Estuary','River', 'Lake')
 
 Merged_df_Aqua_Big <- merged_df_Aqua[merged_df_Aqua$Description %in% Env_frequently_observed,]
-Merged_df_Aqua_Big$Description<- factor(Merged_df_Aqua_Big$Description, levels = 
-c("Lake", "River", "Estuary", "Sea", "Soda Lake", "High Salt Soda Lake", "Salt lake", "Saltern"))
+Merged_df_Aqua_Big$Description<- factor(Merged_df_Aqua_Big$Description, levels = c("Saltern", "Salt lake", "High Salt Soda Lake", "Soda Lake", "Sea", "Estuary", "River", "Lake"))
 
-
-Merged_df_Aqua_Big_subset_Other <- Merged_df_Aqua_Big[,c(9,24,28,29,30,32)]
-
-
-long <- Merged_df_Aqua_Big_subset_Other %>% 
-  pivot_longer(
-    cols = 'ClcA_count': 'MgtE_count',
-    names_to = "Gene",
-    values_to = "Relative_abundance"
-)
-
-long$Gene<- factor(long$Gene, levels = c("Na_ala_count","ClcA_count","CorA_count","MgtE_count","Na_Ca_count"))
-
-ggplot(long, aes(x=Description, y=Relative_abundance, fill=Gene)) +   geom_point(position=position_jitterdodge(), aes(colour = Gene), alpha=0.5) + geom_boxplot(outlier.shape=NA)
 ```
 
 ```{r}
-Merged_df_Aqua_Big_subset_CPA <- Merged_df_Aqua_Big[,c(9,34,38,40,41,47,93)]
+# 1. Fit ANOVA and run Tukey test
+anova_model <- aov(Kef_count ~ Description, data = Merged_df_Aqua_Big)
+tukey_res <- TukeyHSD(anova_model)
 
-long <- Merged_df_Aqua_Big_subset_CPA %>% 
-  pivot_longer(
-    cols = 'MnhE_count': 'total_CPA_noKef_count',
-    names_to = "Gene",
-    values_to = "Relative_abundance"
-)
-CPAresaov <- aov(total_CPA_noKef_count~Description, data=Merged_df_Aqua_Big_subset_CPA)
-TukeyHSD(CPAresaov)
-long$Gene<- factor(long$Gene,levels= c("NqrA_count","Hppase_count","MnhE_count","NhaC_count","total_CPA_noKef_count","NhaD_count"))
+# 2. Extract letters
+cld <- multcompLetters4(anova_model, tukey_res)
+letters_df <- data.frame(Letter = cld$Description$Letters)
+letters_df$Description<- rownames(letters_df)
 
-ggplot(long, aes(x=Description, y=Relative_abundance, fill=Gene)) +   geom_point(position=position_jitterdodge(), aes(colour = Gene), alpha=0.5) + geom_boxplot(outlier.shape=NA)
+# 3. Find placement height (max value per group + offset)
+placement <- Merged_df_Aqua_Big %>% 
+  group_by(Description) %>% 
+  summarise(Y_pos = max(Kef_count) + 0.5)
+
+letters_df <- left_join(letters_df, placement, by = "Description")
+
+# 4. Draw boxplot with letters
+Kef_tukey<-ggplot(Merged_df_Aqua_Big, aes(x = Description, y = Kef_count, fill = Description)) +
+  geom_boxplot(outliers = FALSE) +
+  geom_text(data = letters_df, aes(x = Description, y = Y_pos, label = Letter,), size=16)+theme(axis.text=element_text(,size=18),
+        axis.title=element_text(size=22,face="bold"))+geom_jitter()+theme(axis.text.x = element_text(angle = 90))+ scale_fill_manual(values = c('Saltern'='#D55E00', 'Salt lake'='#E69F00', 'High Salt Soda Lake'='#CC79A7', 'Soda Lake'='#F0e422', 'Sea'='#009E73', 'Estuary'='gray', 'River'='#0072B2', 'Lake'='#56B4E9')) 
+
+
+
+
+
+anova_model <- aov(TrkH_count ~ Description, data = Merged_df_Aqua_Big)
+tukey_res <- TukeyHSD(anova_model)
+
+# 2. Extract letters
+cld <- multcompLetters4(anova_model, tukey_res)
+letters_df <- data.frame(Letter = cld$Description$Letters)
+letters_df$Description<- rownames(letters_df)
+
+# 3. Find placement height (max value per group + offset)
+placement <- Merged_df_Aqua_Big %>% 
+  group_by(Description) %>% 
+  summarise(Y_pos = max(TrkH_count) + 0.5)
+
+letters_df <- left_join(letters_df, placement, by = "Description")
+
+# 4. Draw boxplot with letters
+TrkH_tukey<-ggplot(Merged_df_Aqua_Big, aes(x = Description, y = TrkH_count, fill = Description)) +
+  geom_boxplot(outliers = FALSE) +
+  geom_text(data = letters_df, aes(x = Description, y = Y_pos, label = Letter,), size=16)+theme(axis.text=element_text(,size=18),
+        axis.title=element_text(size=22,face="bold"))+geom_jitter()+theme(axis.text.x = element_text(angle = 90))+ scale_fill_manual(values = c('Saltern'='#D55E00', 'Salt lake'='#E69F00', 'High Salt Soda Lake'='#CC79A7', 'Soda Lake'='#F0e422', 'Sea'='#009E73', 'Estuary'='gray', 'River'='#0072B2', 'Lake'='#56B4E9')) 
+
+
+
+anova_model <- aov(KimA_count ~ Description, data = Merged_df_Aqua_Big)
+tukey_res <- TukeyHSD(anova_model)
+
+# 2. Extract letters
+cld <- multcompLetters4(anova_model, tukey_res)
+letters_df <- data.frame(Letter = cld$Description$Letters)
+letters_df$Description<- rownames(letters_df)
+
+# 3. Find placement height (max value per group + offset)
+placement <- Merged_df_Aqua_Big %>% 
+  group_by(Description) %>% 
+  summarise(Y_pos = max(KimA_count) + 0.5)
+
+letters_df <- left_join(letters_df, placement, by = "Description")
+
+# 4. Draw boxplot with letters
+KimA_tukey<-ggplot(Merged_df_Aqua_Big, aes(x = Description, y = KimA_count, fill = Description)) +
+  geom_boxplot(outliers = FALSE) +
+  geom_text(data = letters_df, aes(x = Description, y = Y_pos, label = Letter,), size=16)+theme(axis.text=element_text(,size=18),
+        axis.title=element_text(size=22,face="bold"))+geom_jitter()+theme(axis.text.x = element_text(angle = 90))+ scale_fill_manual(values = c('Saltern'='#D55E00', 'Salt lake'='#E69F00', 'High Salt Soda Lake'='#CC79A7', 'Soda Lake'='#F0e422', 'Sea'='#009E73', 'Estuary'='gray', 'River'='#0072B2', 'Lake'='#56B4E9')) 
+
+anova_model <- aov(Kdp_count ~ Description, data = Merged_df_Aqua_Big)
+tukey_res <- TukeyHSD(anova_model)
+
+# 2. Extract letters
+cld <- multcompLetters4(anova_model, tukey_res)
+letters_df <- data.frame(Letter = cld$Description$Letters)
+letters_df$Description<- rownames(letters_df)
+
+# 3. Find placement height (max value per group + offset)
+placement <- Merged_df_Aqua_Big %>% 
+  group_by(Description) %>% 
+  summarise(Y_pos = max(Kdp_count) + 0.5)
+
+letters_df <- left_join(letters_df, placement, by = "Description")
+
+# 4. Draw boxplot with letters
+Kdp_tukey<-ggplot(Merged_df_Aqua_Big, aes(x = Description, y = Kdp_count, fill = Description)) +
+  geom_boxplot(outliers = FALSE) +
+  geom_text(data = letters_df, aes(x = Description, y = Y_pos, label = Letter,), size=16)+theme(axis.text=element_text(,size=18),
+        axis.title=element_text(size=22,face="bold"))+geom_jitter()+theme(axis.text.x = element_text(angle = 90))+ scale_fill_manual(values = c('Saltern'='#D55E00', 'Salt lake'='#E69F00', 'High Salt Soda Lake'='#CC79A7', 'Soda Lake'='#F0e422', 'Sea'='#009E73', 'Estuary'='gray', 'River'='#0072B2', 'Lake'='#56B4E9')) 
+
+
+anova_model <- aov(Kup_count ~ Description, data = Merged_df_Aqua_Big)
+tukey_res <- TukeyHSD(anova_model)
+
+# 2. Extract letters
+cld <- multcompLetters4(anova_model, tukey_res)
+letters_df <- data.frame(Letter = cld$Description$Letters)
+letters_df$Description<- rownames(letters_df)
+
+# 3. Find placement height (max value per group + offset)
+placement <- Merged_df_Aqua_Big %>% 
+  group_by(Description) %>% 
+  summarise(Y_pos = max(Kup_count) + 0.5)
+
+letters_df <- left_join(letters_df, placement, by = "Description")
+
+# 4. Draw boxplot with letters
+Kup_tukey<-ggplot(Merged_df_Aqua_Big, aes(x = Description, y = Kup_count, fill = Description)) +
+  geom_boxplot(outliers = FALSE) +
+  geom_text(data = letters_df, aes(x = Description, y = Y_pos, label = Letter,), size=16)+theme(axis.text=element_text(,size=18),
+        axis.title=element_text(size=22,face="bold"))+geom_jitter()+theme(axis.text.x = element_text(angle = 90))+ scale_fill_manual(values = c('Saltern'='#D55E00', 'Salt lake'='#E69F00', 'High Salt Soda Lake'='#CC79A7', 'Soda Lake'='#F0e422', 'Sea'='#009E73', 'Estuary'='gray', 'River'='#0072B2', 'Lake'='#56B4E9')) 
+
+(KimA_tukey| Kdp_tukey| Kup_tukey|TrkH_tukey|Kef_tukey)
+
+```
+
+```{r}
+ cleanAqua$Description<- factor( cleanAqua$Description, levels = c("Saltern", "Salt lake", "High Salt Soda Lake", "Soda Lake", "Sea", "Estuary", "River", "Lake"))
+
+anova_model <- aov(Salinity ~ Description, data = cleanAqua[cleanAqua$Description %in% Env_frequently_observed,])
+tukey_res <- TukeyHSD(anova_model)
+
+# 2. Extract letters
+cld <- multcompLetters4(anova_model, tukey_res)
+letters_df <- data.frame(Letter = cld$Description$Letters)
+letters_df$Description<- rownames(letters_df)
+
+# 3. Find placement height (max value per group + offset)
+placement <- cleanAqua[cleanAqua$Description %in% Env_frequently_observed,] %>% 
+  group_by(Description) %>% 
+  summarise(Y_pos = max(Salinity) + 0.5)
+
+letters_df <- left_join(letters_df, placement, by = "Description")
+
+# 4. Draw boxplot with letters
+Salinitytukey<-ggplot(cleanAqua[cleanAqua$Description %in% Env_frequently_observed,], aes(x = Description, y = Salinity, fill = Description)) +
+  geom_boxplot(outliers = FALSE) +
+  geom_text(data = letters_df, aes(x = Description, y = Y_pos, label = Letter,), size=16)+theme(axis.text=element_text(,size=18),
+        axis.title=element_text(size=22,face="bold"))+geom_jitter()+theme(axis.text.x = element_text(angle = 90))+ scale_fill_manual(values = c('Saltern'='#D55E00', 'Salt lake'='#E69F00', 'High Salt Soda Lake'='#CC79A7', 'Soda Lake'='#F0e422', 'Sea'='#009E73', 'Estuary'='gray', 'River'='#0072B2', 'Lake'='#56B4E9')) 
+
+Salinitytukey
+```
+
+```{r}
+
+anova_model <- aov(Na_Ca_count ~ Description, data = Merged_df_Aqua_Big)
+tukey_res <- TukeyHSD(anova_model)
+
+# 2. Extract letters
+cld <- multcompLetters4(anova_model, tukey_res)
+letters_df <- data.frame(Letter = cld$Description$Letters)
+letters_df$Description<- rownames(letters_df)
+
+# 3. Find placement height (max value per group + offset)
+placement <- Merged_df_Aqua_Big %>% 
+  group_by(Description) %>% 
+  summarise(Y_pos = max(Na_Ca_count) + 0.5)
+
+letters_df <- left_join(letters_df, placement, by = "Description")
+
+# 4. Draw boxplot with letters
+Na_Ca_tukey<-ggplot(Merged_df_Aqua_Big, aes(x = Description, y = Na_Ca_count, fill = Description)) +
+  geom_boxplot(outliers = FALSE) +
+  geom_text(data = letters_df, aes(x = Description, y = Y_pos, label = Letter,), size=16)+theme(axis.text=element_text(,size=18),
+        axis.title=element_text(size=22,face="bold"))+geom_jitter()+theme(axis.text.x = element_text(angle = 90))+ scale_fill_manual(values = c('Saltern'='#D55E00', 'Salt lake'='#E69F00', 'High Salt Soda Lake'='#CC79A7', 'Soda Lake'='#F0e422', 'Sea'='#009E73', 'Estuary'='gray', 'River'='#0072B2', 'Lake'='#56B4E9')) 
+
+
+
+anova_model <- aov(MgtE_count ~ Description, data = Merged_df_Aqua_Big)
+tukey_res <- TukeyHSD(anova_model)
+
+# 2. Extract letters
+cld <- multcompLetters4(anova_model, tukey_res)
+letters_df <- data.frame(Letter = cld$Description$Letters)
+letters_df$Description<- rownames(letters_df)
+
+# 3. Find placement height (max value per group + offset)
+placement <- Merged_df_Aqua_Big %>% 
+  group_by(Description) %>% 
+  summarise(Y_pos = max(MgtE_count) + 0.5)
+
+letters_df <- left_join(letters_df, placement, by = "Description")
+
+# 4. Draw boxplot with letters
+MgtE_tukey<-ggplot(Merged_df_Aqua_Big, aes(x = Description, y = MgtE_count, fill = Description)) +
+  geom_boxplot(outliers = FALSE) +
+  geom_text(data = letters_df, aes(x = Description, y = Y_pos, label = Letter,), size=16)+theme(axis.text=element_text(,size=18),
+        axis.title=element_text(size=22,face="bold"))+geom_jitter()+theme(axis.text.x = element_text(angle = 90))+ scale_fill_manual(values = c('Saltern'='#D55E00', 'Salt lake'='#E69F00', 'High Salt Soda Lake'='#CC79A7', 'Soda Lake'='#F0e422', 'Sea'='#009E73', 'Estuary'='gray', 'River'='#0072B2', 'Lake'='#56B4E9')) 
+
+
+
+
+anova_model <- aov(CorA_count ~ Description, data = Merged_df_Aqua_Big)
+tukey_res <- TukeyHSD(anova_model)
+
+# 2. Extract letters
+cld <- multcompLetters4(anova_model, tukey_res)
+letters_df <- data.frame(Letter = cld$Description$Letters)
+letters_df$Description<- rownames(letters_df)
+
+# 3. Find placement height (max value per group + offset)
+placement <- Merged_df_Aqua_Big %>% 
+  group_by(Description) %>% 
+  summarise(Y_pos = max(CorA_count) + 0.5)
+
+letters_df <- left_join(letters_df, placement, by = "Description")
+
+# 4. Draw boxplot with letters
+CorA_tukey<-ggplot(Merged_df_Aqua_Big, aes(x = Description, y = CorA_count, fill = Description)) +
+  geom_boxplot(outliers = FALSE) +
+  geom_text(data = letters_df, aes(x = Description, y = Y_pos, label = Letter,), size=16)+theme(axis.text=element_text(,size=18),
+        axis.title=element_text(size=22,face="bold"))+geom_jitter()+theme(axis.text.x = element_text(angle = 90))+ scale_fill_manual(values = c('Saltern'='#D55E00', 'Salt lake'='#E69F00', 'High Salt Soda Lake'='#CC79A7', 'Soda Lake'='#F0e422', 'Sea'='#009E73', 'Estuary'='gray', 'River'='#0072B2', 'Lake'='#56B4E9')) 
+
+
+
+anova_model <- aov(Na_ala_count ~ Description, data = Merged_df_Aqua_Big)
+tukey_res <- TukeyHSD(anova_model)
+
+# 2. Extract letters
+cld <- multcompLetters4(anova_model, tukey_res)
+letters_df <- data.frame(Letter = cld$Description$Letters)
+letters_df$Description<- rownames(letters_df)
+
+# 3. Find placement height (max value per group + offset)
+placement <- Merged_df_Aqua_Big %>% 
+  group_by(Description) %>% 
+  summarise(Y_pos = max(Na_ala_count) + 0.5)
+
+letters_df <- left_join(letters_df, placement, by = "Description")
+
+# 4. Draw boxplot with letters
+Na_ala_tukey<-ggplot(Merged_df_Aqua_Big, aes(x = Description, y = Na_ala_count, fill = Description)) +
+  geom_boxplot(outliers = FALSE) +
+  geom_text(data = letters_df, aes(x = Description, y = Y_pos, label = Letter,), size=16)+theme(axis.text=element_text(,size=18),
+        axis.title=element_text(size=22,face="bold"))+geom_jitter()+theme(axis.text.x = element_text(angle = 90))+ scale_fill_manual(values = c('Saltern'='#D55E00', 'Salt lake'='#E69F00', 'High Salt Soda Lake'='#CC79A7', 'Soda Lake'='#F0e422', 'Sea'='#009E73', 'Estuary'='gray', 'River'='#0072B2', 'Lake'='#56B4E9')) 
+
+anova_model <- aov(ClcA_count ~ Description, data = Merged_df_Aqua_Big)
+tukey_res <- TukeyHSD(anova_model)
+
+# 2. Extract letters
+cld <- multcompLetters4(anova_model, tukey_res)
+letters_df <- data.frame(Letter = cld$Description$Letters)
+letters_df$Description<- rownames(letters_df)
+
+# 3. Find placement height (max value per group + offset)
+placement <- Merged_df_Aqua_Big %>% 
+  group_by(Description) %>% 
+  summarise(Y_pos = max(ClcA_count) + 0.5)
+
+letters_df <- left_join(letters_df, placement, by = "Description")
+
+# 4. Draw boxplot with letters
+ClcA_tukey<-ggplot(Merged_df_Aqua_Big, aes(x = Description, y = ClcA_count, fill = Description)) +
+  geom_boxplot(outliers = FALSE) +
+  geom_text(data = letters_df, aes(x = Description, y = Y_pos, label = Letter,), size=16)+theme(axis.text=element_text(,size=18),
+        axis.title=element_text(size=22,face="bold"))+geom_jitter()+theme(axis.text.x = element_text(angle = 90))+ scale_fill_manual(values = c('Saltern'='#D55E00', 'Salt lake'='#E69F00', 'High Salt Soda Lake'='#CC79A7', 'Soda Lake'='#F0e422', 'Sea'='#009E73', 'Estuary'='gray', 'River'='#0072B2', 'Lake'='#56B4E9')) 
+
+
+(Na_ala_tukey| ClcA_tukey|CorA_tukey| MgtE_tukey|Na_Ca_tukey)
+
+```
+
+```{r}
+anova_model <- aov(NHX_count ~ Description, data = Merged_df_Aqua_Big)
+tukey_res <- TukeyHSD(anova_model)
+
+# 2. Extract letters
+cld <- multcompLetters4(anova_model, tukey_res)
+letters_df <- data.frame(Letter = cld$Description$Letters)
+letters_df$Description<- rownames(letters_df)
+
+# 3. Find placement height (max value per group + offset)
+placement <- Merged_df_Aqua_Big %>% 
+  group_by(Description) %>% 
+  summarise(Y_pos = max(NHX_count) + 0.5)
+
+letters_df <- left_join(letters_df, placement, by = "Description")
+
+# 4. Draw boxplot with letters
+NHX_tukey<-ggplot(Merged_df_Aqua_Big, aes(x = Description, y = NHX_count, fill = Description)) +
+  geom_boxplot(outliers = FALSE) +
+  geom_text(data = letters_df, aes(x = Description, y = Y_pos, label = Letter,), size=16)+theme(axis.text=element_text(,size=18),
+        axis.title=element_text(size=22,face="bold"))+geom_jitter()+theme(axis.text.x = element_text(angle = 90))+ scale_fill_manual(values = c('Saltern'='#D55E00', 'Salt lake'='#E69F00', 'High Salt Soda Lake'='#CC79A7', 'Soda Lake'='#F0e422', 'Sea'='#009E73', 'Estuary'='gray', 'River'='#0072B2', 'Lake'='#56B4E9')) 
+
+NHX_tukey
+
+
+anova_model <- aov(CHX_count ~ Description, data = Merged_df_Aqua_Big)
+tukey_res <- TukeyHSD(anova_model)
+
+# 2. Extract letters
+cld <- multcompLetters4(anova_model, tukey_res)
+letters_df <- data.frame(Letter = cld$Description$Letters)
+letters_df$Description<- rownames(letters_df)
+
+# 3. Find placement height (max value per group + offset)
+placement <- Merged_df_Aqua_Big %>% 
+  group_by(Description) %>% 
+  summarise(Y_pos = max(CHX_count) + 0.5)
+
+letters_df <- left_join(letters_df, placement, by = "Description")
+
+# 4. Draw boxplot with letters
+CHX_tukey<-ggplot(Merged_df_Aqua_Big, aes(x = Description, y = CHX_count, fill = Description)) +
+  geom_boxplot(outliers = FALSE) +
+  geom_text(data = letters_df, aes(x = Description, y = Y_pos, label = Letter,), size=16)+theme(axis.text=element_text(,size=18),
+        axis.title=element_text(size=22,face="bold"))+geom_jitter()+theme(axis.text.x = element_text(angle = 90))+ scale_fill_manual(values = c('Saltern'='#D55E00', 'Salt lake'='#E69F00', 'High Salt Soda Lake'='#CC79A7', 'Soda Lake'='#F0e422', 'Sea'='#009E73', 'Estuary'='gray', 'River'='#0072B2', 'Lake'='#56B4E9')) 
+
+CHX_tukey
+
+
+anova_model <- aov(NhaA_count ~ Description, data = Merged_df_Aqua_Big)
+tukey_res <- TukeyHSD(anova_model)
+
+# 2. Extract letters
+cld <- multcompLetters4(anova_model, tukey_res)
+letters_df <- data.frame(Letter = cld$Description$Letters)
+letters_df$Description<- rownames(letters_df)
+
+# 3. Find placement height (max value per group + offset)
+placement <- Merged_df_Aqua_Big %>% 
+  group_by(Description) %>% 
+  summarise(Y_pos = max(NhaA_count) + 0.5)
+
+letters_df <- left_join(letters_df, placement, by = "Description")
+
+# 4. Draw boxplot with letters
+NhaA_tukey<-ggplot(Merged_df_Aqua_Big, aes(x = Description, y = NhaA_count, fill = Description)) +
+  geom_boxplot(outliers = FALSE) +
+  geom_text(data = letters_df, aes(x = Description, y = Y_pos, label = Letter,), size=16)+theme(axis.text=element_text(,size=18),
+        axis.title=element_text(size=22,face="bold"))+geom_jitter()+theme(axis.text.x = element_text(angle = 90))+ scale_fill_manual(values = c('Saltern'='#D55E00', 'Salt lake'='#E69F00', 'High Salt Soda Lake'='#CC79A7', 'Soda Lake'='#F0e422', 'Sea'='#009E73', 'Estuary'='gray', 'River'='#0072B2', 'Lake'='#56B4E9')) 
+
+NhaA_tukey
+
+
+anova_model <- aov(NhaS5_count ~ Description, data = Merged_df_Aqua_Big)
+tukey_res <- TukeyHSD(anova_model)
+
+# 2. Extract letters
+cld <- multcompLetters4(anova_model, tukey_res)
+letters_df <- data.frame(Letter = cld$Description$Letters)
+letters_df$Description<- rownames(letters_df)
+
+# 3. Find placement height (max value per group + offset)
+placement <- Merged_df_Aqua_Big %>% 
+  group_by(Description) %>% 
+  summarise(Y_pos = max(NhaS5_count) + 0.5)
+
+letters_df <- left_join(letters_df, placement, by = "Description")
+
+# 4. Draw boxplot with letters
+NhaS5_tukey<-ggplot(Merged_df_Aqua_Big, aes(x = Description, y = NhaS5_count, fill = Description)) +
+  geom_boxplot(outliers = FALSE) +
+  geom_text(data = letters_df, aes(x = Description, y = Y_pos, label = Letter,), size=16)+theme(axis.text=element_text(,size=18),
+        axis.title=element_text(size=22,face="bold"))+geom_jitter()+theme(axis.text.x = element_text(angle = 90))+ scale_fill_manual(values = c('Saltern'='#D55E00', 'Salt lake'='#E69F00', 'High Salt Soda Lake'='#CC79A7', 'Soda Lake'='#F0e422', 'Sea'='#009E73', 'Estuary'='gray', 'River'='#0072B2', 'Lake'='#56B4E9')) 
+
+NhaS5_tukey
+
+anova_model <- aov(total_CPA_noKef_count ~ Description, data = Merged_df_Aqua_Big)
+tukey_res <- TukeyHSD(anova_model)
+
+# 2. Extract letters
+cld <- multcompLetters4(anova_model, tukey_res)
+letters_df <- data.frame(Letter = cld$Description$Letters)
+letters_df$Description<- rownames(letters_df)
+
+# 3. Find placement height (max value per group + offset)
+placement <- Merged_df_Aqua_Big %>% 
+  group_by(Description) %>% 
+  summarise(Y_pos = max(total_CPA_noKef_count) + 0.5)
+
+letters_df <- left_join(letters_df, placement, by = "Description")
+
+# 4. Draw boxplot with letters
+total_CPA_noKef_tukey<-ggplot(Merged_df_Aqua_Big, aes(x = Description, y = total_CPA_noKef_count, fill = Description)) +
+  geom_boxplot(outliers = FALSE) +
+  geom_text(data = letters_df, aes(x = Description, y = Y_pos, label = Letter,), size=16)+theme(axis.text=element_text(,size=18),
+        axis.title=element_text(size=22,face="bold"))+geom_jitter()+theme(axis.text.x = element_text(angle = 90))+ scale_fill_manual(values = c('Saltern'='#D55E00', 'Salt lake'='#E69F00', 'High Salt Soda Lake'='#CC79A7', 'Soda Lake'='#F0e422', 'Sea'='#009E73', 'Estuary'='gray', 'River'='#0072B2', 'Lake'='#56B4E9')) 
+
+total_CPA_noKef_tukey
+
+anova_model <- aov(NhaS5_count ~ Description, data = Merged_df_Aqua_Big)
+tukey_res <- TukeyHSD(anova_model)
+
+# 2. Extract letters
+cld <- multcompLetters4(anova_model, tukey_res)
+letters_df <- data.frame(Letter = cld$Description$Letters)
+letters_df$Description<- rownames(letters_df)
+
+# 3. Find placement height (max value per group + offset)
+placement <- Merged_df_Aqua_Big %>% 
+  group_by(Description) %>% 
+  summarise(Y_pos = max(NhaS5_count) + 0.5)
+
+letters_df <- left_join(letters_df, placement, by = "Description")
+
+# 4. Draw boxplot with letters
+NhaS5_tukey<-ggplot(Merged_df_Aqua_Big, aes(x = Description, y = NhaS5_count, fill = Description)) +
+  geom_boxplot(outliers = FALSE) +
+  geom_text(data = letters_df, aes(x = Description, y = Y_pos, label = Letter,), size=16)+theme(axis.text=element_text(,size=18),
+        axis.title=element_text(size=22,face="bold"))+geom_jitter()+theme(axis.text.x = element_text(angle = 90))+ scale_fill_manual(values = c('Saltern'='#D55E00', 'Salt lake'='#E69F00', 'High Salt Soda Lake'='#CC79A7', 'Soda Lake'='#F0e422', 'Sea'='#009E73', 'Estuary'='gray', 'River'='#0072B2', 'Lake'='#56B4E9')) 
+
+NhaS5_tukey
+
+anova_model <- aov(UndProkarya_CPA1_IDR_count~ Description, data = Merged_df_Aqua_Big)
+tukey_res <- TukeyHSD(anova_model)
+
+# 2. Extract letters
+cld <- multcompLetters4(anova_model, tukey_res)
+letters_df <- data.frame(Letter = cld$Description$Letters)
+letters_df$Description<- rownames(letters_df)
+
+# 3. Find placement height (max value per group + offset)
+placement <- Merged_df_Aqua_Big %>% 
+  group_by(Description) %>% 
+  summarise(Y_pos = max(UndProkarya_CPA1_IDR_count) + 0.5)
+
+letters_df <- left_join(letters_df, placement, by = "Description")
+
+# 4. Draw boxplot with letters
+UndProkarya_CPA1_IDR_tukey<-ggplot(Merged_df_Aqua_Big, aes(x = Description, y = UndProkarya_CPA1_IDR_count, fill = Description)) +
+  geom_boxplot(outliers = FALSE) +
+  geom_text(data = letters_df, aes(x = Description, y = Y_pos, label = Letter,), size=16)+theme(axis.text=element_text(,size=18),
+        axis.title=element_text(size=22,face="bold"))+geom_jitter()+theme(axis.text.x = element_text(angle = 90))+ scale_fill_manual(values = c('Saltern'='#D55E00', 'Salt lake'='#E69F00', 'High Salt Soda Lake'='#CC79A7', 'Soda Lake'='#F0e422', 'Sea'='#009E73', 'Estuary'='gray', 'River'='#0072B2', 'Lake'='#56B4E9')) 
+
+(total_CPA_noKef_tukey|CHX_tukey|NHX_tukey|NhaS5_tukey|UndProkarya_CPA1_IDR_tukey)
 ```
 
 
 ```{r}
-Merged_df_Aqua_Big_Kimp <- Merged_df_Aqua_Big[,c(9,36,37,42,48)]
+anova_model <- aov(NhaC_count ~ Description, data = Merged_df_Aqua_Big)
+tukey_res <- TukeyHSD(anova_model)
 
-long <- Merged_df_Aqua_Big_Kimp %>% 
-  pivot_longer(
-    cols = 'TrkH_count': 'KimA_count',
-    names_to = "Gene",
-    values_to = "Relative_abundance"
-)
+# 2. Extract letters
+cld <- multcompLetters4(anova_model, tukey_res)
+letters_df <- data.frame(Letter = cld$Description$Letters)
+letters_df$Description<- rownames(letters_df)
+
+# 3. Find placement height (max value per group + offset)
+placement <- Merged_df_Aqua_Big %>% 
+  group_by(Description) %>% 
+  summarise(Y_pos = max(NhaC_count) + 0.5)
+
+letters_df <- left_join(letters_df, placement, by = "Description")
+
+# 4. Draw boxplot with letters
+NhaC_tukey<-ggplot(Merged_df_Aqua_Big, aes(x = Description, y = NhaC_count, fill = Description)) +
+  geom_boxplot(outliers = FALSE) +
+  geom_text(data = letters_df, aes(x = Description, y = Y_pos, label = Letter,), size=16)+theme(axis.text=element_text(,size=18),
+        axis.title=element_text(size=22,face="bold"))+geom_jitter()+theme(axis.text.x = element_text(angle = 90))+ scale_fill_manual(values = c('Saltern'='#D55E00', 'Salt lake'='#E69F00', 'High Salt Soda Lake'='#CC79A7', 'Soda Lake'='#F0e422', 'Sea'='#009E73', 'Estuary'='gray', 'River'='#0072B2', 'Lake'='#56B4E9')) 
+
+anova_model <- aov(NhaD_count ~ Description, data = Merged_df_Aqua_Big)
+tukey_res <- TukeyHSD(anova_model)
+
+# 2. Extract letters
+cld <- multcompLetters4(anova_model, tukey_res)
+letters_df <- data.frame(Letter = cld$Description$Letters)
+letters_df$Description<- rownames(letters_df)
+
+# 3. Find placement height (max value per group + offset)
+placement <- Merged_df_Aqua_Big %>% 
+  group_by(Description) %>% 
+  summarise(Y_pos = max(NhaD_count) + 0.5)
+
+letters_df <- left_join(letters_df, placement, by = "Description")
+
+# 4. Draw boxplot with letters
+NhaD_tukey<-ggplot(Merged_df_Aqua_Big, aes(x = Description, y = NhaD_count, fill = Description)) +
+  geom_boxplot(outliers = FALSE) +
+  geom_text(data = letters_df, aes(x = Description, y = Y_pos, label = Letter,), size=16)+theme(axis.text=element_text(,size=18),
+        axis.title=element_text(size=22,face="bold"))+geom_jitter()+theme(axis.text.x = element_text(angle = 90))+ scale_fill_manual(values = c('Saltern'='#D55E00', 'Salt lake'='#E69F00', 'High Salt Soda Lake'='#CC79A7', 'Soda Lake'='#F0e422', 'Sea'='#009E73', 'Estuary'='gray', 'River'='#0072B2', 'Lake'='#56B4E9')) 
 
 
-long$Gene<- factor(long$Gene, levels = c("Kdp_count", "KimA_count", "Kup_count", "TrkH_count"))
+anova_model <- aov(NqrA_count ~ Description, data = Merged_df_Aqua_Big)
+tukey_res <- TukeyHSD(anova_model)
 
-ggplot(long, aes(x=Description, y=Relative_abundance, fill=Gene)) +   geom_point(position=position_jitterdodge(), aes(colour = Gene), alpha=0.5) + geom_boxplot(outlier.shape=NA)
+# 2. Extract letters
+cld <- multcompLetters4(anova_model, tukey_res)
+letters_df <- data.frame(Letter = cld$Description$Letters)
+letters_df$Description<- rownames(letters_df)
+
+# 3. Find placement height (max value per group + offset)
+placement <- Merged_df_Aqua_Big %>% 
+  group_by(Description) %>% 
+  summarise(Y_pos = max(NqrA_count) + 0.5)
+
+letters_df <- left_join(letters_df, placement, by = "Description")
+
+# 4. Draw boxplot with letters
+NqrA_tukey<-ggplot(Merged_df_Aqua_Big, aes(x = Description, y = NqrA_count, fill = Description)) +
+  geom_boxplot(outliers = FALSE) +
+  geom_text(data = letters_df, aes(x = Description, y = Y_pos, label = Letter,), size=16)+theme(axis.text=element_text(,size=18),
+        axis.title=element_text(size=22,face="bold"))+geom_jitter()+theme(axis.text.x = element_text(angle = 90))+ scale_fill_manual(values = c('Saltern'='#D55E00', 'Salt lake'='#E69F00', 'High Salt Soda Lake'='#CC79A7', 'Soda Lake'='#F0e422', 'Sea'='#009E73', 'Estuary'='gray', 'River'='#0072B2', 'Lake'='#56B4E9')) 
+
+
+anova_model <- aov(MnhE_count ~ Description, data = Merged_df_Aqua_Big)
+tukey_res <- TukeyHSD(anova_model)
+
+# 2. Extract letters
+cld <- multcompLetters4(anova_model, tukey_res)
+letters_df <- data.frame(Letter = cld$Description$Letters)
+letters_df$Description<- rownames(letters_df)
+
+# 3. Find placement height (max value per group + offset)
+placement <- Merged_df_Aqua_Big %>% 
+  group_by(Description) %>% 
+  summarise(Y_pos = max(MnhE_count) + 0.5)
+
+letters_df <- left_join(letters_df, placement, by = "Description")
+
+# 4. Draw boxplot with letters
+MnhE_tukey<-ggplot(Merged_df_Aqua_Big, aes(x = Description, y = MnhE_count, fill = Description)) +
+  geom_boxplot(outliers = FALSE) +
+  geom_text(data = letters_df, aes(x = Description, y = Y_pos, label = Letter,), size=16)+theme(axis.text=element_text(,size=18),
+        axis.title=element_text(size=22,face="bold"))+geom_jitter()+theme(axis.text.x = element_text(angle = 90))+ scale_fill_manual(values = c('Saltern'='#D55E00', 'Salt lake'='#E69F00', 'High Salt Soda Lake'='#CC79A7', 'Soda Lake'='#F0e422', 'Sea'='#009E73', 'Estuary'='gray', 'River'='#0072B2', 'Lake'='#56B4E9')) 
+
+
+
+anova_model <- aov(Hppase_count ~ Description, data = Merged_df_Aqua_Big)
+tukey_res <- TukeyHSD(anova_model)
+
+# 2. Extract letters
+cld <- multcompLetters4(anova_model, tukey_res)
+letters_df <- data.frame(Letter = cld$Description$Letters)
+letters_df$Description<- rownames(letters_df)
+
+# 3. Find placement height (max value per group + offset)
+placement <- Merged_df_Aqua_Big %>% 
+  group_by(Description) %>% 
+  summarise(Y_pos = max(Hppase_count) + 0.5)
+
+letters_df <- left_join(letters_df, placement, by = "Description")
+
+# 4. Draw boxplot with letters
+Hppase_tukey<-ggplot(Merged_df_Aqua_Big, aes(x = Description, y = Hppase_count, fill = Description)) +
+  geom_boxplot(outliers = FALSE) +
+  geom_text(data = letters_df, aes(x = Description, y = Y_pos, label = Letter,), size=16)+theme(axis.text=element_text(,size=18),
+        axis.title=element_text(size=22,face="bold"))+geom_jitter()+theme(axis.text.x = element_text(angle = 90))+ scale_fill_manual(values = c('Saltern'='#D55E00', 'Salt lake'='#E69F00', 'High Salt Soda Lake'='#CC79A7', 'Soda Lake'='#F0e422', 'Sea'='#009E73', 'Estuary'='gray', 'River'='#0072B2', 'Lake'='#56B4E9')) 
+(Hppase_tukey|NqrA_tukey|MnhE_tukey|NhaC_tukey|NhaD_tukey)
 ```
 
 ```{r}
-ggplot(cleanAqua, aes(x=Description, y=DEIK_ratio, fill=Description)) + geom_boxplot()
-res.aov <- aov(data=Merged_df_Aqua_Big, DEIK_ratio~Description)
-TukeyHSD(res.aov)
+anova_model <- aov(OpuAC_count ~ Description, data = Merged_df_Aqua_Big)
+tukey_res <- TukeyHSD(anova_model)
 
+# 2. Extract letters
+cld <- multcompLetters4(anova_model, tukey_res)
+letters_df <- data.frame(Letter = cld$Description$Letters)
+letters_df$Description<- rownames(letters_df)
+
+# 3. Find placement height (max value per group + offset)
+placement <- Merged_df_Aqua_Big %>% 
+  group_by(Description) %>% 
+  summarise(Y_pos = max(OpuAC_count) + 0.5)
+
+letters_df <- left_join(letters_df, placement, by = "Description")
+
+# 4. Draw boxplot with letters
+OpuAC_tukey<-ggplot(Merged_df_Aqua_Big, aes(x = Description, y = OpuAC_count, fill = Description)) +
+  geom_boxplot(outliers = FALSE) +
+  geom_text(data = letters_df, aes(x = Description, y = Y_pos, label = Letter,), size=16)+theme(axis.text=element_text(,size=18),
+        axis.title=element_text(size=22,face="bold"))+geom_jitter()+theme(axis.text.x = element_text(angle = 90))+ scale_fill_manual(values = c('Saltern'='#D55E00', 'Salt lake'='#E69F00', 'High Salt Soda Lake'='#CC79A7', 'Soda Lake'='#F0e422', 'Sea'='#009E73', 'Estuary'='gray', 'River'='#0072B2', 'Lake'='#56B4E9')) 
+OpuAC_tukey
+
+
+anova_model <- aov(BCCT_count ~ Description, data = Merged_df_Aqua_Big)
+tukey_res <- TukeyHSD(anova_model)
+
+# 2. Extract letters
+cld <- multcompLetters4(anova_model, tukey_res)
+letters_df <- data.frame(Letter = cld$Description$Letters)
+letters_df$Description<- rownames(letters_df)
+
+# 3. Find placement height (max value per group + offset)
+placement <- Merged_df_Aqua_Big %>% 
+  group_by(Description) %>% 
+  summarise(Y_pos = max(BCCT_count) + 0.5)
+
+letters_df <- left_join(letters_df, placement, by = "Description")
+
+# 4. Draw boxplot with letters
+BCCT_tukey<-ggplot(Merged_df_Aqua_Big, aes(x = Description, y = BCCT_count, fill = Description)) +
+  geom_boxplot(outliers = FALSE) +
+  geom_text(data = letters_df, aes(x = Description, y = Y_pos, label = Letter,), size=16)+theme(axis.text=element_text(,size=18),
+        axis.title=element_text(size=22,face="bold"))+geom_jitter()+theme(axis.text.x = element_text(angle = 90))+ scale_fill_manual(values = c('Saltern'='#D55E00', 'Salt lake'='#E69F00', 'High Salt Soda Lake'='#CC79A7', 'Soda Lake'='#F0e422', 'Sea'='#009E73', 'Estuary'='gray', 'River'='#0072B2', 'Lake'='#56B4E9')) 
+
+
+anova_model <- aov(MscL_count ~ Description, data = Merged_df_Aqua_Big)
+tukey_res <- TukeyHSD(anova_model)
+
+# 2. Extract letters
+cld <- multcompLetters4(anova_model, tukey_res)
+letters_df <- data.frame(Letter = cld$Description$Letters)
+letters_df$Description<- rownames(letters_df)
+
+# 3. Find placement height (max value per group + offset)
+placement <- Merged_df_Aqua_Big %>% 
+  group_by(Description) %>% 
+  summarise(Y_pos = max(MscL_count) + 0.5)
+
+letters_df <- left_join(letters_df, placement, by = "Description")
+
+# 4. Draw boxplot with letters
+MscL_tukey<-ggplot(Merged_df_Aqua_Big, aes(x = Description, y = MscL_count, fill = Description)) +
+  geom_boxplot(outliers = FALSE) +
+  geom_text(data = letters_df, aes(x = Description, y = Y_pos, label = Letter,), size=16)+theme(axis.text=element_text(,size=18),
+        axis.title=element_text(size=22,face="bold"))+geom_jitter()+theme(axis.text.x = element_text(angle = 90))+ scale_fill_manual(values = c('Saltern'='#D55E00', 'Salt lake'='#E69F00', 'High Salt Soda Lake'='#CC79A7', 'Soda Lake'='#F0e422', 'Sea'='#009E73', 'Estuary'='gray', 'River'='#0072B2', 'Lake'='#56B4E9')) 
+
+anova_model <- aov(MscS_count ~ Description, data = Merged_df_Aqua_Big)
+tukey_res <- TukeyHSD(anova_model)
+
+# 2. Extract letters
+cld <- multcompLetters4(anova_model, tukey_res)
+letters_df <- data.frame(Letter = cld$Description$Letters)
+letters_df$Description<- rownames(letters_df)
+
+# 3. Find placement height (max value per group + offset)
+placement <- Merged_df_Aqua_Big %>% 
+  group_by(Description) %>% 
+  summarise(Y_pos = max(MscS_count) + 0.5)
+
+letters_df <- left_join(letters_df, placement, by = "Description")
+
+# 4. Draw boxplot with letters
+MscS_tukey<-ggplot(Merged_df_Aqua_Big, aes(x = Description, y = MscS_count, fill = Description)) +
+  geom_boxplot(outliers = FALSE) +
+  geom_text(data = letters_df, aes(x = Description, y = Y_pos, label = Letter,), size=16)+theme(axis.text=element_text(,size=18),
+        axis.title=element_text(size=22,face="bold"))+geom_jitter()+theme(axis.text.x = element_text(angle = 90))+ scale_fill_manual(values = c('Saltern'='#D55E00', 'Salt lake'='#E69F00', 'High Salt Soda Lake'='#CC79A7', 'Soda Lake'='#F0e422', 'Sea'='#009E73', 'Estuary'='gray', 'River'='#0072B2', 'Lake'='#56B4E9')) 
+
+anova_model <- aov(MIP_count ~ Description, data = Merged_df_Aqua_Big)
+tukey_res <- TukeyHSD(anova_model)
+
+# 2. Extract letters
+cld <- multcompLetters4(anova_model, tukey_res)
+letters_df <- data.frame(Letter = cld$Description$Letters)
+letters_df$Description<- rownames(letters_df)
+
+# 3. Find placement height (max value per group + offset)
+placement <- Merged_df_Aqua_Big %>% 
+  group_by(Description) %>% 
+  summarise(Y_pos = max(MIP_count) + 0.5)
+
+letters_df <- left_join(letters_df, placement, by = "Description")
+
+# 4. Draw boxplot with letters
+MIP_tukey<-ggplot(Merged_df_Aqua_Big, aes(x = Description, y = MIP_count, fill = Description)) +
+  geom_boxplot(outliers = FALSE) +
+  geom_text(data = letters_df, aes(x = Description, y = Y_pos, label = Letter,), size=16)+theme(axis.text=element_text(,size=18),
+        axis.title=element_text(size=22,face="bold"))+geom_jitter()+theme(axis.text.x = element_text(angle = 90))+ scale_fill_manual(values = c('Saltern'='#D55E00', 'Salt lake'='#E69F00', 'High Salt Soda Lake'='#CC79A7', 'Soda Lake'='#F0e422', 'Sea'='#009E73', 'Estuary'='gray', 'River'='#0072B2', 'Lake'='#56B4E9')) 
+(MscL_tukey|MIP_tukey|OpuAC_tukey|BCCT_tukey|MscS_tukey)
+```
+
+
+
+
+```{r}
+clean_pH_Aqua <- merged_df_Aqua[!is.na(merged_df_Aqua$pH),]
+pH_DEIK <- lm(data =clean_pH_Aqua, DEIK_ratio~pH)
+summary(pH_DEIK)
+pH_DEIK  <- lm(data =clean_pH_Aqua[merged_df_Aqua$pH>7,], DEIK_ratio~pH)
+summary(pH_DEIK)
+pH_DEIK <- lm(data =clean_pH_Aqua[merged_df_Aqua$pH<7,], DEIK_ratio~pH)
+summary(pH_DEIK)
+
+
+
+
+pH_CPA <- lm(data =merged_df_Aqua[!is.na(merged_df_Aqua$pH),], total_CPA_count~pH)
+summary(pH_CPA)
+
+pH_CPA <- lm(data =clean_pH_Aqua[merged_df_Aqua$pH>7,], total_CPA_count~pH)
+summary(pH_CPA)
+pH_CPA <- lm(data =clean_pH_Aqua[merged_df_Aqua$pH<7,], total_CPA_count~pH)
+summary(pH_CPA)
+
+
+pH_CPA <- lm(data =merged_df_Aqua[!is.na(merged_df_Aqua$pH),], total_CPA_count~pH)
+summary(pH_CPA)
+pH_NhaC <- lm(data =merged_df_Aqua[!is.na(merged_df_Aqua$pH),], NhaC_count~pH)
+summary(pH_NhaC)
+pH_NhaC <- lm(data =clean_pH_Aqua[merged_df_Aqua$pH>7,], NhaC_count~pH)
+summary(pH_NhaC)
+pH_NhaC <- lm(data =clean_pH_Aqua[merged_df_Aqua$pH<7,], NhaC_count~pH)
+summary(pH_NhaC)
+
+
+pH_NhaD <- lm(data =merged_df_Aqua[!is.na(merged_df_Aqua$pH),], NhaD_count~pH)
+summary(pH_NhaD)
+pH_NhaD <- lm(data =clean_pH_Aqua[merged_df_Aqua$pH>7,], NhaD_count~pH)
+summary(pH_NhaD)
+pH_NhaD <- lm(data =clean_pH_Aqua[merged_df_Aqua$pH<7,], NhaD_count~pH)
+summary(pH_NhaD)
+
+ggplot(merged_df_Aqua[!is.na(merged_df_Aqua$pH),], aes(x = pH,
+                 y =total_CPA_count)) + geom_point()
+
+pH_Kef <- lm(data =merged_df_Aqua[!is.na(merged_df_Aqua$pH),], Kef_count~pH)
+summary(pH_Kef)
+pH_Kef <- lm(data =clean_pH_Aqua[merged_df_Aqua$pH>7,], Kef_count~pH)
+summary(pH_Kef)
+pH_Kef <- lm(data =clean_pH_Aqua[merged_df_Aqua$pH<7,], Kef_count~pH)
+summary(pH_Kef)
+pH_NHX <- lm(data =merged_df_Aqua[!is.na(merged_df_Aqua$pH),], NHX_count~pH)
+summary(pH_NHX)
+pH_NHX <- lm(data =clean_pH_Aqua[merged_df_Aqua$pH>7,], NHX_count~pH)
+summary(pH_NHX)
+pH_NHX <- lm(data =clean_pH_Aqua[merged_df_Aqua$pH<7,], NHX_count~pH)
+summary(pH_NHX)
+pH_CHX <- lm(data =merged_df_Aqua[!is.na(merged_df_Aqua$pH),], CHX_count~pH)
+summary(pH_CHX)
+pH_CHX <- lm(data =clean_pH_Aqua[merged_df_Aqua$pH>7,], CHX_count~pH)
+summary(pH_CHX)
+pH_CHX <- lm(data =clean_pH_Aqua[merged_df_Aqua$pH<7,], CHX_count~pH)
+summary(pH_CHX)
+pH_NhaA <- lm(data =merged_df_Aqua[!is.na(merged_df_Aqua$pH),], NhaA_count~pH)
+summary(pH_NhaA)
+pH_NhaA <- lm(data =clean_pH_Aqua[merged_df_Aqua$pH>7,], NhaA_count~pH)
+summary(pH_NhaA)
+pH_NhaA <- lm(data =clean_pH_Aqua[merged_df_Aqua$pH<7,], NhaA_count~pH)
+summary(pH_NhaA)
+pH_noKef <- lm(data =merged_df_Aqua[!is.na(merged_df_Aqua$pH),], total_CPA_noKef_count~pH)
+summary(pH_noKef)
+
+pH_IDR <- lm(data =merged_df_Aqua[!is.na(merged_df_Aqua$pH),], UndProkarya_CPA1_IDR_count~pH)
+summary(pH_IDR)
+pH_IDR <- lm(data =clean_pH_Aqua[merged_df_Aqua$pH>7,], UndProkarya_CPA1_IDR_count~pH)
+summary(pH_IDR)
+pH_IDR <- lm(data =clean_pH_Aqua[merged_df_Aqua$pH<7,], UndProkarya_CPA1_IDR_count~pH)
+summary(pH_IDR)
+
+pH_TrkH <- lm(data =merged_df_Aqua[!is.na(merged_df_Aqua$pH),], TrkH_count~pH)
+summary(pH_TrkH)
+pH_TrkH <- lm(data =clean_pH_Aqua[merged_df_Aqua$pH>7,], TrkH_count~pH)
+summary(pH_TrkH)
+pH_TrkH <- lm(data =clean_pH_Aqua[merged_df_Aqua$pH<7,], TrkH_count~pH)
+summary(pH_TrkH)
+
+pH_Na_Ca <- lm(data =merged_df_Aqua[!is.na(merged_df_Aqua$pH),], Na_Ca_count~pH)
+summary(pH_Na_Ca )
+pH_Na_Ca <- lm(data =clean_pH_Aqua[merged_df_Aqua$pH>7,], Na_Ca_count~pH)
+summary(pH_Na_Ca )
+pH_Na_Ca <- lm(data =clean_pH_Aqua[merged_df_Aqua$pH<7,], Na_Ca_count~pH)
+summary(pH_Na_Ca)
+
+pH_MgtE <- lm(data =merged_df_Aqua[!is.na(merged_df_Aqua$pH),], MgtE_count~pH)
+summary(pH_MgtE)
+pH_MgtE <- lm(data =clean_pH_Aqua[merged_df_Aqua$pH>7,], MgtE_count~pH)
+summary(pH_MgtE)
+pH_MgtE <- lm(data =clean_pH_Aqua[merged_df_Aqua$pH<7,], MgtE_count~pH)
+summary(pH_MgtE)
+
+pH_CorA <- lm(data =merged_df_Aqua[!is.na(merged_df_Aqua$pH),], CorA_count~pH)
+summary(pH_CorA)
+pH_CorA <- lm(data =clean_pH_Aqua[merged_df_Aqua$pH>7,], CorA_count~pH)
+summary(pH_CorA)
+pH_CorA <- lm(data =clean_pH_Aqua[merged_df_Aqua$pH<7,], CorA_count~pH)
+summary(pH_CorA)
+
+pHKef<-ggplot(merged_df_Aqua[!is.na(merged_df_Aqua$pH),], aes(x = pH,
+                 y =Kef_count)) + geom_point() + geom_smooth(method = 'lm', se=FALSE)+theme(axis.text=element_text(,size=18),
+        axis.title=element_text(size=22,face="bold"))
+pHCPA<-ggplot(merged_df_Aqua[!is.na(merged_df_Aqua$pH),], aes(x = pH,
+                 y =total_CPA_noKef_count)) + geom_point() + geom_smooth(method = 'lm', se=FALSE)+theme(axis.text=element_text(,size=18),
+        axis.title=element_text(size=22,face="bold"))
+
+pHCHX<-ggplot(merged_df_Aqua[!is.na(merged_df_Aqua$pH),], aes(x = pH,
+                 y =CHX_count)) + geom_point() + geom_smooth(method = 'lm', se=FALSE)+theme(axis.text=element_text(,size=18),
+        axis.title=element_text(size=22,face="bold"))
+
+pHNHX<-ggplot(merged_df_Aqua[!is.na(merged_df_Aqua$pH),], aes(x = pH,
+                 y =NHX_count)) + geom_point() + geom_smooth(method = 'lm', se=FALSE)+theme(axis.text=element_text(,size=18),
+        axis.title=element_text(size=22,face="bold"))
+
+pHNhaA<-ggplot(merged_df_Aqua[!is.na(merged_df_Aqua$pH),], aes(x = pH,
+                 y =NhaA_count)) + geom_point() + geom_smooth(method = 'lm', se=FALSE)+theme(axis.text=element_text(,size=18),
+        axis.title=element_text(size=22,face="bold"))
+
+pHUndescribedCPA1<-ggplot(merged_df_Aqua[!is.na(merged_df_Aqua$pH),], aes(x = pH,
+                 y =Undescribed_CPA1_count)) + geom_point() + geom_smooth(method = 'lm', se=FALSE)+theme(axis.text=element_text(,size=18),
+        axis.title=element_text(size=22,face="bold"))
+((pHKef|pHCPA)/(pHCHX|pHNHX)/(pHNhaA|pHUndescribedCPA1))
 ```
 
